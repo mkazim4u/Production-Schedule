@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="nohelp.Text" xml:space="preserve">
+    <value>Help not available</value>
+  </data>
+    <data name="labelTemplName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+    <data name="labelTemplName.Help" xml:space="preserve">
+    <value>Unique name to identify the setting.</value>
+  </data>
+    <data name="labelGroupName.Text" xml:space="preserve">
+    <value>Group</value>
+  </data>
+    <data name="labelGroupName.Help" xml:space="preserve">
+    <value>Name of Group</value>
+  </data>
+    <data name="labelMessage.Text" xml:space="preserve">
+    <value>Setting Value</value>
+  </data>
+    <data name="labelMessage.Help" xml:space="preserve">
+    <value>Enter Setting Value</value>
+  </data>
+    <data name="None.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+    <data name="valReqCategoryName.Text" xml:space="preserve">
+    <value>* Setting name is required.</value>
+  </data>
+    <data name="cmdCopyLang.Text" xml:space="preserve">
+    <value>Update To All Languages</value>
+  </data>
+    <data name="cmdCopyLangMsg.Text" xml:space="preserve">
+    <value>WARNING!!! This will overwrite any other language data for this setting.  Are you sure?</value>
+  </data>
+    <data name="DeleteItem.Text" xml:space="preserve">
+    <value>Delete Setting?</value>
+  </data>
+    <data name="Language.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
+    <data name="Name.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+    <data name="cmdAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+    <data name="chkHostOnly.Text" xml:space="preserve">
+    <value>Admin Only</value>
+  </data>
+    <data name="administrator.email" xml:space="preserve">
+    <value>Email address of the store administrator, error messages will be sent to this email address.</value>
+  </data>
+    <data name="cheque.provider" xml:space="preserve">
+    <value>assembly name of the cheque provider for the store checkout.  Usually this will only be updated from the checkout settings.</value>
+  </data>
+    <data name="chqpayment.emailsubject" xml:space="preserve">
+    <value>Subject of the email that is sent when a client pays by cheque.</value>
+  </data>
+    <data name="gateway.loadimage" xml:space="preserve">
+    <value>File path of the GIF image that is displayed when proccessing is passed to the bank gateway.</value>
+  </data>
+    <data name="gateway.provider" xml:space="preserve">
+    <value>assembly name of the bank gateway provider for the store checkout.  Usually this will only be updated from the checkout settings.</value>
+  </data>
+    <data name="manager.role" xml:space="preserve">
+    <value>Name of the store manager role.</value>
+  </data>
+    <data name="managerlite.role" xml:space="preserve">
+    <value>Name of the LITE store manager role.</value>
+  </data>
+    <data name="merchant.culture" xml:space="preserve">
+    <value>Enter a standard language-locale value for the merchant. e.g. en-US or fr-FR or en-AU.</value>
+  </data>
+    <data name="merchant.email" xml:space="preserve">
+    <value>Merchant email address. This is for the person operating the store. All orders and reports will be sent to this email address. You can deliver to multiple email addresses if you separate them with semi-colons and have no spaces in-between.</value>
+  </data>
+    <data name="ordershipped.emailsubject" xml:space="preserve">
+    <value>Email subject when an order is shipped.</value>
+  </data>
+    <data name="ordersreport.subject" xml:space="preserve">
+    <value>Email subject of the orders report.</value>
+  </data>
+    <data name="ordersreport.xsl" xml:space="preserve">
+    <value>File Path of the orders report xsl.</value>
+  </data>
+    <data name="ordervalidated.emailsubject" xml:space="preserve">
+    <value>Email subject of the validated order email.</value>
+  </data>
+    <data name="paymentOK.emailsubject" xml:space="preserve">
+    <value>Email subject of the order confirmation email.</value>
+  </data>
+    <data name="paymentunverified.emailsubject" xml:space="preserve">
+    <value>Email subject of the order confirmation email, when a order can not be validated automatically.</value>
+  </data>
+    <data name="PayPal.gateway" xml:space="preserve">
+    <value>Paypal configuration. You must restart the application via the Back Office Admin tab after making changes here.</value>
+  </data>
+    <data name="product.limit" xml:space="preserve">
+    <value>Sets the product limit for the store.</value>
+  </data>
+    <data name="productlite.limit" xml:space="preserve">
+    <value>Sets the product limit for the LITE store.</value>
+  </data>
+    <data name="SIPS.exepath" xml:space="preserve">
+    <value>Directory path of the SIPS response.exe &amp; request.exe</value>
+  </data>
+    <data name="SIPS.gateway" xml:space="preserve">
+    <value>SIPS configuration settings</value>
+  </data>
+    <data name="store.email" xml:space="preserve">
+    <value>Email of the Store, all emails will be sent from this address.</value>
+  </data>
+    <data name="country.list" xml:space="preserve">
+    <value>A comma-separated list of countries that will be displayed on the country selector in the checkout. For example: France,United Kingdom,Australia. These values must be accurate. If this field is not populated, all countries will be enabled.</value>
+  </data>
+    <data name="ordershipdate.days" xml:space="preserve">
+    <value>Estimated amount of days when an order will be shipped.  The amount of days entered here will be added to the current date and placed in the [Order:ShipDate] field, when an order is created.</value>
+  </data>
+    <data name="buybutton.text" xml:space="preserve">
+    <value>Text to be displayed by the buy button on products. If left blank, this will be provided by the language files.</value>
+  </data>
+    <data name="image.resize" xml:space="preserve">
+    <value>The store will conveniently resize your JPG images on upload. Images will not be enlarged if they are smaller than this value to begin with. Set this to "0" to disable resizing. If you are using the disk-thumbnails feature, then you must also apply this and all other generated image sizes in the diskthumbnails.size setting. </value>
+  </data>
+    <data name="image.quality" xml:space="preserve">
+    <value>Sets the quality of the image on resize, default is 85%.</value>
+  </data>
+    <data name="settings.overwrite" xml:space="preserve">
+    <value>Overwrite settings and template on import if set to true</value>
+  </data>
+    <data name="orderreport.lastday" xml:space="preserve">
+    <value>Last day the order report was run.  This ensures only 1 order report goes out a day.</value>
+  </data>
+    <data name="labelHelp.Text" xml:space="preserve">
+    <value>Help Text</value>
+  </data>
+    <data name="labelHelp.Help" xml:space="preserve">
+    <value>Help Text for setting.</value>
+  </data>
+    <data name="True.Text" xml:space="preserve">
+    <value>YES</value>
+  </data>
+    <data name="False.Text" xml:space="preserve">
+    <value>NO</value>
+  </data>
+    <data name="purgecartmins" xml:space="preserve">
+    <value>Number of minutes a cart will stay in the database before it is deleted (Default 10080). The Store Scheduler needs to be setup for this to work.</value>
+  </data>
+    <data name="purgeordermins" xml:space="preserve">
+    <value>Number of minutes an uncompleted order will stay in the database before it is deleted (Default 2880). The Store Scheduler needs to be setup for this to work.</value>
+  </data>
+    <data name="gatewayexpiremins" xml:space="preserve">
+    <value>Number of minutes to be passed to a gateway provder, that tells the provider to timeout. (The setting is not automatically created in NB_Store.)</value>
+  </data>
+    <data name="lockstockoncart" xml:space="preserve">
+    <value>If set to true any products placed into the cart will be taken into account when calculating stock levels, Portal Wide.  Effectivly meaning the stock is not available to purchase by someelse when a product is placed in the basket, By default NB_Store only locks the stock when an order starts processing.</value>
+  </data>
+    <data name="productqty.limit" xml:space="preserve">
+    <value>Sets the maximum number of a given product that can be added to basket. If less than 21, a dropdown list will be used in place of the quantity input field.</value>
+  </data>
+    <data name="minimumcarttotal.limit" xml:space="preserve">
+    <value>Sets the minimum purchase cost that needs to exist in the cart before a purchase can be made. The template "minimumcarttotal.text" will be displayed if this value is not reached when the customer goes to the cart.</value>
+  </data>
+    <data name="minimumcarttotal.text" xml:space="preserve">
+    <value>This template is displayed if the minimum total cart value specified in the minimumcarttotal.limit setting has not been reached.</value>
+  </data>
+    <data name="lightboxgallerytemplate.name" xml:space="preserve">
+    <value>Name the the template to use as the lightbox gallery template. if setting DOES NOT EXISTS "nyromodalgallery.template" will be used.</value>
+  </data>
+    <data name="lightboxtemplate.name" xml:space="preserve">
+    <value>Name the the template to use as the lightbox template. if setting DOES NOT EXISTS "nyromodal.template" will be used.</value>
+  </data>
+    <data name="productlistjs.includes" xml:space="preserve">
+    <value>CSV List of javascript files to be included when the product list module is displayed. Files should be placed in "/DesktopModules/NB_Store/js"</value>
+  </data>
+    <data name="productlistcss.includes" xml:space="preserve">
+    <value>CSV List of css files to be included when the product list module is displayed. Files should be placed in "/DesktopModules/NB_Store/js"</value>
+  </data>
+    <data name="productliststartupjs.includes" xml:space="preserve">
+    <value>List of javascipt templates that will be registered as startup scripts.</value>
+  </data>
+    <data name="productlinksoncart.flag" xml:space="preserve">
+    <value>Enable this when you are selling downloadable products. It will create links from the products in the emailed order back to the website where they can be downloaded. Note that this setting only works if you have placed [Order:DetailRows] in the order.email.template and order.text.template. The default [Order:DetailTemplateRows] has the products already linked and does not respond to this flag.</value>
+  </data>
+    <data name="currency.culture" xml:space="preserve">
+    <value>The culture code to be used to display currency in the store. Enter a formatting code between double quotes to use that formatting, e.g. "#0.00". If empty, the merchant culture will be used.</value>
+  </data>
+    <data name="rowdelimeter.importmapping" xml:space="preserve">
+    <value>Row delimeter for CSV import.  Use html decode to convert any special characters (e.g.: &amp;#09; = horizontal tab; &amp;#13;&amp;#10; = vbCrLf) </value>
+  </data>
+    <data name="fielddelimeter.importmapping" xml:space="preserve">
+    <value>Field delimeter for CSV import</value>
+  </data>
+    <data name="fieldqualifier.importmapping " xml:space="preserve">
+    <value>Field qualifier for CSV import, defaults to double quote (")</value>
+  </data>
+    <data name="fieldescapedqualifier.importmapping" xml:space="preserve">
+    <value>Field escaped qualifier for CSV import, default to 2 double quotes ("")</value>
+  </data>
+    <data name="promo.roles" xml:space="preserve">
+    <value>A list of comma seperated roles which can be used for discount.  These roles must exist in DNN and only the roles lists here will be available in the Promotions role dropdownlist.</value>
+  </data>
+    <data name="usednnjquery.flag" xml:space="preserve">
+    <value>Use the DNN jquery version, instead of the NB_Store verison of jquery.</value>
+  </data>
+    <data name="shipcountrycode.default" xml:space="preserve">
+    <value>Default country code for shipping, if not created then the merchant country code is used.</value>
+  </data>
+    <data name="debug.mode" xml:space="preserve">
+    <value>can to be to 0 or 1, if set to "1" debug mode is on and caching in certain areas will not be done.  This must be set to "0" on a live site for best performance.</value>
+  </data>
+    <data name="cookiecart.expire" xml:space="preserve">
+    <value>Numeric to set the number of days the cart cookie will last, default is 30 days.</value>
+  </data>
+    <data name="shipfree.list" xml:space="preserve">
+    <value>A comma-separated list of 2-digit country codes where your Free Shipping Limit will be applied, if enabled. If this field is not populated, then free shipping will apply to all countries. This setting presets the values for the "Allowed Country Code List" in the Free Limit tab.</value>
+  </data>
+    <data name="searchdescription.flag" xml:space="preserve">
+    <value>value of 1 or 0 to indicate if the description field of the product should be included in the search, as well as the Summary field. Performance may suffer on large catalogues and if this is the case then you should set it to 0 and make sure your summary field contains your keywords.</value>
+  </data>
+    <data name="taxexempt.list" xml:space="preserve">
+    <value>Comma separated list of 2-digit country codes exempted from tax calculations. For example FR,UK,NZ,US. If not populated then tax will apply to all countries.</value>
+  </data>
+  <data name="taxapplies.list" xml:space="preserve">
+    <value>Comma separated list of 2-digit country codes where tax calculations will apply. For example FR,UK,NZ,US. If not populated then tax will apply to all countries.</value>
+  </data>
+  <data name="filesystemtemplates.flag" xml:space="preserve">
+    <value>If set to True and the "debug.mode" setting is also set to true then a directory will be created in the protal which will allow edit of the template through the file system.  This option is for development and should not be used on a production system.</value>
+  </data>
+    <data name="admintemplates.groups" xml:space="preserve">
+    <value>This is a xml structure of the template admin treeview.  In normal operation, this option should not be altered.</value>
+  </data>
+    <data name="adminsettings.groups" xml:space="preserve">
+    <value>This is a xml structure of the settings admin treeview.  In normal operation, this option should not be altered.</value>
+  </data>
+    <data name="gatewayexpiremins" xml:space="preserve">
+    <value>Sets an expire time out for the gateway.</value>
+  </data>
+    <data name="err404.url" xml:space="preserve">
+    <value>Relative url of the 404 error html to be display if a product does not exist.  If left blank a 301 re-direct is done to the product list.</value>
+  </data>
+    <data name="urlname.column" xml:space="preserve">
+    <value>Name of the column to be used as the SEO name in the url, Possible values are: SEOName, ProductRef, ProductName.  If blank then normal urls will be used.</value>
+  </data>
+    <data name="lockstockoncart" xml:space="preserve">
+    <value>If set to true any products placed into the cart will be taken into account when calculating stock levels, Portal Wide.  Effectivly meaning the stock is not available to purchase by someelse when a product is placed in the basket, By default NB_Store only locks the stock when an order starts processing.</value>
+  </data>
+    <data name="purgecartmins" xml:space="preserve">
+    <value>Number of minutes a cart will stay in the database before it is deleted (Default 10080). The Store Scheduler needs to be setup for this to work.</value>
+  </data>
+    <data name="purgeordermins" xml:space="preserve">
+    <value>Number of minutes an uncompleted order will stay in the database before it is deleted (Default 2880). The Store Scheduler needs to be setup for this to work.</value>
+  </data>
+    <data name="adminproduct.thumbsize" xml:space="preserve">
+        <value>Size of any product images displayed in the Back Office. If you are using the disk-thumbnails feature, then you must also apply this and all other generated image sizes in the diskthumbnails.size setting.</value>
+    </data>
+    <data name="adminproduct.pagesize" xml:space="preserve">
+    <value>How many items to list per page in the Back Office product list.</value>
+    </data>
+    <data name="admincss.includes" xml:space="preserve">
+    <value>CSS files to be included when the Back Office Skin is displayed.</value>
+    </data>
+    <data name="adminjs.includes" xml:space="preserve">
+    <value>Javascript files to be included when the Back Office Skin is displayed.</value>
+    </data>
+    <data name="adminstartup.includes" xml:space="preserve">
+    <value>Javascript code to be ran when the Back Office Apge is displayed.  This code should exist in the Back Office templates.</value>
+    </data>
+    <data name="textboxedit.flag" xml:space="preserve">
+    <value>Forces the default editor in the Back Office Utilities tabs to the basic text editor instead of the rich text editor, as the latter may sometimes alter code when ti is saved. You can also switch between editor modes using the Edit With Textbox checkbox above the editor on each page.</value>
+    </data>
+    <data name="fieldqualifier.importmapping" xml:space="preserve">
+    <value>CSV import field qualifier.</value>
+    </data>
+    <data name="salerates.lastday" xml:space="preserve">
+    <value>Last day that the sale calculation routine was run. This calculates the discount prices.</value>
+    </data>
+    <data name="allowmultidiscount.flag" xml:space="preserve">
+    <value>This flag sets the default value of the option on the Promotions tab that allows multiple discounts to be combined during checkout.</value>
+    </data>
+    <data name="chkUseFileSystem.Text" xml:space="preserve">
+    <value>Use FileSystem</value>
+    </data>
+  <data name="allowzerodealerprice.flag" xml:space="preserve">
+    <value>Allow a zero dealer price to be added. If set to false the unit price will be copied to the dealer price, if the dealer price is zero.</value>
+    </data>
+  <data name="encapsulated.image" xml:space="preserve">
+    <value>File name of the image to be used as the encapsulted image, from the portal root.  If blank then the default cheque image is used.</value>
+    </data>
+  <data name="encapsulated.text" xml:space="preserve">
+    <value>Text to be used above the encapsulated gateway.  If blank then the resx "lblCheque" value is used.</value>
+    </data>
+  <data name="cart.tab" xml:space="preserve">
+    <value>TabID of the cart page.</value>
+  </data>
+  <data name="categorypurchase.list" xml:space="preserve">
+    <value>A comma-separated list of category id numbers. When this value is populated, only products in these categories will be allowed to be added to the cart.</value>
+  </data>
+  <data name="diskthumbnails.flag" xml:space="preserve">
+    <value>Use Disk thumbnails, if set then NB_Store will create thumbnails on disk and use these to display the product thumbnails.</value>
+  </data>
+  <data name="diskthumbnails.size" xml:space="preserve">
+    <value>Disk thumbnail size, The size of thumbnails to create on disk, this can be a single value or CSV list of sizes. e.g. "100,150x30,30". Each product list module that uses the disk thumbs must have an entry in this list to match the thumbsize it is trying to display, otherwise no thumbnails will exist for the that size and no image will be displayed.</value>
+  </data>
+  <data name="outofstockmodels.flag" xml:space="preserve">
+    <value>If enabled, then any out of stock models will still be displayed on the product detail radio button and table list. When disabled, items with no stock will be removed from display.</value>
+  </data>
+  <data name="createsearchstats.flag" xml:space="preserve">
+    <value>Keep statistics on the searches made for products in NB_Store.</value>
+  </data>
+  <data name="allowcartmodellimit.flag" xml:space="preserve">
+    <value>Enabling this allows you to set a per-model limit of the number of items the buyer can add to their cart.</value>
+  </data>
+  <data name="optionseperator.text" xml:space="preserve">
+    <value>Text to be used as the option seperator for the cart. Default of "/" used is blank.</value>
+  </data>
+  <data name="receiptprint.text" xml:space="preserve">
+    <value>Template of receipt when manager requests a printed receipt.  If this template is empty then not receipt print button is displayed.</value>
+  </data>
+  <data name="specificationstab.flag" xml:space="preserve">
+    <value>This flag enables a second rich text tab in the product details view. Please note that this tab functionality is provided for convenience only and may be depricated in a future release if identical functionality is provided by another method. Before enabling this, you must uncomment the two Specifications Tab sections in the productdetail.template. You must also copy the contents of specificationstabxml.template into productxmldata.template.</value>
+  </data>
+  <data name="specificationstabxml.template" xml:space="preserve">
+    <value>This template is provided strictly for convenience and it may be removed at a later date. When combined with a few other steps it will add a second rich text tab to the product details view. You must read the specificationstab.flag help text to find out more about this template.</value>
+  </data>
+  <data name="stylesheet.css" xml:space="preserve">
+    <value>This stylesheet is injected into the header tag of your website by way of the pageheader.template. You can optionally move these styles into your skin.css or portal.css. Use straight CSS here. No style tags are required.</value>
+  </data>
+  <data name="disablecart.text" xml:space="preserve">
+    <value>This message is displayed in the productdetails.template when the disablecart.flag is enabled. Use it for temporary closure such as if you are on holiday.</value>
+  </data>
+  <data name="checkout.tab" xml:space="preserve">
+    <value>Select your checkout module page. This value is injected into certain templates. You must apply this setting at least once even if it appears to be correct!</value>
+  </data>
+  <data name="store.tab" xml:space="preserve">
+    <value>Select your main store module page. This value is injected into certain templates. You must apply this setting at least once even if it appears to be correct!</value>
+  </data>
+  <data name="wishlist.tab" xml:space="preserve">
+    <value>Select your wishlist page. This value is injected into certain templates. You may select the same page as your store module, or you can create a separate, dedicated wishlist page if preferred. You must apply this setting at least once even if it appears to be correct!</value>
+  </data>
+  <data name="customer.role" xml:space="preserve">
+    <value>This value is injected into the default list and details templates in order to display certain content to signed-in customers. For example, the downloadable products message. By default this is the Registered Users role.</value>
+  </data>
+  <data name="wishlist.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling the wishlist functionality in the default templates.</value>
+  </data>
+  <data name="disablecart.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling certain parts of the purchasing functionality in the default temapltes. Buy buttons and the checkout button will be hidden from display. You can set a message to be displayed in the details view via the disablecart.text template. Use this to temporarily close your store during stocktaking or holidays and also if you plan on running the store as a catalogue without purchasing.</value>
+  </data>
+  <data name="downloadableproducts.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling the downloadable products functionality in the default templates. You must also enable registered user accounts on your website and disable anonymous checkout. This is done in the checkout settings.</value>
+  </data>
+  <data name="modelstable.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling the tab that displays a basic table of product models in the default templates.</value>
+  </data>
+  <data name="tabbedcontent.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling the tabbed product information display in the default productdetails.template. When disabled, all previously tabbed content will simply cascade down the page.</value>
+  </data>
+  <data name="productlistrows.flag" xml:space="preserve">
+    <value>This provides a convenient method for switching the default productlist.template between multiple columns of thumbnails or rows of individual products. If you enable this, then you must also change the columns setting in the product list to 1.</value>
+  </data>
+  <data name="detailheader.text" xml:space="preserve">
+    <value>This template is injected above the productdetail.template.</value>
+  </data>
+  <data name="header.text" xml:space="preserve">
+    <value>This template is injected above the productdetail.template and the productlist.template.</value>
+  </data>
+  <data name="listheader.text" xml:space="preserve">
+    <value>This template is injected above the productlist.template. By default it contains a dropdown selector that sorts the product list by various fields.</value>
+  </data>
+  <data name="outofstockmodelmsg.text" xml:space="preserve">
+    <value>This text is added to the models selection radio buttons or the dropdown selector. It displays when a given model is sold out. You must also enable the outofstockmodels.flag for this to function.</value>
+  </data>
+  <data name="productdetail.template" xml:space="preserve">
+    <value>This is the product details display template. If you wish to modify this, is is advisable to save it with a new name first and then specify your copied template in the productlist settings.</value>
+  </data>
+  <data name="productlist.template" xml:space="preserve">
+    <value>This is the product list display template. If you wish to modify this, is is advisable to save it with a new name first and then specify your copied template in the productlist settings. You may also save a second copy of this template and specify it as the Alt-Item template in the productlist settings.</value>
+  </data>
+  <data name="productxmldata.template" xml:space="preserve">
+    <value>This template is for adding custom fields to the product entry form. This is an HTML template and so you can use tables to organise and label your custom fields.</value>
+  </data>
+  <data name="productlistfeatured.template" xml:space="preserve">
+    <value>This product list view template displays basic thumbnails with product name and pricing. Use it as a Featured or What's New product list. After applying this template in your additional product list module, you need to apply suitable settings. For example, to display 2 featured items in a column on the side of your page: Browsing Mode:Featured Only-Browsing Disabled, Page size:10, Columns:1, List/Alternating Template:productlistfeatured.template, List View Only:Yes, Header Text:header.text, Return Limit:2. Then make sure you edit some products and set them as Featured. You can also change the Browsing Mode back to Enabled and the Default Sort Order value to Created Date, to display what's new.</value>
+  </data>
+  <data name="currencyisocode.convert" xml:space="preserve">
+    <value>Enter a 3-digit currency code here to use as the default target value of the currency convertor.</value>
+  </data>
+  <data name="disableprices.flag" xml:space="preserve">
+    <value>This provides a convenient method for enabling or disabling the display of prices in the default templates. This does not disable prices displayed on models and options selectors, nor in the models tab. If you plan on running the store as a catalogue with no prices anywhere, then you must ensure that all models and options pricing is zero, then enable this setting above and disable the modelstable, or customise the template to remove the price column.</value>
+  </data>
+  <data name="currencyconvertertab.flag" xml:space="preserve">
+    <value>This flag enables or disables the foreign currency convertor tab in the in the default productdetails.template.</value>
+  </data>
+  <data name="modelselector.flag" xml:space="preserve">
+    <value>This flag switches the method for selecting product models between radio buttons and a dropdown selector in the default templates. Turn it on to enable the dropdown selector and off to use radio buttons.</value>
+  </data>
+  <data name="showstock.flag" xml:space="preserve">
+    <value>This flag enables or disables the display of stock in the default templates.</value>
+  </data>
+  <data name="soldoutimage.flag" xml:space="preserve">
+    <value>This flag enables or disables the use of a Sold Out image in the default list and details templates.</value>
+  </data>
+  <data name="dealer.role" xml:space="preserve">
+    <value>Registered users in this security role will be able to make purchases at the dealer price.</value>
+  </data>
+  <data name="relatedproducts.xsl" xml:space="preserve">
+    <value>This templates demonstrates how XSL can be used to create special dynamic functionality in the store. In this case it displays related products - as selected through the normal product editor. </value>
+  </data>
+  <data name="messagefield.flag" xml:space="preserve">
+    <value>Enable this flag to convert the first options dropdown into a multiline text field. To apply the field, simply add an option without an option value to your product.</value>
+  </data>
+  <data name="detailrows.template" xml:space="preserve">
+    <value>This optional table row repeater template accepts many tokens and injects product information into the order templates. It requires that you first insert the [Order:DetailTemplateRows] token in place of [Order:DetailRows] in the order.email.template and order.text.template. Note that the productlinksoncart.flag which hyperlinks products to their site pages to assist finding downloadable products, does not work when this template is used, unless you also create links using [Detail:ProductURL].</value>
+  </data>
+  <data name="backoffice.text" xml:space="preserve">
+    <value>This template allows you to add information above the Store Back Office button.</value>
+  </data>
+  <data name="dashboard.text" xml:space="preserve">
+    <value>This template displays the store reports on the first tab of the Back Office. You can add your own reports or other information and include them here.</value>
+  </data>
+  <data name="stylesheetoverride.css" xml:space="preserve">
+    <value>This stylesheet is injected via the pageheader.template directly after the main stylesheet.css. It provides a safe and convenient place to add your style overrides without having to modify the main stylesheet. Use straight CSS here. No style tags are required. Check that pageheader.template contains a reference to this stylesheet.</value>
+  </data>
+  <data name="ProductPageName.template" xml:space="preserve">
+    <value>This template create the meta title tag for the product details page. You may use the following tokens: [TAG:PRODUCTREF], [TAG:PRODUCTNAME], [TAG:MANUFACTURER], [TAG:CATEGORYNAME], [TAG:SUMMARY], [TAG:TAGWORDS], [TAG:SEONAME] and [TAG:PORTALNAME].</value>
+  </data>
+  <data name="order.email.template" xml:space="preserve">
+    <value>This template is inlcuded in all emails. It displays the customer details, pricing, products purchased and special instructions.</value>
+  </data>
+  <data name="order.text.template" xml:space="preserve">
+    <value>This template is displayed in the order manager, but also on the final page of the checkout, after a successful order. It displays the customer details, pricing, products purchased and special instructions.</value>
+  </data>
+  <data name="merchantaddress.template" xml:space="preserve">
+    <value>This template is included in various notification emails. Provide the store's address and/or contact information.</value>
+  </data>
+  <data name="merchantbank.template" xml:space="preserve">
+    <value>This template is included in various notification emails when the buyer has elected to pay manually by check or bank deposit. Ensure that it contains appropriate details. The order ID is automatically included here.</value>
+  </data>
+  <data name="merchantlogo.template" xml:space="preserve">
+    <value>This template is included in various notification emails. You shuold provide the full URL to a company logo stored on the website. Also apply a suitable alt title text.</value>
+  </data>
+  <data name="merchantname.template" xml:space="preserve">
+    <value>This template is included in various notification emails and in email subject lines. Please provide the full company name with no formatting.</value>
+  </data>
+  <data name="categoryCSV.ImportMapping" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="modelCSV.ImportMapping" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="productCSV.ImportMapping" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="replaceCSV.ImportMapping" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="rss.template" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="rssitem.template" xml:space="preserve">
+    <value>(Help text needed)</value>
+  </data>
+  <data name="datedisplay.format" xml:space="preserve">
+    <value>This accepts standard date formatting values such as dd MMM yyyy. It only affects customer-facing content such as the notification emails. It does not affect dates in the Back Office. See formatting examples here http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx</value>
+  </data>
+  <data name="PxPay.gateway" xml:space="preserve">
+    <value>This is the gateway code for DPS PaymentExpress (www.paymentexpress.com). The separate DPS gateway component must be installed before this will work. Ask your website administrator for assistance.</value>
+  </data>
+</root>

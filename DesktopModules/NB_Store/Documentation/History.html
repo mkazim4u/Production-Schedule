@@ -1,0 +1,323 @@
+<html>
+<head>
+    <title>Nevoweb NB_Store Version History</title>
+    <link rel="stylesheet" type="text/css" href="Documentation.css">
+</head>
+<body bottommargin="5" leftmargin="5" topmargin="5" rightmargin="5" marginwidth="0" marginheight="0">
+    <img src="logo.gif" border="0">
+    <h1>NevoWeb NB_Store Module</h1>
+    <h2>version 01.00.07</h2>
+    <p>Beta Test versions 01.00.00 - 01.00.07</p>
+    <h2>version 01.00.08</h2>
+    <p>Stable Release version</p>
+    <h2>version 01.00.09</h2>
+    
+    <ul>
+        <li>updated product list to use DNN search engine.</li>
+        <li>updated product list to take sort order from query string.</li>
+        <li>New Search module created.</li>
+        <li>updated product list setting to allow a product return limit to be entered.</li>
+        <li>product image re-size on upload added to store settings.</li>
+        <li>Export of Shipping rates added. (Import not implemented)</li>
+        <li>Export of Tax rates added. (Import not implemented)</li>
+        <li>product documents download added.</li>
+        <li>product documents [TAG:DOC#] added to template tokens.</li>
+        <li>product documents added to export and import.</li>
+        <li>product documents validation test added.</li>
+        <li>product documents purge added.</li>
+        <li>nosearchresult.template - Added.</li>  
+        <li>image.resize - Added in store settings.</li>   
+        <li>HTML Editor added for product description.</li>   
+        <li>Allow Import of Default settings for superuser.</li>   
+        <li>Support for Gateway provider settings in XML.</li>   
+        <li>FIXED: Some Query String Params not working if Friendly URL's turned off.</li>          
+        <li>FIXED: Category List in product admin doubling content on language switch.</li>          
+        <li>FIXED: Issue 2969.  Featured products list displays product detail.</li>          
+        <li>Beta Fix: Document Download on product list.</li>
+        <li>Beta Fix: Issue 3019. Error Log created by ProductListController</li>   
+        <li>Beta Fix: Issue 2982. Template Import only works with overwrite</li>   
+        <li>Beta Fix: Issue 2970. Export - Purge option Error</li>   
+    </ul>
+        <h2>version 01.01.01</h2>
+    <ul>
+        <li>SEO product page titles.</li>
+        <li>Product List Mode options for Browse and featured products.</li>
+        <li>LINKSIMPLE token added.</li>
+        <li>HTML template for category seperator.</li>
+        <li>HTML template for product seperator.</li>
+        <li>Model shipping weight added to product edit page.</li>
+        <li>Update of shipping rate admin to allow search by category on product level shipping.</li>
+        <li>Default template for module settings on ProductList, Checkout and Category Menu.</li>
+        <li>Allow default decending order for product list.</li>
+        <li>Option to hide category sub menu.</li>
+        <li>Allow different product detail templates to be selected for each category.</li>
+        <li>Recalcualte cart item costs on cart validation.</li>
+        <li>Purge Deleted Models on Store Purge.</li>
+        <li>Implement Import of Product level shipping details.</li>
+        <li>Implement Import of shipping rates.</li>
+        <li>FIXED: Shipping Country not defaulted to checkout selection dropdown.</li>
+        <li>FIXED: Country not displaying on order template.</li>
+        <li>FIXED: Cleardown Store SPROC, error with product documents</li>
+        <li>FIXED: Search on Stock Admin.</li>
+        <li>FIXED: Language dropdownlist on product edit.</li>
+        <li>FIXED: Template select on Language.</li>
+        <li>FIXED: Issue 3107. Category Menu upgraded to make it compatible with SQL2000.</li>
+        <li>FIXED: Issue 3106. Any Models in existing orders should only be marked for deletion when deleted.</li>
+        <li>Beta Fix: Portal level tax and shipping rates.</li>
+        <li>Beta Fix: Option cost not adding onto model cost in cart validation.</li>
+        <li>Beta Fix: Paging not displaying when category description displayed.</li>        
+        <li>Beta Fix: Search across multiple languages. Plus soundex added</li>
+        <li>Beta Fix: Use HostingEnvironment.MapPath on orders report.</li>        
+        <li>Beta Fix: Error causes when using '\' in product ref.</li>        
+    </ul>
+        <h2>version 01.01.05</h2>
+    <ul>
+        <li>Create new look Back Office.</li>
+        <li>Beta Fix: No Category Template set for specific country causes error.</li>
+        <li>Beta Fix: Delete of Product with Images causes error.</li>
+        <li>Beta Fix: Error when used on virtual directory.</li>
+        <li>Beta Fix: Issue 3477. Error creating new product from product list.</li>
+        <li>Beta Fix: Rename Skin StoreAdmin folder.</li>
+    </ul>
+        <h2>version 01.01.06</h2>
+    <ul>
+        <li>Improved edit language selection interface.</li>
+        <li>Allow different list templates for each cateory.</li>
+        <li>Allow template Html to be before and after category menu item.</li>
+        <li>Allow Html template for category menu item.</li>
+        <li>Image URL for GO & Search image added to search module settings.</li>
+        <li>Radio button added to product template.</li>
+        <li>Support for downloadable sales.</li>
+        <li>Support for Medium Trust.</li>
+		<li>Lightbox replaced with jQuery nyroModal</li>
+		<li>zeroprice.text added</li>
+		<li>Option to skip to product details if only 1 product exists in category</li>
+        <li>Issue 3399: Product ImageURL updated to nvarchar(256)</li>
+        <li>Issue 3435: Category Sort Order defaults to 1</li>
+        <li>Issue 3460: noimage.png moved to portal root on load.</li>
+        <li>Issue 3510: Module ref added to cart.</li>
+        <li>Issue 3392: Product Name added to tax search.</li>
+        <li>Issue 3497: Textbox and validation added to product template.</li>
+    </ul>
+        <h2>version 01.01.07</h2>
+    <ul>
+        <li>Multiple Shipping methods.</li>
+        <li>Shipping Tracking Codes.</li>
+        <li>Function to allow bespoke Product Fields.</li>
+        <li>Out of Stock image displayable.</li>
+        <li>Option to purge cart after specified amount of time.</li>
+        <li>Option to purge uncompleted orders after specified amount of time.</li>
+        <li>Option to limit the qty amount entered by customer.</li>
+        <li>Token to display percentage of stock available.</li>
+        <li>Dealer Price and Cost Price can be entered against model. (For SQL reporting only at this point)</li>
+        <li>Cellpadding on product list set to zero.</li>
+        <li>Allows custom js for lightbox.</li>
+        <li>Data Cache Get Settings.</li>        
+        <li>Data Cache Get Templates.</li>        
+        <li>Improved Store Template and Settings Import and Export options.</li>        
+        <li>image.quaity setting added.</li>
+        <li>Advanced image resizing.</li>
+        <li>Category Menu JQuery Tree View.</li>
+        <li>Fix: Breadcrumb going to incorrect category.</li>
+        <li>Issue 3742: Product Documents Spanning Portals.</li>        
+        <li>Issue 3672: jQuery Lightbox location offset in IE when page is scrolled.</li>        
+        <li>Beta Fix: User templates not working for alternate and detail.</li>        
+        <li>Beta Fix: Issue with Template cache on langugaes.</li>        
+        <li>Beta Fix: Issue with settings cache across portals.</li>        
+        <li>Beta Fix: Error on Store Report when removing cache for settings.</li>        
+        <li>Beta Feature: Validate Languages for product and categories.</li>        
+        <li>Beta Feature: Accordion Menu.</li>        
+        <li>Beta Feature: Minimum order amount.</li>        
+        <li>Beta Feature: [TAG:THUMBURL],[TAG:IMAGEURL],[TAG:GALLERYURL1] and [TAG:GALLERYID1]</li>
+        <li>Beta Feature: Cookie to save billing and shipping address.</li>        
+        <li>Beta Feature: Now Supports Recursive template calls to a depth of 4.</li>        
+        <li>Beta Feature: [Currency:Symbol],[TAG:FROMPRICECURRENCY],[TAG:CURRENCYSYMBOL]</li>        
+        <li>Beta Fix: Issue 4146,4149,4150,4151,4152,4154,4049,4078,3932,3917,3908,3895,3810,3672,3742</li>
+        <li>Beta Fix: Default language being used on template recursion.</li>        
+    </ul>
+	        <h2>version 01.02.00</h2>
+    <ul>
+        <li>CSV file import option.</li>
+        <li>CSS class on category breadcrumb moved to a div.</li>
+        <li>Fix: Issue 4256,3423,3996,4230</li>
+        <li>Beta Fix: On Import don't create category if category already exists in database.</li>
+    </ul>
+    <h2>version 02.00.05 (Beta)</h2>
+    <ul>
+        <li>Promotional Discounts</li>
+        <li>Hide option for Categories</li>
+        <li>Fix: Issue 4359,4358 </li>
+        <li>Beta Fix: Issue 4464,4470,4360,4447,4448,4454,4359,4358</li>
+        <li>Beta Fix: Exception created on JQuery load.</li>
+        <li>Beta Fix: "shipcountrycode.default" setting added.</li>
+        <li>Beta Fix: Gateway Provider unchanged for sub-portals.</li>
+        <li>Beta Fix: Issue 4528,4885,4867,4882,4725,4721,4856,4760</li>
+    </ul>
+    <h2>version 02.00.06 (Stable)</h2>
+    <ul>
+        <li>Continue Shopping Button</li>
+        <li>Option to use simple or DNN Index search</li>
+        <li>Beta Fix: Issue 4463,4951,4934,4899,4518,4926,4928</li>
+    </ul>
+    <h2>version 02.00.07 (Stable)</h2>
+    <ul>
+        <li>Fixed potential security risk on address cookie. Issue: 5024</li>
+    </ul>
+    <h2>version 02.00.08 (Beta)</h2>
+    <ul>
+        <li>Lock icon on settings for admin only.</li>
+        <li>Admin only option added to templates.</li>
+        <li>[TAG:SALEPRICECURRENCY] introduced, [TAG:SALEPRICE] now has no currency formatting.</li>
+        <li>[TAG:MODELSTABLE] token added, to disply the models in a table structure.</li>
+        <li>"Extra" field added to model.</li>
+        <li>Category Image can now be added.</li>
+        <li>Default Category added to Categorymenu.</li>
+        <li>Database Table indexing.</li>
+        <li>Database Paging added.</li>
+        <li>Sub category menu added to productlist, to display when category message is displayed.</li>
+        <li>Improved Category templating, tokens added [TAG:IMAGEURLTHUMB],[TAG:IMAGEURL],[TAG:IMAGE],[TAG:LINK],[TAG:CATEGORYNAMECSS]</li>
+        <li>Update to searching functions</li>
+        <li>Add Product token [TAGXML:&lt;xslfile&gt;] to use xsl within templates.</li>
+        <li>Cache XSL transformation on product list.</li>
+        <li>Fix Issues: 5246,5232,5120,5083,4800,5081,5113,5109,4122</li>
+    </ul>
+    <h2>version 02.00.09 (Beta)</h2>
+    <ul>
+            <li>Add reporting system to back offcie.</li>
+            <li>Add dashboard reports</li>
+        <li>Fix Issues: 5419,5310</li>
+    </ul>
+    <h2>version 02.00.10 (Beta)</h2>
+    <ul>
+        <li>Add [TAG:BESTPRICE] token</li>
+        <li>Fix Issues: 5550,5207,3916,5500,</li>
+    </ul>
+    <h2>version 02.00.11 (Stable)</h2>
+    <ul>
+        <li>Add "searchdescription.flag" setting, to optionally search the product description field.</li>
+        <li>Add "exempttax.list" setting, to exempt countries from tax.</li>        
+        <li>Dealer cost can now be used to update the cart.</li>        
+        <li>Patch Work menu option added to category menu.</li>        
+        <li>datavalue attribute added to custom fields on dropdownlist and radiobuttonlist.</li>        
+        <li>Fix : Import on new portal not importing settings.</li>
+		<li>Fix : Error when copying new product.</li>
+        <li>Fix Issues: 5621,5628</li>
+    </ul>
+    <h2>version 02.01.00 (Stable)</h2>
+    <ul>
+        <li>Improve BackOffice UI.</li>
+        <li>WishList added</li>
+        <li>cascading product list. (View products in subcategories option)</li>
+        <li>Option to display models to dealers only.</li>
+        <li>[TAG:CATIMAGEURL] added.</li>        
+        <li>Related Products added</li>
+        <li>Crop option on thumbnail image (e.g. 50x100)</li>
+        <li>goodrelations.template add.</li>        
+        <li>Force the "usednnjquery.flag" to be set to false. (This setting is ignored in DNN5, DNN5 jQuery is always used.)</li>        
+        <li>Fix : Incorrect css placed on report emails.</li>
+        <li>Fix : Incorrect count on stock list.</li>
+        <li>Fix : Infinate loop on searchindexing in some circumstances.</li>
+        <li>Fix Issues: 5903,5521,5917,5960,5978,5989</li>
+    </ul>
+    <h2>version 02.01.01 (Stable)</h2>
+    <ul>
+        <li>Include of Status Table data in ManagerMenuDefault.xml</li>
+    </ul>
+    <h2>version 02.01.02 (Stable - Bubble release)</h2>
+    <ul>
+        <li>Bug Fixes: 6620,6622,6404,6638,6639,6637,6641,6652,6663,6712,6711,6654,6673,6655,3735,6741,6743</li>
+    </ul>
+    <h2>version 02.01.06 (Stable)</h2>
+    <ul>
+        <li>Bug Fixes: 6767,6778,6774,6823,6685,6849,6951,6947,5264,6931,6967,6980,6971,6970,7035,6969,7023,6948,6936,7032,7033,7151,7136,7211,7119,7333</li>
+        <li>stg2formXML and stg3formXML templates added.</li>
+        <li>Option to hide shipping calculation line in cart</li>
+        <li>Categoies with a Message are not counted as empty.</li>
+        <li>Addition of "XX - Default" for country range shipping.</li>
+        <li>Static templates option in productlist module settings.</li>
+        <li>List Only option in productlist module settings.</li>
+        <li>Shipping calc returns 0 for weight cost if cart total weight is zero.</li>
+        <li>Add tokens [TAG:MODELS2] and [TAG:MODELSRADIO2]</li>
+        <li>Box Cost added to product shipping.</li>
+        <li>rename "exempttax.list" setting, to "taxexempt.list" setting.</li>        
+        <li>Add "taxapplies.list" setting.</li>
+        <li>Multiple gateway support</li>
+        <li>Template gateway support.</li>
+        <li>template testing added.</li>
+        <li>[TAG:STOCKPERCENTACTUAL] added.</li>        
+            </ul>
+<p>
+UPGRADE WARNING!!<br/>
+This version of NB_Store has removed the double search in settings.  In the old version, If a setting was not in the setting section, NB_Store looked into the templates for a template with that name.  This function has been removed, this may cause issues with setting/template not displaying.  If you have problems with displaying templates then make sure your settings are in the settings section and not the template section of the backoffice.
+</p>
+    <h2>version 02.01.07 (Stable)</h2>
+    <ul>
+        <li>Image caching to disk</li>
+        <li>Per-product add to cart limit - at model level. </li>
+        <li>Show out of stock models as disabled. </li>
+        <li>Add label on end of "out of stock" models </li>
+        <li>New tokens for stock.</li>
+        <li>New test for stock.</li>
+        <li>Allow field entry for reports.</li>
+        <li>Addition of Product word search statistics.</li>
+        <li>Print receipt option on Order.</li>
+        <li>Support for 2 search words.</li>
+        <li>Fixed bug on Report parameter import.</li>
+        <li>Add [TAG:GALLERYURL#:ThumbSize] token.</li>
+        <li>Add "TestValue" added to "hasImages" test token.</li>
+        <li>Add "TestValue" added to "hasdocuments" test token.</li>
+        <li>Add "TestValue" added to "hasoptions" test token.</li>
+        <li>Add "TestValue" added to "hasrelateditems" test token.</li>
+        <li>Add [Order:DetailTemplateRows] token.</li>
+        <li>Add &quot;detailrows.template&quot; template.</li>
+        <li>Fixed rounding error in cart discount.</li>
+            
+            </ul>
+			
+
+    <h2>version 02.02.01 (Stable)</h2>
+    <ul>
+        <li>Dropped support for DNN4.</li>
+        <li>Improved Category-Product Selection.</li>
+        <li>Allow Order Amendment.</li>
+        <li>Allow Full Display of MiniCart.</li>
+        <li>Canonical links added.</li>
+        <li>Promotional code MaxUsage added.</li>
+        <li>Promotional code MaxUsagePerUser added.</li>
+        <li>Promotional code by Category added.</li>
+        <li>Patch on internal update interface added.</li>
+        <li>Event Interface added</li>    
+        <li>Cart Calculations Interface added</li>    
+        <li>Shipping Calculations Interface added</li>    
+        <li>Tax Calculations Interface added</li>    
+        <li>Discount Calculations Interface added</li>    
+        <li>Extra Calculations Interface added</li>    
+        <li>Dark Skin updated</li>    
+        <li>Re-order button added to Order history.</li>
+        <li>Added Bespoke field validation controls.</li>
+        <li>Added DNN editor to bespoke fields.</li>    
+        <li>Added Standard RSS feeder.</li>
+        <li>Added OR operator in the [TAG:TEST]</li>    
+        <li>Table Width setting on Product List.</li>   
+        <li>isincategory test added.</li>   
+        <li>Escape Char of "[[" and "]]" added to templating system.</li>   
+        <li>Codeplex WorkItems: 7895,5151,7785,7759,7285,7539,7659,7773,7771,7698,8140,7908,8006</li>
+    </ul>
+			
+    <h2>version 02.02.02 (Stable - Bubble Release)</h2>
+    <ul>
+        <li>Moved the CompletedOrder events to the correct completed functions.</li>
+        <li>Elapsed Order time activated.</li>        
+    </ul>
+
+    <h2>version 02.03.01 (Beta Release)</h2>
+    <ul>
+        <li>Re-write of discount coupon calculation to fix codeplex issue 8601.</li>
+        <li>File Upload TAG token added, to allow file upload option when purchasing.</li>
+        <li>Modified date added to get product List SPROC.</li>
+        <li>FileProvider ashx added.</li>
+        <li>Codeplex WorkItems: 8680,8634,8622,7944,8580,8581,8167,8601,8728,8749,8787,8876,8893,8892,8827,8826,8825,8820,8729,8819,8789</li>
+    </ul>
+   
+	</body>
+</html>

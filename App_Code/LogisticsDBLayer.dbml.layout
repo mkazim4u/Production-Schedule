@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 17" name="LogisticsDBLayer">
+  <DataContextMoniker Name="/LogisticsDBLayerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="047c12f9-bca6-42cf-a23c-005bea122b11" absoluteBounds="1.375, 0.5, 2, 8.4917830403645826">
+      <DataClassMoniker Name="/LogisticsDBLayerDataContext/LogisticProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe3e8cfd-025d-46d9-b325-a8d47349ca27" absoluteBounds="1.3899999999999997, 0.96, 1.9700000000000002, 7.931783040364583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="963d38e4-b9b7-405a-a662-9378207dc2b0" absoluteBounds="5.125, 0.5, 2, 1.75354248046875">
+      <DataClassMoniker Name="/LogisticsDBLayerDataContext/LogisticProductLocation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21dd94cc-c813-4804-b0a3-39f46d2a410d" absoluteBounds="5.14, 0.96, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 1.37677124023438); (5.125 : 1.37677124023438)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LogisticsDBLayerDataContext/LogisticProduct/LogisticProduct_LogisticProductLocation" />
+      <nodes>
+        <classShapeMoniker Id="047c12f9-bca6-42cf-a23c-005bea122b11" />
+        <classShapeMoniker Id="963d38e4-b9b7-405a-a662-9378207dc2b0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2bbbac9d-4b04-4359-b367-e7f55e4318d9" absoluteBounds="5.375, 4, 2, 12.764813639322915">
+      <DataClassMoniker Name="/LogisticsDBLayerDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55e60286-4cd1-4af1-bb24-207d2fc77ec4" absoluteBounds="5.39, 4.46, 1.9700000000000002, 12.204813639322916" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 6.49589152018229); (3.375 : 6.49589152018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LogisticsDBLayerDataContext/Customer/Customer_LogisticProduct" />
+      <nodes>
+        <classShapeMoniker Id="2bbbac9d-4b04-4359-b367-e7f55e4318d9" />
+        <classShapeMoniker Id="047c12f9-bca6-42cf-a23c-005bea122b11" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

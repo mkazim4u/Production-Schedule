@@ -1,0 +1,357 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    TABLE Start                                   *****/
+/************************************************************/
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Orders]') and name='Stg2FormXML')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Orders add [Stg2FormXML] XML null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Orders]') and name='Stg3FormXML')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Orders add [Stg3FormXML] XML null
+go
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]
+GO
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.03
+*/
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]
+(
+@OrderID int,
+@UserID int,
+@PortalID int,
+@OrderNumber nvarchar(50),
+@OrderDate datetime,
+@ShipDate datetime,
+@ShippingAddressID int,
+@BillingAddressID int,
+@AppliedTax money,
+@ShippingCost money,
+@OrderIsPlaced bit,
+@OrderStatusID int,
+@PayType nvarchar(20),
+@CalculatedTax money,
+@NoteMsg nvarchar(500),
+@VATNumber nvarchar(30),
+@Discount money,
+@PromoCode nvarchar(20),
+@Total money,
+@Email as nvarchar(100),
+@BankAuthCode as nvarchar(50),
+@ShipMethodID int,
+@TrackingCode nvarchar(50),
+@Stg2FormXML XML,
+@Stg3FormXML XML
+)
+AS
+BEGIN
+
+	if not exists (select OrderID from {databaseOwner}[{objectQualifier}NB_Store_Orders] where OrderID = @OrderID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Orders]
+		(
+		UserID,
+		PortalID,
+		OrderNumber,
+		OrderDate,
+		ShipDate,
+		ShippingAddressID,
+		BillingAddressID,
+		AppliedTax,
+		ShippingCost,
+		OrderIsPlaced,
+		OrderStatusID,
+		PayType,
+		CalculatedTax,
+		NoteMsg,
+		VATNumber,
+		Discount,
+		PromoCode,
+		Total,
+		Email,
+		BankAuthCode,
+		ShipMethodID,
+		TrackingCode,
+		Stg2FormXML,
+		Stg3FormXML
+		)
+		values
+		(
+		@UserID,
+		@PortalID,
+		@OrderNumber,
+		@OrderDate,
+		@ShipDate,
+		@ShippingAddressID,
+		@BillingAddressID,
+		@AppliedTax,
+		@ShippingCost,
+		@OrderIsPlaced,
+		@OrderStatusID,
+		@PayType,
+		@CalculatedTax,
+		@NoteMsg,
+		@VATNumber,
+		@Discount,
+		@PromoCode,
+		@Total,
+		@Email,
+		@BankAuthCode,
+		@ShipMethodID,
+		@TrackingCode,
+		@Stg2FormXML,
+		@Stg3FormXML
+		)
+
+		set @OrderID = @@Identity
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Orders]
+		set 
+		UserID = @UserID,
+		PortalID = @PortalID,
+		OrderNumber = @OrderNumber,
+		OrderDate = @OrderDate,
+		ShipDate = @ShipDate,
+		ShippingAddressID = @ShippingAddressID,
+		BillingAddressID = @BillingAddressID,
+		AppliedTax = @AppliedTax,
+		ShippingCost = @ShippingCost,
+		OrderIsPlaced = @OrderIsPlaced,
+		OrderStatusID = @OrderStatusID,
+		PayType = @PayType,
+		CalculatedTax = @CalculatedTax,
+		NoteMsg = @NoteMsg,
+		VATNumber = @VATNumber,
+		Discount = @Discount,
+		PromoCode = @PromoCode,
+		Total = @Total,
+		Email = @Email,
+		BankAuthCode = @BankAuthCode,
+		ShipMethodID = @ShipMethodID,
+		TrackingCode = @TrackingCode,
+		Stg2FormXML = @Stg2FormXML,
+		Stg3FormXML = @Stg3FormXML
+		where OrderID = @OrderID 
+	end
+
+	exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Orders_Get @OrderID 
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+go
+
+
+ALTER FUNCTION {databaseOwner}[{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice] 
+(
+	-- Add the parameters for the function here
+	@ProductID int
+)
+RETURNS decimal(16,2)
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @RtnPrice decimal(16,2)
+
+	-- Add the T-SQL statements to compute the return value here
+	select @RtnPrice = isnull((select top 1 unitcost 
+	from {databaseOwner}{objectQualifier}NB_Store_Model 
+	where productid = @ProductID 
+	and (qtyremaining > 0 or qtyremaining < 0) 
+	and DealerOnly = 0 
+	order by unitcost),
+(select top 1 unitcost 
+	from {databaseOwner}{objectQualifier}NB_Store_Model 
+	where productid = @ProductID 
+	and DealerOnly = 0 
+	order by unitcost))
+
+	-- Return the result of the function
+	RETURN @RtnPrice
+
+END
+
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+GO
+
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+@PortalID int,
+@ShipType varchar(5),
+@Lang varchar(5),
+@Filter varchar(50),
+@CategoryID int,
+@ShipMethodID int
+AS
+begin
+
+	if @ShipType = 'PRD'
+	begin
+
+		if @CategoryID = -1 
+		begin
+			select 
+			isnull(SR.ItemId,-1) as Itemid,
+			isnull(SR.Range1,0) as Range1,
+			isnull(SR.Range2,0) as Range2,
+			SM.ModelID as ObjectId,
+			isnull(SR.ShipCost,0) as ShipCost,
+			'PRD' as ShipType,
+			SR.[Disable],
+			PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as Description,
+			isnull(SR.ProductWeight,0) as ProductWeight,
+			isnull(SR.ProductHeight,0) as ProductHeight,
+			isnull(SR.ProductLength,0) as ProductLength,
+			isnull(SR.ProductWidth,0) as ProductWidth
+			from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SM.ModelID = SR.ObjectID and SR.ShipType = 'PRD'
+			inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+			inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+			where (PL.ProductName like '%' + @Filter + '%' or SML.ModelName like '%' + @Filter + '%' or sm.modelref like '%' + @Filter + '%')
+			and P.PortalID = @PortalID		 
+			and archived= 0
+			and (ShipMethodID = @ShipMethodID or @ShipMethodID = -1)
+			order by PL.ProductName,sm.listorder,sm.modelref,SML.ModelName		
+		end
+		else
+		begin
+			select 
+			isnull(SR.ItemId,-1) as Itemid,
+			isnull(SR.Range1,0) as Range1,
+			isnull(SR.Range2,0) as Range2,
+			SM.ModelID as ObjectId,
+			isnull(SR.ShipCost,0) as ShipCost,
+			'PRD' as ShipType,
+			SR.[Disable],
+			PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as Description,
+			isnull(SR.ProductWeight,0) as ProductWeight,
+			isnull(SR.ProductHeight,0) as ProductHeight,
+			isnull(SR.ProductLength,0) as ProductLength,
+			isnull(SR.ProductWidth,0) as ProductWidth
+			from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SM.ModelID = SR.ObjectID and SR.ShipType = 'PRD'
+			inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+			inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+			inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID 
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+			where (PL.ProductName like '%' + @Filter + '%' or SML.ModelName like '%' + @Filter + '%' or sm.modelref like '%' + @Filter + '%')
+			and P.PortalID = @PortalID		 
+			and PC.CategoryID = @CategoryID
+			and archived= 0
+			and (ShipMethodID = @ShipMethodID or @ShipMethodID = -1)
+			order by PL.ProductName,sm.listorder,sm.modelref,SML.ModelName
+		end
+	end
+	else
+	begin
+		if @ShipType=''
+		begin
+			select ItemId,
+			isnull(Range1,0) as Range1,
+			isnull(Range2,0) as Range2,
+			ObjectId,
+			isnull(ShipCost,0) as ShipCost,
+			ShipType,
+			[Disable],
+			Description,
+			isnull(ProductWeight,0) as ProductWeight,
+			isnull(ProductHeight,0) as ProductHeight,
+			isnull(ProductLength,0) as ProductLength,
+			isnull(ProductWidth,0) as ProductWidth,
+			PortalID
+			from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+			where PortalID = @PortalID 
+			and ShipMethodID = @ShipMethodID
+			order by Description,Range1
+		end
+		else
+		begin
+			select ItemId,
+			isnull(Range1,0) as Range1,
+			isnull(Range2,0) as Range2,
+			ObjectId,
+			isnull(ShipCost,0) as ShipCost,
+			ShipType,
+			[Disable],
+			Description,
+			isnull(ProductWeight,0) as ProductWeight,
+			isnull(ProductHeight,0) as ProductHeight,
+			isnull(ProductLength,0) as ProductLength,
+			isnull(ProductWidth,0) as ProductWidth,
+			PortalID
+			from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+			where ShipType = @ShipType
+			and PortalID = @PortalID 
+			and ShipMethodID = @ShipMethodID
+			order by Description,Range1
+		end
+	end 
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+

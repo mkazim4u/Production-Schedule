@@ -1,0 +1,214 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    TABLE Start                                   *****/
+/************************************************************/
+
+ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Orders] ALTER COLUMN  PromoCode nvarchar(20)
+GO
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]
+GO
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Orders_Update]
+(
+@OrderID int,
+@UserID int,
+@PortalID int,
+@OrderNumber nvarchar(50),
+@OrderDate datetime,
+@ShipDate datetime,
+@ShippingAddressID int,
+@BillingAddressID int,
+@AppliedTax money,
+@ShippingCost money,
+@OrderIsPlaced bit,
+@OrderStatusID int,
+@PayType nvarchar(20),
+@CalculatedTax money,
+@NoteMsg nvarchar(500),
+@VATNumber nvarchar(30),
+@Discount money,
+@PromoCode nvarchar(20),
+@Total money,
+@Email as nvarchar(100),
+@BankAuthCode as nvarchar(50),
+@ShipMethodID int,
+@TrackingCode nvarchar(50)
+)
+AS
+BEGIN
+
+	if not exists (select OrderID from {databaseOwner}[{objectQualifier}NB_Store_Orders] where OrderID = @OrderID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Orders]
+		(
+		UserID,
+		PortalID,
+		OrderNumber,
+		OrderDate,
+		ShipDate,
+		ShippingAddressID,
+		BillingAddressID,
+		AppliedTax,
+		ShippingCost,
+		OrderIsPlaced,
+		OrderStatusID,
+		PayType,
+		CalculatedTax,
+		NoteMsg,
+		VATNumber,
+		Discount,
+		PromoCode,
+		Total,
+		Email,
+		BankAuthCode,
+		ShipMethodID,
+		TrackingCode
+		)
+		values
+		(
+		@UserID,
+		@PortalID,
+		@OrderNumber,
+		@OrderDate,
+		@ShipDate,
+		@ShippingAddressID,
+		@BillingAddressID,
+		@AppliedTax,
+		@ShippingCost,
+		@OrderIsPlaced,
+		@OrderStatusID,
+		@PayType,
+		@CalculatedTax,
+		@NoteMsg,
+		@VATNumber,
+		@Discount,
+		@PromoCode,
+		@Total,
+		@Email,
+		@BankAuthCode,
+		@ShipMethodID,
+		@TrackingCode
+		)
+
+		set @OrderID = @@Identity
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Orders]
+		set 
+		UserID = @UserID,
+		PortalID = @PortalID,
+		OrderNumber = @OrderNumber,
+		OrderDate = @OrderDate,
+		ShipDate = @ShipDate,
+		ShippingAddressID = @ShippingAddressID,
+		BillingAddressID = @BillingAddressID,
+		AppliedTax = @AppliedTax,
+		ShippingCost = @ShippingCost,
+		OrderIsPlaced = @OrderIsPlaced,
+		OrderStatusID = @OrderStatusID,
+		PayType = @PayType,
+		CalculatedTax = @CalculatedTax,
+		NoteMsg = @NoteMsg,
+		VATNumber = @VATNumber,
+		Discount = @Discount,
+		PromoCode = @PromoCode,
+		Total = @Total,
+		Email = @Email,
+		BankAuthCode = @BankAuthCode,
+		ShipMethodID = @ShipMethodID,
+		TrackingCode = @TrackingCode
+		where OrderID = @OrderID 
+	end
+
+	exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Orders_Get @OrderID 
+
+END
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]
+GO
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]
+@PortalID int,
+@ProductID int,
+@Lang char(5),
+@RelatedType int,
+@GetAll bit
+AS
+begin
+	select PR.*,
+	RP.ProductRef as RelatedProductRef,
+	RPL.ProductName as RelatedProductName
+    from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] as PR
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as RP on PR.RelatedProductID = RP.ProductID
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang AS RPL on RPL.ProductID = RP.ProductID and RPL.Lang = @Lang
+where PR.ProductID = @ProductID
+and (PR.Disabled = 0 or @GetAll = 1)
+and (PR.NotAvailable = 0 or @GetAll = 1)
+and (RelatedType = @RelatedType or @RelatedType = -1)
+and RP.Archived = 0
+and RP.IsDeleted = 0
+
+
+ 
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

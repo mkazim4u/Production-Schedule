@@ -1,0 +1,51 @@
+<root version="02.03.01">
+  <tabs>
+    <tab id="Dashboard" text="Dashboard" image="~/DesktopModules/NB_Store/img/tabmenu/Dashboardtab.png"  ctl="AdminDashboard" param="">
+      <subtab text="Dashboard" image="~/DesktopModules/NB_Store/img/tabmenu/Dashboardtab.png"  ctl="AdminDashboard" param="" />
+      <subtab text="Reports" image="~/DesktopModules/NB_Store/img/tabmenu/Report.png"  ctl="AdminReport" param="" />     
+    </tab>
+    <tab id="Catalog" text="Catalog" image="~/DesktopModules/NB_Store/img/tabmenu/catalogtab.png"  ctl="AdminProduct" param="">
+      <subtab text="Products" image="~/DesktopModules/NB_Store/img/tabmenu/ProductTab.png"  ctl="AdminProduct" param="" />
+      <subtab text="Categories" image="~/DesktopModules/NB_Store/img/tabmenu/CategoriesTab.png"  ctl="AdminCategories" param="" />
+      <subtab text="Stock" image="~/DesktopModules/NB_Store/img/tabmenu/StockTab.png"  ctl="AdminStock" param="" roles="Manager"/>
+    </tab>
+    <tab id="Orders" text="Orders" image="~/DesktopModules/NB_Store/img/tabmenu/orderstab.png" ctl="AdminOrders" param="">
+      <subtab text="Orders" image="~/DesktopModules/NB_Store/img/tabmenu/orderstab.png" ctl="AdminOrders" param="" />
+      <subtab text="Clients" image="~/DesktopModules/NB_Store/img/tabmenu/clienttab.png" ctl="AdminClients" param="" />
+    </tab>
+    <tab id="Shipping" text="Shipping" image="~/DesktopModules/NB_Store/img/tabmenu/shippingtab.png" ctl="AdminShipMethod" param=""  roles="Manager">
+      <subtab text="Method" image="~/DesktopModules/NB_Store/img/tabmenu/shippingtab.png" ctl="AdminShipMethod" param="" />
+      <subtab text="By Weight" image="~/DesktopModules/NB_Store/img/tabmenu/byweighttab.png" ctl="ShipRates" param="spg=wei" />
+      <subtab text="By Price" image="~/DesktopModules/NB_Store/img/tabmenu/bypricetab.png" ctl="ShipRates" param="spg=prc" />
+      <subtab text="By Quantity" image="~/DesktopModules/NB_Store/img/tabmenu/byquantitytab.png" ctl="ShipRates" param="spg=qty" />
+      <subtab text="By Country" image="~/DesktopModules/NB_Store/img/tabmenu/bycountrytab.png" ctl="ShipRates" param="spg=cou" />
+      <subtab text="By Product" image="~/DesktopModules/NB_Store/img/tabmenu/byproducttab.png" ctl="ShipRates" param="spg=prd" />
+      <subtab text="Free Limit" image="~/DesktopModules/NB_Store/img/tabmenu/freelimittab.png" ctl="ShipRates" param="spg=fre" />
+    </tab>
+    <tab id="Taxes" text="Taxes" image="~/DesktopModules/NB_Store/img/tabmenu/taxtab.png" ctl="TaxRates" param="spg=set" roles="Manager">
+      <subtab text="Defaults" image="~/DesktopModules/NB_Store/img/tabmenu/taxdefaulttab.png" ctl="TaxRates" param="spg=set" />
+      <subtab text="Category Level" image="~/DesktopModules/NB_Store/img/tabmenu/taxCategorytab.png" ctl="TaxRates" param="spg=cat" />
+      <subtab text="Product Level" image="~/DesktopModules/NB_Store/img/tabmenu/taxproducttab.png" ctl="TaxRates" param="spg=prd" />
+    </tab>
+    <tab id="Promotions" text="Promotions" image="~/DesktopModules/NB_Store/img/tabmenu/discountstab.png" ctl="AdminPromo" param="spg=cou" roles="Manager">
+      <subtab text="Coupons" image="~/DesktopModules/NB_Store/img/tabmenu/vouchertab.png" ctl="AdminPromo" param="spg=cou" />
+      <subtab text="Category Discounts" image="~/DesktopModules/NB_Store/img/tabmenu/disccategorytab.png" ctl="AdminPromo" param="spg=sto" />
+      <subtab text="Cart Discounts" image="~/DesktopModules/NB_Store/img/tabmenu/disccategorytab.png" ctl="AdminPromo" param="spg=car" />
+    </tab>
+    <tab id="Utilities" text="Utilities" image="~/DesktopModules/NB_Store/img/tabmenu/utilitiestab.png" ctl="AdminSetting" param="etmode=0" roles="Manager">
+      <subtab text="Settings" image="~/DesktopModules/NB_Store/img/tabmenu/settingstab.png" ctl="AdminSetting" param="etmode=0" />
+      <subtab text="Templates" image="~/DesktopModules/NB_Store/img/tabmenu/templatestab.png" ctl="AdminSetting" param="etmode=1" />
+      <subtab text="Export" image="~/DesktopModules/NB_Store/img/tabmenu/exporttab.png" ctl="AdminBackup" param="spg=bck" />
+      <subtab text="Import" image="~/DesktopModules/NB_Store/img/tabmenu/importtab.png" ctl="AdminBackup" param="spg=res" />
+    </tab>
+    <tab id="Admin" text="Admin" image="~/DesktopModules/NB_Store/img/tabmenu/hosttab.png" ctl="AdminHost" param="" roles="Administrators">
+	  <subtab text="Admin" image="~/DesktopModules/NB_Store/img/tabmenu/hosttab.png" ctl="AdminHost" param="" />
+      <subtab text="Help" image="~/DesktopModules/NB_Store/img/tabmenu/helptab.png" ctl="HELP" param="" />
+    </tab>
+    <tab id="Exit" text="Exit" image="~/DesktopModules/NB_Store/img/tabmenu/exittab.png" ctl="EXIT" param=""></tab>
+  </tabs>
+    <css menudiv="NBright_MenuDiv" titlediv="NBright_MenuTitleDiv" tabdiv="NBright_ui-tabs" subtabdiv="NBright_ui-subtabs" tabul="NBright_ui-tabs-ul" tabli="" tabliactive="NBright_ui-tabs-selected" subtabul="" sublitabli="" sublitabliactive=""></css>
+    <skin path="~/DesktopModules/NB_Store/Skins/Dark/Dark"></skin>
+  <resx name="MenuManager.ascx"></resx>
+  <enterbutton cssdiv="NBright_ButtonDiv" css="NBright_EnterButton"  resourcekey="cmdBackOffice" defaultctrl="AdminDashboard"></enterbutton>
+</root>

@@ -1,0 +1,20 @@
+<root>
+        <paymentURL>https://www.sandbox.paypal.com/cgi-bin/webscr</paymentURL>
+        <verifyURL>https://www.sandbox.paypal.com/cgi-bin/webscr</verifyURL>
+        <PayPalID>paypal@MyWebsite.com</PayPalID>
+        <CartName>TEST</CartName>
+        <ButtonImageURL>/Desktopmodules/NB_Store_GatewayPayPal/paypal60x38.gif</ButtonImageURL>
+        <Currency>EUR</Currency>
+        <ReturnURL>http://www.MyWebsite.com/Panier/tabid/56/stg/5/ordid/[ORDERID]/Default.aspx?PayPalExit=RETURN</ReturnURL>
+        <ReturnCancelURL>http://www.MyWebsite.com/Panier/tabid/56/stg/5/ordid/[ORDERID]/Default.aspx?PayPalExit=CANCEL</ReturnCancelURL>
+        <ReturnNotifyURL>http://www.MyWebsite.com/Panier/tabid/56/stg/4/Default.aspx</ReturnNotifyURL>
+        <MerchantLanguage>fr</MerchantLanguage>
+        <paypalurl>
+          <cmd>_xclick</cmd>
+          <bn>NBStore</bn>
+          <quantity>1</quantity>
+          <undefined_quantity>0</undefined_quantity>
+          <no_note>1</no_note>
+          <no_shipping>1</no_shipping>
+        </paypalurl>
+</root>

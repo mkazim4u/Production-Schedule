@@ -1,0 +1,6 @@
+﻿/** phdcc.CodeModule: http://www.phdcc.com/phdcc.CodeModule/ Copyright © 2007-2009 PHD Computer Consultants Ltd, PHDCC **/
+
+/************* Delete SkinObject token definition ****************/
+
+DELETE FROM {databaseOwner}{objectQualifier}ModuleControls
+	WHERE ControlKey='CodeModule'

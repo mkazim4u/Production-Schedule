@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="labelCategoryName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="labelCategoryName.Help" xml:space="preserve">
+    <value>User-friendly name to identify the category.</value>
+  </data>
+  <data name="labelCategoryDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="labelCategoryDescription.Help" xml:space="preserve">
+    <value>Full description of the current item.</value>
+  </data>
+  <data name="labelArchived.Text" xml:space="preserve">
+    <value>Archived</value>
+  </data>
+  <data name="labelArchived.Help" xml:space="preserve">
+    <value>Indicates whether the item has been archived and is no longer active.</value>
+  </data>
+  <data name="labelMessage.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="labelMessage.Help" xml:space="preserve">
+    <value>Message to be displayed at the top of the category listing.</value>
+  </data>
+  <data name="labelOrder.Help" xml:space="preserve">
+    <value>The order to display the category in</value>
+  </data>
+  <data name="labelOrder.Text" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="labelParentCategory.Help" xml:space="preserve">
+    <value>The parent category of this category</value>
+  </data>
+  <data name="labelParentCategory.Text" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="lblRecursionWarning.Text" xml:space="preserve">
+    <value>Recursive category relationship detected.  Please specify a &lt;br/&gt;different parent category.</value>
+  </data>
+  <data name="None.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="validatorOrder.Text" xml:space="preserve">
+    <value>Error! Please enter a valid order.</value>
+  </data>
+  <data name="validatorRequireOrder.Text" xml:space="preserve">
+    <value>* Order is required.</value>
+  </data>
+  <data name="valReqCategoryName.Text" xml:space="preserve">
+    <value>* Category name is required.</value>
+  </data>
+  <data name="ErrorDelete.Text" xml:space="preserve">
+    <value>This category cannot be removed! Possible causes: one or more sub categories are dependent. One or more products are dependent.</value>
+  </data>
+  <data name="DeleteItem.Text" xml:space="preserve">
+    <value>Delete Category?</value>
+  </data>
+  <data name="Parent.Header" xml:space="preserve">
+    <value>Parent</value>
+  </data>
+  <data name="Category.Header" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Description.Header" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Archived.Header" xml:space="preserve">
+    <value>Archived</value>
+  </data>
+  <data name="Products.Header" xml:space="preserve">
+    <value>Products</value>
+  </data>  
+  <data name="cmdAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+    <data name="cmdRemove.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+    <data name="plProductTemplate.Text" xml:space="preserve">
+    <value>Product Display Template</value>
+  </data>
+  <data name="plProductTemplate.Help" xml:space="preserve">
+    <value>If you want the products in this category to display with a special template select it here or select "Default" to use the default template.</value>
+  </data>
+  <data name="Default.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="plListItemTemplate.Text" xml:space="preserve">
+    <value>List Template</value>
+  </data>
+  <data name="plListItemTemplate.Help" xml:space="preserve">
+    <value>If you want the products in this category to display with a special template when listing select it here or select "Default" to use the default template.</value>
+  </data>
+  <data name="plListAltItemTemplate.Text" xml:space="preserve">
+    <value>List Alternate Template</value>
+  </data>
+  <data name="plListAltItemTemplate.Help" xml:space="preserve">
+    <value>If you want the products in this category to display with a special template when listing select it here or select "Default" to use the default template.</value>
+  </data>
+  <data name="labelHide.Text" xml:space="preserve">
+    <value>Special Hidden Category</value>
+  </data>
+  <data name="labelHide.Help" xml:space="preserve">
+    <value>This will hide the category in the category menu, it can then be used as a promotional group category.</value>
+  </data>
+  <data name="AddImage.Text" xml:space="preserve">
+    <value>Attach Image</value>
+  </data>
+  <data name="Products.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="lblGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="lblProducts.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="cmdSelectProducts.Text" xml:space="preserve">
+    <value>Select Products</value>
+  </data>
+  <data name="cmdClearProducts.Text" xml:space="preserve">
+    <value>Clear All Products</value>
+  </data>
+  <data name="cmdClearProductsMsg.Text" xml:space="preserve">
+    <value>Clear All Products from the Category?</value>
+  </data>
+  <data name="cmdRemoveFromCatMsg.Text" xml:space="preserve">
+    <value>Remove Product from the Category?</value>
+  </data>
+</root>

@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plTemplate.Text" xml:space="preserve">
+    <value>List Template</value>
+  </data>
+  <data name="plTemplate.Help" xml:space="preserve">
+    <value>Name of item template to be used for product list items</value>
+  </data>  
+  <data name="plAlterTemplate.Text" xml:space="preserve">
+    <value>Alternating Template</value>
+  </data>
+  <data name="plAlterTemplate.Help" xml:space="preserve">
+    <value>Name of alternating item template to be used for product list items</value>
+  </data>
+  <data name="plThumbnailSize.Text" xml:space="preserve">
+    <value>List Thumbnail Size</value>
+  </data>
+  <data name="plThumbnailSize.Help" xml:space="preserve">
+    <value>Size of Thumbnail to be displayed in List View. This can be a single numeric (e.g. 150) to resize proportional or a crop of an image (e.g. 50x100)</value>
+  </data>
+
+  <data name="plDetailThumbnailSize.Text" xml:space="preserve">
+    <value>Detail Image Size</value>
+  </data>
+  <data name="plDetailThumbnailSize.Help" xml:space="preserve">
+    <value>Size of image to be displayed in Detail View</value>
+  </data>
+
+  <data name="plPageSize.Text" xml:space="preserve">
+    <value>Page Size</value>
+  </data>
+  <data name="plPageSize.Help" xml:space="preserve">
+    <value>Number of products to be displayed on page. If set to -1 product paging will be turned off.</value>
+  </data>
+  <data name="plColumns.Text" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="plColumns.Help" xml:space="preserve">
+    <value>Number of columns to be displayed</value>
+  </data>
+  <data name="plDirection.Text" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="plDirection.Help" xml:space="preserve">
+    <value>Direction the products will be displayed.</value>
+  </data>
+  <data name="plDetailTemplate.Text" xml:space="preserve">
+    <value>Detail Template</value>
+  </data>
+  <data name="plDetailTemplate.Help" xml:space="preserve">
+    <value>Name of template to be used for product details</value>
+  </data>
+  <data name="plDefaultCategory.Text" xml:space="preserve">
+    <value>Default Category</value>
+  </data>
+  <data name="plDefaultCategory.Help" xml:space="preserve">
+    <value>Default Category to be used when no category specified in URL</value>
+  </data>
+  <data name="plCssBuyButton.Text" xml:space="preserve">
+    <value>Add to Cart CSS</value>
+  </data>
+  <data name="plCssBuyButton.Help" xml:space="preserve">
+    <value>Enter the name of the css to use with the "Add to Cart" button.</value>
+  </data>
+  <data name="plDirectCartAdd.Text" xml:space="preserve">
+    <value>Add Directly to Cart</value>
+  </data>
+  <data name="plDirectCartAdd.Help" xml:space="preserve">
+    <value>When the buy button is clicked on a product without options it is added to the cart without going to the details page.</value>
+  </data>
+  <data name="plRedirectToCart.Text" xml:space="preserve">
+    <value>Re-Direct to Cart</value>
+  </data>
+  <data name="plRedirectToCart.Help" xml:space="preserve">
+    <value>After buying a product redirect the client to their cart.</value>
+  </data>
+  <data name="plTabList.Text" xml:space="preserve">
+    <value>Checkout(Cart) Tab</value>
+  </data>
+  <data name="plTabList.Help" xml:space="preserve">
+    <value>Name of the Checkout (Cart) Tab.</value>
+  </data>
+  <data name="plCategoryMessage.Text" xml:space="preserve">
+    <value>Show Category Message</value>
+  </data>
+  <data name="plCategoryMessage.Help" xml:space="preserve">
+    <value>Show the Category message if 'Never'= Never show message, 'Always' = Always show message, 'Empty'= Only show message if category has no products.</value>
+  </data>
+  <data name="plGalleryThumbnailSize.Text" xml:space="preserve">
+    <value>Gallery Image Size</value>
+  </data>
+  <data name="plGalleryThumbnailSize.Help" xml:space="preserve">
+    <value>Size of images to be displayed by Gallery</value>
+  </data>
+  <data name="plFeatured.Text" xml:space="preserve">
+    <value>Featured Only</value>
+  </data>
+  <data name="plFeatured.Help" xml:space="preserve">
+    <value>Only List Products that have the been marked as featured.</value>
+  </data>
+  <data name="plProductTabList.Text" xml:space="preserve">
+    <value>Product Detail Tab</value>
+  </data>
+  <data name="plProductTabList.Help" xml:space="preserve">
+    <value>Name of the Product Detail Tab.</value>
+  </data>
+  <data name="plSep1.Text" xml:space="preserve">
+    <value>Product Seperator HTML</value>
+  </data>
+  <data name="plSep1.Help" xml:space="preserve">
+    <value>HTML Codefor the Product Seperator</value>
+  </data>
+  <data name="plIncrementCart.Text" xml:space="preserve">
+    <value>Increment Cart</value>
+  </data>
+  <data name="plIncrementCart.Help" xml:space="preserve">
+    <value>If a product is already in the cart, the new quantity will be added to the existing quantity.</value>
+  </data>
+  <data name="plTabDefaultRedirect.Text" xml:space="preserve">
+    <value>Default Return</value>
+  </data>
+  <data name="plTabDefaultRedirect.Help" xml:space="preserve">
+    <value>The default return tab from the product detail view.</value>
+  </data>
+  <data name="plchkTabDefaultRedirect.Text" xml:space="preserve">
+    <value>Use Params on Redirect</value>
+  </data>
+  <data name="plchkTabDefaultRedirect.Help" xml:space="preserve">
+    <value>Pass currentpage and catid parameters in URL after a purchase.</value>
+  </data>
+  <data name="plColWidth.Text" xml:space="preserve">
+    <value>Column Width</value>
+  </data>
+  <data name="plColWidth.Help" xml:space="preserve">
+    <value>Enter if you require a set column width. (e.g. "372px")</value>
+  </data>
+  <data name="plIndexProducts.Text" xml:space="preserve">
+    <value>Index Module</value>
+  </data>
+  <data name="plIndexProducts.Help" xml:space="preserve">
+    <value>Do DNN indexing on the products in this module.  You may wish to turn off indexing if you have multiple products list modules, as this may create duplicate entries in the DNN index. NOTE: This option is no longer needed for NB_Store product searches.</value>
+  </data>
+  <data name="plReturnLimit.Text" xml:space="preserve">
+    <value>Return Limit</value>
+  </data>
+  <data name="plReturnLimit.Help" xml:space="preserve">
+    <value>The maximum amount of products that will be retrieved by the SQL.  If set to 0 all products are returned.  For stores with large amounts of products this can reduce the load on the server.</value>
+  </data>
+  <data name="plDefaultOrder.Text" xml:space="preserve">
+    <value>Default Sort Order</value>
+  </data>
+  <data name="plDefaultOrder.Help" xml:space="preserve">
+    <value>The default sort order of the product list.</value>
+  </data>
+  <data name="DefaultOrderList.Text" xml:space="preserve">
+    <value>Manufacturer,Product Name,Product Ref,Product Price</value>
+  </data>
+  <data name="plDefaultOrderDESC.Text" xml:space="preserve">
+    <value>Order Descending</value>
+  </data>
+  <data name="plDefaultOrderDESC.Help" xml:space="preserve">
+    <value>Default Order Descending</value>
+  </data>
+  <data name="plBrowseMode.Help" xml:space="preserve">
+    <value>Please select the method you'd like to use for browsing the products</value>
+  </data>
+  <data name="plBrowseMode.Text" xml:space="preserve">
+    <value>Browsing Mode</value>
+  </data>
+  <data name="cmdResetDefaults.Text" xml:space="preserve">
+    <value>Reset Defaults</value>
+  </data>
+  <data name="cmdResetDefaultsMsg.Text" xml:space="preserve">
+    <value>This will Reset the settings to the Store Defaults.  Are you sure?</value>
+  </data>
+  <data name="plSkipList.Text">
+    <value>Skip List</value>
+  </data>
+  <data name="plSkipList.Help">
+    <value>If only 1 product exist in the product list to be displayed, display the product directly without displaying the list.</value>
+  </data>
+  <data name="plModuleTitle.Text">
+    <value>Module Title</value>
+  </data>
+  <data name="plModuleTitle.Help">
+    <value>Select the text to be displayed as the module title.</value>
+  </data>
+
+  <data name="plShowSubMenu.Text" xml:space="preserve">
+    <value>Show Sub Menu</value>
+  </data>
+  <data name="plShowSubMenu.Help" xml:space="preserve">
+    <value>Shows the sub category menu when the category your browsing has subcateories and the category message is displaying.</value>
+  </data>
+  <data name="plSubSelectCSS.Text" xml:space="preserve">
+    <value>Selected Sub CSS</value>
+  </data>
+  <data name="plSubSelectCSS.Help" xml:space="preserve">
+    <value>CSS Class for the selected sub menu category links</value>
+  </data>
+  <data name="plSubLeftHtml.Text" xml:space="preserve">
+    <value>Sub Left Html</value>
+  </data>
+  <data name="plSubLeftHtml.Help" xml:space="preserve">
+    <value>Html for the Left of the Sub Category Link</value>
+  </data>
+  <data name="plSubRightHtml.Text" xml:space="preserve">
+    <value>Sub Right Html</value>
+  </data>
+  <data name="plSubRightHtml.Help" xml:space="preserve">
+    <value>Html for the Right of the Sub Category Link</value>
+  </data>
+  <data name="plSubHeadHtml.Text" xml:space="preserve">
+    <value>Sub Title Html</value>
+  </data>
+  <data name="plSubHeadHtml.Help" xml:space="preserve">
+    <value>Html for the Title of the Sub Category, use [TAG:PARENTNAME]</value>
+  </data>
+  <data name="plSubNameTemplate.Text" xml:space="preserve">
+    <value>Sub Name Template</value>
+  </data>
+  <data name="plSubNameTemplate.Help" xml:space="preserve">
+    <value>HTML display template for sub menu category name, if left blank just category name will be used.  Use tokens [TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGE],[TAG:IMAGEURL],[TAG:IMAGEURLTHUMB].</value>
+  </data>
+  <data name="plSubColumns.Text" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="plSubColumns.Help" xml:space="preserve">
+    <value>Number of columns to be displayed</value>
+  </data>
+  <data name="plCSS.Text" xml:space="preserve">
+    <value>Sub Category CSS</value>
+  </data>
+  <data name="plCSS.Help" xml:space="preserve">
+    <value>CSS Class for the sub category links</value>
+  </data>
+  <data name="plSep.Text" xml:space="preserve">
+    <value>Sub Category Seperator Html</value>
+  </data>
+  <data name="plSep.Help" xml:space="preserve">
+    <value>Html Template for the sub category Seperator</value>
+  </data>
+  <data name="plSubThumbnailSize.Text" xml:space="preserve">
+    <value>Thumbnail Size</value>
+  </data>
+  <data name="plSubThumbnailSize.Help" xml:space="preserve">
+    <value>Size of Thumbnail to be displayed in sub Category Menu.</value>
+  </data>
+  <data name="plCascadeResults.Help" xml:space="preserve">
+    <value>All entries in all subcategories for the selected category will be displayed.</value>
+  </data>
+    <data name="plCascadeResults.Text" xml:space="preserve">
+    <value>Cascade Results</value>
+  </data>
+  <data name="plStaticTemplates.Help" xml:space="preserve">
+    <value>Overrides custom category templates applied elsewhere.</value>
+  </data>
+  <data name="plStaticTemplates.Text" xml:space="preserve">
+    <value>Static Templates</value>
+  </data>
+  <data name="plStaticListView.Help" xml:space="preserve">
+    <value>Only display the list view, never the detail product view.</value>
+  </data>
+  <data name="plStaticListView.Text" xml:space="preserve">
+    <value>List View Only</value>
+  </data>
+
+  <data name="plItemStyleCssClass.Text" xml:space="preserve">
+    <value>ItemStyle-CssClass</value>
+  </data>
+  <data name="plItemStyleCssClass.Help" xml:space="preserve">
+    <value>Data List property ItemStyle-CssClass</value>
+  </data>
+  <data name="plAlternatingItemStyleCssClass.Text" xml:space="preserve">
+    <value>AlternatingItemStyle-CssClass</value>
+  </data>
+  <data name="plAlternatingItemStyleCssClass.Help" xml:space="preserve">
+    <value>Data List property AlternatingItemStyle-CssClass</value>
+  </data>
+  <data name="plCellPadding.Text" xml:space="preserve">
+    <value>CellPadding</value>
+  </data>
+  <data name="plCellPadding.Help" xml:space="preserve">
+    <value>Data List property CellPadding</value>
+  </data>
+  <data name="plCellSpacing.Text" xml:space="preserve">
+    <value>CellSpacing</value>
+  </data>
+  <data name="plCellSpacing.Help" xml:space="preserve">
+    <value>Data List property CellSpacing</value>
+  </data>
+  <data name="plItemStyleHorizontalAlign.Text" xml:space="preserve">
+    <value>ItemStyle-HorizontalAlign</value>
+  </data>
+  <data name="plItemStyleHorizontalAlign.Help" xml:space="preserve">
+    <value>Data List property ItemStyle-HorizontalAlign</value>
+  </data>
+  <data name="plItemStyleHeight.Text" xml:space="preserve">
+    <value>ItemStyle-Height</value>
+  </data>
+  <data name="plItemStyleHeight.Help" xml:space="preserve">
+    <value>Data List property ItemStyle-Height</value>
+  </data>
+  <data name="plCssClass.Text" xml:space="preserve">
+    <value>List CssClass</value>
+  </data>
+  <data name="plCssClass.Help" xml:space="preserve">
+    <value>Data List property CssClass</value>
+  </data>
+
+  <data name="plExcludeFeatured.Text" xml:space="preserve">
+    <value>Exclude Featured</value>
+  </data>
+  <data name="plExcludeFeatured.Help" xml:space="preserve">
+    <value>Exclude Featured products from the product list.</value>
+  </data>
+
+  <data name="plExcludeProduct.Text" xml:space="preserve">
+    <value>Exclude Product</value>
+  </data>
+  <data name="plExcludeProduct.Help" xml:space="preserve">
+    <value>Excludes the current selected details product or the default product (1st in list order) from the product list.</value>
+  </data>
+
+  <data name="plHeaderText.Text" xml:space="preserve">
+    <value>Header Text</value>
+  </data>
+  <data name="plHeaderText.Help" xml:space="preserve">
+    <value>Text template to be display at the top of the module.</value>
+  </data>
+
+  <data name="plListHeaderText.Text" xml:space="preserve">
+    <value>List Header Text</value>
+  </data>
+  <data name="plListHeaderText.Help" xml:space="preserve">
+    <value>Text template to be display at the top of the Product List.</value>
+  </data>
+  <data name="plDetailHeaderText.Text" xml:space="preserve">
+    <value>Detail Header Text</value>
+  </data>
+  <data name="plDetailHeaderText.Help" xml:space="preserve">
+    <value>Text template to be display at the top of the Product Detail.</value>
+  </data>
+  <data name="plTableWidth.Text" xml:space="preserve">
+    <value>Table Width</value>
+  </data>
+  <data name="plTableWidth.Help" xml:space="preserve">
+    <value>Table width of Product List, leave blank to not set.</value>
+  </data>
+  <data name="plLayout.Text" xml:space="preserve">
+    <value>List Layout</value>
+  </data>
+  <data name="plLayout.Help" xml:space="preserve">
+    <value>Data list Layout method, default table.</value>
+  </data>
+</root>

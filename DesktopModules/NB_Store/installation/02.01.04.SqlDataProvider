@@ -1,0 +1,1025 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    TABLE Start                                   *****/
+/************************************************************/
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='CompanyName')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [CompanyName] nvarchar(255) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='Extra1')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [Extra1] nvarchar(255) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='Extra2')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [Extra2] nvarchar(255) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='Extra3')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [Extra3] nvarchar(255) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='Extra4')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [Extra4] nvarchar(255) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Address]') and name='VATNumber')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Address add [VATNumber] nvarchar(50) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_ProductLang]') and name='TagWords')
+	alter table {databaseOwner}{objectQualifier}NB_Store_ProductLang add [TagWords] nvarchar(255) null
+go
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Address_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Address_Update]
+GO
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Address_Update]
+(
+@AddressID int,
+@PortalID int,
+@UserID int,
+@AddressDescription nvarchar(100),
+@AddressName nvarchar(50),
+@Address1 nvarchar(100),
+@Address2 nvarchar(100),
+@City nvarchar(100),
+@RegionCode nvarchar(100),
+@CountryCode nvarchar(100),
+@PostalCode nvarchar(10),
+@Phone1 nvarchar(20),
+@Phone2 nvarchar(20),
+@PrimaryAddress bit,
+@CreatedByUser nvarchar(100),
+@CreatedDate datetime,
+@OrderID int,
+@CompanyName nvarchar(255),
+@Extra1 nvarchar(255),
+@Extra2 nvarchar(255),
+@Extra3 nvarchar(255),
+@Extra4 nvarchar(255)
+)
+AS
+BEGIN
+
+	if not exists (select AddressID from {databaseOwner}[{objectQualifier}NB_Store_Address] where AddressID = @AddressID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Address]
+		(
+		PortalID,
+		UserID,
+		AddressDescription,
+		AddressName,
+		Address1,
+		Address2,
+		City,
+		RegionCode,
+		CountryCode,
+		PostalCode,
+		Phone1,
+		Phone2,
+		PrimaryAddress,
+		CreatedByUser,
+		CreatedDate,
+		OrderID,
+		CompanyName,
+		Extra1,
+		Extra2,
+		Extra3,
+		Extra4
+		)
+		values
+		(
+		@PortalID,
+		@UserID,
+		@AddressDescription,
+		@AddressName,
+		@Address1,
+		@Address2,
+		@City,
+		@RegionCode,
+		@CountryCode,
+		@PostalCode,
+		@Phone1,
+		@Phone2,
+		@PrimaryAddress,
+		@CreatedByUser,
+		@CreatedDate,
+		@OrderID,
+		@CompanyName,
+		@Extra1,
+		@Extra2,
+		@Extra3,
+		@Extra4
+		)
+
+		set @AddressID = @@Identity
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Address]
+		set 
+		PortalID = @PortalID,
+		UserID = @UserID,
+		AddressDescription = @AddressDescription,
+		AddressName = @AddressName,
+		Address1 = @Address1,
+		Address2 = @Address2,
+		City = @City,
+		RegionCode = @RegionCode,
+		CountryCode = @CountryCode,
+		PostalCode = @PostalCode,
+		Phone1 = @Phone1,
+		Phone2 = @Phone2,
+		PrimaryAddress = @PrimaryAddress,
+		CreatedByUser = @CreatedByUser,
+		CreatedDate = @CreatedDate,
+		OrderID = @OrderID,
+		CompanyName = @CompanyName,
+		Extra1 = @Extra1,
+		Extra2 = @Extra2,
+		Extra3 = @Extra3,
+		Extra4 = @Extra4
+
+		where AddressID = @AddressID 
+	end
+
+	exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Address_Get @AddressID
+
+END
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]
+(
+@ProductID int,
+@Lang char(5),
+@Summary nvarchar(1000),
+@Description ntext,
+@Manufacturer nvarchar(50),
+@ProductName nvarchar(50),
+@XMLdata xml,
+@SEOName nvarchar(150),
+@TagWords nvarchar(255)
+)
+AS
+BEGIN
+
+	if not exists (select ProductID from {databaseOwner}[{objectQualifier}NB_Store_ProductLang] where ProductID = @ProductID and Lang = @Lang)
+	begin
+
+		insert into {databaseOwner}[{objectQualifier}NB_Store_ProductLang]
+		(
+		ProductID,
+		Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		ProductName,
+		[XMLdata],
+		SEOName,
+		TagWords
+		)
+		values
+		(
+		@ProductID,
+		@Lang,
+		@Summary,
+		@Description,
+		@Manufacturer,
+		@ProductName,
+		@XMLdata,
+		@SEOName,
+		@TagWords
+		)
+
+	end
+	else
+	begin
+
+		Update {databaseOwner}[{objectQualifier}NB_Store_ProductLang]
+		set 
+		Summary = @Summary,
+		Description = @Description,
+		Manufacturer = @Manufacturer,
+		ProductName = @ProductName,
+		[XMLdata] = @XMLdata,
+		SEOName = @SEOName,
+		TagWords = @TagWords
+		where ProductID = @ProductID
+		and Lang = @Lang
+ 
+	end
+
+END
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Delete]
+GO
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Delete]
+@ProductID int
+
+AS
+begin
+
+delete from {databaseOwner}{objectQualifier}NB_Store_CartItems
+where ModelID in (select modelid from {databaseOwner}{objectQualifier}NB_Store_Model where productID = @ProductID)
+
+delete from {databaseOwner}{objectQualifier}NB_Store_ProductImage
+where ProductID = @ProductID
+
+	delete from {databaseOwner}[{objectQualifier}NB_Store_Products] 
+where ProductID = @ProductID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]
+@ProductID int,
+@Lang char(5)
+AS
+begin
+	select 
+		P.ProductID,
+		PortalID,
+		P.TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		ModifiedDate,
+		IsDeleted,
+		ProductRef,
+		PL.Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		{databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,
+		isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,
+	    isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,
+		(select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageID,
+		(select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageURL,
+		(select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID order by listorder) as ImageDesc,
+		PL.ProductName,
+		PL.[XMLData], PL.SEOName, PL.TagWords
+	from {databaseOwner}[{objectQualifier}NB_Store_Products] as P
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = @Lang
+	where P.ProductID = @ProductID
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]
+@PortalID int,
+@ProductRef nvarchar(20),
+@Lang char(5)
+AS
+begin
+	select top 1 
+		P.ProductID,
+		PortalID,
+		P.TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		ModifiedDate,
+		IsDeleted,
+		ProductRef,
+		Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		{databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,
+		isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,
+	    isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,
+		(select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID) as ImageID,
+		(select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID) as ImageURL,
+		(select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID) as ImageDesc,
+		PL.ProductName,
+		PL.[XMLData],PL.SEOName ,PL.TagWords
+	from {databaseOwner}[{objectQualifier}NB_Store_Products] as P
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = @Lang
+	where P.ProductRef = @ProductRef
+	and P.PortalID = @PortalID
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]
+@PortalID int,
+@Lang nvarchar(5),
+@GetDeletedOnly bit
+AS
+begin
+
+	declare @SQL nvarchar(2000)
+
+	set @SQL = 'select' 
+	set @SQL = @SQL + ' P.ProductID,'
+	set @SQL = @SQL + ' PortalID,'
+	set @SQL = @SQL + ' P.TaxCategoryID,'
+	set @SQL = @SQL + ' Featured,'
+	set @SQL = @SQL + ' Archived,'
+	set @SQL = @SQL + ' CreatedByUser,'
+	set @SQL = @SQL + ' CreatedDate,'
+	set @SQL = @SQL + ' ModifiedDate,'
+	set @SQL = @SQL + ' IsDeleted,'
+	set @SQL = @SQL + ' ProductRef,'
+	set @SQL = @SQL + ' Lang,'
+	set @SQL = @SQL + ' Summary,'
+	set @SQL = @SQL + ' Description,'
+	set @SQL = @SQL + ' Manufacturer,'
+	set @SQL = @SQL + ' PL.ProductName,'		
+	set @SQL = @SQL + ' PL.[XMLData],SEOName,TagWords '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+
+	if @GetDeletedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.IsDeleted = 1 '
+	end
+
+	set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef,PL.ProductName'
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]
+GO
+
+
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]
+@PortalID int,
+@CategoryID int,
+@Lang char(5),
+@Filter nvarchar(50),
+@GetArchived bit,
+@FeaturedOnly bit,
+@OrderBy nvarchar(50),
+@OrderDESC bit,
+@ReturnLimit nvarchar(5),
+@PageIndex int,
+@PageSize int,
+@SearchDescription bit,
+@IsDealer bit ,
+@CategoryList nvarchar(1000)
+AS
+begin
+
+	declare @SQL nvarchar(4000)
+
+set @SQL = ' SELECT '
+if @ReturnLimit > 0 
+begin
+	set @SQL = @SQL + ' top ' + @ReturnLimit
+end
+set @SQL = @SQL + ' row,ProductID,PortalID,TaxCategoryID,Featured,Archived,CreatedByUser,CreatedDate,IsDeleted,ProductRef,Lang,Summary,[Description],Manufacturer,FromPrice,QtyRemaining,ImageID,ImageURL,ImageDesc,ProductName,[XMLData],SEOName,TagWords  '
+set @SQL = @SQL + ' FROM ' 
+set @SQL = @SQL + ' (select ROW_NUMBER() OVER ('
+
+	if @OrderBy='man'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.Manufacturer DESC,P.ProductRef DESC'
+		else
+			set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef'
+	end
+	if @OrderBy='ref'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by P.ProductRef DESC,PL.Manufacturer DESC'
+		else
+			set @SQL = @SQL + ' order by P.ProductRef,PL.Manufacturer'
+	end
+	if @OrderBy='name'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.ProductName DESC,PL.Manufacturer DESC'
+		else
+			set @SQL = @SQL + ' order by PL.ProductName,PL.Manufacturer'
+	end
+	if @OrderBy='price'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) DESC,PL.Manufacturer DESC,P.ProductRef DESC'
+		else
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID),PL.Manufacturer,P.ProductRef'
+	end
+	if @OrderBy='cdate'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by P.CreatedDate DESC'
+		else
+			set @SQL = @SQL + ' order by P.CreatedDate'
+	end
+	if @OrderBy=''
+	begin
+		set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef'
+	end
+	set @SQL = @SQL + ') AS row, '
+	set @SQL = @SQL + ' P.ProductID,'
+	set @SQL = @SQL + ' PortalID,'
+	set @SQL = @SQL + ' P.TaxCategoryID,'
+	set @SQL = @SQL + ' Featured,'
+	set @SQL = @SQL + ' Archived,'
+	set @SQL = @SQL + ' CreatedByUser,'
+	set @SQL = @SQL + ' CreatedDate,'
+	set @SQL = @SQL + ' ModifiedDate,'
+	set @SQL = @SQL + ' IsDeleted,'
+	set @SQL = @SQL + ' ProductRef,'
+	set @SQL = @SQL + ' Lang,'
+	set @SQL = @SQL + ' Summary,'
+	set @SQL = @SQL + ' Description,'
+	set @SQL = @SQL + ' Manufacturer,'
+	set @SQL = @SQL + ' {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,'
+	set @SQL = @SQL + ' isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,'
+	set @SQL = @SQL + ' isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,'
+	set @SQL = @SQL + ' (select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageID,'
+	set @SQL = @SQL + ' (select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageURL,'
+	set @SQL = @SQL + ' (select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID order by listorder) as ImageDesc,'
+	set @SQL = @SQL + ' PL.ProductName,'
+	set @SQL = @SQL + ' PL.[XMLData], SEOName, TagWords '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+
+	if (@CategoryID > 0 and @Filter = '')
+	begin
+		set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID '
+	end	
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+	if @IsDealer=0
+	begin
+		set @SQL = @SQL + ' and P.ProductID in (select M.ProductID from {databaseOwner}{objectQualifier}NB_Store_Model as M where M.ProductID = P.ProductID and DealerOnly = 0) '
+	end
+
+	if @FeaturedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.Featured = 1 '
+	end
+
+	if @GetArchived = 0
+	begin
+		set @SQL = @SQL + ' and not P.IsDeleted = 1 and  not P.Archived = 1'
+	end
+
+	if (@CategoryID >= 0 and @CategoryList = '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(5),@CategoryID)
+	end
+
+	if (@CategoryID >= 0 and @CategoryList != '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID in (' + convert(nvarchar(1000),@CategoryList) + ')'
+	end
+
+	if @Filter != ''
+	begin
+		set @SQL = @SQL + ' and (PL.ProductName like ''%' + @Filter + '%'' or P.ProductRef like ''%' + @Filter + '%'' or PL.Summary like ''%' + @Filter + '%'' or PL.Manufacturer like ''%' + @Filter + '%'' or PL.TagWords like ''%' + @Filter + '%''  '
+
+		if @SearchDescription = 1
+		begin
+			set @SQL = @SQL + ' or PL.Description like ''%' + @Filter + '%'' '
+		end
+
+		set @SQL = @SQL + ')'
+	end
+
+set @SQL = @SQL + ') AS NB_Store_ProductsPage '
+
+if @PageSize > 0 
+begin
+	set @SQL = @SQL + ' WHERE Row between ((' + convert(nvarchar(5),(@PageIndex - 1)) + ' * ' + convert(nvarchar(5),@PageSize) + ') + 1) and ' + convert(nvarchar(5),(@PageIndex*@PageSize))
+end
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]
+GO
+
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]
+@PortalID int,
+@CategoryID int,
+@Lang char(5),
+@Filter nvarchar(50),
+@GetArchived bit,
+@FeaturedOnly bit,
+@SearchDescription bit,
+@IsDealer bit,
+@CategoryList nvarchar(1000)
+AS
+begin
+
+	declare @SQL nvarchar(2000)
+
+set @SQL = 'select count(P.productid) '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+
+	if (@CategoryID > 0 and @Filter = '')
+	begin
+		set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID '
+	end	
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+	if @IsDealer=0
+	begin
+		set @SQL = @SQL + ' and P.ProductID in (select M.ProductID from {databaseOwner}{objectQualifier}NB_Store_Model as M where M.ProductID = P.ProductID and DealerOnly = 0) '
+	end
+
+	if @FeaturedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.Featured = 1 '
+	end
+
+	if @GetArchived = 0
+	begin
+		set @SQL = @SQL + ' and not P.IsDeleted = 1 and  not P.Archived = 1'
+	end
+
+	if (@CategoryID >= 0 and @CategoryList = '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(5),@CategoryID)
+	end
+
+	if (@CategoryID >= 0 and @CategoryList != '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID in (' + convert(nvarchar(1000),@CategoryList) + ')'
+	end
+
+
+	if @Filter != ''
+	begin
+		set @SQL = @SQL + ' and (PL.ProductName like ''%' + @Filter + '%'' or P.ProductRef like ''%' + @Filter + '%'' or PL.Summary like ''%' + @Filter + '%'' or PL.Manufacturer like ''%' + @Filter + '%'' or PL.TagWords like ''%' + @Filter + '%''  '
+
+		if @SearchDescription = 1
+		begin
+			set @SQL = @SQL + ' or PL.Description like ''%' + @Filter + '%'' '
+		end
+
+		set @SQL = @SQL + ')'
+	end
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]
+GO
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.04
+*/
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]
+(
+@ProductID int,
+@PortalID int,
+@TaxCategoryID int,
+@Featured bit,
+@Archived bit,
+@CreatedByUser nvarchar(100),
+@CreatedDate datetime,
+@IsDeleted bit,
+@ProductRef nvarchar(20),
+@Lang char(5),
+@Summary nvarchar(1000),
+@Description ntext,
+@Manufacturer nvarchar(50),
+@ProductName nvarchar(50),
+@XMLdata xml,
+@SEOName nvarchar(150),
+@TagWords nvarchar(255)
+)
+AS
+BEGIN
+
+	if not exists (select ProductID from {databaseOwner}[{objectQualifier}NB_Store_Products] where ProductID = @ProductID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Products]
+		(
+		PortalID,
+		TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		IsDeleted,
+		ProductRef,
+		ModifiedDate
+		)
+		values
+		(
+		@PortalID,
+		@TaxCategoryID,
+		@Featured,
+		@Archived,
+		@CreatedByUser,
+		@CreatedDate,
+		@IsDeleted,
+		@ProductRef,
+		getdate()
+		)
+
+		set @ProductID = @@Identity
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Products]
+		set 
+		PortalID = @PortalID,
+		TaxCategoryID = @TaxCategoryID,
+		Featured = @Featured,
+		Archived = @Archived,
+		CreatedByUser = @CreatedByUser,
+		CreatedDate = @CreatedDate,
+		IsDeleted = @IsDeleted,
+		ProductRef = @ProductRef,
+		ModifiedDate = getdate()
+		where ProductID = @ProductID
+ 
+	end
+
+exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_ProductLang_Update @ProductID, @Lang, @Summary, @Description, @Manufacturer, @ProductName, @XMLdata, @SEOName, @TagWords
+
+exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Products_Get @ProductID, @Lang
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+/************************************************************/
+/*****    DB UPDATE Start                               *****/
+/************************************************************/
+
+
+/************************************************************/
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/notifications','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'chqpayment.emailsubject' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'chqpayment.emailsubject' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/notifications','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'ordershipped.emailsubject' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'ordershipped.emailsubject' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/notifications','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'ordervalidated.emailsubject' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'ordervalidated.emailsubject' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/notifications','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'paymentOK.emailsubject' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'paymentOK.emailsubject' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/notifications','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'paymentunverified.emailsubject' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'paymentunverified.emailsubject' 
+
+
+insert into {databaseOwner}{objectQualifier}NB_Store_Settings (PortalID,SettingName,Lang,SettingValue,HostOnly,GroupRef,CtrlType)
+select PortalID,'taxexempt.list',Lang,SettingValue,HostOnly,'root/payment/pricing','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'exempttax.list' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'exempttax.list' 
+
+
+
+
+/************************************************************/
+ 

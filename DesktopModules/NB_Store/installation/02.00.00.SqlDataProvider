@@ -1,0 +1,683 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    Table Start                                   *****/
+/************************************************************/
+
+
+if not exists (select * from dbo.syscolumns where id=object_id('{databaseOwner}[{objectQualifier}NB_Store_Cart]') and name='CartDiscount')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Cart add CartDiscount money null
+go
+
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Promo]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_Promo]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_Promo] (
+	[PromoID] [int] IDENTITY (1, 1) NOT NULL ,
+	[PortalID] [int] NULL ,
+	[ObjectID] [int] NULL ,
+	[PromoName] [nvarchar] (50)  NULL ,
+	[PromoType] [nvarchar] (10)  NULL ,
+	[Range1] [decimal](16, 2) NULL ,
+	[Range2] [decimal](16, 2) NULL ,
+	[RangeStartDate] [datetime] NULL ,
+	[RangeEndDate] [datetime] NULL ,
+	[PromoAmount] [decimal](16, 2) NULL ,
+	[PromoPercent] [int] NULL ,
+	[Disabled] [bit] NULL ,
+	[PromoCode] [nvarchar] (50)  NULL ,
+	[PromoGroup] [nvarchar] (50)  NULL ,
+	[PromoUser] [nvarchar] (50)  NULL ,
+	[QtyRange1] [int] NULL ,
+	[QtyRange2] [int] NULL ,
+	[PromoEmail] [nvarchar] (150)  NULL ,
+	[XMLData] [xml] NULL ,
+	CONSTRAINT [PK_NB_Store_DiscountRateInfo] PRIMARY KEY  CLUSTERED 
+	(
+		[PromoID]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+GO
+
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SaleRates]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_SaleRates]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_SaleRates] (
+	[ItemID] [int] IDENTITY (1, 1) NOT NULL ,
+	[CacheKey] [nvarchar] (50)  NULL ,
+	[PortalID] [int] NULL ,
+	[RoleName] [nvarchar] (50)  NULL ,
+	[CategoryID] [int] NULL ,
+	[ModelID] [int] NULL ,
+	[SalePrice] [decimal](16, 2) NULL ,
+	CONSTRAINT [PK_NB_Store_SaleRates] PRIMARY KEY  CLUSTERED 
+	(
+		[ItemID]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+GO
+
+
+
+
+/************************************************************/
+/*****    Table End                                     *****/
+/************************************************************/
+
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Cart_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Cart_Update]
+GO
+
+
+
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Cart_Update]
+(
+@CartID nvarchar(50),
+@PortalID int,
+@UserID int,
+@DateCreated datetime,
+@OrderID int,
+@VATNumber nvarchar(50),
+@PromoCode nvarchar(50),
+@CountryCode nvarchar(5),
+@ShipType nvarchar(5),
+@BankTransID int,
+@BankHtmlRedirect nvarchar(4000),
+@ShipMethodID int,
+@CartDiscount money
+)
+AS
+BEGIN
+
+	if not exists (select CartID from {databaseOwner}[{objectQualifier}NB_Store_Cart] where CartID = @CartID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Cart]
+		(
+		CartID,
+		PortalID,
+		UserID,
+		DateCreated,
+		OrderID,
+		VATNumber,
+		PromoCode,
+		CountryCode,
+		ShipType,
+		BankTransID,
+		BankHtmlRedirect,
+		ShipMethodID,
+		CartDiscount
+		)
+		values
+		(
+		@CartID,
+		@PortalID,
+		@UserID,
+		@DateCreated,
+		@OrderID,
+		@VATNumber,
+		@PromoCode,
+		@CountryCode,
+		@ShipType,
+		@BankTransID,
+		@BankHtmlRedirect,
+		@ShipMethodID,
+		@CartDiscount
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Cart]
+		set 
+		PortalID = @PortalID,
+		UserID = @UserID,
+		DateCreated = @DateCreated,
+		OrderID = @OrderID,
+		VATNumber = @VATNumber,
+		PromoCode = @PromoCode,
+		CountryCode = @CountryCode,
+		ShipType = @ShipType,
+		BankTransID = @BankTransID,
+		BankHtmlRedirect = @BankHtmlRedirect,
+		ShipMethodID = @ShipMethodID,
+		CartDiscount = @CartDiscount
+		where CartID = @CartID
+ 
+	end
+
+END
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]
+GO
+
+
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]
+@CartID nvarchar(50)
+AS
+begin
+	select ItemID,
+ItemDesc,
+UnitCost,
+Quantity,
+(Quantity * UnitCost) as SubTotal,
+ProductURL
+	from {databaseOwner}[{objectQualifier}NB_Store_CartItems] 
+	where CartID = @CartID
+end
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Delete]
+GO
+
+
+-- Batch submitted through debugger: SQLQuery1.sql|98|0|C:\Documents and Settings\DCL\Local Settings\Temp\~vs62.sql
+
+CREATE   PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Promo_Delete
+@PromoID int
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_Promo] 
+	where PromoID = @PromoID
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Get]
+GO
+
+
+-- Batch submitted through debugger: SQLQuery1.sql|109|0|C:\Documents and Settings\DCL\Local Settings\Temp\~vs62.sql
+
+CREATE     PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Promo_Get
+@PromoID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_Promo] 
+	where PromoID = @PromoID
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_GetList]
+GO
+
+
+-- Batch submitted through debugger: SQLQuery1.sql|85|0|C:\Documents and Settings\DCL\Local Settings\Temp\~vs62.sql
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_GetList]
+@PortalID int,
+@PromoType nvarchar(10),
+@SearchText nvarchar(50),
+@GetActiveOnly bit
+AS
+begin
+
+if @GetActiveOnly = 1 
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_Promo] 
+	where PortalID = @PortalID
+	and PromoType = @PromoType
+	and [Disabled] = 0
+	and (RangeStartDate <= GETDATE() and RangeEndDate >= GETDATE())
+	and (PromoName like '%' + @SearchText + '%' or @SearchText = PromoCode or @SearchText = '')
+end
+else
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_Promo] 
+	where PortalID = @PortalID
+	and PromoType = @PromoType
+	and (PromoName like '%' + @SearchText + '%' or @SearchText = '')
+end
+
+
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Update]
+GO
+
+
+
+-- Batch submitted through debugger: SQLQuery1.sql|0|0|C:\Documents and Settings\DCL\Local Settings\Temp\~vs62.sql
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Promo_Update]
+(
+@PromoID int,
+@PortalID int,
+@ObjectID int,
+@PromoName nvarchar(50),
+@PromoType nvarchar(10),
+@Range1 decimal(16,2),
+@Range2 decimal(16,2),
+@RangeStartDate datetime,
+@RangeEndDate datetime,
+@PromoAmount decimal(16,2),
+@PromoPercent int,
+@Disabled bit,
+@PromoCode nvarchar(50),
+@PromoGroup nvarchar(50),
+@PromoUser nvarchar(50),
+@QtyRange1 int,
+@QtyRange2 int,
+@PromoEmail nvarchar(150),
+@XMLData xml
+)
+AS
+BEGIN
+
+	if not exists (select PromoID from {databaseOwner}[{objectQualifier}NB_Store_Promo] where PromoID = @PromoID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Promo]
+		(
+		PortalID,
+		ObjectID,
+		PromoName,
+		PromoType,
+		Range1,
+		Range2,
+		RangeStartDate,
+		RangeEndDate,
+		PromoAmount,
+		PromoPercent,
+		[Disabled],
+		PromoCode,
+		PromoGroup,
+		PromoUser,
+		QtyRange1,
+		QtyRange2,
+		PromoEmail,
+		XMLData
+		)
+		values
+		(
+		@PortalID,
+		@ObjectID,
+		@PromoName,
+		@PromoType,
+		@Range1,
+		@Range2,
+		@RangeStartDate,
+		@RangeEndDate,
+		@PromoAmount,
+		@PromoPercent,
+		@Disabled,
+		@PromoCode,
+		@PromoGroup,
+		@PromoUser,
+		@QtyRange1,
+		@QtyRange2,
+		@PromoEmail,
+		@XMLData
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Promo]
+		set 
+		PortalID = @PortalID,
+		ObjectID = @ObjectID,
+		PromoName = @PromoName,
+		PromoType = @PromoType,
+		Range1 = @Range1,
+		Range2 = @Range2,
+		RangeStartDate = @RangeStartDate,
+		RangeEndDate = @RangeEndDate,
+		PromoAmount = @PromoAmount,
+		PromoPercent = @PromoPercent,
+		[Disabled] = @Disabled,
+		PromoCode = @PromoCode,
+		PromoGroup = @PromoGroup,
+		PromoUser = @PromoUser,
+		QtyRange1 = @QtyRange1,
+		QtyRange2 = @QtyRange2,
+		PromoEmail = @PromoEmail,
+		XMLData = @XMLData		
+		where PromoID = @PromoID 
+	end
+
+END
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Clear]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Clear]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Clear]
+@PortalID int,
+@ModelID int
+AS
+begin
+
+if @ModelID = -1
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+	where PortalID = @PortalID
+end else
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+	where PortalID = @PortalID
+	and ModelID = @ModelID
+end
+
+ 
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Delete]
+GO
+
+
+
+CREATE   PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_SaleRates_Delete
+@ItemID int
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+where ItemID = @ItemID
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Get]
+GO
+
+
+
+CREATE     PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_SaleRates_Get
+@CacheKey int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+	where CacheKey = @CacheKey
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_GetList]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_GetList]
+@PortalID int,
+@ModelID int
+
+AS
+begin
+
+if @ModelID = -1 
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+	where PortalID = @PortalID
+end else
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] 
+	where PortalID = @PortalID
+	and ModelID = @ModelID
+end
+
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Update]
+GO
+
+
+
+CREATE  PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SaleRates_Update]
+(
+@ItemID int,
+@CacheKey nvarchar(50),
+@PortalID int,
+@RoleName nvarchar(50),
+@CategoryID int,
+@ModelID int,
+@SalePrice decimal(16,2)
+)
+AS
+BEGIN
+
+	if not exists (select ItemID from {databaseOwner}[{objectQualifier}NB_Store_SaleRates] where ItemID = @ItemID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SaleRates]
+		(
+		CacheKey,
+		PortalID,
+		RoleName,
+		CategoryID,
+		ModelID,
+		SalePrice
+		)
+		values
+		(
+		@CacheKey,
+		@PortalID,
+		@RoleName,
+		@CategoryID,
+		@ModelID,
+		@SalePrice
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_SaleRates]
+		set 
+		CacheKey = @CacheKey,
+		PortalID = @PortalID,
+		RoleName = @RoleName,
+		CategoryID = @CategoryID,
+		ModelID = @ModelID,
+		SalePrice = @SalePrice
+		where ItemID = @ItemID
+ 
+	end
+
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+

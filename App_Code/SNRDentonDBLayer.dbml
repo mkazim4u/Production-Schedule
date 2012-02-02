@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dnn563" Class="SNRDentonDBLayerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=KAZIM;Initial Catalog=dnn563;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dnn563ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NB_Store_OrderStatus" Member="NB_Store_OrderStatus">
+    <Type Name="NB_Store_OrderStatus">
+      <Column Name="OrderStatusID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lang" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderStatusText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_Orders" Member="NB_Store_Orders">
+    <Type Name="NB_Store_Order">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShipDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShippingAddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillingAddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AppliedTax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ShippingCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OrderIsPlaced" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OrderStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PayType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CalculatedTax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NoteMsg" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="VATNumber" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PromoCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BankAuthCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShipMethodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrackingCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Stg2FormXML" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Stg3FormXML" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AlreadyPaid" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="OrderGUID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ElapsedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GatewayProvider" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CartXMLInfo" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="NB_Store_Order_NB_Store_OrderDetail" Member="NB_Store_OrderDetails" ThisKey="OrderID" OtherKey="OrderID" Type="NB_Store_OrderDetail" />
+      <Association Name="NB_Store_Order_NB_Store_Address" Member="NB_Store_Addresses" ThisKey="OrderID" OtherKey="OrderID" Type="NB_Store_Address" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_OrderDetails" Member="NB_Store_OrderDetails">
+    <Type Name="NB_Store_OrderDetail">
+      <Column Name="OrderDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ModelID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OptCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemDesc" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProductURL" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PurchaseCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="CartXMLInfo" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="NB_Store_Order_NB_Store_OrderDetail" Member="NB_Store_Order" ThisKey="OrderID" OtherKey="OrderID" Type="NB_Store_Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="NB_Store_Model_NB_Store_OrderDetail" Member="NB_Store_Model" ThisKey="ModelID" OtherKey="ModelID" Type="NB_Store_Model" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_Products" Member="NB_Store_Products">
+    <Type Name="NB_Store_Product">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TaxCategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Featured" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Archived" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProductRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsHidden" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="NB_Store_Product_NB_Store_Model" Member="NB_Store_Models" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_Model" />
+      <Association Name="NB_Store_Product_NB_Store_ProductImage" Member="NB_Store_ProductImages" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_ProductImage" />
+      <Association Name="NB_Store_Product_NB_Store_ProductCategory" Member="NB_Store_ProductCategories" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_ProductCategory" />
+      <Association Name="NB_Store_Product_NB_Store_ProductLang" Member="NB_Store_ProductLangs" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_ProductLang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_Model" Member="NB_Store_Models">
+    <Type Name="NB_Store_Model">
+      <Column Name="ModelID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ModelRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="QtyRemaining" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyTrans" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyTransDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QtyStockSet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DealerCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PurchaseCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DealerOnly" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Allow" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NB_Store_Model_NB_Store_OrderDetail" Member="NB_Store_OrderDetails" ThisKey="ModelID" OtherKey="ModelID" Type="NB_Store_OrderDetail" />
+      <Association Name="NB_Store_Product_NB_Store_Model" Member="NB_Store_Product" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_Product" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SNR_AuditTrail" Member="SNR_AuditTrails">
+    <Type Name="SNR_AuditTrail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RecordType" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SourceID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="AuditEvent" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ChangeDetail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_ProductImage" Member="NB_Store_ProductImages">
+    <Type Name="NB_Store_ProductImage">
+      <Column Name="ImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImagePath" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hidden" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="NB_Store_Product_NB_Store_ProductImage" Member="NB_Store_Product" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PortalLocalization" Member="PortalLocalizations">
+    <Type Name="PortalLocalization">
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CultureCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PortalName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="LogoFile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FooterText" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="KeyWords" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BackgroundFile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HomeTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LoginTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdminTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SplashTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RegisterTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SearchTabId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_Categories" Member="NB_Store_Categories">
+    <Type Name="NB_Store_Category">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Archived" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ParentCategoryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ListOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductTemplate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ListItemTemplate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ListAltItemTemplate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hide" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ImageURL" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="NB_Store_Category_NB_Store_CategoryLang" Member="NB_Store_CategoryLangs" ThisKey="CategoryID" OtherKey="CategoryID" Type="NB_Store_CategoryLang" />
+      <Association Name="NB_Store_Category_NB_Store_ProductCategory" Member="NB_Store_ProductCategories" ThisKey="CategoryID" OtherKey="CategoryID" Type="NB_Store_ProductCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_CategoryLang" Member="NB_Store_CategoryLangs">
+    <Type Name="NB_Store_CategoryLang">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lang" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CategoryDesc" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="NB_Store_Category_NB_Store_CategoryLang" Member="NB_Store_Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="NB_Store_Category" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_ProductCategory" Member="NB_Store_ProductCategories">
+    <Type Name="NB_Store_ProductCategory">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="NB_Store_Category_NB_Store_ProductCategory" Member="NB_Store_Category" ThisKey="CategoryID" OtherKey="CategoryID" Type="NB_Store_Category" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="NB_Store_Product_NB_Store_ProductCategory" Member="NB_Store_Product" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_Product" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_ProductLang" Member="NB_Store_ProductLangs">
+    <Type Name="NB_Store_ProductLang">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lang" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Manufacturer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="XMLData" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEOName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TagWords" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="NB_Store_Product_NB_Store_ProductLang" Member="NB_Store_Product" ThisKey="ProductID" OtherKey="ProductID" Type="NB_Store_Product" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPortals" Member="UserPortals">
+    <Type Name="UserPortal">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserPortalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Authorised" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RefreshRoles" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SNR_Configuration" Member="SNR_Configurations">
+    <Type Name="SNR_Configuration">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ConfigKey" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBY" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SNR_Address" Member="SNR_Addresses">
+    <Type Name="SNR_Address">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CopyFromGlobal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NB_Store_Address" Member="NB_Store_Addresses">
+    <Type Name="NB_Store_Address">
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AddressName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RegionCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CountryCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Phone1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Phone2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PrimaryAddress" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VATNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NB_Store_Order_NB_Store_Address" Member="NB_Store_Order" ThisKey="OrderID" OtherKey="OrderID" Type="NB_Store_Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SNR_COUNTRY" Member="SNR_COUNTRies">
+    <Type Name="SNR_COUNTRY">
+      <Column Name="CountryKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryCode" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="DeletedFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Source" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Importance" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.NEvoweb_NB_Store_Address_Update" Method="NEvoweb_NB_Store_Address_Update">
+    <Parameter Name="AddressID" Parameter="addressID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PortalID" Parameter="portalID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AddressDescription" Parameter="addressDescription" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="AddressName" Parameter="addressName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Address1" Parameter="address1" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Address2" Parameter="address2" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="RegionCode" Parameter="regionCode" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CountryCode" Parameter="countryCode" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="PostalCode" Parameter="postalCode" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Phone1" Parameter="phone1" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Phone2" Parameter="phone2" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="PrimaryAddress" Parameter="primaryAddress" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CreatedByUser" Parameter="createdByUser" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="CreatedDate" Parameter="createdDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="OrderID" Parameter="orderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Extra1" Parameter="extra1" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Extra2" Parameter="extra2" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Extra3" Parameter="extra3" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Extra4" Parameter="extra4" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="NEvoweb_NB_Store_Address_UpdateResult">
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AddressName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RegionCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CountryCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Phone1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Phone2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PrimaryAddress" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUser" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Extra4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VATNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SNR_DENTON_ORDER_SEARCH" Method="SNR_DENTON_ORDER_SEARCH">
+    <Parameter Name="Portal_ID" Parameter="portal_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Approve_OrderStatusID" Parameter="approve_OrderStatusID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AwatingFulfiment_OrderStatusID" Parameter="awatingFulfiment_OrderStatusID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AwatingAuthorization_OrderStatusID" Parameter="awatingAuthorization_OrderStatusID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Cancelled_OrderStatusID" Parameter="cancelled_OrderStatusID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Fulfilled_OrderStatusID" Parameter="fulfilled_OrderStatusID" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="SNR_DENTON_ORDER_SEARCHResult">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShippingAddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillingAddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderGUID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SNR_DENTON_ADDRESSBOOK_SEARCH" Method="SNR_DENTON_ADDRESSBOOK_SEARCH">
+    <Parameter Name="SearchCriteria" Parameter="searchCriteria" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="SNR_DENTON_ADDRESSBOOK_SEARCHResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CopyFromGlobal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

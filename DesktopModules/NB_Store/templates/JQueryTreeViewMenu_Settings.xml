@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content type="NBStoreMangerMenu" version="01.01.07">
+  <storecontent>
+    <settings>
+      <categorymenucss.includes Lang="None " HostOnly="False">
+        <![CDATA[jquery.treeview.css]]></categorymenucss.includes>
+      <categorymenujs.includes Lang="None " HostOnly="False">
+        <![CDATA[jquery.treeview.min.js]]></categorymenujs.includes>
+      <categorymenustartupjs.includes Lang="None " HostOnly="False">
+        <![CDATA[jqtreeview.code]]></categorymenustartupjs.includes>
+		</settings>
+<settingstext>
+<jqtreeview.code Lang="None ">
+<![CDATA[&lt;script language='javascript' type='text/javascript'&gt; jQuery(document).ready(function(){jQuery('#NBStoreTreeMenu').treeview({animated:'fast', collapsed: 'true', persist: 'location'});}); &lt;/script&gt;]]></jqtreeview.code>
+	</settingstext>
+<status>
+</status>
+</storecontent>
+</content>

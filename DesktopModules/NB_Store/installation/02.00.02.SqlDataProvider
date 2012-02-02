@@ -1,0 +1,317 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    Table Start                                   *****/
+/************************************************************/
+
+
+
+/************************************************************/
+/*****    Table End                                     *****/
+/************************************************************/
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]
+GO
+
+
+
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_CartItems_GetCartList]
+@CartID nvarchar(50)
+AS
+begin
+	select ItemID,
+ItemDesc,
+UnitCost,
+Quantity,
+(Quantity * UnitCost) as SubTotal,
+ProductURL,
+Discount
+	from {databaseOwner}[{objectQualifier}NB_Store_CartItems] 
+	where CartID = @CartID
+end
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]
+GO
+
+
+
+
+/*
+Description: Gets a list of all documents in a portal
+Author: DCL
+NB_Store version: 01.02.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]
+@PortalID int
+AS
+begin
+
+	select 
+		D.DocID,
+		D.ProductID,
+		D.DocPath,
+		D.ListOrder,
+		D.Hidden,
+		D.[FileName],
+		D.[FileExt]
+	from {databaseOwner}[{objectQualifier}NB_Store_ProductDoc] as D
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductId = D.ProductID
+	where P.PortalID = @PortalID
+ 
+end
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]
+GO
+
+
+
+/*
+Description: Gets a list of all images in a portal
+Author: DCL
+NB_Store version: 01.02.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]
+@PortalID int
+AS
+begin
+	select 
+		I.ImageID,
+		I.ProductID,
+		I.ImagePath,
+		I.ListOrder,
+		I.Hidden,
+		I.ImageURL
+	from {databaseOwner}[{objectQualifier}NB_Store_ProductImage] as I 
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductId = I.ProductID
+	where P.PortalID = @PortalID
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+GO
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+@PortalID int,
+@ShipType varchar(5),
+@Lang varchar(5),
+@Filter varchar(50),
+@CategoryID int,
+@ShipMethodID int
+AS
+begin
+
+	if @ShipType = 'PRD'
+	begin
+
+		if @CategoryID = -1 
+		begin
+			select 
+			isnull(SR.ItemId,-1) as Itemid,
+			isnull(SR.Range1,0) as Range1,
+			isnull(SR.Range2,0) as Range2,
+			SM.ModelID as ObjectId,
+			isnull(SR.ShipCost,0) as ShipCost,
+			'PRD' as ShipType,
+			SR.[Disable],
+			PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as Description,
+			isnull(SR.ProductWeight,0) as ProductWeight,
+			isnull(SR.ProductHeight,0) as ProductHeight,
+			isnull(SR.ProductLength,0) as ProductLength,
+			isnull(SR.ProductWidth,0) as ProductWidth
+			from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SM.ModelID = SR.ObjectID and SR.ShipType = 'PRD'
+			inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+			inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+			where (PL.ProductName like '%' + @Filter + '%' or SML.ModelName like '%' + @Filter + '%' or sm.modelref like '%' + @Filter + '%')
+			and P.PortalID = @PortalID		 
+			and archived= 0
+			and (ShipMethodID = @ShipMethodID or @ShipMethodID = -1)
+			order by PL.ProductName,sm.listorder,sm.modelref,SML.ModelName		
+		end
+		else
+		begin
+			select 
+			isnull(SR.ItemId,-1) as Itemid,
+			isnull(SR.Range1,0) as Range1,
+			isnull(SR.Range2,0) as Range2,
+			SM.ModelID as ObjectId,
+			isnull(SR.ShipCost,0) as ShipCost,
+			'PRD' as ShipType,
+			SR.[Disable],
+			PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as Description,
+			isnull(SR.ProductWeight,0) as ProductWeight,
+			isnull(SR.ProductHeight,0) as ProductHeight,
+			isnull(SR.ProductLength,0) as ProductLength,
+			isnull(SR.ProductWidth,0) as ProductWidth
+			from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SM.ModelID = SR.ObjectID and SR.ShipType = 'PRD'
+			inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+			inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+			inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID 
+			left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+			where (PL.ProductName like '%' + @Filter + '%' or SML.ModelName like '%' + @Filter + '%' or sm.modelref like '%' + @Filter + '%')
+			and P.PortalID = @PortalID		 
+			and PC.CategoryID = @CategoryID
+			and archived= 0
+			and (ShipMethodID = @ShipMethodID or @ShipMethodID = -1)
+			order by PL.ProductName,sm.listorder,sm.modelref,SML.ModelName
+		end
+	end
+	else
+	begin
+		if @ShipType=''
+		begin
+			select ItemId,
+			isnull(Range1,0) as Range1,
+			isnull(Range2,0) as Range2,
+			ObjectId,
+			isnull(ShipCost,0) as ShipCost,
+			ShipType,
+			[Disable],
+			Description,
+			isnull(ProductWeight,0) as ProductWeight,
+			isnull(ProductHeight,0) as ProductHeight,
+			isnull(ProductLength,0) as ProductLength,
+			isnull(ProductWidth,0) as ProductWidth,
+			PortalID
+			from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+			where PortalID = @PortalID 
+			and ShipMethodID = @ShipMethodID
+			order by Range1
+		end
+		else
+		begin
+			select ItemId,
+			isnull(Range1,0) as Range1,
+			isnull(Range2,0) as Range2,
+			ObjectId,
+			isnull(ShipCost,0) as ShipCost,
+			ShipType,
+			[Disable],
+			Description,
+			isnull(ProductWeight,0) as ProductWeight,
+			isnull(ProductHeight,0) as ProductHeight,
+			isnull(ProductLength,0) as ProductLength,
+			isnull(ProductWidth,0) as ProductWidth,
+			PortalID
+			from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+			where ShipType = @ShipType
+			and PortalID = @PortalID 
+			and ShipMethodID = @ShipMethodID
+			order by Range1
+		end
+	end 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+
+/************************************************************/
+/*****    Fix Multiple Models Bug.  Issue:4359          *****/
+/************************************************************/
+
+delete
+from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates]
+where shiptype = 'PRD'
+and shipMethodID != - 1
+

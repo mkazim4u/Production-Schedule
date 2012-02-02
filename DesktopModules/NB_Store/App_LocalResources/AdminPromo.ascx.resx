@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plRange.Text" xml:space="preserve">
+    <value>Price Range</value>
+  </data>
+  <data name="plRange.Help" xml:space="preserve">
+    <value>Price Range of products in the cart for Promotion to take effect. Set values to zero to disativate.</value>
+  </data>
+  <data name="plQtyRange.Text" xml:space="preserve">
+    <value>Qty Range</value>
+  </data>
+  <data name="plQtyRange.Help" xml:space="preserve">
+    <value>Quantity Range of products in the cart for Promotion to take effect. Set values to zero to disativate.</value>
+  </data>
+  <data name="plDateRange.Text" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="plDateRange.Help" xml:space="preserve">
+    <value>Start and End Date Range for Promotion to take effect.</value>
+  </data>
+  <data name="plPercent.Text" xml:space="preserve">
+    <value>Percent</value>
+  </data>
+  <data name="plPercent.Help" xml:space="preserve">
+    <value>A percentage amount of discount.</value>
+  </data>
+  <data name="plAmount.Text" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="plAmount.Help" xml:space="preserve">
+    <value>A set amount for this Promotion, if a percentage amount is also spcified this discount is applied first, then the percentage discount to the remaining amount.</value>
+  </data>
+  <data name="plPromoUser.Text" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="plPromoUser.Help" xml:space="preserve">
+    <value>A username for user who can use this Promotion, leave blank to apply to all users.</value>
+  </data>
+  <data name="plPromoGroup.Text" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="plPromoGroup.Help" xml:space="preserve">
+    <value>A role name for users who can use this Promotion, leave blank to apply to all users.</value>
+  </data>
+  <data name="plPromoEmail.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="plPromoEmail.Help" xml:space="preserve">
+    <value>A user email for users who can use this Promotion, leave blank to apply to all users.</value>
+  </data>
+  <data name="plPromoCode.Text" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="plPromoCode.Help" xml:space="preserve">
+    <value>Promotion code that can be entered in the checkout to apply this discount to the order.</value>
+  </data>
+  <data name="plPromoName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="plPromoName.Help" xml:space="preserve">
+    <value>Name of Promotion</value>
+  </data>
+  <data name="plAllowMultiDiscount.Text" xml:space="preserve">
+    <value>Allow Multiple Discounts</value>
+  </data>
+  <data name="plAllowMultiDiscount.Help" xml:space="preserve">
+    <value>If checked the store will allow discounts to accumilate on a product.  i.e. If two discounts apply to a product then the total of both the discounts is applied.  If NOT checked then only the best discount is applied to the product.</value>
+  </data>  
+  <data name="plCategories.Text" xml:space="preserve">
+    <value>Group/Category</value>
+  </data>
+  <data name="plCategories.Help" xml:space="preserve">
+    <value>Category for which the promotion will apply.</value>
+  </data>
+  <data name="Enabled.Header" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Name.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Date.Header" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Amt.Header" xml:space="preserve">
+    <value>Amt</value>
+  </data>
+  <data name="cmdDelete.Text" xml:space="preserve">
+    <value>Delete Promotional Item?</value>
+  </data>
+  <data name="cmdSearch.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="cmdNew.Text" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="New_Promotion.Text" xml:space="preserve">
+    <value>New Promotion</value>
+  </data>
+  <data name="plMaxUsagePerUser.Help" xml:space="preserve">
+    <value>If set to a number greater than 0 a user can only use the code for the set number of times</value>
+  </data>
+  <data name="plMaxUsagePerUser.Text" xml:space="preserve">
+    <value>Max. Usage per User</value>
+  </data>
+  <data name="plMaxUsage.Help" xml:space="preserve">
+    <value>If set to a number greater than 0 the promo code can only be used for the set number of times, store wide.</value>
+  </data>
+  <data name="plMaxUsage.Text" xml:space="preserve">
+    <value>Max. Usage</value>
+  </data>
+</root>

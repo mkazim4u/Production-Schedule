@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content type="NBStoreCategoryMenu" version="02.01.05">
+	<modulecontent>
+		<settings>
+			<txtBreadCrumbCSS><![CDATA[BreadCrumbs]]></txtBreadCrumbCSS>
+			<txtSectionSep2><![CDATA[]]></txtSectionSep2>
+			<txtRootNameTemplate><![CDATA[]]></txtRootNameTemplate>
+			<txtCSS><![CDATA[Normal]]></txtCSS>
+			<txtTreeSelectCSS><![CDATA[NormalBold]]></txtTreeSelectCSS>
+			<txtThumbnailSize><![CDATA[40]]></txtThumbnailSize>
+			<txtSubSelectCSS><![CDATA[NormalBold]]></txtSubSelectCSS>
+			<chkHideBreadCrumbRoot><![CDATA[True]]></chkHideBreadCrumbRoot>
+			<txtTreeLeftHtml><![CDATA[]]></txtTreeLeftHtml>
+			<txtAccordionLeftHtml><![CDATA[]]></txtAccordionLeftHtml>
+			<txtAccordionRightHtml><![CDATA[]]></txtAccordionRightHtml>
+			<txtSubNameTemplate><![CDATA[]]></txtSubNameTemplate>
+			<txtColumns><![CDATA[1]]></txtColumns>
+			<txtSubLeftHtml><![CDATA[]]></txtSubLeftHtml>
+			<chkViewProdHide><![CDATA[False]]></chkViewProdHide>
+			<txtTreeRightHtml><![CDATA[]]></txtTreeRightHtml>
+			<txtRootSep><![CDATA[&nbsp;|&nbsp;]]></txtRootSep>
+			<chkHideBreadCrumb><![CDATA[True]]></chkHideBreadCrumb>
+			<txtAccordionHeadHtml><![CDATA[]]></txtAccordionHeadHtml>
+			<txtTreeCSS><![CDATA[Normal]]></txtTreeCSS>
+			<txtAccordionNameTemplate><![CDATA[]]></txtAccordionNameTemplate>
+			<txtSubRightHtml><![CDATA[]]></txtSubRightHtml>
+			<txtTreeHeadHtml><![CDATA[<a href="/Store.aspx" class="treeview">All Products</a>]]></txtTreeHeadHtml>
+			<txtRootSelectCSS><![CDATA[NormalBold]]></txtRootSelectCSS>
+			<txtSubHeadHtml><![CDATA[]]></txtSubHeadHtml>
+			<chkHideRootMenu><![CDATA[True]]></chkHideRootMenu>
+			<txtSectionSep><![CDATA[]]></txtSectionSep>
+			<txtRootCSS><![CDATA[Normal]]></txtRootCSS>
+			<txtSep><![CDATA[]]></txtSep>
+			<chkHideWhenRoot><![CDATA[False]]></chkHideWhenRoot>
+			<chkPatchWork><![CDATA[False]]></chkPatchWork>
+			<txtSectionSep3><![CDATA[]]></txtSectionSep3>
+			<chkShowAccordionMenu><![CDATA[False]]></chkShowAccordionMenu>
+			<chkHideSubMenu><![CDATA[True]]></chkHideSubMenu>
+			<chkShowTreeMenu><![CDATA[True]]></chkShowTreeMenu>
+			<lstProductTabs><![CDATA[64]]></lstProductTabs>
+			<txtBreadCrumbSep><![CDATA[&nbsp;&raquo;&nbsp;]]></txtBreadCrumbSep>
+			<chkSkipBlankCat><![CDATA[False]]></chkSkipBlankCat>
+			<txtTreeNameTemplate><![CDATA[]]></txtTreeNameTemplate>
+			<txtRootHeadHtml><![CDATA[]]></txtRootHeadHtml>
+			<ddlDefaultCategory><![CDATA[0]]></ddlDefaultCategory>
+			<txtRootRightHtml><![CDATA[]]></txtRootRightHtml>
+			<txtRootLeftHtml><![CDATA[]]></txtRootLeftHtml>
+		</settings>
+	</modulecontent>
+</content>

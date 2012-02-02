@@ -1,0 +1,2288 @@
+<html>
+<head>
+    <title>Nevoweb NB_Store</title>
+    <link rel="stylesheet" type="text/css" href="Documentation.css">
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            width: 101px;
+        }
+        .style3
+        {
+            width: 163px;
+        }
+        .style4
+        {
+            width: 44px;
+        }
+        td
+        {
+            padding-bottom: 10px;
+            }
+    </style>
+</head>
+<body bottommargin="5" leftmargin="5" topmargin="5" rightmargin="5" marginwidth="0" marginheight="0">
+    <img src="logo.gif" border="0">
+    <h1>NevoWeb NB_Store E-Commerce Module</h1>
+    <b>version 02.03.00</b>
+    <h2>Introduction</h2>
+    <p>Welcome to the NB_Store Module.&nbsp; Please
+        take a few minutes to read this document, which will help you install and configure
+        the module.</p>
+     <p>The purpose of this documentation is to be a reference explaining the NB_Store features. Although it gives an overview of the store it is NOT a User Guide.</p>
+    <hr />
+    <h2>Contents</h2>
+    <ol>
+        <li><a href="#Div1">Basic Install and Setup of NB_Store
+    </a>
+    <ol>
+            <li><a href="#Div1.1">Wish List</a></li>
+                </ol>
+            </li>
+        <li><a href="#Div2">Settings Administration</a>
+        <ol>
+                    <li><a href="#Div2.1">Shipping Lists</a></li>
+                </ol>
+        </li>
+        <li><a href="#Div3">Template Administration</a><ol>
+            <li><a href="#Div3.1">Template List</a></li>
+                    <li><a href="#Div3.2">Template Replacement Tokens</a><ol>
+						<li><a href="#Div3.2.1">General Token</a></li>
+                        <li><a href="#Div3.2.2">lightbox.template tokens</a></li>
+                        <li><a href="#Div3.2.3">Productlist.template  and  Productdetail.template Tokens</a></li>
+                        <li><a href="#Div3.2.4">logintext.text Tokens</a></li>
+                        <li><a href="#Div3.2.5">Special Templates Tokens</a></li>
+                        <li><a href="#Div3.2.6">lblEstShipDate.Text Tokens</a></li>
+                        <li><a href="#Div3.2.7">Using No Stock Image Overlay Tokens</a></li>
+                        <li><a href="#Div3.2.8">Using Shipping Tracking Code Tokens</a></li>          
+                        <li><a href="#Div3.2.9">Category Menu Tokens</a></li>          						
+                        <li><a href="#Div3.2.10">Checkout Address Templates</a></li> 
+                    </ol>
+                </li>
+                <li><a href="#Div3.3">Setup Custom Javascript</a></li><ol>
+                        <li><a href="#Div3.3.1">Importing Javascript Templates</a></li>
+                    </ol>
+                <li><a href="#Div3.4">Special Authorized User Templates</a></li>
+                <li><a href="#Div3.5">Token Test Sections</a></li>
+            </ol>
+        </li>
+        <li><a href="#DivReports">Reports and Dashboard</a>
+        </li>
+        <li><a href="#Div4">Shipping Rates</a><ol>
+                    <li><a href="#Div4.1">Shipping Formula</a></li>
+                </ol>
+            </li>
+        <li><a href="#Div5">Tax Rates</a></li>
+        <li><a href="#Div6">Export/Import</a>
+            <ol>
+                <li><a href="#Div6.1">Importing CSV file formats</a></li>
+                <li><a href="#Div6.2">The NB_Store Feeder</a></li>                
+                <li><a href="#Div6.3">RSS Feeder</a></li>                
+            </ol>        
+        </li>
+        <li><a href="#Div7">Category Administration</a></li>
+        <li><a href="#Div8">Product Administration</a>
+            <ol>
+                <li><a href="#Div8.1">Creating Bespoke Product Fields</a></li>
+                <li><a href="#Div8.2">Downloadable Products</a></li>
+                <li><a href="#Div8.3">Products Image Resizing</a></li>
+                <li><a href="#Div8.4">Related Products</a></li>
+            </ol>        
+        </li>        
+        <li><a href="#Div8a">Promotions</a>
+            <ol>
+                <li><a href="#Div8a.1">Coupons</a></li>
+                <li><a href="#Div8a.2">Category Discounts</a></li>
+                <li><a href="#Div8a.3">Cart Discount</a></li>
+            </ol>        
+        </li>
+        <li><a href="#Div8b">Dealers</a>
+            <ol>
+                <li><a href="#Div8b.1">Setting up a dealer</a></li>
+            </ol>        
+        </li>
+        <li><a href="#Div9">Stock Administration</a></li>
+        <li><a href="#Div10">Client Administration</a></li>
+        <li><a href="#Div11">Order Administration</a></li>
+        <li><a href="#Div12">Payment Gateways</a>
+                <ol>
+            <li><a href="#Div12.1">Cheque</a></li>
+            <li><a href="#Div12.1">PayPal</a></li>
+                    <li><a href="#Div12.2">SIPS</a></li>
+                </ol>
+        </li>
+        <li><a href="#Div13">Lite and Normal Modes</a></li>
+        <li><a href="#Div14">Cart and Checkout</a></li>
+        <li><a href="#Div15">Scheduler</a></li>
+        <li><a href="#Div16">Product List</a>
+        <ol>
+            <li><a href="#Div16.1">Search Module</a></li>
+                    <li><a href="#Div16.2">Order By</a></li>
+                </ol>
+        </li>
+        <li><a href="#Div17">Host Options</a><ol>
+            <li><a href="#Div17.1">ClearDown Store</a></li>
+                    <li><a href="#Div17.2">Store Validation</a></li>
+                    <li><a href="#Div17.3">Import Settings</a></li>
+                </ol>
+            </li>
+        <li><a href="#Div20">Audit Logs</a></li>
+    </ol>
+    <br />
+    <hr />
+    <div id="Div1" />
+    <h2>Basic Install and Setup of NB_Store</h2>
+    To install and setup NB_Store you should:
+    <ul>
+        <li><b>Install -</b> Browse to the "Host/Module Definitions" page and select "Update New Module". In the file upload control browse for the the NB_Store module and click Upload custom Module.
+        </li>
+        <li><b>Setting up roles -</b> Create a new role called "Manager" and another role called "ManagerLite"
+        </li>
+        <li><b>Create a Store Back Office -</b> Add a new page to your website called "Store Menu". On this new page add the module NB_Store_ManagerMenu. Give module edit rights to the "Manager" and "ManagerLite" roles. (On the first loadup of the manager menu it will load the default settings and templates into the database.)  TIP: To add content to the store start by adding categories, before products.
+        </li>
+        <li><b>Create Cart and Checkout -</b> Add a new page to your website called "Cart". On this new page add the module NB_Store_Checkout.  On the settings menu of the module specify your requirements. Default settings are loaded the first time you enter the settings.</li>
+        <li><b>Create ProductList -</b> Add a new page to your website called "Shop". On this new page add the module NB_Store_ProductList.  On the settings menu of the module specify your requirements. Default settings are loaded the first time you enter the settings.</li>
+        <li><b>Create Category Menu -</b>At the top of the "Shop" Page add the module NB_Store_CategoryMenu.  On the settigs menu of the module specify your requirements. Default settings are loaded the first time you enter the settings.</li>
+    </ul>
+    This is all you need to do to get a basic store to work.  Additional modules NB_Store_MiniCart and NB_Store_OrderHistory can also be setup as you wish.    
+    <hr />
+<div id="Div1.1" />
+    <h4>Wish List</h4>
+The productlist module is used to display the customer&#39;s wish list.  If a url parameter of "wishlist" is included in the url, then the productlist will display the customer&#39;s wish list.  Therefore if you create an extra page in DNN, place on the productlist module, you can then set a link to the customer&#39;s wish list like: <br />
+&lt;a href="http://www.yourwebsite.com/tabid/57/wishlist/1/Default.aspx"&gt;Wish List&lt;/a&gt;
+    <hr />    
+    <div id="Div2" />
+    <h2>Settings Administration</h2>
+    <p>
+        In Store Manager Menu the &quot;Settings Admin&quot; allows you to setup email address, roles, limits, etc.<br />
+    The "Host Only" restricts access to just the host user.
+    </p>
+<table cellpadding="1" cellspacing="1">
+<tr><td width="250px"><b>Name</b></td><td><b>Description</b></td></tr>
+  <tr>
+    <td>administrator.email</td>
+    <td>Email address of the store administrator. Error messages will be sent to this email address.</td>
+  </tr>
+  <tr>
+    <td>categorymenujs.includes</td>
+    <td>CSV List of javascript files to be included when the category menu module is displayed. Files should be placed in "/DesktopModules/NB_Store/js".</td>
+  </tr>   
+  <tr>
+    <td>categorymenucss.includes</td>
+    <td>CSV List of css files to be included when the category menu module is displayed. Files should be placed in "/DesktopModules/NB_Store/js".</td>
+  </tr>   
+  <tr>
+    <td>categorymenustartupjs.includes</td>
+    <td>List of javascript templates that will be registered as startup scripts.</td>
+  </tr>   
+  <tr>
+    <td>cheque.provider</td>
+    <td>Assembly name of the cheque provider for the store checkout.  Usually this will only be updated from the checkout settings.</td>
+  </tr>
+  <tr>
+    <td>chqpayment.emailsubject</td>
+    <td>Subject of the email that is sent when a client pays by cheque.</td>
+  </tr>
+  <tr>
+    <td>country.list</td>
+    <td>List of countries to be allowed in this portal. (e.g. "France,United Kingdom"). To create bespoke countries for different language create a new country list in DNN called "StoreCountry.(CountryCode)" e.g. StoreCountry.fr-FR </td>
+  </tr>
+  <tr>
+    <td>gateway.loadimage</td>
+    <td>File path of the GIF image that is displayed when processing is passed to the bank gateway.</td>
+  </tr>
+  <tr>
+    <td>gateway.provider</td>
+    <td>Assembly name of the bank gateway provider for the store checkout.  Usually this will only be updated from the checkout settings.</td>
+  </tr>
+  <tr>
+    <td>manager.role</td>
+    <td>Name of the store manager role.</td>
+  </tr>
+  <tr>
+    <td>managerlite.role</td>
+    <td>Name of the LITE store manager role.</td>
+  </tr>
+  <tr>
+    <td>merchant.culture</td>
+    <td>Enter a standard language-locale value for the merchant. e.g. en-US or fr-FR or en-AU.</td>
+  </tr>
+  <tr>
+    <td>merchant.email</td>
+    <td>Merchant email address. All orders and reports will be sent to this email address.</td>
+  </tr>
+  <tr>
+    <td>ordershipdate.days</td>
+    <td>Estimated number of days when an order will be shipped.  The number of days entered here will be added to the current date and placed in the [Order:ShipDate] field, when an order is created.</td>
+  </tr>
+  <tr>
+    <td>ordershipped.emailsubject</td>
+    <td>Email subject when a order is shipped.</td>
+  </tr>
+  <tr>
+    <td>ordersreport.subject</td>
+    <td>Email subject of the orders report.</td>
+  </tr>
+  <tr>
+    <td>ordersreport.xsl</td>
+    <td>File Path of the orders report xsl.</td>
+  </tr>
+  <tr>
+    <td>ordervalidated.emailsubject</td>
+    <td>Email subject of the validated order email.</td>
+  </tr>
+  <tr>
+    <td>paymentOK.emailsubject</td>
+    <td>Email subject of the order confirmation email.</td>
+  </tr>
+  <tr>
+    <td>paymentunverified.emailsubject</td>
+    <td>Email subject of the order confirmation email, when a order cannot be validated automatically.</td>
+  </tr>
+  <tr>
+    <td>PayPal.gateway</td>
+    <td>Paypal configuration settings.</td>
+  </tr>
+  <tr>
+    <td>product.limit</td>
+    <td>Sets the product limit for the store.</td>
+  </tr>
+  <tr>
+    <td>productlite.limit</td>
+    <td>Sets the product limit for the LITE store.</td>
+  </tr>
+  <tr>
+    <td>SIPS.exepath</td>
+    <td>Directory path of the SIPS response.exe &amp; request.exe</td>
+  </tr>
+  <tr>
+    <td>SIPS.gateway</td>
+    <td>SIPS configuration settings</td>
+  </tr>
+  <tr>
+    <td>store.email</td>
+    <td>Email address of the store. All emails will be sent from this address.</td>
+  </tr>
+  <tr>
+    <td>image.resize</td>
+    <td>Will resize a product image on upload to the specified size (450px default). If the image is smaller than the value specified the original size is used. If set to "0" resize of image is turned off.</td>
+  </tr>
+  <tr>
+    <td>image.quality</td>
+    <td>Sets the quality of the image on resize, default is 85. Valid ranges are 1 - 100.</td>
+  </tr>
+  <tr>
+    <td>purgecartmins</td>
+    <td>Number of minutes a cart will stay in the database before it is deleted (Default 10080). The Store Scheduler needs to be setup for this to work.</td>
+  </tr>  
+  <tr>
+    <td>purgeordermins</td>
+    <td>Number of minutes an uncompleted order will stay in the database before it is deleted (Default 2880). The Store Scheduler needs to be setup for this to work.</td>
+  </tr> 
+  <tr>
+    <td>gatewayexpiremins</td>
+    <td>Number of minutes to be passed to a gateway provider, that tells the provider to timeout. (The setting is not automatically created in NB_Store.)</td>
+  </tr>   
+  <tr>
+    <td>lockstockoncart</td>
+    <td>If set to true any products placed into the cart will be taken into account when calculating stock levels, Portal Wide.  Effectively this means the stock is not available to purchase by someone else when a product is placed in the basket, By default NB_Store only locks the stock when an order starts processing.</td>
+  </tr>  
+  <tr>
+    <td>productqty.limit</td>
+    <td>Sets the maximum qty allowed to be entered into the cart for a single product (default 999999). If set to less than 21 a dropdown list will be used for the Qty input.</td>
+  </tr> 
+  <tr>
+    <td>minimumcarttotal.limit</td>
+    <td>Sets the minimum purchase cost that needs to exist in the cart before a purchase can be made. The template "minimumcarttotal.text" will be displayed if the cost is not reached and the customer goes to the cart. Must be numeric, language specific also. (The setting is not automatically created in NB_Store.)</td>
+  </tr> 
+  <tr>
+    <td>lightboxgallerytemplate.name</td>
+    <td>The name of the template to use as the lightbox gallery template. if setting does not exist "nyromodalgallery.template" will be used.</td>
+  </tr> 
+  <tr>
+    <td>lightboxtemplate.name</td>
+    <td>The name of the template to use as the lightbox template. if setting does not exist "nyromodal.template" will be used.</td>
+  </tr>   
+  <tr>
+    <td>productlistjs.includes</td>
+    <td>CSV list of javascript files to be included when the product list module is displayed. Files should be placed in "/DesktopModules/NB_Store/js".</td>
+  </tr>   
+  <tr>
+    <td>productlistcss.includes</td>
+    <td>CSV list of css files to be included when the product list module is displayed. Files should be placed in "/DesktopModules/NB_Store/js".</td>
+  </tr>   
+  <tr>
+    <td>productliststartupjs.includes</td>
+    <td>List of javascript templates that will be registered as startup scripts.</td>
+  </tr>   
+  <tr>
+    <td>productlinksoncart.flag</td>
+    <td>If set to true products listed on the cart have a link back to the website.  By default this flag is set to true. (The setting is not automatically created in NB_Store.)</td>
+  </tr> 
+  <tr>
+    <td>currency.culture</td>
+    <td>The culture code to be used to display currency in the store.  If you enter a formatting code between double quotes NB_Store will use that formatting, e.g. "#0.00". (The setting is not automatically created in NB_Store, the default will be the merchant culture.)</td>
+  </tr>
+  <tr>
+    <td>currency.symbol</td>
+    <td>Specify a fallback currency symbol if the currency.culture setting is set to a formatting code.  If blank then the fallback will be the merchant culture symbol.</td>
+  </tr> 
+  <tr>
+    <td>rowdelimeter.importmapping</td>
+    <td>Row delimiter for CSV import.  Use html decode to convert any special characters (e.g.: &amp;#09; = horizontal tab; &amp;#13;&amp;#10; = vbCrLf) </td>
+  </tr> 
+  <tr>
+    <td>fielddelimeter.importmapping</td>
+    <td>Field delimiter for CSV import</td>
+  </tr>   
+  <tr>
+    <td>fieldqualifier.importmapping </td>
+    <td>Field qualifier for CSV import, defaults to double quote (")</td>
+  </tr>   
+  <tr>
+    <td>fieldescapedqualifier.importmapping</td>
+    <td>Field escaped qualifier for CSV import, default to 2 double quotes ("")</td>
+  </tr>     
+  <tr>
+    <td>promo.roles</td>
+    <td>A list of comma separated roles which can be used for discount.  These roles must exist in DNN and only the roles lists here will be available in the Promotions role dropdownlist.</td>
+  </tr>      
+  <tr>
+    <td>usednnjquery.flag</td>
+    <td>Use the DNN jQuery version, instead of the NB_Store version of jQuery. (The setting is ignored in DNN5).</td>
+  </tr> 
+  <tr>
+    <td>shipcountrycode.default</td>
+    <td>Default country code for shipping, if not created then the merchant country code is used. (The setting is not automatically created in NB_Store.) 
+        - 
+        http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm</td>
+  </tr> 
+  <tr>
+    <td>debug.mode</td>
+    <td>If debug mode is on, caching in certain areas will not be done.  This must be off on a live site for best performance.</td>
+  </tr>   
+  <tr>
+    <td>debug.email</td>
+    <td>If set then all store emails will be sent to this email address.  Ensure this setting is empty for a live site.</td>
+  </tr>   
+  <tr>
+    <td>cookiecart.expire</td>
+    <td>Numeric to set the number of days the cart cookie will last, default is 30 days. (The setting is not automatically created in NB_Store.)</td>
+  </tr>     
+  <tr>
+    <td>shipfree.list</td>
+    <td>CSV List of country codes where Free Shipping will be applied, if empty then free shipping will apply to all countries. (e.g.  "FR,UK,IT")</td>
+  </tr>
+  <tr>
+    <td>searchdescription.flag</td>
+    <td>value of 1 or 0 to indicate if the description field of the product should be included in the search.   This will have a performance issue on large sites. If you find your search slow you should set it to 0 and make sure the key words exist in the summary field.</td>
+  </tr>  
+  <tr>
+    <td>dealer.role</td>
+    <td>Name of the dealer role.</td>
+  </tr>  
+  <tr>
+    <td>taxexempt.list</td>
+    <td>CSV List of country codes where Tax will NOT be applied, if empty then tax will apply to all countries. (e.g.  "FR,UK,IT")</td>
+  </tr>
+  <tr>
+    <td>taxapplies.list</td>
+    <td>CSV List of country codes where Tax WILL be applied, if empty then tax will apply to all countries. (e.g.  "FR,UK,IT")</td>
+  </tr>
+  <tr>
+    <td>filesystemtemplates.flag</td>
+    <td>If set to True and the "debug.mode" setting is also set to true then a directory will be created in the portal which will allow edit of the template through the file system.  This option is for development and should not be used on a production system.</td>
+  </tr>
+  <tr>
+    <td>admintemplates.groups</td>
+    <td>This is a xml structure of the template admin treeview.  In normal operation, this option should not be altered.</td>
+  </tr>
+  <tr>
+    <td>adminsettings.groups</td>
+    <td>This is a xml structure of the settings admin treeview.  In normal operation, this option should not be altered.</td>
+  </tr>
+  <tr>
+    <td>adminproduct.repeatcolumns</td>
+    <td>Back Office repeat column for product list image mode. If not created then the default is 
+        4.</td>
+  </tr>
+
+  <tr>
+    <td>adminproduct.thumbsize</td>
+    <td>Back Office thumbnail size of product list image mode.</td>
+  </tr>
+  <tr>
+    <td>adminproduct.pagesize</td>
+    <td>Back Office Page size of product list.</td>
+  </tr>  
+  <tr>
+    <td>admincss.includes</td>
+    <td>CSS files to be included when the Back Office Skin is displayed.</td>
+  </tr>  
+  <tr>
+    <td>adminjs.includes</td>
+    <td>Javascript files to be included when the Back Office Skin is displayed.</td>
+  </tr>  
+  <tr>
+    <td>adminstartup.includes</td>
+    <td>Javascript code to be run when the Back Office page is displayed.  This code should exist in the Back Office templates.</td>
+  </tr>  
+  <tr>
+    <td>textboxedit.flag</td>
+    <td>Use a textbox to edit the templates.</td>
+  </tr>  
+  <tr>
+    <td>allowzerodealerprice.flag</td>
+    <td>Allow a zero dealer price to be added.  If set to false the unit price will be copied to the dealer price, if the dealer price is zero.</td>
+  </tr>  
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>  
+  <tr>
+    <td>404.url</td>
+    <td>Relative url of the 404 error html to be display if a product does not exist.  If left blank a 301 redirect is done to the product list.</td>
+  </tr>  
+  <tr>
+    <td>encapsulated.image</td>
+    <td>File name of the image to be used as the encapsulated image, from the portal root.  If blank then the default cheque image is used.</td>
+  </tr>  
+  <tr>
+    <td>encapsulated.text</td>
+    <td>Text to be used above the encapsulated gateway.  If blank then the resx "lblCheque" value is used.</td>
+  </tr> 
+  <tr>
+    <td>checkout.tab</td>
+    <td>TabID of default checkout page.</td>
+  </tr>   
+  <tr>
+    <td>store.tab</td>
+    <td>TabID of default Product List page.</td>
+  </tr>   
+  <tr>
+    <td>categorypurchase.list</td>
+    <td>CSV list of category id's. Only products in these categories will be allowed to be added to the cart.  If blank this option is turned off.</td>
+  </tr>     
+  <tr>
+    <td>diskthumbnails.flag</td>
+    <td>Use Disk thumbnails, if set then NB_Store will create thumbnails on disk and use these to display the product thumbnails.</td>
+  </tr>     
+  <tr>
+    <td>diskthumbnails.size</td>
+    <td>Disk thumbnail size, The size of thumbnails to create on disk. This can be a single value or CSV list of sizes. e.g. "100,150x30,30". Each product list module that uses the disk thumbs must have an entry in this list to match the thumb size it is trying to display, otherwise no thumbnails will exist for the that size and no image will be displayed.</td>
+  </tr>     
+  <tr>
+    <td>outofstockmodels.flag</td>
+    <td>If YES then the out of stock models will appear on the product detail radio button and table list.</td>
+  </tr>     
+  <tr>
+    <td>allowcartmodellimit.flag</td>
+    <td>Allows a cart limit to be added for each model.</td>
+  </tr>     
+  <tr>
+    <td>createsearchstats.flag</td>
+    <td>Keep statistics on the searches made for products in NB_Store.</td>
+  </tr>       
+  <tr>
+    <td>searchwordpurge.days</td>
+    <td>Number of Days to keep statistics for searches made for products in NB_Store. Default 60 days.</td>
+  </tr>         
+  <tr>
+    <td>stockpage.size</td>
+    <td>Number of records to display in the Back Office Stock page. Default 25.</td>
+  </tr>         
+  <tr>
+    <td>orderedit.flag</td>
+    <td>Allow an order to be edited.</td>
+  </tr>         
+  <tr>
+    <td>ordereditclient.flag</td>
+    <td>Allow users to edit their order after the order has been placed. Only applies to orders NOT with a status of "Payment OK". To make an order editable the manager must move the order to a status of waiting.</td>
+  </tr> 
+  <tr>
+    <td>orderedititems.flag</td>
+    <td>Allow Order Items to be changed.</td>
+  </tr> 
+  <tr>
+    <td>ordereditprice.flag</td>
+    <td>Allow Order Items Prices to be changed.</td>
+  </tr> 
+  <tr>
+    <td>calccart.provider</td>
+    <td>Calculation provider, will overwrite built-in NB_Store cart row calculations.</td>
+  </tr> 
+  <tr>
+    <td>calcship.provider</td>
+    <td>Calculation provider, will overwrite built-in NB_Store shipping calculations.</td>
+  </tr> 
+  <tr>
+    <td>calctax.provider</td>
+    <td>Calculation provider, will overwrite built-in NB_Store tax calculations.</td>
+  </tr> 
+  <tr>
+    <td>calcdiscount.provider</td>
+    <td>Calculation provider, will overwrite built-in NB_Store discount calculations.</td>
+  </tr> 
+  <tr>
+    <td>calcextra.provider</td>
+    <td>Calculation provider, allows extra calculations to be included.</td>
+  </tr>   
+  <tr>
+    <td>tagextra.provider</td>
+    <td>Templating token provider, allows extra data display for product detail and product list. Used by [TAGEXTRA:&lt;ctrldata&gt;]</td>
+  </tr>   
+  <tr>
+    <td>tokenextra.provider</td>
+    <td>token provider, allows extra data display for token replacements in text and email notification.</td>
+  </tr>
+  <tr>
+    <td>event.provider</td>
+    <td>Event provider, allows interface to certain events that occur in NB_Store.</td>
+  </tr>
+    <tr>
+    <td>option.provider</td>
+    <td>Option Providers, allows default values for option textboxes in product detail to be assigned externally.</td>
+  </tr>   
+  <tr>
+    <td>InternalUpdate.provider</td>
+    <td>Internal Update provider allows updates to be done externally when a payment has been made.</td>
+  </tr>   
+  <tr>
+    <td>feeder.settings</td>
+    <td>Feeder settings. See <a href="#Div6.2">The NB_Store Feeder</a>.</td>
+  </tr>
+  <tr>
+    <td>clientchqemail.name</td>
+    <td>Name of the client email template to be used by the encapsulated payment provider. Default "chqpayment.email".</td>
+  </tr>   
+  <tr>
+    <td>managerchqemail.name</td>
+    <td>Name of the manager email template to be used by the encapsulated payment provider. Default "chqpayment.email".</td>
+  </tr>   
+  <tr>
+    <td>rss.template</td>
+    <td>Main template for RSS feeder. Use the token [Product:rssitem] to include the product items in the feed.</td>
+  </tr>   
+  <tr>
+    <td>rssitem.template</td>
+    <td>Item template for RSS feeder.</td>
+  </tr> 
+  <tr>
+    <td>singlepurchase.flag</td>
+    <td>Will only ever allow 1 item in the client&#39;s cart. If another item is selected then the existing item in the cart is removed.</td>
+  </tr> 
+  <tr>
+    <td>elapsedorderhours.limit</td>
+    <td>Set the time elapsed hours for an edited order to be payed.  If the elapsed time goes over, then the client will not be allowed to pay for the order.  If this value is 0 then no time limit to pay for an edited order is set.</td>
+  </tr>
+  <tr>
+    <td>datedisplay.format</td>
+    <td>(Optional) Formats dates for emails and display. (e.g.  "dd MMM yyyy") default is "d"</td>
+  </tr> 
+  <tr>
+    <td>purgelogfiles.days</td>
+    <td>Number of days LogFiles will be kept for. Empty value and no Logfiles will be removed</td>
+  </tr> 
+</table>
+<h4>Country Lists</h4>
+<div id="Div2.1" />
+<p>The country lists displayed throughout the store have been designed to default to 
+    a DNN list called &quot;StoreCountry.(CountryCode)&quot;&nbsp; if no list by this name 
+    exists in the store then the DNN "Country" list is used.  Also if you enter a "country.list" in the store settings, only the countries in the "country.list" will be displayed in the dropdown.  The names in the "country.list" must match the names in the DNN list 
+    used in order to be displayed.  
+</p>
+    <hr />
+    <div id="Div3" />
+    <h2>Template Administration</h2>
+    In Store Manager Menu the "Template Admin" option will allow you to setup your store with the text, emails and product formats that you wish.
+    <div id="Div3.1" />
+    <h3>Template List</h3>
+<table cellpadding="1" cellspacing="1">
+<tr><td width="150px"><b>Type</b></td><td width="250px"><b>Name</b></td><td><b>Description</b></td></tr>
+<tr><td>.email</td>               <td>chqpayment.email</td>                                   <td>Email that will be sent when a client pays by cheque.</td></tr>
+<tr><td>.email</td>               <td>ordershipped.email</td>                                 <td>Email sent when the Manager of the store clicks the shipped button from the edit order page.</td></tr>
+<tr><td>.email</td>               <td>ordervalidated.email</td>                               <td>Email sent when the Manager of the store clicks the validated button from the edit order page.</td></tr>
+<tr><td>.email</td>               <td>orderreceipt.email</td>                               <td>Email sent when the Manager of the store clicks the validated button from the edit order page.</td></tr>
+<tr><td>.email</td>               <td>orderamended.email</td>                               <td>Email sent when the Manager of the store clicks the Amended button from the edit order page.</td></tr>
+<tr><td>.email</td>               <td>paymentOK.email</td>                                    <td>Email sent to client when payment has been accepted.</td></tr>
+<tr><td>.email</td>               <td>paymentunverified.email</td>                            <td>Email sent to client when payment has been accepted, but PayPal has been unable to verify.</td></tr>
+<tr><td>.template</td>            <td>lightbox.template</td>                                  <td>Used in productlist and productdetail to display image in lightbox. [TAG:IMAGELIGHTBOX]</td></tr>
+<tr><td>.template</td>            <td>lightboxgallery.template</td>                           <td>Used in productlist and productdetail to display image in lightbox. [TAG:GALLERY#]</td></tr>
+<tr><td>.template</td>            <td>noimage.template</td>                                  <td>Used in productlist and productdetail to display noimage when lightbox token is used but no image exist. [TAG:IMAGELIGHTBOX]</td></tr>
+<tr><td>.template</td>            <td>noimagegallery.template</td>                                  <td>Used in productlist and productdetail to display noimage when lightbox token is used but no image exist. [TAG:GALLERY#]</td></tr>
+<tr><td>.template</td>            <td>minicart.template</td>                                  <td>Template to be show in the minicart module.</td></tr>
+<tr><td>.template</td>            <td>minicartempty.template</td>                             <td>Template to be show in the minicart module, when cart is empty.</td></tr>
+<tr><td>.template</td>            <td>order.email.template</td>                                <td>Template that can be used to display order details in other email templates.</td></tr>
+<tr><td>.template</td>            <td>receipt.email.template</td>                                <td>Template that can be used to display receipt details in other email templates.</td></tr>
+<tr><td>.template</td>            <td>order.text.template</td>                                 <td>Template that can be used to display order details in other text templates.</td></tr>
+<tr><td>.template</td>            <td>receipt.text.template</td>                                 <td>Template that can be used to display receipt details in other text templates.</td></tr>
+<tr><td>.template</td>            <td>productdetail.template</td>                             <td>Template used to display product list.</td></tr>
+<tr><td>.template</td>            <td>productlist.template</td>                               <td>Template used to display product detail.</td></tr>
+<tr><td>.template</td>            <td>nosearchresult.template</td>                               <td>Template used to display when a product search has no products returned.</td></tr>
+<tr><td>.template</td>            <td>soldoutimg.template</td>                               <td>Template used when token [TAG:SOLDOUTIMG] is used in the product list. If the product stock qty = 0 the template will be displayed.</td></tr>
+<tr><td>.template</td>            <td>productxmldata.template</td>                               <td>Template to create bespoke fields for product data.</td></tr>
+<tr><td>.template</td>            <td>fromprice.template</td>                               <td>This template is displayed using the [TAG:FROMPRICE]. You can use the token 
+                                    [TAG:DEALERPRICE], [TAG:DEALERPRICECURRENCY], [TAG:FROMPRICE], 
+                                    [TAG:FROMPRICECURRENCY],[TAG:BESTPRICE], 
+                                    [TAG:BESTPRICECURRENCY],[TAG:SALEPRICE],[TAG:SALEPRICECURRENCY] within this template to display the from price value. No other tokens are supported.</td></tr>
+<tr><td>.template</td>            <td>dealerprice.template</td>                               <td>This template is displayed using the [TAG:DEALERPRICE]. You can use the token 
+    [TAG:DEALERPRICE], [TAG:DEALERPRICECURRENCY], [TAG:FROMPRICE], 
+    [TAG:FROMPRICECURRENCY],[TAG:BESTPRICE], 
+    [TAG:BESTPRICECURRENCY],[TAG:SALEPRICE],[TAG:SALEPRICECURRENCY]&nbsp;&nbsp; within this template to display the dealer price value. No other tokens are supported.</td></tr>
+<tr><td>.template</td>            <td>bestprice.template</td>                               <td>This template is displayed using the [TAG:BESTPRICE]. You can use the token 
+                                    [TAG:DEALERPRICE], [TAG:DEALERPRICECURRENCY], [TAG:FROMPRICE], 
+                                    [TAG:FROMPRICECURRENCY],[TAG:BESTPRICE], 
+                                    [TAG:BESTPRICECURRENCY],[TAG:SALEPRICE],[TAG:SALEPRICECURRENCY] within this template to display the best price value. No other tokens are supported.</td></tr>
+<tr><td>.template</td>            <td>saleprice.template</td>                               <td>If this template exists then it is used to replace the [TAG:SALEPRICE] token in the product list and the product details or you can use it with the [TAG:BESTPRICE]. You can use the token 
+                                    [TAG:DEALERPRICE], [TAG:DEALERPRICECURRENCY], [TAG:FROMPRICE], 
+                                    [TAG:FROMPRICECURRENCY],[TAG:BESTPRICE], 
+                                    [TAG:BESTPRICECURRENCY],[TAG:SALEPRICE],[TAG:SALEPRICECURRENCY] within this template to display the sale price value. No other tokens are supported.</td></tr>
+<tr><td>.template</td>            <td>modeltable.template</td>                               <td>This template is used to display the table structure used when the [TAG:MODELSTABLE] is used. The token [TAG:TABLEROWS] must be included to make the rows of the table display.</td></tr>
+<tr><td>.template</td>            <td>modeltablerow.template</td>                               <td>This template is used to display the rows of the [TAG:MODELSTABLE] token. It is called by using the [TAG:TABLEROWS] token in the 'modeltable.template' template. </td></tr>
+<tr><td>.template</td>            <td>nowishlist.template</td>                               <td>Template used to display when wish list has no products.</td></tr>
+<tr><td>.template</td>                <td>adminproductalt.template</td>                                    <td>
+    Display template for backoffice product select.</td></tr>
+<tr><td>.template</td>                <td>adminproductitem.template</td>                                    <td>
+    Display template for backoffice product select.</td></tr>
+<tr><td>.template</td>            <td>checkoutaddress.template</td>                               <td>This template is used to display checkout address fields. Valid values for databind property: 		AddressDescription,		AddressName,		Address1,		Address2,		City,		RegionCode,		CountryCode,		PostalCode,		Phone1,		Phone2,		PrimaryAddress,		CreatedByUser,		CreatedDate,		OrderID,		CompanyName,		Extra1,		Extra2,		Extra3,		Extra4</td></tr>
+<tr><td>.template</td>            <td>stgheader1.template</td>                               <td>Header for checkout cart page. </td></tr>
+<tr><td>.template</td>            <td>stgheader2.template</td>                               <td>Header for checkout address page. </td></tr>
+<tr><td>.template</td>            <td>stgheader3.template</td>                               <td>Header for checkout gateway page. </td></tr>
+<tr><td>.template</td>            <td>stgheader5.template</td>                               <td>Header for order completed page. </td></tr>
+<tr><td>.template</td>            <td>goodrelations.template</td>                               <td>goodrelations template that can be placed at the top of you product detail template to help SEO. Use [Template:goodrelations.template] to place it in your product detail template. </td></tr>
+<tr><td>.template</td>            <td>stg2form.template</td>                               <td>Allows a form to be added to the bottom of the stage2 checkout, using same tokens as bespoke products fields to create the form.  Data entered into the form can be displayed by using the token [Order:Stg2FormXML] which will use the xsl "Stg2FormXML.xsl" to render the html. </td></tr>
+<tr><td>.template</td>            <td>stg3form.template</td>                               <td>Allows a form to be added to the bottom of the stage3 checkout, using same tokens as bespoke products fields to create the form.  Data entered into the form can be displayed by using the token [Order:Stg3FormXML] which will use the xsl "Stg3FormXML.xsl" to render the html. </td></tr>
+<tr><td>.template</td>            <td>ProductPageName.template</td>                               <td>Template to display product page title. valid tokens are [TAG:PRODUCTREF],[TAG:PRODUCTNAME],[TAG:MANUFACTURER],[TAG:CATEGORYNAME],[TAG:SUMMARY],[TAG:TAGWORDS],[TAG:SEONAME] and [TAG:PORTALNAME]. </td></tr>
+<tr><td>.template</td>            <td>gatewaysep.template</td>                               <td>Html used to separate multiple payment gateways in the checkout.</td></tr>
+<tr><td>.template</td>            <td>gateway.template</td>                               <td>Template to display the payment providers in stage 3 of the checkout, can be turn on by an option in the module settings.  Valid tokens are [TAG:PURCHASE],[TAG:GATEWAYRADIO],[TAG:GATEWAY:{gateway ref}],[TAG:DATABIND:{Class field name}] and[TAG:XML:&lt;XSL name&gt;:getorderxml]</td></tr>
+<tr><td>.template</td>            <td>detailrows.template</td>                               <td>Template to display the cart and order rows when the [Order:DetailTemplateRows] token is used.&nbsp; [Detail:*],[Product:*] and [Model:*] token are allowed.</td></tr>
+<tr><td>.template</td>            <td>editaddress.template</td>                               <td>Template to display the edit address fields in Admin Order.</td></tr>
+<tr><td>.text</td>                <td>chqpayment.text</td>                                    <td>Text displayed after client has paid by cheque.</td></tr>
+<tr><td>.text</td>                <td>emptycart.text</td>                                     <td>Text displayed when a client views an empty cart.</td></tr>
+<tr><td>.text</td>                <td>extradetail.text</td>                                   <td>Message displayed above the extra detail textbox on the checkout.</td></tr>
+<tr><td>.text</td>                <td>gatewaymsg.text</td>                                    <td>Message displayed above the credit card payments.</td></tr>
+<tr><td>.text</td>                <td>logintext.text</td>                                     <td>Text displayed when the client goes to the checkout, but has not logged in.</td></tr>
+<tr><td>.text</td>                <td>orderprint.text</td>                                    <td>Template of order when client or manager requests a printed receipt.</td></tr>
+<tr><td>.text</td>                <td>orderview.text</td>                                     <td>Template of order when client or manager views order.</td></tr>
+<tr><td>.text</td>                <td>paymentFAIL.text</td>                                   <td>Text displayed when payment has failed.</td></tr>
+<tr><td>.text</td>                <td>paymentinprocess.text</td>                              <td>Text displayed when a client tries to pay for an order already in process.</td></tr>
+<tr><td>.text</td>                <td>paymentOK.text</td>                                     <td>Text displayed when payment successful.</td></tr>
+<tr><td>.text</td>                <td>paymentSECURITY.text</td>                               <td>Text displayed if order doesn't match userid.</td></tr>
+<tr><td>.text</td>                <td>productlimit.text</td>                                  <td>Text displayed if manager tries to add a new product, when product limit has been reached.</td></tr>
+<tr><td>.text</td>                <td>specialshipping.text</td>                               <td>Text displayed if shipping can't be calculated. If you want shipping charge disabled set the shipping free limit to "0".</td></tr>
+<tr><td>.text</td>                <td>minimumcarttotal.text</td>                               <td>Text displayed if the minimum purchase price (set by the "minimumcarttotal.limit" setting) has not been reached.   Use "[TAG:CARTMINIMUM]","[TAG:CARTTOTAL]" token to display value in message.</td></tr>
+<tr><td>.text</td>                <td>zeroprice.text</td>                               <td>Text that will be used in the product list if the price is zero. If this setting is left blank then the 0.00 is displayed.</td></tr>
+<tr><td>.text</td>                <td>buybutton.text</td>                               <td>Text to be displayed by the buy button on products. If left blank the resx file text is used.</td></tr>
+<tr><td>.text</td>                <td>outofstock.text</td>                               <td>Text to be displayed when product is out of stock. If blank the resource file value is used.</td></tr>
+<tr><td>.text</td>                <td>outofstockmodelmsg.text</td>                        <td>Text to be displayed on end of model description if out of stock.</td></tr>
+<tr><td>.text</td>                <td>receiptprint.text</td>                        <td>Template of receipt when manager requests a printed receipt.  If this template is empty then not receipt print button is displayed.</td></tr>
+<tr><td>.text</td>                <td>optionseperator.text</td>                        <td>Text to be used as the option separator for the cart. Default of "/" used if blank.</td></tr>
+<tr><td>.text</td>                <td>elapsedorder.text</td>                        <td>Text to be displayed if the order has passed it's elapsed time to pay.  If blank, elspased time is disabled.</td></tr>
+<tr><td>.tracktemplate</td>       <td>*.tracktemplate</td>                               <td>Template to create shipping tracking code links. e.g. "ups.tracktemplate".</td></tr>
+<tr><td>.shiptemplate</td>       <td>*.shiptemplate</td>                               <td>Template to be displayed as the shipping option text if more than one method exists.</td></tr>
+<tr><td>.code</td>       <td>nyromodellightbox.code</td>                               <td>JS Code to be added as nyromodal startup script.</td></tr>
+<tr><td>.code</td>       <td>*.code</td>                               <td>JS Code to be added as startup script for any javascript, list of values can be specified in the "productliststartupjs.includes" setting.</td></tr>
+<tr><td>.ImportMapping</td>                <td>categoryCSV.ImportMapping</td>                               <td>Allows CSV columns to be mapped to XML import structure.</td></tr>
+<tr><td>.ImportMapping</td>                <td>productCSV.ImportMapping</td>                               <td>Allows CSV columns to be mapped to XML import structure.</td></tr>
+<tr><td>.xsl</td>                <td>Stg2FormXML.xsl</td>                               <td>XSL to display the checkout stage 2 form data</td></tr>
+<tr><td>.xsl</td>                <td>Stg3FormXML.xsl</td>                               <td>XSL to display the checkout stage 3 form data</td></tr>
+</table>
+    <div id="Div3.2" />
+    <h3>Template Replacement Tokens</h3>
+    <div id="Div3.2.1" />
+<h4>General Tokens</h4>
+<table>
+<tr>
+<td valign="top">
+        [Order:OrderID]<br/>
+        [Order:UserID]<br/>
+        [Order:PortalID]<br/>
+        [Order:OrderNumber]<br/>
+        [Order:ShortOrderNumber]<br/>		
+        [Order:OrderDate]<br/>
+        [Order:ShipDate]<br/>
+        [Order:ShippingAddressID]<br/>
+        [Order:BillingAddressID]<br/>
+        [Order:AppliedTax]<br/>
+        [Order:ShippingCost]<br/>
+        [Order:OrderIsPlaced]<br/>
+        [Order:OrderStatusID]<br/>
+        [Order:PayType]<br/>
+        [Order:CalculatedTax]<br/>
+        [Order:NoteMsg]<br/>
+        [Order:VATNumber]<br/>
+        [Order:Discount]<br/>
+        [Order:PromoCode]<br/>
+        [Order:Total]<br/>
+        [Order:BankAuthCode]<br/>
+        [Order:TrackingLink]<br />
+        [Order:DetailRows]<br />
+        [Order:DetailTemplateRows]<br/>
+        [Order:ShippingMethod]<br/>
+        [Order:TrackingCode]<br/>
+		[Order:CartTotal]<br/>
+		[Order:Stg2FormXML]<br/>
+		[Order:Stg3FormXML]<br/>
+		[Order:AlreadyPaid]<br/>
+		[Order:OrderGUID]<br/>
+		[Order:GatewayProvider]<br/>
+</td>
+<td  valign="top">
+        [SAddress:AddressID]<br/>
+        [SAddress:PortalID]<br/>
+        [SAddress:UserID]<br/>
+        [SAddress:AddressDescription]<br/>
+        [SAddress:AddressName]<br/>
+        [SAddress:Address1]<br/>
+        [SAddress:Address2]<br/>
+        [SAddress:City]<br/>
+        [SAddress:RegionCode]<br/>
+        [SAddress:CountryCode]<br/>
+        [SAddress:Country]<br/>
+        [SAddress:PostalCode]<br/>
+        [SAddress:Phone1]<br/>
+        [SAddress:Phone2]<br/>
+        [SAddress:PrimaryAddress]<br/>
+        [SAddress:CreatedByUser]<br/>
+        [SAddress:CreatedDate]<br/>
+        [SAddress:OrderID]<br/>
+
+</td>
+<td valign="top">
+        [BAddress:AddressID]<br/>
+        [BAddress:PortalID]<br/>
+        [BAddress:UserID]<br/>
+        [BAddress:AddressDescription]<br/>
+        [BAddress:AddressName]<br/>
+        [BAddress:Address1]<br/>
+        [BAddress:Address2]<br/>
+        [BAddress:City]<br/>
+        [BAddress:RegionCode]<br/>
+        [BAddress:CountryCode]<br/>
+        [BAddress:Country]<br/>
+        [BAddress:PostalCode]<br/>
+        [BAddress:Phone1]<br/>
+        [BAddress:Phone2]<br/>
+        [BAddress:PrimaryAddress]<br/>
+        [BAddress:CreatedByUser]<br/>
+        [BAddress:CreatedDate]<br/>
+        [BAddress:OrderID]<br/>
+</td>
+<td valign="top">
+	      [Cart:TaxAmt]<br/>
+        [Cart:TaxAppliedAmt]<br/>
+        [Cart:ShipAmt]<br/>
+        [Cart:DiscountAmt]<br/>
+        [Cart:TotalAmt]<br/>
+        [Cart:OrderTotal]<br/>
+        [Cart:Qty]<br/>
+        [Cart:URL]<br/>
+        [Cart:TabID]<br/>
+          <br />
+          [Detail:OrderDetailID]<br />
+          [Detail:OrderID]<br />
+          [Detail:Quantity]<br />
+          [Detail:UnitCost]<br />
+          [Detail:ModelID]<br />
+          [Detail:OptCode]<br />
+          [Detail:ItemDesc]<br />
+          [Detail:Discount]<br />
+          [Detail:Tax]<br />
+          [Detail:ProductURL]<br />
+          [Detail:Total]<br />
+          [Detail:TotalDiscount]<br />
+          [Detail:FileLink]</td>
+<td valign="top">
+	[OrderUser:Email]<br/>
+	[OrderUser:username]<br/>
+	[OrderUser:FirstName]<br/>
+	[OrderUser:LastName]<br/>
+	[OrderUser:DisplayName]<br/>
+</td>
+<td valign="top">
+[Model:ModelID]<br/>
+[Model:ProductID]<br/>
+[Model:ListOrder]<br/>
+[Model:UnitCost]<br/>
+[Model:Barcode]<br/>
+[Model:ModelRef]<br/>
+[Model:Lang]<br/>
+[Model:ModelName]<br/>
+[Model:QtyRemaining]<br/>
+[Model:QtyTrans]<br/>
+[Model:QtyTransDate]<br/>
+[Model:ProductName]<br/>
+[Model:PortalID]<br/>
+[Model:Weight]<br/>
+[Model:Height]<br/>
+[Model:Length]<br/>
+[Model:Width]<br/>
+[Model:Deleted]<br/>
+[Model:QtyStockSet]<br/>
+[Model:DealerCost]<br/>
+[Model:PurchaseCost]<br/>
+[Model:XMLData]<br/>
+[Model:Extra]<br/>
+</td>
+</tr>
+<tr>
+<td valign="top">
+[Product:ProductID]<br/>
+[Product:PortalID]<br/>
+[Product:TaxCategoryID]<br/>
+[Product:Featured]<br/>
+[Product:Archived]<br/>
+[Product:CreatedByUser]<br/>
+[Product:CreatedDate]<br/>
+[Product:IsDeleted]<br/>
+[Product:ProductRef]<br/>
+[Product:Lang]<br/>
+[Product:Summary]<br/>
+[Product:Description]<br/>
+[Product:Manufacturer]<br/>
+[Product:ProductName]<br/>
+[Product:FromPrice]<br/>
+[Product:SalePrice]<br/>
+[Product:QtyRemaining]<br/>
+[Product:QtyStockSet]<br/>
+[Product:ImageURL]<br/>
+[Product:ImageDESC]<br/>
+[Product:ImageID]<br/>
+[Product:CategoryName]<br/>
+[Product:XMLData]<br/>
+[Product:ModifiedDate]<br/>
+[Product:SEOName]<br/>
+[Product:TagWords]<br/>
+[Product:IsHidden]<br/>
+</td>
+<td valign="top">
+	[Currency:Symbol]<br/>
+	[WishList:ItemCount]<br/>
+	[Order:GoogleEcommerceUpdate]<br/>
+	[Order:AmendedLink]<br />
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+        
+
+
+
+<br/>
+*Note: Model tokens are only used in the 'modeltablerow.template'
+<br/>
+*Note: Decimal values (Costs/Prices) will always display in the currency format. To remove the curreny symbol prefix the token key with '#', for example [Order:#Total]<br />
+        To format as "0.00" prefix the token key with '.', for example [Order:.Total]<br />
+        To remove decimal place prefix the token key with '=', for example [Order:=Total]<br />
+ 
+    <div id="Div3.2.2" />
+<h4>lightbox.template Tokens</h4>
+[Product:ImageThumb]<br/>
+[Product:ImageURL]<br/>
+[Product:ImageDesc]<br/>
+
+    <div id="Div3.2.3" />
+<h4>Productlist.template  and  Productdetail.template Tokens</h4>
+
+ [TAG:PRODUCTNAME]<br/> 
+ [TAG:PRODUCTREF]<br/> 
+ [TAG:SUMMARY]<br/> 
+ [TAG:SUMMARYHTML] - Displays summary with the vbCrLf converted to "&lt;br /&gt;"<br/> 
+ [TAG:DESCRIPTION]<br/> 
+ [TAG:IMAGE]<br/> 
+ [TAG:MANUFACTURER]<br/> 
+ &lt;a href="[TAG:LINK]"&gt;Link&lt;/a&gt; - create a hyperlink to the product detail page.<br/> 
+ &lt;a href="[TAG:LINKSIMPLE]"&gt;Link&lt;/a&gt; - create a hyperlink to the product detail page without extra parameters.<br/> 
+ [TAG:FROMPRICE] - Cheapest price of models attached to the product.<br/>
+ [TAG:FROMPRICECURRENCY] - Cheapest price of models attached to the product formatted as a currency.<br/>
+ [TAG:CURRENCYSYMBOL]<br/>
+ [TAG:CURRENCYISOCODE]<br/>
+ [TAG:QTYREMAINING]<br/>  
+ [TAG:SALEPRICE] - If there is no sale price then this token displays nothing. It can also be use with the "saleprice.template" template. Currency formatting is NOT applied.<br/>
+ [TAG:SALEPRICECURRENCY] - If there is no sale price then this token displays nothing, it can also be use with the "saleprice.template" template.  Currency formatting is applied.<br/> 
+        [TAG:PRICESALE] - without template.<br />
+        [TAG:PRICESALECURRENCY]&nbsp; - without template.<br />
+ [TAG:BESTPRICE] - Displays the &quot;bestprice.template&quot;, if empty then this token displays the best price template for FROMPRICE, SALEPRICE or DEALERPRICE.<br/>
+ [TAG:BESTPRICECURRENCY] - Displays the &quot;bestprice.template&quot;. If empty then this token displays the best price template for FROMPRICE, SALEPRICE or DEALERPRICE. If no template exists then the Best price is displayed in currency format.<br />
+        [TAG:PRICEBEST] - without template.<br />
+        [TAG:PRICEBESTCURRENCY]&nbsp; - without template.<br/>
+ [TAG:DEALERPRICE] - If the user is a member of the dealer roles, as specified in the "dealer.role" setting, then this token displays the dealer price or "dealerprice.template" template if it exists.  If no dealer price exists then the model price is displayed.
+        <br />
+                [TAG:DEALERPRICECURRENCY] - If the user is a member of the dealer roles, as specified in the "dealer.role" setting then this token displays the dealer price or "dealerprice.template" template if it exists.  If no dealer price exists then the model price is displayed in currency format.
+ [TAG:EDITLINK] - Edit button appears if user has rights to edit the product list module.<br />
+        [TAG:PRICEDEALER] - without template.<br />
+        [TAG:PRICEDEALERCURRENCY]&nbsp; - without template.<br/> 
+ [TAG:ADDTOBASKET:{properties xml}] - Buy button.<br/> 
+ [TAG:MODELS:{properties xml}] - dropdownlist of models, if more than one exists. If not nothing will be displayed.<br/> 
+ [TAG:MODELS2:{properties xml}] - dropdownlist of models. If 1 model exist a dropdownlist is still displayed.<br/> 
+ [TAG:MODELSRADIO:{properties xml}] - Radio Button list of models if more than one exists. If not nothing will be displayed.<br/> 
+ [TAG:MODELSRADIO2:{properties xml}] - Radio Button list of models. If 1 model exist a radio button is still displayed.<br/> 
+ [TAG:OPTIONNAME1]<br/> 
+ [TAG:OPTION1:{properties xml}]<br/> 
+additional [TAG:OPTION&lt;Number&gt;:{properties xml}] can be added as you wish. The number will match the sort order of options.<br/> 
+[TAG:OPTIONRADIO1:{properties xml}]<br/> 
+additional [TAG:OPTIONRADIO&lt;Number&gt;:{properties xml}] can be added as you wish. The number will match the sort order of options.<br/> 
+[TAG:OPTIONTEXT1:{properties xml}]<br/> 
+additional [TAG:OPTIONTEXT&lt;Number&gt;:{properties xml}] can be added as you wish. The number will match the sort order of options.<br/> 
+[TAG:OPTIONVALRANGE:{properties xml}] - Range validator for options.<br/> 
+[TAG:OPTIONVALREGX:{properties xml}] - Regular Expression validator for options.<br/> 
+[TAG:OPTIONVALREQ:{properties xml}] - validator for options.<br/> 
+[TAG:OPTIONVALSUMMARY:{properties xml}] - validator for options.<br/> 
+[TAG:QTY:{properties xml}] - Product Quantity textbox.<br/> 
+[TAG:IMAGELIGHTBOX] - this tag will be replaced with the "lightbox.template" template.<br/> 
+[TAG:GALLERY1] - this tag will be replaced with the "lightboxgallery.template" template.<br/>
+additional [TAG:GALLERY&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:GALLERYURL1] - this tag will be replaced with the image url.<br/>
+additional [TAG:GALLERY&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:GALLERYURL1:ThumbSize] - this tag will be replaced with the image url.  The ThumbSize is the size of the thumbnail you wish to display, (e.g. 400x100,400)  These thumbnails must exist on disk, but using the diskthumbnails.flag and diskthumbnails.size setting options.<br/>
+additional [TAG:GALLERY&lt;Number&gt;:ThumbSize] can be added as you wish.<br/> 
+[TAG:GALLERYTHUMBURL1] - this tag will be replaced with the image url.<br/>
+additional [TAG:GALLERYTHUMBURL&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:GALLERYID1] - this tag will be replaced with the image id.  Usually for use with the thumbnail resizer.<br/>
+additional [TAG:GALLERY&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:DOC1:{properties xml}] - this tag will be replaced with the download document icon.<br/>
+additional [TAG:DOC&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:DOCLINK1:{properties xml}] - this tag will be replaced with the download link.<br/>
+additional [TAG:DOCLINK&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:DOCDESC1] - this tag will be replaced with the download document description.<br/>
+additional [TAG:DOCDESC&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:DOCPURCHASED1:{properties xml}] - this tag will be replaced with the download document icon.<br/>
+additional [TAG:DOCPURCHASED&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:DOCPURCHASEDLINK1:{properties xml}] - this tag will be replaced with the download link.<br/>
+additional [TAG:DOCPURCHASEDLINK&lt;Number&gt;] can be added as you wish.<br/> 
+[TAG:IMAGEURL]<br/> 
+[TAG:THUMBURL]<br />
+[TAG:THUMBSIZE]<br/> 
+[TAG:STOREINSTALLPATH]<br/> 
+[TAG:TRACKINGCODE]<br />
+[TAG:SOLDOUTIMG] - If the product stock qty = 0 this token will display the "soldoutimg.template" template.<br/> 
+[TAG:STOCKPERCENT] - Displays the percentage of stock left, based on the Max Stock amount.<br />
+[TAG:STOCKPERCENTACTUAL] - Displays the percentage of stock left, based on the Max Stock amount without taking into account stock locked on the cart.<br />
+[TAG:STOCKPERCENTINPROCESS] - Display percentage of Stock in cart.<br />
+[TAG:STOCKPERCENTSOLD] - Display percentage of Stock Sold.<br />
+[TAG:MODELSTABLE] - Displays the models as a table. Used with 'modeltable.template' .<br />
+[TAG:TABLEROWS] - token used only in 'modeltable.template' to call the 'modeltablerow.template' .<br />
+[TAG:XMLDATA:&lt;xpath&gt;] - xmlpath should always start with "genxml" and be in  lowercase.  (e.g. "[TAG:XMLDATA:genxml/textbox/txttitle]")<br />
+[TAGXML:xslfilename:xmlsource] - token used to run xsl in template. The "xslfilename" can be either a file on you portal root or the name of a template in the backoffice templates. (use debug.mode to get example of xml output into portal root.)  The "xmlsource" is optional and can be either nothing, "xmlgetproductsincat",&quot;getorderxml&quot; or "getproductxml", the options will render the xml in Export format.<br />
+[TAG:ADDTOWISHLIST:{properties xml}] - token to display wishlist add button (e.g. [TAG:ADDTOWISHLIST:&lt;prop text="Add to WishList" /&gt;])<br />
+[TAG:REMOVEFROMWISHLIST:{properties xml}] - token to display wishlist remove button (e.g. [TAG:REMOVEFROMWISLIST:&lt;prop text="Remove From WishList" /&gt;])<br />
+[TAG:CATIMAGEURL] - token will be replaced with the category image url.<br/>
+[TAG:CATNAME] - displays category name.  A Default category must be selected in the product list module for this token to work. If "All Categories" are selected as a default, then this token will not display.<br/>
+[TAG:ADDRELATED] - Token can be used in the adminproductitem.template and adminproductalt.template to add related items. <br/>
+[TAG:WEBSITEURL]<br/> 
+[TAG:GATEWAYRADIO] - Displays a radio button list of available payment gateways, for use in the "gateway.template". An extra node of "&lt;gatewaymsg&gt;" can be added to the provider xml template. This will be displayed as the radio button text.<br/> 
+[TAG:GATEWAY:{gateway ref}] - used to display the image button returned by the gateway provider stated in the {gatewayref}.<br/> 
+[TAG:PURCHASE:{properties xml}] - Displays the purchase button in the "gateway.template". If Radio Button list for gateway doesn&#39;t exist then clicking this button will trigger the encapsulated gateway.<br/> 
+[TAG:DATABIND:{class field name}] - Displays a value from the ProductListInfo class in the productlist module or the OrderInfo class from the "gateway.template".<br/>
+[TAG:SETTING:{setting name}] - Displays a value from the BackOffice Settings.<br/>
+[TAG:TEST:{xml test data}] - Create Test Section. See <a href="#Div3.5">Token Test Sections</a><br/>
+[TAG:END] - End test section.<br />
+[TAGEXTRA:&lt;ctrldata&gt;] - Special token to allow external data to be displayed in the product detail and list.  The "tagextra.provider" setting must be specified for this token to work.  The "CtrlData" section can be any data required by the tagextra.provider dll.<br />
+[TAG:UPLOAD:{properties xml}] - Add File upload option for a product/model.<br />
+        <br />
+
+<br/> 
+{properties xml} = A list of properties that can be linked to the control created. These properties MUST be case sensitive and match to normal asp.Net properties.<br/> 
+E.g.<br/> 
+&lt;prop CssClass="MyCssClass" RepeatColumns="2" RepeatDirection="1" /&gt;<br/> 
+<br />
+Examples:<br />
+[TAG:QTY:&lt;prop ErrorMessage="Invalid Quantity"/&gt;]<br />
+[TAG:OPTIONRADIO1:&lt;prop CssClass="MyCssClass" RepeatColumns="2" RepeatDirection="1" /&gt;]<br />
+[TAG:OPTIONTEXT3:&lt;prop CssClass="MyCssClass" Width="50" MaxLength="3" ToolTip="Option3"/&gt;][TAG:OPTIONVALREQ:&lt;prop ErrorMessage="Invalid Option3 must be entered" Text="*" ControlToValidate="OPTIONTEXT3" /&gt;][TAG:OPTIONVALRANGE:&lt;prop ErrorMessage="Invalid Option3 Text" Text="*" Type="Integer"  MaximumValue="500" MinimumValue="0" ControlToValidate="OPTIONTEXT3" /&gt;]<br />
+<br />
+Examnple File Upload Option:<br />
+<br/>
+[TAG:OPTIONVALSUMMARY]<br/>
+[TAG:UPLOAD:&lt;prop Width="400" />][TAG:OPTIONVALREQ:&lt;prop ErrorMessage="No File selected for upload." Text="*" ControlToValidate="fuupload" /&gt;]<br/>
+[TAG:OPTIONVALREGX:&lt;prop ErrorMessage="Invalid File Extension, must be pdf,doc or txt." Text="*" ControlToValidate="fuupload" ValidationExpression="^.+\.(doc|txt|pdf|Doc|Txt|Pdf|DOC|TXT|PDF)$" /&gt;]<br/>
+<br />
+The "[Detail:FileLink]" token should be used in the "detailrows.template" template to display a download link in the order details.<br />
+<br />
+NOTES:<br />
+- The ToolTip property of the textbox is used to display option in the cart<br />
+- When using the Textbox uncheck the "Increment Cart:" option in product list settings, otherwise text inputs may be lost when multiple items are added to the cart.<br />
+- To ensure formatting of case and {properties XML} is unaffected by editor re-formatting use the edit with Textbox option, in the template editing admin.<br />
+- For downloadable item use the [TAG:DOCPURCHASED1] and [TAG:DOCPURCHASEDLINK1] tokens.  The links to download will only appear when the user has orders in the their order history on status "Payment OK" or "Closed", if the order is on any other status the link will not be displayed.<br />
+    <div id="Div3.2.4" />
+<h4>logintext.text Tokens</h4>
+These tokens can be used to replace the javascript call to register, login and also to skip the login for stores that do not require a login to purchase.<br/>
+[TAG:Register]<br/>
+[TAG:Login]<br/>
+[TAG:SkipLogin]<br/>
+    <div id="Div3.2.5" />
+<h4>Special Templates Tokens</h4>
+[Template:&lt;name of template&gt;:&lt;Role&gt;]<br/>
+<br/>
+                                                    &lt;Role&gt; = Name of role that the template is visible to.&nbsp; If blank or not 
+                                                    specified, the template is visible to all roles.<br />
+                                                    <br />
+* NB_Store will look for a template that exists by the name and insert it into the calling template.  Recursive template calling is supported to a depth of 4 levels.<br />
+                                                    <br/>
+<br/>
+        <b>Report Tokens<br />
+        </b><br/>
+[Report:&lt;reportref&gt;]&nbsp; - These tokens can be used to display reports from the 
+        reporting system.<br/>
+<br/>
+        <b>Setting Tokens<br />
+        </b><br/>
+[Setting:&lt;settingname&gt;]&nbsp; - These tokens can be used to display settings from the Back Office Settings.<br/>
+<br/>
+An Escape of "[[" can be used to display "[" and "]]" for "]"<br/>
+<br/>
+
+    <div id="Div3.2.6" />
+<h4>lblEstShipDate.Text Tokens</h4>
+This token can be found in the Checkout.ascx.resx file<br/>
+[TAG:ESTIMATEDDATE]<br/>
+This resource file entry allows you to put a estimated date of shipping onto the checkout.
+    <div id="Div3.2.7" />
+<h4>Using No Stock Image Overlay Tokens</h4>
+Ther [TAG:SOLDOUTIMG] can be used to display a image which overlays the product image when a product is out of stock.<br />
+<b>Example:-</b> <br />
+<br />
+<b>productlist.template<br />
+        </b><br />
+&lt;div class="ImageHolder"&gt;<br />
+[TAG:SOLDOUTIMG]<br />
+&lt;a title="[TAG:PRODUCTNAME]" href="[TAG:LINK]"&gt;<br />
+&lt;div class="ThumbNail"&gt;[TAG:IMAGE]<br />
+&lt;/div&gt;<br />
+&lt;/a&gt;<br />
+&lt;/div&gt;<br />
+[TAG:FROMPRICE] € [TAG:EDITLINK]<br />
+<br />
+<b>soldoutimg.template<br />
+        </b><br />
+        &lt;img alt="" class="SoldOut" src="/Desktopmodules/nb_store/img/soldout.png" /&gt;<br />
+        <br />
+<b>css class needed<br />
+        </b><br />
+.ImageHolder{position: relative;top:0px;left:0px}<br />
+.ThumbNail img{position:relative;z-index:0;}<br />
+.SoldOut{position:absolute;z-index:2000;}<br />
+<br />
+<b>category message token<br />
+        </b><br />
+[TAG:CATIMAGEURL] - This token can be used only in the category message and will be replaced with the relative category image url.<br />
+<br />
+    <div id="Div3.2.8" />
+<h4>Using Shipping Tracking Code Tokens</h4>
+Tracking codes for shipping can be used to create a link to the postal service website.<br />
+ 1. Create a template called "*.tracktemplate" e.g. ups.template<br />
+ <br />
+ &lt;a href="http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&tracknums_displayed=1&TypeOfInquiryNumber=T&loc=en_US&InquiryNumber1=[TAG:TRACKINGCODE]&track.x=0&track.y=0" target="_blank" &gt;Tracking Code&lt;/a&gt;<br />
+ <br />
+ 2. Link the tracking template to the shipping method. Shipping>Methods menu<br />
+ 3. Use the [Order:TrackingLink] token in the "order.text.template" or "order.email.template" to display the link created.<br />
+ 4. Enter the tracking code into the order by editing the order from the Orders menu.<br />
+        <br />
+        Use [Order:ShippingMethod] token to display the shipping method selected.<br />		
+    <div id="Div3.2.9" />		
+<h4>Category Menu Tokens</h4>
+Category Menu tokens can be used to display the category menu in a html format.<br />
+<br />
+[TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGEURLTHUMB],[TAG:IMAGEURL],[TAG:IMAGE],[TAG:LINK],[TAG:CATEGORYNAMECSS]<br />
+<br />
+ These tokens are used in the categorymenu module settings in the "Accordion Name Template", "Tree Name Template", "Root Name Template" and "Sub Name Template"	<br />
+<br />
+If the template starts with an "&lt;a" then the template will be assumed to be the full name and link for the tab. If the template does not start with "&lt;a" then the template will be taken as just the inner html for the tab and the link will be placed around the template.<br />
+<br />
+ The [TAG:CATEGORYNAMECSS] token will be replaced with the "{CategoryName}" for each non-selected menu tab or "{CategoryName}sel" for the selected tab. Spaces in the category name will be replaced with "_".<br />
+<br />
+
+    <div id="Div3.2.10" />		
+<h4>Checkout Address Templates</h4>
+The checkout billing and shipping addresses can be customized by editing the "checkoutaddress.template".  This template uses tokens to create the fields, the field with id "cdoCountry" must have this id, otherwise the country list will not populate the dropdown.
+<br />
+ <div id="Div3.3" />
+<h3>Setup Custom Javascript</h3>
+Using the token system it is possible to load and configure jQuery javascript to run on your product list / Detail page.<br />
+<br />
+The example below shows how the jQuery Lightbox has been setup, but this method could be altered to use your own version of any jQuery plugin:<br />
+<br />
+Example:<br />
+1 - Move your js script into the NB_Store/js folder. (In the case of jquerylightbox, it is installed with NB_Store)<br />
+<br />
+2 - Create "jquerylightbox.template" template.<br />
+    <br />
+    e.g.<br />
+    <br />
+    &lt;table height=&quot;302&quot; width=&quot;302&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; 
+    bgcolor=&quot;#ffffff&quot;&gt;
+    <br />
+&nbsp; &lt;tbody&gt;
+    <br />
+&nbsp; &lt;tr&gt;
+    <br />
+&nbsp;&nbsp; &lt;td valign=&quot;middle&quot; align=&quot;center&quot; style=&quot;border: 1px solid rgb(216, 
+    208, 187);&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;a href=&quot;[Product:ImageURL]&quot; class=&quot;jquerylightbox&quot; rel=&quot;GRP1&quot; 
+    title=&quot;[Product:ImageDesc]&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;img border=&quot;0&quot; src=&quot;[Product:ImageThumb]&quot; 
+    alt=&quot;[Product:ImageDesc]&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br />
+&nbsp;&nbsp; &lt;/td&gt;
+    <br />
+&nbsp; &lt;/tr&gt;
+    <br />
+&nbsp; &lt;/tbody&gt;
+    <br />
+    &lt;/table&gt;<br />
+<br />
+3 - Create "jquerylightboxgallery.template" template.<br />
+    <br />
+    e.g.<br />
+    <br />
+    &lt;table height=&quot;122&quot; width=&quot;122&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; 
+    bgcolor=&quot;#ffffff&quot;&gt;
+    <br />
+&nbsp; &lt;tbody&gt;
+    <br />
+&nbsp; &lt;tr&gt;
+    <br />
+&nbsp;&nbsp; &lt;td valign=&quot;middle&quot; align=&quot;center&quot; style=&quot;border: 1px solid rgb(216, 
+    208, 187);&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;a href=&quot;[Product:ImageURL]&quot; rel=&quot;GRP1&quot; class=&quot;jquerylightbox&quot; 
+    title=&quot;[Product:ImageDesc]&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;img border=&quot;0&quot; src=&quot;[Product:ImageThumb]&quot; 
+    alt=&quot;[Product:ImageDesc]&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br />
+&nbsp;&nbsp; &lt;/td&gt;<br />
+&nbsp; &lt;/tr&gt;<br />
+&nbsp; &lt;/tbody&gt;<br />
+    &lt;/table&gt;<br />
+<br />
+4 - Tell NB_store to load your custom js by creating the "productlistjs.includes" settings. The values in this setting should be a "csv" list of file names that exist in the NB_Store/js directory.<br />
+<br />
+5 - Tell NB_store to load your custom css by creating the "productlistcss.includes" settings. The values in this setting should be a "csv" list of file names that exist in the NB_Store/js directory.<br />
+<br />
+6 - Tell NB_store to load your custom js startup script by creating the "productliststartupjs.includes" settings. The values in this setting should be a &quot;csv&quot; list of file names that exist as templates in NB_Store.<br />
+<br />
+    7 - Create any needed js startup scripts in the NB_Store templates menu. (Names have been specified in step 6)<br />
+    <br />
+    e.g.<br />
+    <br />
+    jQuery(function() { jQuery(&#39;.jquerylightbox&#39;).lightBox(); });
+    <br />
+    <br />
+    or if running DNN4 the jQuery noconflict has been setup so use &quot;j&quot;:<br />
+    <br />
+    &lt;script language=&#39;javascript&#39; type=&#39;text/javascript&#39;&gt; j(function() { 
+    j(&#39;.jquerylightbox&#39;).lightBox(); }); &lt;/script&gt;
+    <br />
+    <br />
+    8 - Specify the template to be used as the lightbox template in the "lightboxtemplate.name" setting. The name must exist as a template in NB_Store.ate to be used as the lightbox gallery template in the "lightboxgallerytemplate.name" setting. The name must exist as a template in NB_Store.br />
+<br />
+<br />
+The required JS should now work in the products list module.
+    <br />
+    <br />
+    For Javascript in the category menu (Treeview) you can set up includes the same 
+    using &quot;categorymenujs.includes&quot;, &quot;categorymenustartupjs.includes&quot; and 
+    &quot;categorymenucss.includes&quot;.<br />
+	<br />
+    <div id="Div3.3.1" />
+<h4>Importing Javascript Templates</h4>
+		NB_Store also has some default javascript settings that can be imported.  These can be found in /Desktopmodules/NB_Store/templates<br />
+		<br />
+		"JQueryAccordionMenu_Settings.xml" - javascript settings needed to run the accordion menu.<br />
+		"JQueryTreeViewMenu_Settings.xml" - javascript settings needed to run the TreeView Menu.<br />
+		"JQueryMenu_Settings.xml" - javascript settings needed to run the both the accordion and TreeView Menus.<br />
+		"JQueryLightBox_Settings.xml" - javascript settings needed to run the jQuery Lightbox.<br />
+		"ManagerMenuDefault.xml" - This file can also be imported and is an import for all default settings.<br />
+		<br />
+		Import can be done via the "Back Office>Admin>Import Settings" option.  Check the overwrite option, select the settings import file your want and click "Import"<br />
+		<br />
+		To make your own settings templates, export the settings "Back Office>Admin>Export Settings" and edit the exported xml as required.<br />
+		<br />
+	After changing these settings you may need to restart the DNN application to clear the cache and make sure you pick up the changes.  "Back Office>Admin>Restart DNN"	<br />
+<div id="Div3.4" />
+<h3>Special Authorized User Templates</h3>
+If you require a different "productlist" and "productdetail" template to be displayed when a user is logged on then you can create a settings called "usertemplates.flag" and set it to "1".<br />
+If this flag is set to true the the store will search the templating system for the template specified in the settings of the productlist module, but with an appendix of "user", if the template exists then the "user" template will be used.<br />
+<br />
+For example:<br />
+If we have a productlist template called "myproductlist.template" specified in the productlist module settings and the user is logged in, then the "myproductlist.templateuser" template will be used. if the user is not logged in the normal specified "myproductlist.template" will be used.<br />
+<br />
+<hr />
+    <div id="DivReports" />
+<h2>Reports and Dashboard</h2>
+<b>Reports system</b>
+        <br />
+        A SQL reporting system is now included in the Back Office of NB_Store.&nbsp; SQL 
+        reports can be create and ran from here. Reports can also be scheduled to run on 
+        the DNN scheduler, but you must have enabled the
+        &quot;SchedulerReport&quot; class in the DNN Scheduler for this to work.<br />
+        <br />
+        Only administrators/host can create reports. These SQL reports have no 
+        restriction on Update or Insert. Therefore be very careful which SQL 
+        reports are enabled as these can affect the database and hence corrupt the 
+        NB_Store and DNN database tables.<br />
+        <br />
+<b>Dashboard</b>
+        <br />
+The dashboard can now be customized to display reports from the reporting system.</br>
+To do this you need to edit the "dashboard.text" setting.&nbsp; You can use a token 
+        value of [Report:&lt;ReportRef&gt;] to display the report.&nbsp;
+        <br />
+        <br />
+        * The Dashboard is cached for an hour to stop the reports running each time you 
+        enter the backoffice. 
+
+<div id="Div3.5" />
+<h3>Token Test Sections</h3>
+<div>
+
+        Creating testable sections in templates.
+        <br />
+        <br />
+        Sections can be created in template that only display or don&#39;t display, based on 
+        the state of the data.
+        <br />
+        A starting tag [TAG:TEST..] and [TAG:END], define the section scope.
+        <br />
+        <br />
+        <br />
+        ---------------------------------------------------------------
+        <br />
+        <br />
+        Example:
+        <br />
+        <br />
+        <br />
+        [TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;ProductName&quot; TestValue=&quot;My Product 
+        Name&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        <br />
+        [TAG:END]
+        <br />
+        [TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;ProductName&quot; TestValue=&quot;My Product 
+        Name&quot; Action=&quot;Show&quot; TestOperator=&quot;<>&quot; /&gt;]
+        <br />
+        <br />
+        <br />
+        [TAG:END]
+        <br />
+        ---------------------------------------------------------------
+        <br />
+        <br />
+        The test parameters are passed as an xml property list of attributes.
+        <br />
+        <br />
+        TestType = Type of test to do.
+        <br />
+        TestName = Name of the data to be tested.
+        <br />
+        FieldXPath = Xpath of bespoke fields created on a product.
+        <br />
+        TestValue = Value to test for.
+        <br />
+        Action = The action to be done if true, possible values are &quot;Show&quot; and &quot;Hide&quot;.
+        <br />
+        TestOperator = (Optional, Defalut is "=") The operator for the test, values can be ">", "<", ">=", "<=", "<>", "=".  Works only on test types of "valueof", "date" and "stock". 
+        <br />
+        <br />
+        An OR operator of &quot;|&quot; can be added to the TestType, TestName, FieldXPath and 
+        TestValue attributes.&nbsp; If an OR operator is used then all the attributes 
+        specified must have the same OR delimiters specified (see examples).<br />
+        <br />
+        Test types:
+        <br />
+        <br />
+        valueof
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;ProductName&quot; TestValue=&quot;My 
+        Product Name&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof&quot; FieldXPath=&quot;genxml/textbox/txtname&quot; 
+        TestValue=&quot;Name&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        date
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;date&quot; TestName=&quot;CreatedDate&quot; TestValue=&quot;Now&quot; Action=&quot;Show&quot; TestOperator=&quot;&lt;&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;date&quot; TestName=&quot;CreatedDate&quot; TestValue=&quot;Today&quot; Action=&quot;Show&quot; TestOperator=&quot;&lt;&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;date&quot; TestName=&quot;CreatedDate&quot; TestValue=&quot;22/6/2011&quot; Action=&quot;Show&quot; TestOperator=&quot;&lt;&quot; /&gt;]
+        <br />
+        <br />
+        stock<br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;stock&quot; TestName=&quot;CartQty&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        isinrole
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        setting
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;setting.name&quot; TestValue=&quot;0&quot; 
+        Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        modulesetting
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;modulesetting&quot; TestName=&quot;chkModThing&quot; 
+        TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        hasModels
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        hasOptions
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        The TestValue tests if that number exists using greater than or equal to logic.  If not specified the test just checks if any number exists.     
+        <br />
+        <br />
+        hasImages
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasImages&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasImages&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        The TestValue tests if that number exists using greater than or equal to logic.  If not specified the test just checks if any number exists.     
+        <br />
+        <br />
+        <br />
+        hasDocuments
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+                e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+<br />
+        The TestValue tests if that number exists using greater than or equal to logic.  If not specified the test just checks if any number exists.     
+        <br />
+<br />
+        isinwishlist
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+                isincategory
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isincategory&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        hasrelateditems
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        The TestValue tests if that number exists using greater than or equal to logic.  If not specified the test just checks if any number exists.     
+        <br />
+        <br />
+        isProductList
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isProductList&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        isProductDetail
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isProductDetail&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        isOnSale
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+                OR operator<br />
+        <br />
+                e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasDocuments|hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+<br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;hasDocuments|setting&quot; TestName=&quot;|setting2.name&quot; 
+        TestValue=&quot;|1&quot; 
+        Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;setting|setting&quot; TestName=&quot;setting.name|setting2.name&quot; TestValue=&quot;0|1&quot; 
+        Action=&quot;Show&quot; /&gt;]         <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof|valueof&quot; 
+        TestName=&quot;ProductRef|ProductName&quot; 
+        TestValue=&quot;Name|My Product Name&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof|valueof&quot; FieldXPath=&quot;root/textbox/txtName|root/textbox/txtName2&quot; 
+        TestValue=&quot;Name|Name2&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof|valueof&quot; FieldXPath=&quot;root/textbox/txtName|&quot; 
+        TestName=&quot;|ProductName&quot; 
+        TestValue=&quot;Name|Name2&quot; Action=&quot;Show&quot; /&gt;]
+        <br />
+        <br />
+        e.g.: [TAG:TEST:&lt;prop TestType=&quot;valueof|setting&quot; 
+        TestName=&quot;ProductName|setting.name&quot; 
+        TestValue=&quot;Name|1&quot; Action=&quot;Show&quot; /&gt;]         <br />
+                <br />
+        <br />
+        <b>Data Fields that can be tested for product. </b>
+        <br />
+        <br />
+        ProductID , PortalID , TaxCategoryID , Featured , Archived , CreatedByUser , 
+        CreatedDate As Date , IsDeleted , ProductRef , Lang , Summary , Description , 
+        Manufacturer , ProductName , FromPrice , SalePrice , QtyRemaining , QtyStockSet 
+        , ImageURL , ImageDESC , ImageID , CategoryName , XMLData , ModifiedDate As Date 
+        , SEOName , TagWords<br />
+        <br />
+        <b>Data Fields that can be tested for stock test.</b><br />
+        <br />
+        Percent, PercentInProgress, PercentSold, PercentActual, CartQty, StockOn<br />
+
+        <br />
+</div>
+<div id="Div4" />
+<h2>Shipping Rates</h2>
+<p>The shipping rates that can be set are split into 6 elements, each element is used to calculate the shipping based on the details entered.  The actual shipping applied is then calculated using the shipping formula.</p>
+<b>Methods</b>
+<p>This allows you to create multiple shipping methods that are displayed as shipping options in the cart.  The first method in the list is the default shipping.</p>
+<b>By Quantity</b>
+<p>This allows you to setup shipping based on the quantity of products in the cart.</p>
+<b>By Price</b>
+<p>Allows shipping costs by price range.</p>
+<b>By Weight</b>
+<p>Allows shipping costs to be setup by product weight ranges.</p>
+<b>Extra per Country</b>
+<p>Allows an extra costs to be added based on the shipping country.</p>
+<b>Extra per product</b>
+<p>Each product can have a special added box cost applied.  A Box fill percentage can be specified, so that when a product has only 20% fill rate 1-5 products will only add the box cost once. 6-10 products will add the box cost twice (Box Cost * 2).  Boxes are considered the same box if they have the same box cost, so different products can fit into the same box, if the box cost is the same.  If a zero box percent is specified then the box sharing is turned off and the box cost will be added for each product.  If no box cost is specified then the product will be ignored by box sharing.  The box cost is used as an additional cost, on top of the normal shipping, for certain products.</p>
+<b>Free shipping limit</b>
+<p>Allow you to enter a free shipping limit by price, if this is reached then shipping amount will be zero, regardless of any other settings.</p>
+    <div id="Div4.1" />
+<h4>Shipping Formula</h4>
+<p>Each element in the shipping is calculated, after which the actual shipping if determined by applying a simple formula</p>
+                                                        <ul>
+                                                            <li>Calculate cost for Weight, Quantity or Price.</li>
+                                                            <li>Take the lowest cost between price and qty.</li>
+                                                            <li>Take the weight cost if more than price and qty.</li>
+                                                            <li>Add any extra costs for specific products.</li>
+                                                            <li>Add any extra costs for shipping country.</li>
+                                                            <li>Set costs to 0.00 if passed the free shipping limit.</li>                                                  
+                                                        </ul>
+<p>
+If the shipping amount cannot be calculated then a "-1.00" is returned from the calculation.  In the case that a shipping method cannot be calculated it will not appear in the list of available shipping methods.<br/>
+In the case that NO shipping can be calculated a "-1.00" may appear as the calculated shipping. In these cases you must ensure that a shipping cost can be calculated by the default shipping.  If no shipping is to be calculated (shipping included in price) then you must set the default shipping method to have a "Free Limit" of "0.00".  (Be careful that if you want to remove a "Free Limit" you use the deleted button - setting it to zero will always return a shipping cost of "0.00")<br/>
+</p>
+														<hr />
+    <div id="Div5" />
+<h2>Tax Rates</h2>
+                                                            <p>The tax rate system can be set in 3 modes:</p>
+                                                            <ul>
+                                                                <li>No Tax.</li>
+                                                                <li>Tax included in the unit price.</li>
+                                                                <li>Tax NOT included in Unit Cost.</li>
+                                                            </ul>
+                                                            <p>
+                                                                Tax rates can be entered at 3 levels, Store level (Default), Category Level and product level.  The tax rate the applies to each product is calculated in order of Product&gt;Category&gt;Default.
+                                                            </p>
+                                                            <p>
+                                                            To exempt countries from tax you can create the "taxexempt.list" setting. 
+                                                            </p>
+<hr />
+    <div id="Div6" />
+<h2>Export/Import</h2>
+<p>The store supports the Export of products, categories, images and orders.  And the Import of Products, categories and product images.<br />
+For large imports you may need to update the web.config to allow for the execution, in which case you need to change the httpRuntime section to something like this:<br />
+&lt;httpRuntime useFullyQualifiedRedirectUrl="true" maxRequestLength="8192" requestLengthDiskThreshold="8192" executionTimeout="6000"/&gt;
+</p>
+<h4>Export</h4>
+<ul>
+    <li>Products, Categories Tax and Shipping Rates exported in XML format.</li>
+    <li>Order exported in XML format.</li>
+    <li>Images Exported in ZIP format. (Images are place on root of the zip file without any directory structure)</li>
+    <li>Documents Exported in ZIP format. (Documents are place on root of the zip file without any directory structure)</li>
+</ul>
+<h4>Import</h4>
+<ul>
+    <li>Import products as existing products, this will search for a product with a matching product reference. If found it will update this product, if not found it will create a new product.</li>
+    <li>Import products as new products.</li>
+    <li>Create categories for the products. If not selected all imported products will be created in a default "Imported" category.</li>
+    <li>Import Shipping Rates.  If selected all current shipping rates will be removed.  (Product level shipping weights and costs will be imported with the products)</li>
+    <li>Product images can be imported using a zip file.  If the size of the zip file is large, depending on the portal and web.config settings the zip file may not upload.</li>
+    <li>Documents can be imported using a zip file.  If the size of the zip file is large, depending on the portal and web.config settings the zip file may not upload.</li>
+</ul>
+<div id="Div6.1" />
+<h4>Importing CSV file formats</h4>
+<p>You can import a CSV file by using the productCSV.ImportMapping and categoryCSV.ImportMapping templates.<br />
+<br />
+<br />
+A default Field delimiter of semi-colon is used ";"<br />
+A default Row delimiter of carrage return, line feed is used "vbCrLf"<br />
+<br />
+To change these delimiters you can use the "RowDelimeter.ImportMapping" and "FieldDelimeter.ImportMapping" settings.<br />
+<br />
+<br />
+The example template that are installed with NB_Store, "categoryCSV.ImportMapping" and "productCSV.ImportMapping" refer to a simple CSV import.<br />
+<br />
+The default mapping corresponds to a CSV file format of:<br />
+<br />
+[COL:1];[COL:2];[COL:3];[COL:4];[COL:5];[COL:6];[COL:7];[COL:8];[COL:9];[COL:10]<br />
+CategoryName;ProductRef;Manufacturer;ProductName;Summary;XMLData(Custom Product Field);Weight;UnitCost;{Unused};ImageName<br />
+<br />
+The [LANG] token can be used to link the import language, or a column token can be used if multiple Languages are to be imported.<br />
+The categoryID is linked to the "CategoryName" column in the productCSV.ImportMapping.<br />
+<br />
+Each Product in the CSV file MUST have a ProductRef, products with a blank ProductRef will not be imported.<br />
+</p>
+<p>
+TIP:  This easiest way to setup a CSV mapping is to create a product in the store with the format you  require, export to xml, edit the xml and extract the product section for the "productCSV.importmapping" ( between the &lt;P&gt; nodes) and extract the category section for the "categoryCSV.importmapping" (between the &lt;NB_Store_CategoriesInfo&gt; node).<br />
+Then by editing it to place in the [COL:#] tokens in the correct place. (Careful this can get more complex than you may think).<br />
+<br/>
+Import of multiple language  import:<br/>
+- Each category name must be different for each language.<br/>
+- A column must be specified for the Product Lang node. ([LANG] can be used for the other Lang fields)<br/>
+- Each product must have an entry for each language, the product ref must be the same for each language.<br/>
+<br/>
+The "replaceCSV.ImportMapping" template setting can be used to replace strings in the CSV file.  By default this setting is not created during the NB_Store installation, so you will have to create it in "BackOffice>Utilities>Templates", if you require string replacements.<br />
+<br/>
+In should be created in the format:<br/>
+<br/>
+&lt;root&gt;<br/>
+&lt;item col=&quot;1&quot; str=&quot;&quot; rpl=&quot;&quot; substr=&quot;true&quot;/&gt;<br/>
+&lt;item col=&quot;*&quot; str=&quot;&quot; rpl=&quot;&quot; substr=&quot;true&quot;/&gt;<br/>
+&lt;/root&gt;<br/>
+<br/>
+col = the column for the replace to be active. if a "*" is used then all columns are active.<br/>
+str = the string to be searched for.<br/>
+rpl = the string to be used as the replacement.<br/>
+substr = if true column with be searched for any substrings, if false the the whole column must match for a replacement to be made.<br/>
+</p>
+<div id="Div6.2" />
+<h4>The NB_Store Feeder</h4>
+NB_Store has two webservice providers that can be used as Feeders for XML or Text and will return SQL report data.<br />
+To activate these feeders you must pass the required params into the url, the feeder will then run a report or function as specified in "feeder.setting".<br />
+<br />
+<b>feeder.setting example</b>
+<br />
+&lt;root&gt;<br />
+  &lt;item key="clienttest"&gt;<br />
+    &lt;reportref&gt;Client1&lt;/reportref&gt;<br />
+    &lt;password&gt;testpass&lt;/password&gt;<br />
+    &lt;functionkey&gt;&lt;/functionkey&gt;<br />
+    &lt;cachemins&gt;60&lt;/cachemins&gt;<br />
+  &lt;/item&gt;<br />
+&lt;/root&gt;<br />
+<br />
+<b>URL required to display this report.</b>
+<br />
+http://www.MyWebsite.com/Desktopmodules/NB_Store/TextProvider.ashx?key=clienttest&pass=testpass<br />
+<br />
+or for the XML version<br />
+<br />
+http://www.MyWebsite.com/Desktopmodules/NB_Store/XMLProvider.ashx?key=clienttest&pass=testpass<br />
+<br />
+NOTE: In order for the XML provider to work correctly the report/function being executed must output XML.<br />
+<br />
+<b>Supported functionkey values</b>
+    <br />
+xmlGetProductsInCat : CatID must be included in the url params<br />
+xmlGetProduct : ProdID must be included in the url params<br />
+xmlGetRSS : CatID must be included in the url params<br />
+<br />
+NOTE: reportref must be empty for the functionkey to take effect.<br />
+<br />
+<div id="Div6.3" />
+<h4>RSS Feeder</h4>
+To Setup an RSS feeder you need to add an entry in the "feeder.settings" template.
+<br />
+<br />
+&lt;root&gt;<br />
+  &lt;item key="rsstest"&gt;<br />
+    &lt;reportref&gt;&lt;/reportref&gt;<br />
+    &lt;password&gt;&lt;/password&gt;<br />
+    &lt;functionkey&gt;xmlGetRSS&lt;/functionkey&gt;<br />
+    &lt;cachemins&gt;60&lt;/cachemins&gt;<br />
+  &lt;/item&gt;<br />
+&lt;/root&gt;<br />
+<br />
+The RSS feeder can then be called using a url and catid:<br />
+http://www.MyWebsite.com/Desktopmodules/NB_Store/XMLProvider.ashx?key=rsstest&catid=2
+
+By default this will produce a standard basic RSS v2.0 output for products in the category specified.  However by using the templates "rss.template" and "rssitem.template", other formats can be created.  The productlistinfo class is used as a token replacement for data in the template, plus an extra 2 tokens, "[Product:Link]" to give the product link and "[Product:rssitem]" to the include the products data formated using the "rssitem.template" into the "rss.template".<br />
+
+<hr />
+    <div id="Div7" />
+<h2>Category Administration</h2>
+<p>Categories and sub categories can be maintained from this page.  Categories can be setup in multiple languages.</p>
+<hr />
+    <div id="Div8" />
+<h2>Product Administration</h2>
+<p>Products in the store have 3 levels of detail:</p>
+<ul>
+    <li>General Product Details<ul>
+        <li>Manufacturer</li>
+        <li>Product Name</li>
+        <li>Product Ref</li>
+        <li>Summary</li>
+        <li>Tax Category</li>
+        <li>Multiple Product Categories</li>
+        <li>Description</li>
+        <li>Archived - Remove the product from the store, but do not delete it.</li>
+        <li>Featured - Mark the product to display in the featured product list.</li>
+        <li>Deleted - If a product is deleted but exists in an order the product is marked 
+            for deletion when the order is archived from the system.</li>
+        <li>Product Images - Any number of images can be uploaded and linked to a product. 
+            Images upload will be resized to web format and to a width set by the "image.resize" setting.</li>
+        <li>Product Documents - Any number of documents can be uploaded and linked to a product. A single document can be linked to any number of products.</li>
+        <li>Related Products - Any number of related products can be linked to a product.</li>
+        </ul>
+    </li>
+    <li>Product models<ul>
+        <li>Model Ref</li>
+        <li>Name</li>
+        <li>Barcode</li>
+        <li>Weight</li>
+        <li>Unit Cost</li>
+        <li>Stock quantity - If set to &quot;-1&quot; the stock control is turned off.</li>
+        <li>Sort order to be displayed in the dropdown list.</li>
+        </ul>
+    </li>
+    <li>Product options<ul>
+        <li>Options - Options can be added to a product.<ul>
+            <li>Option Value - If only one option value is added to a product option, the option 
+                appears as a checkbox.</li>
+            <li>Option cost - The additional cost of the option that will be added to the 
+                product.</li>
+            <li>Sort order to display in the options dropdown list.</li>
+                                                                                            </ul>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </li>
+</ul>
+                                                                            <p>
+                                                                                Products can be copied from the product administration. A copied product will copy 
+                                                                                all details, models and options. Images will reference the same images as the 
+                                                                                copied product.</p>
+    <div id="Div8.1" />
+<h4>Creating Bespoke Product Fields</h4>
+NB_Store allows your to define your own additional product fields.  This is done by creating a template called "productxmldata.template" and specifying your required fields.
+<br />
+<br />
+Example:<br />
+<br />
+Step 1:  Create a "productxmldata.template".<br />
+                In the Utilities>templates Menu create a new template called "productxmldata.template" and enter the example code below<br />
+        <br />
+TextBox : [&lt;tag id="txtTextBox" type="textbox" width="60" cssclass="normal" maxlength="20" /&gt;]<br />
+DropDown : [&lt;tag id="dlDropDown" type="dropdownlist" cssclass="normal" data="list1;list2;list3;list4;list5" datavalue="1;2;3;4;5" /&gt;]<br />
+Checkbox : [&lt;tag id="chkCheckbox" type="checkbox" cssclass="normal" text="Checkbox" /&gt;]<br />
+Radio : [&lt;tag id="radRadio" type="radiobuttonlist" cssclass="normal" data="list1;list2;list3;list4;list5"  datavalue="1;2;3;4;5" RepeatColumns="5" /&gt;]<br />
+        RichText : [&lt;tag id=&quot;txtEdit&quot; type=&quot;dnntexteditor&quot; height=&quot;400&quot; width=&quot;600&quot; /&gt;]<br />
+        <br />
+NOTE: If the "datavalue" attribute is not specified then the "data" attribute is used as the data values.<br />
+        <br />
+Step 2:  Create Display Template Tokens in your product list or product detail template.<br />
+<br />
+[TAG:XMLDATA:genxml/textbox/txttextbox]<br/>       
+[TAG:XMLDATA:genxml/checkbox/chkcheckbox]<br/>
+[TAG:XMLDATA:genxml/dropdownlist/dldropdown]<br/>
+[TAG:XMLDATA:genxml/radiobuttonlist/radradio]<br />
+[TAG:XMLDATA:genxml/edt/txtedit]<br/>       
+        <br />
+        <b>Example Validation Tokens</b><br />
+        [&lt;tag id=&quot;rvPrice&quot; ctrltype=&quot;rvalidator&quot; errormessage=&quot;Error&quot; text=&quot;*&quot; 
+        controltovalidate=&quot;txtPrice&quot; minimumvalue=&quot;0&quot; maximumvalue=&quot;9999999&quot; type=&quot;Currency&quot;/&gt;]<br />
+        [&lt;tag id=&quot;rvReq&quot; ctrltype=&quot;rfvalidator&quot; errormessage=&quot;Required Field&quot; 
+        text=&quot;ERR!&quot; controltovalidate=&quot;txtReq&quot; /&gt;]<br />
+        [&lt;tag id=&quot;valsum&quot; ctrltype=&quot;validationsummary&quot; /&gt;]<br/>
+
+    <div id="Div8.2" />
+<h4>Downloadable Products</h4>
+NB_Store supports downloadable products.<br/>
+<br/>
+How it works.<br/>
+<br/>
+When a client purchases a downloadable product, the model ID is saved in the client&#39;s order.<br/>
+If the template token [TAG:DOCPURCHASED] or [TAG:DOCPURCHASEDLINK&lt;number&gt;] is used in the product detail or list template, NB_Store will check the client&#39;s orders for a matching model ID.<br/>
+If an order exists and has a status of "Payment OK" or "Closed" the document Link will be displayed when the client views the product detail.<br/>
+<br/>
+NOTES:<br/>
+- A link for the product details page now exists in the client order email.  A message of how to download a product can be added to the "order.text.template" and "order.email.template" templates.<br/>
+- Downloadable products are only supported at product level. (i.e. Only one model should exist for downloadable products.)<br/>
+- If using downloadable products the manager should make sure cancelled or unpaid orders are not moved to the closed status, as this will allow the client to download without paying.  In these cases the order should be moved to archived directly.<br/>
+    <div id="Div8.3" />
+<h4>Products Image Resizing</h4>
+<p>Image resizing can be controlled by using the "image.resize" and "image.quality" settings.<br />
+As default image.quality is set to 85, if you wish to have higher quality images it is recommended to use 95. 100% quality images may be to large (kb) for normal web operation.<br />
+        <br />
+        <b>Image settings for advanced image resizing.</b><br />
+&nbsp;<br />
+    Settings &quot;image.advanced&quot; The value of this settings is a list of options in 
+    order of 
+    &quot;InterpolationMode&quot;,&quot;SmoothingMode&quot;,&quot;PixelOffsetMode&quot;,&quot;CompositingQuality&quot;
+    <br />
+    example:<br />
+        <br />
+    7,2,0,0
+    <br />
+        <br />
+    would give
+    <br />
+        <br />
+    InterpolationMode = HighQualityBicubic
+    <br />
+    SmoothingMode =HighQuality
+    <br />
+    PixelOffsetMode =Default
+    <br />
+    CompositingQuality =Default
+    <br />
+    <br />
+    Values of advance setting possible are:<br />
+        <br />
+    InterpolationMode (NB_Store Default=HighQualityBicubic)
+    <br />
+    -1 = Invalid ,0 = Default, 1 = Low, 2 = High, 3 = Bilinear, 4 = Bicubic, 5 = 
+    NearestNeighbor, 6 = HighQualityBilinear, 7 = HighQualityBicubic
+    <br />
+    SmoothingMode (NB_Store Default=HighQuality)
+    <br />
+    -1 = Invalid, 0 = Default, 1 = HighSpeed, 2 = HighQuality, 3 = None, 4 = 
+    AntiAlias
+    <br />
+    PixelOffsetMode (NB_Store Default=Default)<br />
+-1 = Invalid, 0 = Default, 1 = HighSpeed, 2 = HighQuality, 3 = None, 4 = Half
+    <br />
+    CompositingQuality (NB_Store Default=Default)     <br />
+    -1 = Invalid, 0 = Default, 1 = HighSpeed, 2 = HighQuality, 3 = GammaCorrected, 4 
+    = AssumeLinear <br />
+NOTE: The Advance settings has a very fine effect on the image. For normal processing use the image.resize and image.quality settings to get the effect you need. <br />
+</p>
+    <div id="Div8.4" />
+<h4>Related Products</h4>
+<p>Related products can be selected from the product edit page.  These products can be then be displayed in the product detail page by using the [TAGXML:&lt;xsl file&gt;] token.<br /><br />
+The example included in the default settings is called "relatedproducts.xsl". By placing the tag [TAGXML:relatedproducts.xsl] in the product detail template you will see a list of the related products.
+</p>
+<hr />
+    <div id="Div8a" />
+<h2>Promotions</h2>
+    <div id="Div8a.1" />
+<h4>Coupons</h4>
+Coupons can be created to offer discount when a promotional code is entered during the checkout process.  The promotional code will only be applied if the cart matches the specified criteria.<br />
+Coupons can be setup to work on a percentage of the cart total (not including shipping) or on a set amount.  The coupon discount is applied to the cart and is apportioned across all products in the cart evenly.
+    <div id="Div8a.2" />
+<h4>Category Discounts</h4>
+Category Discounts are used to apply a discount to a product or group of products.<br />
+If a product exists in a category which has a category discount applied and the promotional criteria matches then product will have a sale price.  This can be displayed using the [TAG:SALEPRICE] token in the product template.  If the "saleprice.template" template exists then the [TAG:SALEPRICE] token will display this template.<br />
+<br />
+For Example:<br />
+1 - Create a special category called "Discount 10%" and mark it to be hidden, so it's not displayed on the category menu.<br />
+2 - Create a promotion of 10% and apply it to the "Discount 10%" category in the promotion criteria.<br />
+3 - Any products assigned to the category "Discount 10%" will have a sale price calculated of 10% less than the original price.<br />
+<br />
+    <div id="Div8a.3" />
+<h4>Cart Discounts</h4>
+These work the same as coupons but don't have the need for a promotional code to be entered in order to apply.  If the cart matches the specified criteria for a discount then the cart discount is applied.<br />
+Cart Discount can be setup to work on a percentage of the cart total (not including shipping) or on a set amount.  The discount is applied to the cart and is apportioned across all products in the cart evenly.
+    <div id="Div8a.4" />
+<h4>Multiple Discounts</h4>
+The Allow Multiple Discounts flag will mean that multiple discounts will be accumulated.<br />
+<br />
+If both Cart Level and Coupon Discounts are applied to the cart then:<br />
+<br />
+ - when the “Allow Multiple Discounts” flag is set to false<br />
+The discount apportioned to each item will be the largest discount between the discounts.<br />
+<br />
+ - when the “Allow Multiple Discounts” flag is set to true<br />
+The discount apportioned to each item will be the total sum of the discounts.<br />
+<br />
+For some examples for cart discount variations download "Discount_Calculations.pdf" from nbstore.codeplex.com - Downloads>Documents>Discount_Calculations.pdf<br />
+<br />
+WARNING - Discounts applied to carts can get very complex, so try and keep things as simple as possible...Known side effects of complicated cart discounts are exploding heads!
+<hr />
+<div id="Div8b" />
+<h2>Dealers</h2>
+A dealer cost can be applied to a model. If the user is a member of the dealer role, as specified by the "dealer.role" setting (i.e. A Dealer.), then the dealer cost is used as the purchase price.  If the sale price is less than the dealer cost, then the dealer will receive the sale price.
+<br />
+The difference between the unit cost and dealer cost is dealt with as a discount, therefore when a dealer purchases a product his reduction will be displayed as a discount on the checkout.
+
+<div id="Div8b.1" />
+<h4>Setting up a dealer</h4>
+- Create a DNN role called "Dealer".<br />
+- Add any users that are dealers to this "Dealer" role.<br />
+- Create a "dealer.role" setting with a value of "Dealer" (case sensitive)<br />
+- Add the dealer cost to the product models.<br />
+- In your templates you can add the [TAG:DEALERPRICE] or [TAG:DEALERPRICECURRENCY]<br />
+- You can also create a "dealerprice.template" if you wish to format/label the dealer price.<br />
+<br />
+NOTE: If the user is not in the "Dealer" role the tokens [TAG:DEALERPRICE] and [TAG:DEALERPRICECURRENCY] will display nothing.<br />
+
+<hr />
+    <div id="Div9" />
+<h2>Stock Administration</h2>
+<p>Stock levels for a product are entered at model level.&nbsp; Each model of a 
+    product can have a stock quantity entered against it or a &quot;-1&quot; to turn off the 
+    stock control for the product.&nbsp; These stock levels can be edited from the 
+    product admin page or the stock / price list page.&nbsp; When a product reaches 
+    0 stock the product will show a &quot;Out of Stock&quot; message if the user view the 
+    product.&nbsp; Products that exist in the users cart also are taken into account 
+    when calculating the stock levels for a product.
+<br />    
+<br />    
+    Max Stock level - This is the maximum stock for a model, it is used to calculate the percentage of stock left. If the stock is updated to a value greater than the current max then the max field is also updated.<br />
+</p>
+<hr />
+    <div id="Div10" />
+<h2>Client Administration</h2>
+<p>Because in DNN only the Administrator role can a edit user, a simple user maintenance control has been created. With this your can update user email address, reset password, unlock users and view the orders for a client.</p>
+<hr />
+    <div id="Div11" />
+<h2>Order Administration</h2>
+<p>You can use the order administration to view or print details of an order and edit any aspect of the order, including changing the order details.<br />
+    Basic administration of status and shipping date can be done easily without going into edit order mode.<br />
+    <br />
+Order Administration also allows you to send emails to help process an order.  You can send a validated order email, order shipped email, order receipt email as well as an order amended email.<br />
+<br />
+Once an order has been amended you can use the send order amended email to send an email with a "Amended link" to the client.  The "Amended Link" will allow the client to go directly to the checkout and process the new order, allow the payment of the full amount or any additional costs that might have been added.<br />
+<br />
+The &quot;Amended Link&quot; is displayed in the email templates by using the 
+    [Order:AmendedLink] token. Or if you want to redirect to a special checkout, 
+    created especially for amended orders, you can build the url link yourself in the 
+    email and add url param of &quot;codeid=[Order:OrderGUID]&quot;. It is this &quot;codeid&quot; param 
+    that tells the checkout to re-process an existing order. The OrderGUID is only 
+    created when the manager edits an order.
+
+</p>
+
+[Order:AmendedLink]
+<hr />
+    <div id="Div12" />
+<h2>Payment Gateways</h2>
+<p>
+The parameters of the gateways can be changed from the Settings menu, these settings are now in XML and it is recommended to upgrade any old text based settings (Which will still work!) into the new XML format.  An example of each settings can be found the documentation directory of the NB_Store module.</p>
+    <div id="Div12.1" />
+<h4>Cheque</h4>
+<p>The Cheque gateway provider is created as a integral part of NB_Store. It can be turn off from the checkout settings, but has no other modifiable settings.</p>
+    <div id="Div12.2" />
+<h4>PayPal</h4>
+<p>The parameters of the Paypal gateway can be changed from the Settings menu using the "PayPal.gateway" setting.<br />
+The [ORDERID] tag will be replaced by the internal order number.<br />
+<br />
+NOTES:<br />
+paymentURL=https://www.sandbox.paypal.com/xclick         <b>(change to actual paypal url;&nbsp; this is the test one, best to use this in order to get it up and running)</b><br />
+verifyURL=https://www.sandbox.paypal.com/cgi-bin/webscr   <b>(as above!)</b><br />
+PayPalID=paypal@MyWebsite.com<br />
+CartName=TEST<br />
+ButtonImageURL=http://localhost/Desktopmodules/NB_Store/img/paypal60x38.gif    <b>(http://localhost/ needs to be your website root )</b><br />
+Currency=EUR<br />
+ReturnURL=http://www.MyWebsite.com/Cart/tabid/56/stg/5/ordID/[ORDERID]/Default.aspx?PayPalExit=RETURN  <b>(this URL needs to be set as your cart page url, with the ?PayPalExit=RETURN added on the end, stg/5 param tels the cart what response to do)</b><br />
+ReturnCancelURL=http://www.MyWebsite.com/Cart/tabid/56/stg/5/ordID/[ORDERID]/Default.aspx?PayPalExit=CANCEL  <b>(as above!)</b><br />
+ReturnNotifyURL=http://www.MyWebsite.com/Cart/tabid/56/stg/4/Default.aspx  <b>(as above!, but with stg/4.)</b><br />
+MerchantLanguage=fr<br />
+<br />
+</p>
+    <div id="Div12.3" />
+<h4>SIPS</h4>
+<p>The parameters of the SIPS gateway can be changed from the Settings menu using the "SIPS.gateway" and "SIPS.exepath" settings.<br />
+Tags : 
+[ORDERID]<br />
+[ORDERID]<br />
+[TRANSID]<br />
+[ORDERNUMBER]<br />
+[ORDERAMOUNT]<br />
+[CUSTOMERID]<br />
+[LANGUAGE]<br />
+[PROMOCODE]<br />
+[CARTID]<br />
+<br />
+NOTES:<br />
+For a detailed explanation of the SIPS settings look at the SIPS documentation.  The only difference is that the recommended method of implementing the settings in NB_Store is to use a XML format.<br />
+</p>
+<hr />
+    <div id="Div13" />
+<h2>Lite and Normal Modes</h2>
+<p>The Store can be ran in 2 modes:</p>
+<ul>
+    <li>Normal - All functionality of the store is presented to the manager.</li>
+    <li>Lite - The manager has a cut down version of functionality which makes administration easier for clients who don't required the product options, multiple models on a product, shipping and taxes.  This is ideal for product catalogs.</li>
+</ul>
+<hr />
+    <div id="Div14" />
+<h2>Cart and Checkout</h2>
+<p>
+The Store Cart and Checkout have been joined to provide a single module.<br />
+</p>
+<h4>Process Chart</h4>
+<table cellpadding="1" cellspacing="1">
+<tr>
+<td>View Cart
+</td>
+<td>-->
+</td>
+<td>Enter Address
+</td>
+<td>-->
+</td>
+<td>View Checkout--
+</td>
+<td valign="top">|--><br />|<br />|---
+</td>
+<td valign="top">Direct to Bank<br /><br />--------------
+</td>
+<td valign="top">--><br /><br />-->
+</td>
+<td valign="top">Return to Store<br /><br />Pay by Cheque
+</td>
+</table>
+                                                                                            <ul>
+                                                                                                <li><b>View Cart</b> -
+When a user views their cart they can select a country for shipping, change product quantity and recalculate the cart.  This gives them a total cost including shipping, before going to the checkout.&nbsp; 
+                                                                                                    On a recalculate the stock levels are checked and adjusted if required. If the 
+                                                                                                    quantity has been set to 0 then the item is removed from the cart.&nbsp; The 
+                                                                                                    shipping is recalculated based on the shipping rates set.<br />
+                                                                                                    If the VAT registered field is visible and the user has entered a value that has 
+                                                                                                    a different lead country value from the merchant country code, the VAT is 
+                                                                                                    removed from the order. (No validation of the validity of the VAT number is done 
+                                                                                                    by the store)<br />
+                                                                                                    The discount code field is currently not implemented by the store.&nbsp; This is 
+                                                                                                    designed for future needs. </li>
+                                                                                                <li><b>Enter Address </b>- The Address form takes the user default address and email 
+                                                                                                    from the DNN user profile.&nbsp; If the user ticks the checkbox(s) to set the 
+                                                                                                    entered field as a default address/email the DNN user profile is updated.&nbsp; 
+                                                                                                    When the next button is click the order is created by copying the cart to a new 
+                                                                                                    order in the database. The addresses are also saved against the order at this 
+                                                                                                    time.&nbsp; So if the user changes address after placing the order, the address on the 
+                                                                                                    order will not change.&nbsp; During the order creation process the cart is 
+                                                                                                    validated against store levels and deleted and archived products. Product 
+                                                                                                    quantities are adjusted as required.&nbsp; This could mean the view of the order 
+                                                                                                    is different to the original cart view or even could mean the cart is now empty.&nbsp; </li>
+                                                                                                <li><b>View Checkout </b>- A view of the order and total is displayed to the user 
+                                                                                                    along with the prompts to link to the bank or pay by cheque.</li>
+                                                                                                <li><b>Direct to Bank </b>- The store is directed to the bank based on the gateway 
+                                                                                                    provided selected. (An Email based on the &quot;paymentOK.email&quot; template is sent to 
+                                                                                                    the client and also to the email address setup in the &quot;merchant.email&quot; settings, 
+                                                                                                    this email is dealt with by the gateway provider in the &quot;AutoResponse&quot; 
+                                                                                                    procedure.)</li>
+                                                                                                <li><b>Return to Store</b> - The &quot;paymentOK.text&quot; template is displayed to the user. 
+                                                                                                    &quot;paymentFAIL.text&quot; if the payment failed.</li>
+                                                                                                <li><b>Pay by Cheque Message</b> - The &quot;chqpayment.text&quot; template is displayed to 
+                                                                                                    the user.&nbsp; An Email based on the &quot;chqpayment.email&quot; template is sent to the 
+                                                                                                    client and also to the email address setup in the &quot;merchant.email&quot; settings </li>
+                                                                                            </ul>
+
+<h4>Status Code</h4>
+This is a list of default status codes that are created by NB_Store. The Auto column 
+        indicates that the order status may automatically be moved to these status 
+        codes, therefore these status codes cannot be removed.&nbsp; The status code 
+        Names can be changed via the database or the status.xml setting import file.<br />
+        <br />
+                                                                                                                                                                                                            <table class="style1">
+                                                                                                                                                                                                                <tr bgcolor="#CCCCCC">
+                                                                                                                                                                                                                    <td class="style2">
+                                                                                                                                                                                                                        Code</td>
+                <td class="style3">
+                    Name</td>
+                <td class="style4">
+                    Auto</td>
+                <td>
+                    Description</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    10</td>
+                <td class="style3">
+                    Incomplete</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Order has been created in the checkout, but not gone to the bank.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    20</td>
+                <td class="style3">
+                    Waiting for Bank</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Order has been sent to the bank, but no order notification has been received.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    30</td>
+                <td class="style3">
+                    Cancelled</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Order Cancelled.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    40</td>
+                <td class="style3">
+                    Payment OK</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Payment accepted</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    45</td>
+                <td class="style3">
+                    Payment not verified</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Payment accepted, but the store was unable to verify that the payment was 
+                    actually made.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    50</td>
+                <td class="style3">
+                    Shipped</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Shipped to the client</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    60</td>
+                <td class="style3">
+                    Waiting</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Waiting.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    70</td>
+                <td class="style3">
+                    Closed</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Order has been completed and order has been Closed.</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    75</td>
+                <td class="style3">
+                    Archived</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Order will be archived and removed from the store on the next store purge.&nbsp; 
+                    (BO&gt;Utilities&gt;Export)</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    80</td>
+                <td class="style3">
+                    Waiting for Cheque</td>
+                <td class="style4">
+                    Y</td>
+                <td>
+                    Waiting for Cheque</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    90</td>
+                <td class="style3">
+                    Waiting for Payment</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Waiting for payment</td>
+            </tr>
+            <tr>
+                <td class="style2">
+                    100</td>
+                <td class="style3">
+                    Waiting for Stock</td>
+                <td class="style4">
+                    N</td>
+                <td>
+                    Waiting for stock.</td>
+            </tr>
+        </table>
+<br />
+<hr />
+    <div id="Div15" />
+<h2>Scheduler</h2>
+<p>The store has scheduler jobs that can be activated.  By default these jobs are not setup when you install the module.</p>
+<p>
+    <b>NEvoWeb.Modules.NB_Store.StoreOrderReport,NEvoweb.DNN.Modules.NB_Store</b><br />
+    The purpose of this schedule job is to produce a report every day which is emailed to the store merchant email address.<br />
+    This report then provides a daily overview of the site orders. Also the fact that the report is sent daily ensures the store email functionaity is working.<br />
+    <br />
+    Time Lapse: 1 hour*<br />
+    Retry Frequency: 2 hours<br />
+    <br />
+    *The functionality of the report saves the last runtime in the store setting, and will only run the report once a day.<br />    
+    <br />
+    The report is produced using XSL the path of the "ordersreport_&lt;Culture&gt;.xsl" which is uploaded into the module directory when it is installed, must be entered in the store settings.  This defaults to the module directory, but is modifiable so different portals can have different reports.
+    </p>
+    <p>
+    <b>NEvoWeb.Modules.NB_Store.CleanUpCarts,NEvoweb.DNN.Modules.NB_Store</b><br />
+    This schedule job will delete carts from the database that are older than 7 days and removed uncompleted orders that are older than 24 hours.<br />
+    <br />
+    SPROC:NEvoweb_NB_Store_Cart_DeleteOldCarts<br />
+    <br />
+  	delete from dbo.[NB_Store_Cart] <br />
+	where DateCreated < dateadd(day,-7,getdate())<br />
+<br />
+	delete from dbo.[NB_Store_Orders] <br />
+	where OrderDate < dateadd(day,-1,getdate())<br />
+	and OrderNumber = ''<br />    
+    <br />    
+    Time Lapse: 1 day<br />
+    Retry Frequency: 2 days<br />
+    </p>
+<p>
+    <b>NEvoWeb.Modules.NB_Store.CreateSalePrices,NEvoweb.DNN.Modules.NB_Store</b><br />
+    The purpose of this schedule job is to recalculated the discount prices for all 
+    the products and is only needed if promotional Store Discounts have been setup 
+    for the store.<br />
+    <br />
+    <br />
+    Time Lapse: 1 hour*<br />
+    Retry Frequency: 2 hours<br />
+    <br />
+    *The functionality saves the last runtime in the store setting, and will only run the 
+    calculation once a day.<br />    
+    </p>
+<p>
+    <b>NEvoWeb.Modules.NB_Store.SchedulerReport,NEvoweb.DNN.Modules.NB_Store</b><br />
+    The purpose of this schedule job is to run any reports that have been scheduled from the reporting system.<br />
+    <br />
+    <br />
+    Time Lapse: 1 hour*<br />
+    Retry Frequency: 2 hours<br />
+    <br />
+    *The functionality to time reports to an hours has been implemented, but this relies on the DNN scheduler and therefore differences in the times when reports run will happen.<br />    
+    </p>
+<p>
+    <b>NEvoWeb.Modules.NB_Store.StoreStatistics,NEvoweb.DNN.Modules.NB_Store</b><br />
+    The purpose of this schedule job is to purge the statics from the NB_Store Database and to Process and statistical calculations that are required.<br />
+    <br />
+    Time Lapse: 1 hour*<br />
+    Retry Frequency: 2 hours<br />
+    <br />
+    *The functionality of the job saves the last runtime in the store setting, and will only run the report once a day.<br />    
+    <br />
+    NOTE: This process is required for the product search word statistics to be purged and the products exists count to be updated.<br />
+    </p>
+    <p>
+    <b>NEvoWeb.Modules.NB_Store.PurgeStoreFiles,NEvoweb.DNN.Modules.NB_Store</b><br />
+    This schedule job will purge unused files and images from all DNN portals that use NB_Store, including running the LogFile purge based on the "purgelogfiles.days" setting.<br />
+    <br />
+    Time Lapse: 1 day<br />
+    Retry Frequency: 2 days<br />
+    </p>
+<hr />
+    <div id="Div16" />
+<h2>Product List</h2>
+<p>Multiple product lists can be setup on a single portal.  
+This allows for a list showing featured products only, different skins to display product lists or product details and different pages showing different categories.
+The control of how these modules interact can be done from the settings of each module.  The product return tab after purchase can be set to the cart or the tab from which the user selected to view the product (Using the RtnTab query string parameter).  The default return tab in the settings is currently overwritten by the query string param, but has been left in for future development.  
+</p>
+    <div id="Div16.1" />
+<h4>Search Module</h4>
+<p>The NB_Store_Search module is a replacement for the DNN Search module.  Using this module allows the product list to act as the search results module for the DNN search index.  The "nosearchresult.template" template is displayed when no products are found by the search.</p>
+    <div id="Div16.2" />
+<h4>Order By</h4>
+<p>In the product list settings a default order can be selected.  Also if a queryString parameter of "orderby" is added the product list sort by the select value, a "desc" parameter can also be added to give a descending order.</p>
+<ul>
+<li>orderby=man     [Order by manufacturer]</li>
+<li>orderby=ref     [Order by product ref]</li>
+<li>orderby=name    [Order by name]</li>
+<li>orderby=price   [Order by price]</li>
+<li>orderby=cdate   [Order by Created Date]</li>
+<li>desc=1          [Descending]</li>
+</ul>
+<hr />
+    <div id="Div17" />
+<h2>Host Options</h2>
+<p>From the Store Manager Menu, a number of options are available if logged on as host.</p>
+    <div id="Div17.1" />
+<h4>ClearDown Store</h4>
+<p>This option clears all products, categories, carts and orders from the store.  In order to do this you must enter the host password.</p>
+    <div id="Div17.2" />
+<h4>Store Validation</h4>
+<p>Store validation will run a number of checks on the store to ensure the data integrity. To fix any errors found check the fix errors checkbox.  Any errors fixed will be logged in the audit logs.<br />
+<br />
+<b>Product Image Validation</b> - This will check to see if the imagepath in the 
+NB_Store_ProductImage table matches the Server Root MapPath + imageURL.&nbsp; If 
+it does not and the FIX error has been checked, the imagepath is updated with 
+the Server Root MapPath + imageURL path, if this file doesn&#39;t exist the 
+productimage record is removed from the database.<br />
+<b>Product Document Validation</b> - This will check to see if the document path in NB_Store_ProductDocs tables matches the Server Root Path,  if not the the FIX will change to path to the correct one.  If the document doesn't exist it will be removed from the database.
+    <br />
+    <b>Product Language Validation</b> - This will check to make sure product 
+    descriptions and options exist in all languages.&nbsp; Used if a website has a 
+    language added.<br />
+    <b>Category Language Validation</b> - This will check to make sure category 
+    descriptions exist in all languages.&nbsp; Used if a website has a language 
+    added.</p>
+    <div id="Div17.3" />
+<h4>Import Settings</h4>
+<p>
+Importing settings and templates can now be done through this option.  The drop down list shows any xml file in the NB_Store/templates directory. By selecting an import file Template, settings and Status table values can be imported.  The format of the import files is exactly the same as the export of the module.<br />
+<br />
+TIPS:<br />
+- To upgrade your settings and templates to add any new ones which may appear in later releases of NB_Store, import the "ManagerMenuDefault.xml" with the Overwrite option unchecked.<br />
+- To create your own template set export your templates using the module export, edit it as required, and place it in the NB_Store/templates directory.<br />
+- To change the language of the order status table edit an exported module file and import it with the changes, unchecking the overwrite option. (Status Names are always imported)<br />
+</p>
+     <div id="Div20" />
+<h2>Audit Logs</h2>
+The Store will automatically create an audit log for changes made to the Settings, Templates, Tax Rates and Shipping Rates.<br />
+The audit logs are saved in a folder called LogFiles in the Portal root and contain, <br />"datetime - usename - controlname - procedurename - xml of object changed".
+<br /> The SIPS bank gateway will also use this audit log when payments are made.
+     <div id="Div21" />
+<h2>Template Default files</h2>
+When NB_Store upgrades versions it uses an xml file called 'ManagerMenuDefault.xml' to import the settings and templates that are required.  During import of this file into the settings and templates the overwrite flag is turned off so no current templates are overwritten.  If however the entry in the import file has an attribute called 'Overwrite' that is set to true then template or setting is overwritten in the Database.<br />
+If there is a file called 'ManagerMenuDefault_&lt;County-Culture&gt;.xml' (e.g. ManagerMenuDefault_fr-fr.xml) this will also be processed in order to update the relative templates per language. 
+         This language file will only be processed if it is a new installation of 
+         NB_Store. This is to stop current templates on a default level being superseded 
+         by a new language template.<br />
+These files should be located in the NB_Store\templates folder.  If you wish to import the default templates again, this can be done by altering the version setting in the Back Office and in the Back Office>Admin>Settings select the upgrade all portals option (only available when logged in as host/Superuser).  Or alternatively by selecting the default file as an import file from the BackOffice>Admin>settings import button.&nbsp; 
+         Selecting the file manually is the only way an upgrade can be made using the 
+         language defaults.<br />
+</body>
+</html>

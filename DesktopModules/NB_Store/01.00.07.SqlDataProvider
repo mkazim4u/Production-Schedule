@@ -1,0 +1,66 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_UpdateImageOnly]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_UpdateImageOnly]
+GO
+
+
+
+
+
+
+
+create   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_UpdateImageOnly]
+(
+@ImageID int,
+@ProductID int,
+@ImagePath nvarchar(100),
+@ListOrder int,
+@Hidden bit,
+@ImageURL nvarchar(100)
+)
+AS
+BEGIN
+
+	if exists (select ImageID from {databaseOwner}[{objectQualifier}NB_Store_ProductImage] where ImageID = @ImageID)
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_ProductImage]
+		set 
+		ProductID = @ProductID,
+		ImagePath = @ImagePath,
+		ListOrder = @ListOrder,
+		Hidden = @Hidden,
+		ImageURL = @ImageURL
+		where ImageID = @ImageID 
+	end
+
+END
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

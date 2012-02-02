@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="ResMimeType">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="Version">
+    <value>1.0.0.0</value>
+  </resheader>
+  <resheader name="Reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="Writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plFullTemplate.Text">
+    <value>Template:</value>
+  </data>
+  <data name="plFullTemplate.Help">
+    <value>Template to be displayed when cart is NOT empty, default if "minicart.template"</value>
+  </data>
+  <data name="plEmptyTemplate.Text">
+    <value>Emtpy Template:</value>
+  </data>
+  <data name="plEmptyTemplate.Help">
+    <value>Template to be displayed when cart is empty, default if "minicartempty.template"</value>
+  </data>
+  <data name="plShowFullCart.Text">
+    <value>Show Full Cart</value>
+  </data>
+  <data name="plShowFullCart.Help">
+    <value>Displays the full cart uner the mini cart template.</value>
+  </data>
+
+  <data name="plShowDiscountCol.Text">
+    <value>Show Discount Column</value>
+  </data>
+  <data name="plShowDiscountCol.Help">
+    <value>If a discount is applied to the cart, this option will show a cart item breadown of discount in a column.</value>
+  </data>
+
+  <data name="plAllowEdit.Text">
+    <value>Show Recalculate Button</value>
+  </data>
+  <data name="plAllowEdit.Help">
+    <value>Allows the full cart to be edited and recalculated.</value>
+  </data>
+
+  <data name="plHideTotal.Text">
+    <value>Hide Totals</value>
+  </data>
+  <data name="plHideTotal.Help">
+    <value>Hide Totals Footer on the full cart.</value>
+  </data>
+
+  <data name="plHideDescriptionCol.Text">
+    <value>Hide Description Column</value>
+  </data>
+  <data name="plHideDescriptionCol.Help">
+    <value>Hide Description Column full cart.</value>
+  </data>
+  <data name="plHidePriceCol.Text">
+    <value>Hide Price Column</value>
+  </data>
+  <data name="plHidePriceCol.Help">
+    <value>Hide Price Column full cart.</value>
+  </data>
+  <data name="plHideQtyCol.Text">
+    <value>Hide Qty Column</value>
+  </data>
+  <data name="plHideQtyCol.Help">
+    <value>Hide Qty Column full cart.</value>
+  </data>
+  <data name="plHideRemoveCol.Text">
+    <value>Hide Remove Column</value>
+  </data>
+  <data name="plHideRemoveCol.Help">
+    <value>Hide Remove Column full cart.</value>
+  </data>
+  <data name="plHideTotalCol.Text">
+    <value>Hide Total Column</value>
+  </data>
+  <data name="plHideTotalCol.Help">
+    <value>Hide Total Column full cart.</value>
+  </data>
+  <data name="plMiniPosition.Text">
+    <value>Mini Cart Position</value>
+  </data>
+  <data name="plMiniPosition.Help">
+    <value>Decides where the mini cart template will be display in relation to the Full Cart. (If displayed)</value>
+  </data>
+  <data name="MiniPositionName.Text">
+    <value>Top,Bottom,Hidden</value>
+  </data>
+  <data name="plHideHeader.Text">
+    <value>Hide Header</value>
+  </data>
+  <data name="plHideHeader.Help">
+    <value>Hide the header of the full Full Cart. (If displayed)</value>
+  </data>  
+</root>

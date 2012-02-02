@@ -1,0 +1,752 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="NB_Store_BackOffice" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_BackOffice</friendlyName>
+      <description>NB_Store E-Commerce Module for DNN.</description>
+      <owner>
+        <name>Nevoweb SARL</name>
+        <organization>Nevoweb SARL</organization>
+        <url>http://nbstore.codeplex.com</url>
+        <email>dcl@nevoweb.com</email>
+      </owner>
+      <license></license>
+      <releaseNotes />
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\NB_Store</basePath>
+            <script type="Install">
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="Install">
+              <name>01.00.01.SqlDataProvider</name>
+              <version>01.00.01</version>
+            </script>
+            <script type="Install">
+              <name>01.00.02.SqlDataProvider</name>
+              <version>01.00.02</version>
+            </script>
+            <script type="Install">
+              <name>01.00.03.SqlDataProvider</name>
+              <version>01.00.03</version>
+            </script>
+            <script type="Install">
+              <name>01.00.04.SqlDataProvider</name>
+              <version>01.00.04</version>
+            </script>
+            <script type="Install">
+              <name>01.00.05.SqlDataProvider</name>
+              <version>01.00.05</version>
+            </script>
+            <script type="Install">
+              <name>01.00.06.SqlDataProvider</name>
+              <version>01.00.06</version>
+            </script>
+            <script type="Install">
+              <name>01.00.07.SqlDataProvider</name>
+              <version>01.00.07</version>
+            </script>
+            <script type="Install">
+              <name>01.00.09.SqlDataProvider</name>
+              <version>01.00.09</version>
+            </script>
+            <script type="Install">
+              <name>01.01.00.SqlDataProvider</name>
+              <version>01.01.00</version>
+            </script>
+            <script type="Install">
+              <name>01.01.01.SqlDataProvider</name>
+              <version>01.01.01</version>
+            </script>
+            <script type="Install">
+              <name>01.01.06.SqlDataProvider</name>
+              <version>01.01.06</version>
+            </script>
+            <script type="Install">
+              <name>01.01.07.SqlDataProvider</name>
+              <version>01.01.07</version>
+            </script>
+            <script type="Install">
+              <name>01.02.01.SqlDataProvider</name>
+              <version>01.02.01</version>
+            </script>
+            <script type="Install">
+              <name>02.00.00.SqlDataProvider</name>
+              <version>02.00.00</version>
+            </script>
+            <script type="Install">
+              <name>02.00.01.SqlDataProvider</name>
+              <version>02.00.01</version>
+            </script>
+            <script type="Install">
+              <name>02.00.02.SqlDataProvider</name>
+              <version>02.00.02</version>
+            </script>
+            <script type="Install">
+              <name>02.00.03.SqlDataProvider</name>
+              <version>02.00.03</version>
+            </script>
+            <script type="Install">
+              <name>02.00.05.SqlDataProvider</name>
+              <version>02.00.05</version>
+            </script>
+            <script type="Install">
+              <name>02.00.06.SqlDataProvider</name>
+              <version>02.00.06</version>
+            </script>
+            <script type="Install">
+              <name>02.00.08.SqlDataProvider</name>
+              <version>02.00.08</version>
+            </script>
+            <script type="Install">
+              <name>02.00.09.SqlDataProvider</name>
+              <version>02.00.09</version>
+            </script>
+            <script type="Install">
+              <name>02.00.10.SqlDataProvider</name>
+              <version>02.00.10</version>
+            </script>
+            <script type="Install">
+              <name>02.00.11.SqlDataProvider</name>
+              <version>02.00.11</version>
+            </script>
+            <script type="Install">
+              <name>02.01.00.SqlDataProvider</name>
+              <version>02.01.00</version>
+            </script>
+            <script type="Install">
+              <name>02.01.02.SqlDataProvider</name>
+              <version>02.01.02</version>
+            </script>
+            <script type="Install">
+              <name>02.01.03.SqlDataProvider</name>
+              <version>02.01.03</version>
+            </script>
+            <script type="Install">
+              <name>02.01.04.SqlDataProvider</name>
+              <version>02.01.04</version>
+            </script>
+            <script type="Install">
+              <name>02.01.05.SqlDataProvider</name>
+              <version>02.01.05</version>
+            </script>
+            <script type="Install">
+              <name>02.01.06.SqlDataProvider</name>
+              <version>02.01.06</version>
+            </script>
+            <script type="Install">
+              <name>02.01.07.SqlDataProvider</name>
+              <version>02.01.07</version>
+            </script>
+            <script type="Install">
+              <name>02.02.00.SqlDataProvider</name>
+              <version>02.02.00</version>
+            </script>
+            <script type="Install">
+              <name>02.02.02.SqlDataProvider</name>
+              <version>02.02.02</version>
+            </script>
+            <script type="Install">
+              <name>02.03.00.SqlDataProvider</name>
+              <version>02.03.00</version>
+            </script>
+            <script type="Install">
+              <name>02.03.01.SqlDataProvider</name>
+              <version>02.03.01</version>
+            </script>
+            <script type="UnInstall">
+              <name>Uninstall.SqlDataProvider</name>
+              <version>2.2.0</version>
+            </script>
+          </scripts>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules\NB_Store</basePath>
+            <resourceFile>
+              <name>NB_Store_Resource.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <path>bin</path>
+              <name>NEvoweb.DNN.Modules.NB_Store.dll</name>
+              <sourceFileName>NEvoweb.DNN.Modules.NB_Store.dll</sourceFileName>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>NEvoweb.DNN.Modules.NB_Store.GatewayCheque.dll</name>
+              <sourceFileName>NEvoweb.DNN.Modules.NB_Store.GatewayCheque.dll</sourceFileName>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>NEvoweb.DNN.Modules.NB_Store.GatewayPayPal.dll</name>
+              <sourceFileName>NEvoweb.DNN.Modules.NB_Store.GatewayPayPal.dll</sourceFileName>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_BackOffice</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.ManagerMenuController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_BackOffice</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/MenuManager.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminBackup</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminBackup.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminBackup</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminCategories</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminCategories.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Category Admin</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminClients</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminClients.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminClients</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminDashboard</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminDashboard.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminDashboard</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminHost</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminHost.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminHost</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminOrders</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminOrders.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminOrders</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminProduct</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminProduct.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Product Admin</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminProductLite</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminProductLite.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Product Admin Lite</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminPromo</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminPromo.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminPromo</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminReport</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminReport.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminReport</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminReportPopup</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminReportPopup.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminReportPopup</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminSetting</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Admin Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminShipMethod</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminShipMethod.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminShipMethod</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminStock</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminStock.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminStock</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminTemplate</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminTemplates.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Template Administration</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>PrintOrder</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/PrintOrder.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>PrintOrder</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>ShipRates</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/ShipRates.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>ShipRates</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>TaxRates</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/TaxRates.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>TaxRates</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+
+        <component type="File">
+          <files>
+            <basePath>DesktopModules\NB_Store</basePath>
+          </files>
+        </component>
+      </components>
+    </package>
+
+
+    <package name="NB_Store_CategoryMenu" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_CategoryMenu</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_CategoryMenu</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.BasePortController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_CategoryMenu</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/CategoryMenu.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/CategoryMenuSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+      </components>
+    </package>
+
+    <package name="NB_Store_Checkout" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_Checkout</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_Checkout</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.BasePortController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_Checkout</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/CheckOut.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>RemotePost</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/RemotePost.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>RemotePost</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/CheckOutSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+      </components>
+    </package>
+
+
+    <package name="NB_Store_MiniCart" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_MiniCart</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_MiniCart</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.BasePortController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_MiniCart</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/MiniCart.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/MiniCartSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+
+      </components>
+    </package>
+
+    <package name="NB_Store_OrderHistory" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_OrderHistory</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_OrderHistory</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.BasePortController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_OrderHistory</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/AdminOrders.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminOrders</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminOrders.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>AdminOrders</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>PrintOrder</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/PrintOrder.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>PrintOrder</controlTitle>
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+      </components>
+    </package>
+
+    <package name="NB_Store_ProductList" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_ProductList</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_ProductList</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.ProductListController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+              <supportedFeature type="Searchable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_ProductList</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/ProductList.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminProduct</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminProduct.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Add Product</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>AdminProductLite</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/AdminProductLite.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Add Product</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Options</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/ProductListOptions.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Options</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/ProductListSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+
+      </components>
+    </package>
+
+    <package name="NB_Store_Search" type="Module" version="2.3.1">
+      <friendlyName>NB_Store_Search</friendlyName>
+      <description>NB_Store.</description>
+      <releaseNotes />
+      <components>
+
+        <component type="Module">
+          <desktopModule>
+            <moduleName>NB_Store_Search</moduleName>
+            <foldername>NB_Store</foldername>
+            <businessControllerClass>NEvoWeb.Modules.NB_Store.BasePortController,NEvoweb.DNN.Modules.NB_Store</businessControllerClass>
+            <supportedFeatures>
+              <supportedFeature type="Portable" />
+            </supportedFeatures>
+            <moduleDefinitions>
+              <moduleDefinition>
+                <friendlyName>NB_Store_Search</friendlyName>
+                <defaultCacheTime>0</defaultCacheTime>
+                <moduleControls>
+                  <moduleControl>
+                    <controlKey />
+                    <controlSrc>DesktopModules/NB_Store/ProductSearch.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle />
+                    <controlType>View</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                  <moduleControl>
+                    <controlKey>Settings</controlKey>
+                    <controlSrc>DesktopModules/NB_Store/ProductSearchSettings.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Settings</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                  </moduleControl>
+                </moduleControls>
+              </moduleDefinition>
+            </moduleDefinitions>
+          </desktopModule>
+        </component>
+
+
+      </components>
+    </package>
+
+
+  </packages>
+</dotnetnuke>

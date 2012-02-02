@@ -1,0 +1,586 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+if not exists (select * from syscolumns where id=object_id('{databaseOwner}{objectQualifier}NB_Store_ShippingRates') and name='PortalID')
+    alter table {databaseOwner}{objectQualifier}NB_Store_ShippingRates add PortalID int null
+go
+
+if not exists (select * from syscolumns where id=object_id('{databaseOwner}{objectQualifier}NB_Store_TaxRates') and name='PortalID')
+    alter table {databaseOwner}{objectQualifier}NB_Store_TaxRates add PortalID int null
+go
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Delete]
+GO
+
+
+
+CREATE   PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_ShippingRates_Delete
+@ItemId int
+
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+where ItemId = @ItemId
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Get]
+@PortalID int,
+@ItemId int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+	where ItemId = @ItemId
+	and PortalID = @PortalID 
+
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetByObjID]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetByObjID]
+GO
+
+
+
+
+
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetByObjID]
+@PortalID int,
+@ObjectId int,
+@ShipType char(3)
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+	where ObjectId = @ObjectId
+	and ShipType = @ShipType
+	and PortalID = @PortalID 
+end
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+GO
+
+
+
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_GetList]
+@PortalID int,
+@ShipType varchar(5),
+@Lang varchar(5),
+@Filter varchar(50)
+AS
+begin
+
+	if @ShipType = 'PRD'
+	begin
+		select 
+		isnull(SR.ItemId,-1) as Itemid,
+		SR.Range1,
+		SR.Range2,
+		SM.ModelID as ObjectId,
+		SR.ShipCost,
+		'PRD' as ShipType,
+		SR.[Disable],
+		PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as Description,
+		SR.ProductWeight,
+		SR.ProductHeight,
+		SR.ProductLength,
+		SR.ProductWidth
+		from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+		left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SM.ModelID = SR.ObjectID and SR.ShipType = 'PRD'
+		inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+		inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+		left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+		where (SML.ModelName like '%' + @Filter + '%' 
+		or sm.modelref like '%' + @Filter + '%')
+		and P.PortalID = @PortalID 
+		order by PL.ProductName,sm.modelref,SML.ModelName
+	end
+	else
+	begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] 
+		where ShipType = @ShipType
+		and PortalID = @PortalID 
+		order by Range1
+	end 
+end
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Update]
+GO
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ShippingRates_Update]
+(
+@PortalID int,
+@ItemId int,
+@Range1 decimal(9,2),
+@Range2 decimal(9,2),
+@ObjectId int,
+@ShipCost decimal(9,2),
+@ShipType char(3),
+@Disable bit,
+@Description nvarchar(50),
+@ProductWeight decimal(9,2),
+@ProductHeight decimal(9,2),
+@ProductLength decimal(9,2),
+@ProductWidth decimal(9,2)
+)
+AS
+BEGIN
+
+	if not exists (select ItemId from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] where ItemId = @ItemId and PortalID = @PortalID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_ShippingRates]
+		(
+		Range1,
+		Range2,
+		ObjectId,
+		ShipCost,
+		ShipType,
+		Disable,
+		Description,
+		ProductWeight,
+		ProductHeight,
+		ProductLength,
+		ProductWidth,
+		PortalID
+		)
+		values
+		(
+		@Range1,
+		@Range2,
+		@ObjectId,
+		@ShipCost,
+		@ShipType,
+		@Disable,
+		@Description,
+		@ProductWeight,
+		@ProductHeight,
+		@ProductLength,
+		@ProductWidth,
+		@PortalID
+		)
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_ShippingRates]
+		set 
+		Range1 = @Range1,
+		Range2 = @Range2,
+		ObjectId = @ObjectId,
+		ShipCost = @ShipCost,
+		ShipType = @ShipType,
+		Disable = @Disable,
+		Description = @Description,
+		ProductWeight = @ProductWeight,
+		ProductHeight = @ProductHeight,
+		ProductLength = @ProductLength,
+		ProductWidth = @ProductWidth
+		where ItemId = @ItemId 
+		and PortalID = @PortalID 
+	end
+
+END
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Delete]
+GO
+
+
+
+CREATE   PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_TaxRates_Delete
+@ItemID int
+
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_TaxRates] 
+where ItemID = @ItemID
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Get]
+@PortalID int,
+@ItemID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_TaxRates] 
+	where ItemID = @ItemID
+	and PortalID = @PortalID 
+ 
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetByObjID]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetByObjID]
+GO
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetByObjID]
+@PortalID int,
+@ObjectId int,
+@TaxType char(3)
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_TaxRates] 
+	where ObjectId = @ObjectId
+	and TaxType = @TaxType
+	and PortalID = @PortalID 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetList]
+GO
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_GetList]
+@PortalID int,
+@TaxType varchar(5),
+@Lang varchar(5),
+@Filter varchar(50)
+AS
+begin
+
+	if @TaxType = 'PRD'
+	begin
+		select 
+		isnull(TR.ItemId,-1) as Itemid,
+		SM.ModelID as ObjectId,
+		TR.TaxPercent,
+		'PRD' as TaxType,
+		TR.[Disable],
+		PL.ProductName + ' - ' + sm.modelref + ' - ' + SML.ModelName as TaxDesc
+		from {databaseOwner}{objectQualifier}NB_Store_Model AS SM
+		left outer join {databaseOwner}[{objectQualifier}NB_Store_TaxRates] as TR on SM.ModelID = TR.ObjectID and TR.TaxType = 'PRD'
+		inner join {databaseOwner}{objectQualifier}NB_Store_ModelLang AS SML on SML.ModelID = SM.ModelID and SML.Lang = @Lang
+		inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = SM.ProductID
+		left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = SM.ProductID and PL.Lang = @Lang
+		where (SML.ModelName like '%' + @Filter + '%' 
+		or sm.modelref like '%' + @Filter + '%')
+		and P.PortalID = @PortalID 
+		order by PL.ProductName,sm.modelref,SML.ModelName
+	end
+	else
+	begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_TaxRates] 
+		where TaxType = @TaxType
+		and PortalID = @PortalID 
+		order by TaxDesc
+	end
+ 
+end
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Update]
+GO
+
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_TaxRates_Update]
+(
+@PortalID int,
+@ItemID int,
+@ObjectID int,
+@TaxPercent decimal(16,2),
+@TaxDesc nvarchar(50),
+@TaxType char(3),
+@Disable bit
+
+)
+AS
+BEGIN
+
+	if not exists (select ItemID from {databaseOwner}[{objectQualifier}NB_Store_TaxRates] where ItemID = @ItemID and PortalID = @PortalID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_TaxRates]
+		(
+		ObjectID,
+		TaxPercent,
+		TaxDesc,
+		TaxType,
+		[Disable],
+		PortalID
+		)
+		values
+		(
+		@ObjectID,
+		@TaxPercent,
+		@TaxDesc,
+		@TaxType,
+		@Disable,
+		@PortalID
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_TaxRates]
+		set 
+		ObjectID = @ObjectID,
+		TaxPercent = @TaxPercent,
+		TaxDesc = @TaxDesc,
+		TaxType = @TaxType,
+		Disable = @Disable
+		where ItemID = @ItemID
+		and PortalID = @PortalID 
+	end
+
+END
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]
+GO
+
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]
+@PortalID int,
+@Lang nchar(5),
+@IsHost bit
+
+AS
+begin
+if @IsHost=1
+begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_Settings] 
+	where PortalID = @PortalID
+	 and (Lang = @Lang or Lang = 'None' or @Lang='')
+	order by settingname
+end
+else
+begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_Settings] 
+	where PortalID = @PortalID
+	and HostOnly = 0 
+	 and (Lang = @Lang or Lang = 'None' or @Lang='')
+	order by settingname
+end 
+end
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

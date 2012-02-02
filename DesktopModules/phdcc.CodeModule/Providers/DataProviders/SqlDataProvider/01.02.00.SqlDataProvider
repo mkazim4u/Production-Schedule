@@ -1,0 +1,11 @@
+﻿/** phdcc.CodeModule: http://www.phdcc.com/phdcc.CodeModule/ Copyright © 2007-2009 PHD Computer Consultants Ltd, PHDCC **/
+
+/************* Insert SkinObject Token definition ****************/
+DELETE FROM {databaseOwner}{objectQualifier}ModuleControls
+	WHERE ControlKey='CodeModule'
+
+INSERT INTO {databaseOwner}{objectQualifier}ModuleControls
+			(ControlKey,ControlTitle,ControlSrc,ControlType)
+	VALUES	('CodeModule',NULL,'DesktopModules/phdcc.CodeModule/View.ascx',-2) 
+
+ 

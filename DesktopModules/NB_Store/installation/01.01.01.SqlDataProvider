@@ -1,0 +1,135 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetSearchList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetSearchList]
+GO
+
+
+
+
+
+
+
+
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetSearchList]
+@PortalID int,
+@Lang char(5),
+@Word nvarchar(100),
+@OrderBy nvarchar(50),
+@OrderDESC bit,
+@ReturnLimit nvarchar(5)
+AS
+begin
+
+	declare @SQL nvarchar(4000)
+
+	set @SQL = 'select' 
+
+if @ReturnLimit > 0 
+begin
+	set @SQL = @SQL + ' top ' + @ReturnLimit
+end
+
+ set @SQL = @SQL + ' P.ProductID,'
+ set @SQL = @SQL + ' P.PortalID,'
+ set @SQL = @SQL + ' P.TaxCategoryID,'
+ set @SQL = @SQL + ' P.Featured,'
+ set @SQL = @SQL + ' P.Archived,'
+ set @SQL = @SQL + ' P.CreatedByUser,'
+ set @SQL = @SQL + ' P.CreatedDate,'
+ set @SQL = @SQL + ' P.IsDeleted,'
+ set @SQL = @SQL + ' P.ProductRef,'
+ set @SQL = @SQL + ' PL.Lang,'
+ set @SQL = @SQL + ' PL.Summary,'
+ set @SQL = @SQL + ' PL.Description,'
+ set @SQL = @SQL + ' PL.Manufacturer,'
+ set @SQL = @SQL + ' {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,'
+ set @SQL = @SQL + ' isnull((select top 1 QtyRemaining from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and (qtyremaining > 0 or qtyremaining < 0) order by unitcost),0) as QtyRemaining,'
+ set @SQL = @SQL + ' (select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageID,'
+ set @SQL = @SQL + ' (select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageURL,'
+ set @SQL = @SQL + ' (select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID order by listorder) as ImageDesc,'
+ set @SQL = @SQL + ' PL.ProductName '
+set @SQL = @SQL + ' from {databaseOwner}{objectQualifier}SearchWord sw'
+	set @SQL = @SQL + ' INNER JOIN {databaseOwner}{objectQualifier}SearchItemWord siw ON sw.SearchWordsID = siw.SearchWordsID'
+	set @SQL = @SQL + ' INNER JOIN {databaseOwner}{objectQualifier}SearchItem si ON siw.SearchItemID = si.SearchItemID'
+	set @SQL = @SQL + ' INNER JOIN {databaseOwner}{objectQualifier}Modules m ON si.ModuleId = m.ModuleID'
+	set @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}{objectQualifier}TabModules tm ON si.ModuleId = tm.ModuleID'
+	set @SQL = @SQL + ' INNER JOIN {databaseOwner}{objectQualifier}Tabs t ON tm.TabID = t.TabID'
+	set @SQL = @SQL + ' LEFT OUTER JOIN {databaseOwner}{objectQualifier}Users u ON si.Author = u.UserID'
+    set @SQL = @SQL + ' inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on si.SearchKey = (convert(nvarchar(10),P.ProductID) + ''' + @Lang + ''')'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+set @SQL = @SQL + ' WHERE   (((m.StartDate Is Null) OR (GetDate() > m.StartDate)) AND ((m.EndDate Is Null) OR (GetDate() < m.EndDate)))'
+	set @SQL = @SQL + ' AND (((t.StartDate Is Null) OR (GetDate() > t.StartDate)) AND ((t.EndDate Is Null) OR (GetDate() < t.EndDate)))'
+	set @SQL = @SQL + ' AND (difference(''' + @Word + ''',substring(sw.Word,1,len(''' + @Word + '''))) + difference(''' + @Word + ''',substring(sw.Word,len(sw.Word)-len(''' + @Word + ''')+1,len(sw.Word)))) >= 7 '
+	set @SQL = @SQL + ' AND substring(soundex(sw.Word),1,1) = substring(''' + @Word + ''',1,1)'
+	set @SQL = @SQL + ' AND (t.IsDeleted = 0) '
+	set @SQL = @SQL + ' AND (m.IsDeleted = 0) '
+	set @SQL = @SQL + ' AND (t.PortalID = ' + convert(nvarchar(5),@PortalID) + ')'
+	set @SQL = @SQL + ' and P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+
+	if @OrderBy='man'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.Manufacturer DESC,P.ProductRef DESC,PL.ProductName DESC'
+		else
+			set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef,PL.ProductName'
+	end
+	if @OrderBy='ref'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by P.ProductRef DESC,PL.Manufacturer DESC,PL.ProductName DESC'
+		else
+			set @SQL = @SQL + ' order by P.ProductRef,PL.Manufacturer,PL.ProductName'
+	end
+	if @OrderBy='name'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.ProductName DESC,PL.Manufacturer DESC,P.ProductRef DESC'
+		else
+			set @SQL = @SQL + ' order by PL.ProductName,PL.Manufacturer,P.ProductRef'
+	end
+	if @OrderBy='price'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) DESC,PL.Manufacturer DESC,P.ProductRef DESC,PL.ProductName DESC'
+		else
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID),PL.Manufacturer,P.ProductRef,PL.ProductName'
+	end
+	if @OrderBy=''
+	begin
+		set @SQL = @SQL + ' order by (difference(''' + @Word + ''',substring(sw.Word,1,len(''' + @Word + ''')))) DESC, soundex(sw.Word),PL.ProductName,PL.Manufacturer,P.ProductRef'
+	end
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

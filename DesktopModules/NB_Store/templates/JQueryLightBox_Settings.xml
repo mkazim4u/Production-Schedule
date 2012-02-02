@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content type="NBStoreMangerMenu" version="01.01.07">
+  <storecontent>
+    <settings>
+      <lightboxgallerytemplate.name Lang="None " HostOnly="False">
+        <![CDATA[jquerylightboxgallery.template]]></lightboxgallerytemplate.name>
+      <lightboxtemplate.name Lang="None " HostOnly="False">
+        <![CDATA[jquerylightbox.template]]></lightboxtemplate.name>
+  <productlistcss.includes Lang="None " HostOnly="False">
+    <![CDATA[jquery.lightbox-0.5.css]]></productlistcss.includes>
+  <productlistjs.includes Lang="None " HostOnly="False">
+    <![CDATA[jquery.lightbox-0.5.min.js]]></productlistjs.includes>
+  <productliststartupjs.includes Lang="None " HostOnly="False">
+    <![CDATA[jquerylightbox.code]]></productliststartupjs.includes>	  
+		</settings>
+<settingstext>
+<jquerylightbox.code Lang="None ">
+<![CDATA[jQuery(function() { 	jQuery('.jquerylightbox').lightBox(); }); ]]></jquerylightbox.code>
+<jquerylightbox.template Lang="None ">
+<![CDATA[&lt;table height=&quot;302&quot; width=&quot;302&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; bgcolor=&quot;#ffffff&quot;&gt;     &lt;tbody&gt;         &lt;tr&gt;             &lt;td valign=&quot;middle&quot; align=&quot;center&quot; style=&quot;border: 1px solid rgb(216, 208, 187);&quot;&gt;&lt;a href=&quot;[Product:ImageURL]&quot; class=&quot;jquerylightbox&quot; rel=&quot;GRP1&quot; title=&quot;[Product:ImageDesc]&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;[Product:ImageThumb]&quot; alt=&quot;[Product:ImageDesc]&quot; /&gt;&lt;/a&gt;&lt;/td&gt;         &lt;/tr&gt;     &lt;/tbody&gt; &lt;/table&gt;]]></jquerylightbox.template>
+<jquerylightboxgallery.template Lang="None ">
+<![CDATA[&lt;table height=&quot;122&quot; width=&quot;122&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; bgcolor=&quot;#ffffff&quot;&gt;     &lt;tbody&gt;         &lt;tr&gt;             &lt;td valign=&quot;middle&quot; align=&quot;center&quot; style=&quot;border: 1px solid rgb(216, 208, 187);&quot;&gt;&lt;a href=&quot;[Product:ImageURL]&quot; rel=&quot;GRP1&quot; class=&quot;jquerylightbox&quot; title=&quot;[Product:ImageDesc]&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;[Product:ImageThumb]&quot; alt=&quot;[Product:ImageDesc]&quot; /&gt;&lt;/a&gt;&lt;/td&gt;         &lt;/tr&gt;     &lt;/tbody&gt; &lt;/table&gt;]]></jquerylightboxgallery.template>
+	</settingstext>
+<status>
+</status>
+</storecontent>
+</content>

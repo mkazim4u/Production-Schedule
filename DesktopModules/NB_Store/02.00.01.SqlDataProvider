@@ -1,0 +1,308 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    Table Start                                   *****/
+/************************************************************/
+
+
+if not exists (select * from dbo.syscolumns where id=object_id('{databaseOwner}[{objectQualifier}NB_Store_Categories]') and name='Hide')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Categories add hide bit null
+go
+
+
+/************************************************************/
+/*****    Table End                                     *****/
+/************************************************************/
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Get]
+@CategoryID int,
+@Lang nchar(5)
+AS
+begin
+	select
+		C.CategoryID,
+		CL.Lang,
+		CL.CategoryName,
+		CL.CategoryDesc,
+		CL.[Message],
+		C.PortalID,
+		C.Archived,
+		C.Hide,
+		C.CreatedByUser,
+		C.CreatedDate,
+		C.ParentCategoryID,
+		PCL.CategoryName as ParentName,
+		C.ListOrder,	
+		C.ProductTemplate,
+		(select count(ProductID) from {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC where PC.Categoryid = C.CategoryID) as ProductCount,
+		C.ListItemTemplate,
+		C.ListAltItemTemplate
+from {databaseOwner}[{objectQualifier}NB_Store_Categories] as C
+inner join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS CL on CL.CategoryID = C.CategoryID and CL.Lang = @Lang
+left outer join {databaseOwner}[{objectQualifier}NB_Store_Categories] as PC on C.ParentCategoryID = PC.CategoryID 
+left outer join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS PCL on PCL.CategoryID = PC.CategoryID and PCL.Lang = @Lang
+where C.CategoryID = @CategoryID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_GetList]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_GetList]
+@PortalID int,
+@Lang nchar(5),
+@ParentCategoryID int,
+@Archived bit,
+@IncludeArchived bit
+AS
+begin
+
+if @ParentCategoryID = -1
+begin
+
+	select 
+		C.CategoryID,
+		CL.Lang,
+		CL.CategoryName,
+		CL.CategoryDesc,
+		CL.[Message],
+		C.PortalID,
+		C.Archived,
+		C.Hide,
+		C.CreatedByUser,
+		C.CreatedDate,
+		C.ParentCategoryID,
+		PCL.CategoryName as ParentName,
+		C.ListOrder,
+		C.ProductTemplate,
+		C.ListItemTemplate,
+		C.ListAltItemTemplate,
+		(select count(ProductID) from {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC where PC.Categoryid = C.CategoryID) as ProductCount
+from {databaseOwner}[{objectQualifier}NB_Store_Categories] as C
+left outer join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS CL on CL.CategoryID = C.CategoryID and CL.Lang = @Lang
+left outer join {databaseOwner}[{objectQualifier}NB_Store_Categories] as PC on C.ParentCategoryID = PC.CategoryID 
+left outer join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS PCL on PCL.CategoryID = PC.CategoryID and PCL.Lang = @Lang
+where C.PortalID = @PortalID
+and (C.Archived = @Archived or @IncludeArchived = 1)
+and (isnull(C.Hide,0) = 0 or @IncludeArchived = 1)
+order by PC.ListOrder, PCL.CategoryName, C.ListOrder, CL.CategoryName
+
+end 
+else
+begin
+
+	select 
+		C.CategoryID,
+		CL.Lang,
+		CL.CategoryName,
+		CL.CategoryDesc,
+		CL.[Message],
+		C.PortalID,
+		C.Archived,
+		C.Hide,
+		C.CreatedByUser,
+		C.CreatedDate,
+		C.ParentCategoryID,
+		PCL.CategoryName as ParentName,
+		C.ListOrder,
+		C.ProductTemplate,
+		(select count(ProductID) from {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC where PC.categoryid = C.CategoryID) as ProductCount,
+		C.ListItemTemplate,
+		C.ListAltItemTemplate
+from {databaseOwner}[{objectQualifier}NB_Store_Categories] as C
+left outer join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS CL on CL.CategoryID = C.CategoryID and CL.Lang = @Lang
+left outer join {databaseOwner}[{objectQualifier}NB_Store_Categories] as PC on C.ParentCategoryID = PC.CategoryID 
+left outer join {databaseOwner}{objectQualifier}NB_Store_CategoryLang AS PCL on PCL.CategoryID = PC.CategoryID and PCL.Lang = @Lang
+where C.PortalID = @PortalID
+and C.ParentCategoryID = @ParentCategoryID
+and (C.Archived = @Archived or @IncludeArchived = 1)
+and (isnull(C.Hide,0) = 0 or @IncludeArchived = 1)
+order by C.ListOrder, CL.CategoryName
+
+end
+
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Update]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Categories_Update]
+(
+@CategoryID int,
+@Lang nchar(5),
+@CategoryName nvarchar(50),
+@CategoryDesc nvarchar(500),
+@Message ntext,
+@PortalID int,
+@Archived bit,
+@CreatedByUser nvarchar(100),
+@CreatedDate datetime,
+@ParentCategoryID int,
+@ListOrder int,
+@ProductTemplate nvarchar(50),
+@ListItemTemplate nvarchar(50),
+@ListAltItemTemplate nvarchar(50),
+@Hide bit
+)
+AS
+BEGIN
+
+	if not exists (select CategoryID from {databaseOwner}[{objectQualifier}NB_Store_Categories] where CategoryID = @CategoryID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Categories]
+		(
+		PortalID,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		ParentCategoryID,
+		ListOrder,
+		ProductTemplate,
+		ListItemTemplate,
+		ListAltItemTemplate,
+		Hide
+		)
+		values
+		(
+		@PortalID,
+		@Archived,
+		@CreatedByUser,
+		@CreatedDate,
+		@ParentCategoryID,
+		@ListOrder,
+		@ProductTemplate,
+		@ListItemTemplate,
+		@ListAltItemTemplate,
+		@Hide
+		)
+		set @CategoryID = @@identity
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Categories]
+		set 
+		PortalID = @PortalID,
+		Archived = @Archived,
+		CreatedByUser = @CreatedByUser,
+		CreatedDate = @CreatedDate,
+		ParentCategoryID = @ParentCategoryID,
+		ListOrder = @ListOrder,
+		ProductTemplate = @ProductTemplate,
+		ListItemTemplate = @ListItemTemplate,
+		ListAltItemTemplate = @ListAltItemTemplate,
+		Hide = @Hide
+		where CategoryID = @CategoryID 
+	end
+
+	if not exists (select CategoryID from {databaseOwner}[{objectQualifier}NB_Store_CategoryLang] where CategoryID = @CategoryID and Lang = @Lang)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_CategoryLang]
+		(
+		CategoryID,
+		Lang,
+		CategoryName,
+		CategoryDesc,
+		[Message]
+		)
+		values
+		(
+		@CategoryID,
+		@Lang,
+		@CategoryName,
+		@CategoryDesc,
+		@Message
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_CategoryLang]
+		set 
+		CategoryName = @CategoryName,
+		CategoryDesc = @CategoryDesc,
+		[Message] = @Message
+		where CategoryID = @CategoryID
+		and Lang = @Lang 
+	end
+
+exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Categories_Get @CategoryID,@Lang
+
+END
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content type="NBStoreCheckout" version="01.01.00">
+  <modulecontent>
+    <settings>
+      <chkHideCountry>
+        <![CDATA[False]]></chkHideCountry>
+      <ddlGateway>
+        <![CDATA[XX]]></ddlGateway>
+      <chkDisableLoginMsg>
+        <![CDATA[False]]></chkDisableLoginMsg>
+      <chkHideChq>
+        <![CDATA[False]]></chkHideChq>
+      <ddlChequeGateway>
+        <![CDATA[standard]]></ddlChequeGateway>
+      <chkNonUserOrder>
+        <![CDATA[False]]></chkNonUserOrder>
+      <chkSkipCart>
+        <![CDATA[False]]></chkSkipCart>
+      <chkHideShip>
+        <![CDATA[False]]></chkHideShip>
+      <chkStockChq>
+        <![CDATA[False]]></chkStockChq>
+      <chkHideVAT>
+        <![CDATA[True]]></chkHideVAT>
+      <chkHidePromo>
+        <![CDATA[True]]></chkHidePromo>
+    </settings>
+  </modulecontent>
+</content>

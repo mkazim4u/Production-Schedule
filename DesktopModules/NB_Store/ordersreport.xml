@@ -1,0 +1,212 @@
+<root>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1165</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber />
+    <OrderDate>2008-09-15T12:19:03.22</OrderDate>
+    <ShipDate>0001-01-01T00:00:00</ShipDate>
+    <ShippingAddressID>172</ShippingAddressID>
+    <BillingAddressID>172</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>15.0000</ShippingCost>
+    <OrderIsPlaced>false</OrderIsPlaced>
+    <OrderStatusID>20</OrderStatusID>
+    <PayType />
+    <CalculatedTax>373.1538</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+    <Discount>0.0000</Discount>
+    <PromoCode />
+    <Total>2277.0000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1122</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01122-20080908</OrderNumber>
+    <OrderDate>2008-09-08T09:55:24.437</OrderDate>
+    <ShipDate>2008-09-09T00:00:00</ShipDate>
+    <ShippingAddressID>129</ShippingAddressID>
+    <BillingAddressID>129</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>20.5000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>50</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>6.0682</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+    <Discount>0.0000</Discount>
+    <PromoCode />
+    <Total>72.5000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1116</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01116-20080901</OrderNumber>
+    <OrderDate>2008-09-01T09:06:02.017</OrderDate>
+    <ShipDate>2008-09-03T00:00:00</ShipDate>
+    <ShippingAddressID>123</ShippingAddressID>
+    <BillingAddressID>123</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>20.5000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>50</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>5.7405</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+    <Discount>0.0000</Discount>
+    <PromoCode />
+    <Total>70.5000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1115</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01115-20080901</OrderNumber>
+    <OrderDate>2008-09-01T09:03:30.11</OrderDate>
+    <ShipDate>2008-09-02T00:00:00</ShipDate>
+    <ShippingAddressID>122</ShippingAddressID>
+    <BillingAddressID>122</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>5.0000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>50</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>1.1472</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+    <Discount>0.0000</Discount>
+    <PromoCode />
+    <Total>7.0000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1016</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01016-20080819</OrderNumber>
+    <OrderDate>2008-08-19T16:20:11.657</OrderDate>
+    <ShipDate>2008-09-01T00:00:00</ShipDate>
+    <ShippingAddressID>20</ShippingAddressID>
+    <BillingAddressID>20</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>0.0000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>50</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>0 .0000</CalculatedTax>
+    <NoteMsg />
+    <VATNumber>34543543</VATNumber>
+    <Discount>0.0000</Discount>
+    <PromoCode>4353453</PromoCode>
+    <Total>50.0000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1013</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01013-20080819</OrderNumber>
+    <OrderDate>2008-08-19T15:58:19.14</OrderDate>
+    <ShipDate>0001-01-01T00:00:00</ShipDate>
+    <ShippingAddressID>17</ShippingAddressID>
+    <BillingAddressID>17</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>0.0000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>50</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>0.0000</CalculatedTax>
+    <NoteMsg />
+    <VATNumber>51216</VATNumber>
+    <Discount>0.0000</Discount>
+    <PromoCode>6465321</PromoCode>
+    <Total>0.0000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1110</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01110-20080829</OrderNumber>
+    <OrderDate>2008-08-29T17:03:34.063</OrderDate>
+    <ShipDate>2008-09-02T00:00:00</ShipDate>
+    <ShippingAddressID>117</ShippingAddressID>
+    <BillingAddressID>117</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>5.0000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>60</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>1.1472</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+    <Discount>0.0000</Discount>
+    <PromoCode />
+    <Total>7.0000</Total>
+  </NB_Store_OrdersInfo>
+  <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <OrderID>1144</OrderID>
+    <UserID>1</UserID>
+    <PortalID>0</PortalID>
+    <OrderNumber>00-00001-01144-20080911</OrderNumber>
+    <OrderDate>2008-09-11T18:13:31.29</OrderDate>
+    <ShipDate>0001-01-01T00:00:00</ShipDate>
+    <ShippingAddressID>151</ShippingAddressID>
+    <BillingAddressID>151</BillingAddressID>
+    <AppliedTax>0.0000</AppliedTax>
+    <ShippingCost>10.0000</ShippingCost>
+    <OrderIsPlaced>true</OrderIsPlaced>
+    <OrderStatusID>80</OrderStatusID>
+    <PayType>CHQ</PayType>
+    <CalculatedTax>3.6054</CalculatedTax>
+    <NoteMsg />
+    <VATNumber />
+      <Discount>0.0000</Discount>
+      <PromoCode />
+      <Total>22.0000</Total>
+    </NB_Store_OrdersInfo>
+    <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <OrderID>1143</OrderID>
+      <UserID>1</UserID>
+      <PortalID>0</PortalID>
+      <OrderNumber>00-00001-01143-20080911</OrderNumber>
+      <OrderDate>2008-09-11T18:13:04.62</OrderDate>
+      <ShipDate>0001-01-01T00:00:00</ShipDate>
+      <ShippingAddressID>150</ShippingAddressID>
+      <BillingAddressID>150</BillingAddressID>
+      <AppliedTax>0.0000</AppliedTax>
+      <ShippingCost>15.0000</ShippingCost>
+      <OrderIsPlaced>true</OrderIsPlaced>
+      <OrderStatusID>80</OrderStatusID>
+      <PayType>CHQ</PayType>
+      <CalculatedTax>13.2742</CalculatedTax>
+      <NoteMsg />
+      <VATNumber />
+      <Discount>0.0000</Discount>
+      <PromoCode />
+      <Total>81.0000</Total>
+    </NB_Store_OrdersInfo>
+    <NB_Store_OrdersInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <OrderID>1142</OrderID>
+      <UserID>1</UserID>
+      <PortalID>0</PortalID>
+      <OrderNumber>00-00001-01142-20080911</OrderNumber>
+      <OrderDate>2008-09-11T18:01:04.01</OrderDate>
+      <ShipDate>0001-01-01T00:00:00</ShipDate>
+      <ShippingAddressID>149</ShippingAddressID>
+      <BillingAddressID>149</BillingAddressID>
+      <AppliedTax>0.0000</AppliedTax>
+      <ShippingCost>15.0000</ShippingCost>
+      <OrderIsPlaced>true</OrderIsPlaced>
+      <OrderStatusID>80</OrderStatusID>
+      <PayType>CHQ</PayType>
+      <CalculatedTax>77.8428</CalculatedTax>
+      <NoteMsg />
+      <VATNumber />
+      <Discount>0.0000</Discount>
+      <PromoCode />
+      <Total>475.0000</Total>
+    </NB_Store_OrdersInfo>
+  </root>

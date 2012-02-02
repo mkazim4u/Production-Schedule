@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<content type="NB_Store_MiniCart" version="02.03.00">
+	<modulecontent>
+		<settings>
+			<chkShowFullCart><![CDATA[False]]></chkShowFullCart>
+			<chkHideHeader><![CDATA[True]]></chkHideHeader>
+			<chkHidePriceCol><![CDATA[True]]></chkHidePriceCol>
+			<ddlFullTemplate><![CDATA[minicart.template]]></ddlFullTemplate>
+			<ddlEmptyTemplate><![CDATA[minicartempty.template]]></ddlEmptyTemplate>
+			<chkHideQtyCol><![CDATA[True]]></chkHideQtyCol>
+			<chkHideRemoveCol><![CDATA[True]]></chkHideRemoveCol>
+			<chkHideDescriptionCol><![CDATA[False]]></chkHideDescriptionCol>
+			<chkHideTotal><![CDATA[True]]></chkHideTotal>
+			<chkAllowEdit><![CDATA[False]]></chkAllowEdit>
+			<chkHideTotalCol><![CDATA[True]]></chkHideTotalCol>
+			<chkShowDiscountCol><![CDATA[False]]></chkShowDiscountCol>
+			<ddlMiniPosition><![CDATA[1]]></ddlMiniPosition>
+		</settings>
+	</modulecontent>
+</content>

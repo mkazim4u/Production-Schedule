@@ -1,0 +1,791 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL]
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SQLReportParam]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam]
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SQLReport]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_SQLReport]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_SQLReport] (
+	[ReportID] [int] IDENTITY (1, 1) NOT NULL ,
+	[PortalID] [int] NULL ,
+	[ReportName] [nvarchar] (50) COLLATE French_CI_AS NULL ,
+	[SQL] [ntext] COLLATE French_CI_AS NULL ,
+	[SchedulerFlag] [bit] NULL ,
+	[SchStartHour] [nvarchar] (2) COLLATE French_CI_AS NULL ,
+	[SchStartMins] [nvarchar] (2) COLLATE French_CI_AS NULL ,
+	[SchReRunMins] [nvarchar] (10) COLLATE French_CI_AS NULL ,
+	[LastRunTime] [datetime] NULL ,
+	[AllowExport] [bit] NULL ,
+	[AllowDisplay] [bit] NULL ,
+	[DisplayInLine] [bit] NULL ,
+	[EmailResults] [bit] NULL ,
+	[EmailFrom] [nvarchar] (100) COLLATE French_CI_AS NULL ,
+	[EmailTo] [nvarchar] (250) COLLATE French_CI_AS NULL ,
+	[ShowSQL] [bit] NULL ,
+	[ConnectionString] [nvarchar] (200) COLLATE French_CI_AS NULL ,
+	[ReportRef] [nvarchar] (20) COLLATE French_CI_AS NULL ,
+	[AllowPaging] [bit] NULL ,
+	[ReportTitle] [nvarchar] (255) COLLATE French_CI_AS NULL ,
+	[FieldDelimeter] [nchar] (1) COLLATE French_CI_AS NULL ,
+	[FieldQualifier] [nchar] (1) COLLATE French_CI_AS NULL ,
+	CONSTRAINT [PK_NB_Store_SQLReport] PRIMARY KEY  CLUSTERED 
+	(
+		[ReportID]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam] (
+	[ReportParamID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ReportID] [int] NULL ,
+	[ParamName] [nvarchar] (50) COLLATE French_CI_AS NULL ,
+	[ParamType] [nvarchar] (50) COLLATE French_CI_AS NULL ,
+	[ParamValue] [nvarchar] (150) COLLATE French_CI_AS NULL ,
+	[ParamSource] [int] NULL ,
+	CONSTRAINT [PK_NB_Store_SQLReportParam] PRIMARY KEY  CLUSTERED 
+	(
+		[ReportParamID]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_NB_Store_SQLReportParam_NB_Store_SQLReport] FOREIGN KEY 
+	(
+		[ReportID]
+	) REFERENCES {databaseOwner}[{objectQualifier}NB_Store_SQLReport] (
+		[ReportID]
+	) ON DELETE CASCADE 
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL] (
+	[ReportXSLID] [int] IDENTITY (1, 1) NOT NULL ,
+	[ReportID] [int] NULL ,
+	[XMLInput] [nvarchar] (100) COLLATE French_CI_AS NULL ,
+	[XSLFile] [nvarchar] (100) COLLATE French_CI_AS NULL ,
+	[OutputFile] [nvarchar] (100) COLLATE French_CI_AS NULL ,
+	[DisplayResults] [bit] NULL ,
+	[SortOrder] [int] NULL ,
+	CONSTRAINT [PK_NB_Store_SQLReportXSL] PRIMARY KEY  CLUSTERED 
+	(
+		[ReportXSLID]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+GO
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Delete]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Delete]
+@ReportID int
+
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] 
+where ReportID = @ReportID
+ 
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Get]
+@ReportID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] 
+	where ReportID = @ReportID
+ 
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetByRef]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetByRef]
+GO
+
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetByRef]
+@PortalID int,
+@ReportRef nvarchar(20)
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] 
+	where ReportRef = @ReportRef
+	and PortalID = @PortalID
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetList]
+GO
+
+
+
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_GetList]
+@PortalID int,
+@IsEditable bit,
+
+@SearchText nvarchar(50)
+AS
+begin
+	
+if @SearchText = ''
+Begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] 
+	where PortalID = @PortalID
+
+	order by ReportName
+End
+Else
+Begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] 
+	where PortalID = @PortalID
+
+	and ReportName like '%' + @SearchText + '%'
+	order by ReportName
+End
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Update]
+GO
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReport_Update]
+(
+@ReportID int,
+@PortalID int,
+@ReportName nvarchar(50),
+@SQL ntext,
+@SchedulerFlag bit,
+@SchStartHour nvarchar(2),
+@SchStartMins nvarchar(2),
+@SchReRunMins nvarchar(10),
+@LastRunTime datetime,
+@AllowExport bit,
+@AllowDisplay bit,
+@DisplayInLine bit,
+@EmailResults bit,
+@EmailFrom nvarchar(100),
+@EmailTo nvarchar(250),
+
+@ShowSQL bit,
+@ConnectionString nvarchar(200),
+@ReportRef nvarchar(20),
+@AllowPaging bit,
+
+@ReportTitle nvarchar(255),
+@FieldDelimeter nchar(1),
+@FieldQualifier nchar(1)
+)
+AS
+BEGIN
+
+	if not exists (select ReportID from {databaseOwner}[{objectQualifier}NB_Store_SQLReport] where ReportID = @ReportID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SQLReport]
+		(
+PortalID,
+ReportName,
+SQL,
+SchedulerFlag,
+SchStartHour,
+SchStartMins,
+SchReRunMins,
+LastRunTime,
+AllowExport,
+AllowDisplay,
+DisplayInLine,
+EmailResults,
+EmailFrom,
+EmailTo,
+
+ShowSQL,
+ConnectionString,
+ReportRef,
+AllowPaging,
+
+ReportTitle,
+FieldDelimeter,
+FieldQualifier
+
+		)
+		values
+		(
+@PortalID,
+@ReportName,
+@SQL,
+@SchedulerFlag,
+@SchStartHour,
+@SchStartMins,
+@SchReRunMins,
+@LastRunTime,
+@AllowExport,
+@AllowDisplay,
+@DisplayInLine,
+@EmailResults,
+@EmailFrom,
+@EmailTo,
+
+
+@ShowSQL,
+@ConnectionString,
+@ReportRef,
+@AllowPaging,
+
+@ReportTitle,
+@FieldDelimeter,
+@FieldQualifier
+
+		)
+
+select @@IDENTITY
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_SQLReport]
+		set 
+PortalID = @PortalID,
+ReportName = @ReportName,
+SQL = @SQL,
+SchedulerFlag = @SchedulerFlag,
+SchStartHour = @SchStartHour,
+SchStartMins = @SchStartMins,
+SchReRunMins = @SchReRunMins,
+LastRunTime = @LastRunTime,
+AllowExport = @AllowExport,
+AllowDisplay = @AllowDisplay,
+DisplayInLine = @DisplayInLine,
+EmailResults = @EmailResults,
+EmailFrom = @EmailFrom,
+EmailTo = @EmailTo,
+
+ShowSQL = @ShowSQL,
+ConnectionString = @ConnectionString,
+ReportRef = @ReportRef,
+AllowPaging = @AllowPaging,
+
+ReportTitle = @ReportTitle,
+FieldDelimeter = @FieldDelimeter,
+FieldQualifier = @FieldQualifier
+		where ReportID = @ReportID
+ 
+select @ReportID
+
+	end
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Delete]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Delete]
+@ReportParamID int
+
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam] 
+where ReportParamID = @ReportParamID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Get]
+@ReportParamID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam] 
+	where ReportParamID = @ReportParamID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_GetList]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_GetList]
+@ReportID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam] 
+where ReportID = @ReportID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Update]
+GO
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportParam_Update]
+(
+@ReportParamID int,
+@ReportID int,
+@ParamName nvarchar(50),
+@ParamType nvarchar(50),
+@ParamValue nvarchar(150),
+@ParamSource int
+
+)
+AS
+BEGIN
+
+	if not exists (select ReportParamID from {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam] where ReportParamID = @ReportParamID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam]
+		(
+ReportID,
+ParamName,
+ParamType,
+ParamValue,
+ParamSource
+
+		)
+		values
+		(
+@ReportID,
+@ParamName,
+@ParamType,
+@ParamValue,
+@ParamSource
+
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_SQLReportParam]
+		set 
+ReportID = @ReportID,
+ParamName = @ParamName,
+ParamType = @ParamType,
+ParamValue = @ParamValue,
+ParamSource = @ParamSource
+		where ReportParamID = @ReportParamID
+ 
+	end
+
+END
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Delete]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Delete]
+@ReportXSLID int
+
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL] 
+where ReportXSLID = @ReportXSLID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Get]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Get]
+@ReportXSLID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL] 
+	where ReportXSLID = @ReportXSLID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_GetList]
+GO
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_GetList]
+@ReportID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL] 
+where ReportID = @ReportID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Update]
+GO
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SQLReportXSL_Update]
+(
+@ReportXSLID int,
+@ReportID int,
+@XMLInput nvarchar(100),
+@XSLFile nvarchar(100),
+@OutputFile nvarchar(100),
+@DisplayResults bit,
+@SortOrder int
+
+)
+AS
+BEGIN
+
+	if not exists (select ReportXSLID from {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL] where ReportXSLID = @ReportXSLID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL]
+		(
+ReportID,
+XMLInput,
+XSLFile,
+OutputFile,
+DisplayResults,
+SortOrder
+
+		)
+		values
+		(
+@ReportID,
+@XMLInput,
+@XSLFile,
+@OutputFile,
+@DisplayResults,
+@SortOrder
+
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_SQLReportXSL]
+		set 
+ReportID = @ReportID,
+XMLInput = @XMLInput,
+XSLFile = @XSLFile,
+OutputFile = @OutputFile,
+DisplayResults = @DisplayResults,
+SortOrder = @SortOrder
+
+		where ReportXSLID = @ReportXSLID
+ 
+	end
+
+END
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+ALTER PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_CheckPurchased]
+@ProductID int,
+@UserID int
+AS
+
+begin
+
+select Count(O.OrderID) from {databaseOwner}{objectQualifier}NB_Store_Orders as O
+inner join {databaseOwner}{objectQualifier}NB_Store_OrderDetails as OD on OD.OrderID = O.OrderID
+inner join {databaseOwner}{objectQualifier}NB_Store_Model as M on M.ModelID = OD.ModelID
+where userid = @UserID and (O.OrderStatusID = 40 or O.OrderStatusID = 70) and ProductID = @ProductID
+
+end
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+
+
+/************************************************************/
+/*****    Update data for upgrade                       *****/
+/************************************************************/
+
+delete from {databaseOwner}{objectQualifier}NB_Store_SettingsText
+where SettingName = 'dashboard.text'

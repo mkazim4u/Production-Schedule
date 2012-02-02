@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 19.375" name="SNRDentonDBLayer">
+  <DataContextMoniker Name="/SNRDentonDBLayerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="99378a9d-3e83-4da6-b1bf-c37d31baeac2" absoluteBounds="6.75, 4.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_OrderStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c1a5886-7b5b-4a1c-b143-804429aa71c4" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01d63916-a21d-46ea-beca-eef3f3ce3d55" absoluteBounds="0.5, 3.625, 2, 5.6978784179687487">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63fb11dd-4e33-4f20-9046-cb5ddda8ed16" absoluteBounds="0.515, 4.085, 1.9700000000000002, 5.13787841796875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13c95299-b247-4180-81d2-d88966f77d52" absoluteBounds="0.5, 0.5, 2, 2.7396264648437505">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7da25ee7-7bcd-4167-949a-c28de5fb3e36" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 3.625); (1.5 : 3.23962646484375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Order/NB_Store_Order_NB_Store_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="01d63916-a21d-46ea-beca-eef3f3ce3d55" />
+        <classShapeMoniker Id="13c95299-b247-4180-81d2-d88966f77d52" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4fd9ce94-cb32-4223-806e-b9a91f9eb274" absoluteBounds="0.75, 9.375, 2, 2.5752791341145844">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0429721-02b9-4104-987e-2fcdfd22e40d" absoluteBounds="0.765, 9.835, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e2366b7-2c15-4c6a-aad7-77d7ee8cb599" absoluteBounds="6, 10, 2, 3.2326684570312523">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Model" />
+      <nestedChildShapes>
+        <elementListCompartment Id="074ce2ab-4c00-4073-afc7-e8764090e736" absoluteBounds="6.0150000000000006, 10.46, 1.9700000000000002, 2.67266845703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 12.1427951635742); (2.8125 : 12.1427951635742); (2.8125 : 3.5625); (2.031252 : 3.5625); (2.031252 : 3.23962646484375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Model/NB_Store_Model_NB_Store_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="6e2366b7-2c15-4c6a-aad7-77d7ee8cb599" />
+        <classShapeMoniker Id="13c95299-b247-4180-81d2-d88966f77d52" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 11.1605853271484); (6 : 11.1605853271484)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Product/NB_Store_Product_NB_Store_Model" />
+      <nodes>
+        <classShapeMoniker Id="4fd9ce94-cb32-4223-806e-b9a91f9eb274" />
+        <classShapeMoniker Id="6e2366b7-2c15-4c6a-aad7-77d7ee8cb599" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d7ccd250-c30d-4b6d-ad25-0ffed9225cce" absoluteBounds="6.25, 0.625, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/SNR_AuditTrail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d7e95ca-38de-4520-a130-72eb55f37b55" absoluteBounds="6.265, 1.085, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd7cf300-4ddd-47ff-9ba0-5bd2b2381e21" absoluteBounds="8.25, 14.625, 2, 1.75354248046875">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_ProductImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2be5a641-fe68-4c0b-aa3a-5a570d53b8bc" absoluteBounds="8.265, 15.085, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 9.77372355143229); (5.66666666666667 : 9.77372355143229 : JumpStart); (5.83333333333333 : 9.77372355143229 : JumpEnd); (8.40625 : 9.77372355143229); (8.40625 : 14.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Product/NB_Store_Product_NB_Store_ProductImage" />
+      <nodes>
+        <classShapeMoniker Id="4fd9ce94-cb32-4223-806e-b9a91f9eb274" />
+        <classShapeMoniker Id="dd7cf300-4ddd-47ff-9ba0-5bd2b2381e21" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ea0e2672-89e0-443e-acd9-74763d3a826d" absoluteBounds="8.625, 10.125, 2, 3.8900577799479166">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/PortalLocalization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0515913-90b5-43a4-adaa-88c2a0fab6cd" absoluteBounds="8.64, 10.585, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81117b91-bfd3-4295-b40f-e1ca7c15dd48" absoluteBounds="8.5, 0.5, 2, 2.73962646484375">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b9f7435c-6d0b-4691-a9f5-cf3002ba205b" absoluteBounds="8.515, 0.96, 1.9700000000000002, 2.17962646484375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4d6e8b2-490d-4cba-a695-fa0ce46ceb28" absoluteBounds="9, 4, 2, 1.5891951497395831">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_CategoryLang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5127f4b-3f9c-42ad-bca8-88fe8215ff1b" absoluteBounds="9.015, 4.46, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.75 : 3.23962646484375); (9.75 : 4)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Category/NB_Store_Category_NB_Store_CategoryLang" />
+      <nodes>
+        <classShapeMoniker Id="81117b91-bfd3-4295-b40f-e1ca7c15dd48" />
+        <classShapeMoniker Id="b4d6e8b2-490d-4cba-a695-fa0ce46ceb28" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="693f44f4-05f1-4f35-8e1d-ca19c856725f" absoluteBounds="6.375, 3.125, 2, 1.0961531575520833">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_ProductCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26b206f4-1fd4-4a79-9e42-c7361030bfc3" absoluteBounds="6.3900000000000006, 3.585, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 3.23962646484375); (9.5 : 3.67307657877604); (8.375 : 3.67307657877604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Category/NB_Store_Category_NB_Store_ProductCategory" />
+      <nodes>
+        <classShapeMoniker Id="81117b91-bfd3-4295-b40f-e1ca7c15dd48" />
+        <classShapeMoniker Id="693f44f4-05f1-4f35-8e1d-ca19c856725f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.4671544392904); (5.75 : 10.4671544392904); (5.75 : 4.59615315755208); (7.375 : 4.59615315755208); (7.375 : 4.22115315755208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Product/NB_Store_Product_NB_Store_ProductCategory" />
+      <nodes>
+        <classShapeMoniker Id="4fd9ce94-cb32-4223-806e-b9a91f9eb274" />
+        <classShapeMoniker Id="693f44f4-05f1-4f35-8e1d-ca19c856725f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0cf536b9-8c4f-4740-aa87-b9f106d43a1e" absoluteBounds="3.5, 13.125, 2, 2.24658447265625">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_ProductLang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90178935-77b0-4fe8-b278-04ed5abedd62" absoluteBounds="3.5149999999999997, 13.585, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.2812525 : 11.9502791341146); (2.2812525 : 14.2482922363281); (3.5 : 14.2482922363281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Product/NB_Store_Product_NB_Store_ProductLang" />
+      <nodes>
+        <classShapeMoniker Id="4fd9ce94-cb32-4223-806e-b9a91f9eb274" />
+        <classShapeMoniker Id="0cf536b9-8c4f-4740-aa87-b9f106d43a1e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="373ec755-198b-4910-b893-6a926435951a" absoluteBounds="3.125, 0.5, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/UserPortal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f85ff3c5-d1a4-4b2f-bf2c-571d5f461576" absoluteBounds="3.1399999999999997, 0.96, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eaf99be5-d28b-43e6-8675-7bcd1734aa64" absoluteBounds="3.125, 2.625, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/SNR_Configuration" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce8cd802-a583-45d1-9a7d-7af7a4eae090" absoluteBounds="3.1399999999999997, 3.085, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8199af00-3a93-4d22-9edd-cbba391ccac8" absoluteBounds="0.75, 15.375, 2, 3.7257104492187496">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/SNR_Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1521362-029d-4126-9725-0cba97cdbe71" absoluteBounds="0.76499999999999968, 15.835, 1.9700000000000002, 3.16571044921875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7190580-ba6e-4c33-9d9a-e53b4b63c8b5" absoluteBounds="3.25, 5, 2, 4.5474471028645826">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Address" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf4dce1f-6aa1-477f-b917-5a2ee13af12a" absoluteBounds="3.2649999999999997, 5.46, 1.9700000000000002, 3.987447102864583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 7.16143920898437); (2.72916666666667 : 7.16143920898437 : JumpStart); (2.89583333333333 : 7.16143920898437 : JumpEnd); (3.25 : 7.16143920898437)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SNRDentonDBLayerDataContext/NB_Store_Order/NB_Store_Order_NB_Store_Address" />
+      <nodes>
+        <classShapeMoniker Id="01d63916-a21d-46ea-beca-eef3f3ce3d55" />
+        <classShapeMoniker Id="c7190580-ba6e-4c33-9d9a-e53b4b63c8b5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a0f3b14-536a-4950-a914-ff7d4c1e7142" absoluteBounds="4.125, 16.125, 2, 1.75354248046875">
+      <DataClassMoniker Name="/SNRDentonDBLayerDataContext/SNR_COUNTRY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b97e3a0-0151-4b34-9dbd-1feef5fc3438" absoluteBounds="4.14, 16.585, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

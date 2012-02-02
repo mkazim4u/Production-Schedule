@@ -1,0 +1,116 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]
+GO
+
+
+
+/*
+Description: Gets a list of all documents in a portal
+Author: DCL
+NB_Store version: 01.02.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductDoc_GetExportList]
+@PortalID int
+AS
+begin
+
+	select 
+		D.DocID,
+		D.ProductID,
+		D.DocPath,
+		D.ListOrder,
+		D.Hidden,
+		D.[FileName],
+		D.[FileExt]
+	from {databaseOwner}[{objectQualifier}NB_Store_ProductDoc] as D
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductId = D.ProductID
+	where P.PortalID = @PortalID
+ 
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]
+GO
+
+
+/*
+Description: Gets a list of all images in a portal
+Author: DCL
+NB_Store version: 01.02.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductImage_GetExportList]
+@PortalID int
+AS
+begin
+	select 
+		I.ImageID,
+		I.ProductID,
+		I.ImagePath,
+		I.ListOrder,
+		I.Hidden,
+		I.ImageURL
+	from {databaseOwner}[{objectQualifier}NB_Store_ProductImage] as I 
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductId = I.ProductID
+	where P.PortalID = @PortalID
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+/************************************************************/
+/*****    Fix Multiple Models Bug.  Issue:4359          *****/
+/************************************************************/
+
+delete
+from {databaseOwner}[{objectQualifier}NB_Store_ShippingRates]
+where shiptype = 'PRD'
+and shipMethodID != - 1
+
+

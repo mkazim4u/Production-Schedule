@@ -1,0 +1,782 @@
+<content type="NB_Store_BackOffice" version="02.01.07"><storecontent><settings><ordersreport.subject Lang="fr-FR" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="False"><![CDATA[Rapport de Commandes]]></ordersreport.subject><ordersreport.xsl Lang="fr-FR" CtrlType="TextBox" GroupRef="root/system/reports" HostOnly="True"><![CDATA[/Desktopmodules/NB_Store/ordersreport_fr.xsl]]></ordersreport.xsl></settings><settingstext><buybutton.text Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[Ajouter au panier]]></buybutton.text><checkoutaddress.template Lang="fr-FR" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;table border=&quot;0&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot; class=&quot;AddressCollector&quot;&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Nom&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddressName&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;AddressName&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valAddressName&quot; ControlToValidate=&quot;txtAddressName&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Soci&#233;t&#233;&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtCompanyName&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;CompanyName&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;N&#176;&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddress1&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Address1&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Rue&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddress2&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Address2&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valAddress2&quot; ControlToValidate=&quot;txtAddress2&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+&lt;td class=&quot;Label&quot;&gt;Code Postal&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPostalCode&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;PostalCode&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valPostalCode&quot; ControlToValidate=&quot;txtPostalCode&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+&lt;td class=&quot;Label&quot;&gt;Ville&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtCity&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;City&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valCity&quot; ControlToValidate=&quot;txtCity&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Pays&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;cboCountry&quot; cssclass=&quot;NormalTextBox Country&quot; databind=&quot;CountryCode&quot; type=&quot;dropdownlist&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;T&#233;l&#233;phone&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPhone1&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Phone1&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Portable&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPhone2&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Phone2&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]></checkoutaddress.template><chqpayment.email Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Merci pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Pour r&#233;gler directement en banque, merci d'utiliser ces coordonn&#233;es :&lt;/p&gt;
+		[Template:merchantbank.template]&lt;br /&gt;
+		&lt;p&gt;Pour r&#233;gler en esp&#232;ce ou par ch&#232;que, merci de nous contacter ici :&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		&lt;p&gt;Votre commande sera trait&#233;e d&#232;s r&#233;ception de votre r&#232;glement.&lt;/p&gt;
+		&lt;p&gt;En vous remerciant!&lt;/p&gt;
+		[Template:order.email.template]
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></chqpayment.email><chqpayment.emailsubject Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Confirmation de Commande - [Order:OrderNumber]]]></chqpayment.emailsubject><chqpayment.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Merci pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Pour r&#233;gler directement en banque, merci d'utiliser ces coordonn&#233;es :&lt;/p&gt;
+		[Template:merchantbank.template]&lt;br /&gt;
+		&lt;p&gt;Pour r&#233;gler en esp&#232;ce ou par ch&#232;que, merci de nous contacter ici :&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		&lt;p&gt;Le d&#233;tail de votre commande vont ont &#233;t&#233; envoy&#233;s par e-mail &#224; l'adresse fournie lors du passage en caisse.&lt;/p&gt; 
+&lt;p&gt;Votre commande sera trait&#233;e d&#232;s r&#233;ception de votre r&#232;glement.&lt;/p&gt;
+		&lt;p&gt;En vous remerciant!&lt;/p&gt;
+		[Template:order.email.template]
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></chqpayment.text><courierpost.tracktemplate Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[&lt;a title=&quot;Cliquer ici pour suivre la livraison&quot; href=&quot;http://(your-courier-company-tracking-page)/[TAG:TRACKINGCODE]&quot; target=&quot;_blank&quot; &gt;[TAG:TRACKINGCODE]&lt;/a&gt;]]></courierpost.tracktemplate><dashboard.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="False"><![CDATA[&lt;table width=&quot;100%&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;[Report:dash_getdate]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[Report:dash_ordercount]&lt;/td&gt;
+      &lt;td&gt;[Report:dash_ordertotal]&lt;/td&gt;
+      &lt;td&gt;[Report:dash_productcount]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;NormalBold&quot; colspan=&quot;3&quot;&gt;Derni&#232;res commandes
+      &lt;br /&gt;[Report:dash_LatestOrders]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+]]></dashboard.text><emptycart.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;div style=&quot;padding-top:60px;text-align:center&quot;&gt;&lt;h3&gt;Le panier est vide&lt;/h3&gt;&lt;a href=&quot;/tabid/[Setting:cart.tab]/Default.aspx&quot; &gt;Continuer les achats&lt;/a&gt;&lt;/div&gt;
+]]></emptycart.text><extradetail.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/checkout" HostOnly="False"><![CDATA[&lt;p&gt;Instructions suppl&#233;mentaires :&lt;/p&gt;]]></extradetail.text><gatewaymsg.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/gateways" HostOnly="False"><![CDATA[&lt;p&gt;&lt;strong&gt;M&#233;thodes de paiement :&lt;/strong&gt;&lt;br /&gt; Veuillez s&#233;lectionner votre m&#233;thode de paiement.&lt;/p&gt;]]></gatewaymsg.text><listheader.text Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;div class=&quot;ListHeader&quot;&gt;
+&lt;select class=&quot;NormalTextBox&quot; onchange=&quot;location = this.options[this.selectedIndex].value;&quot;&gt;
+&lt;option value=&quot;&quot;&gt;Trier par&lt;/option&gt;
+&lt;option value=&quot;?orderby=cdate&amp;desc=0&quot;&gt;Nouveaut&#233;s&lt;/option&gt;
+&lt;option value=&quot;?orderby=price&amp;desc=0&quot;&gt;Moins cher au plus cher&lt;/option&gt;
+&lt;option value=&quot;?orderby=price&amp;desc=1&quot;&gt;Plus cher au moins cher&lt;/option&gt;
+&lt;option value=&quot;?orderby=man&amp;desc=0&quot;&gt;Marque de A &#224; Z&lt;/option&gt;
+&lt;option value=&quot;?orderby=man&amp;desc=1&quot;&gt;Marque de Z &#224; A&lt;/option&gt;
+&lt;option value=&quot;?orderby=name&amp;desc=0&quot;&gt;Nom de A &#224; Z&lt;/option&gt;
+&lt;option value=&quot;?orderby=name&amp;desc=1&quot;&gt;Nom de Z &#224; A&lt;/option&gt;
+&lt;option value=&quot;?orderby=ref&amp;desc=0&quot;&gt;Code Croissant&lt;/option&gt;
+&lt;option value=&quot;?orderby=ref&amp;desc=1&quot;&gt;Code D&#233;croissant&lt;/option&gt;
+&lt;/select&gt; 
+&lt;/div&gt;
+]]></listheader.text><logintext.text Lang="fr-FR" CtrlType="" GroupRef="root/security" HostOnly="True"><![CDATA[&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot; width=&quot;50%&quot;&gt;
+      J'ai d&#233;j&#224; un compte sur ce site&lt;br&gt;&amp;nbsp;&lt;br/&gt;
+      &lt;a href=&quot;javascript:__doPostBack('dnn$dnnLOGIN$cmdLogin','')&quot;&gt;&lt;strong&gt;Se connecter&lt;/strong&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;center&quot; width=&quot;50%&quot;&gt;
+      Je n'ai pas de compte sur ce site&lt;br&gt;&amp;nbsp;&lt;br/&gt;
+      &lt;a href=&quot;javascript:__doPostBack('dnn$dnnUSER$cmdRegister','')&quot;&gt;&lt;strong&gt;Cr&#233;er un compte&lt;/strong&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;]]></logintext.text><merchantaddress.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table class=&quot;MerchantAddress&quot; cellpadding=&quot;1&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Soci&#233;t&#233;&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Adresse&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;T&#233;l&#233;phone&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;E-mail&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]></merchantaddress.template><merchantbank.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table class=&quot;MerchantBank&quot; cellpadding=&quot;1&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Banque&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Nom du compte&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Num&#233;ro de compte&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;R&#233;f&#233;rence &#224; mentionner&lt;/td&gt;
+		&lt;td&gt;[Order:OrderID]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]></merchantbank.template><merchantlogo.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;img src=&quot;chemin vers banni&#232;re ou logo de la boutique&quot; border=&quot;0&quot; /&gt;]]></merchantlogo.template><merchantname.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[Nom du Marchand]]></merchantname.template><minicart.template Lang="fr-FR" CtrlType="" GroupRef="root/payment/cart" HostOnly="True"><![CDATA[&lt;ul class=&quot;MiniCart&quot;&gt;
+	&lt;li class=&quot;Label&quot;&gt;Articles: &lt;span class=&quot;Value&quot;&gt;[Cart:Qty]&lt;/span&gt;&lt;/li&gt;
+	&lt;li class=&quot;Label&quot;&gt;Total: &lt;span class=&quot;Value&quot;&gt;[Cart:OrderTotal]&lt;/span&gt;&lt;/li&gt;
+	&lt;li class=&quot;WishListFlag&quot;&gt;&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[Setting:wishlist.tab]/wishlist/Default.aspx&quot;&gt;Voir ma liste de souhaits ([WishList:ItemCount])&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;DisableCartFlag&quot;&gt;&lt;a class=&quot;Checkout Button&quot; href=&quot;/tabid/[Setting:checkout.tab]/Default.aspx&quot;&gt;Proc&#233;der au paiement&lt;/a&gt;
+	&lt;img src=&quot;/DesktopModules/NB_Store/img/cart.png&quot; style=&quot;vertical-align:text-top&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+]]></minicart.template><minicartempty.template Lang="fr-FR" CtrlType="" GroupRef="root/payment/cart" HostOnly="True"><![CDATA[&lt;ul class=&quot;MiniCart&quot;&gt;
+	&lt;li&gt;Le panier est vide&lt;/li&gt;
+	&lt;li class=&quot;WishListFlag&quot;&gt;&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[Setting:wishlist.tab]/wishlist/Default.aspx&quot;&gt;Voir ma liste de souhaits ([WishList:ItemCount])&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+]]></minicartempty.template><modeltable.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;table class=&quot;ModelTable&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr class=&quot;ModelTableHead&quot;&gt;
+		&lt;td&gt;Mod&#232;le&lt;/td&gt;
+		&lt;td&gt;R&#233;f&#233;rence&lt;/td&gt;
+		&lt;td&gt;Au d&#233;tail&lt;/td&gt;
+		&lt;td&gt;Poids&lt;/td&gt;
+		&lt;td&gt;Information&lt;/td&gt;
+	&lt;/tr&gt;
+	[TAG:TABLEROWS]
+&lt;/tbody&gt;
+&lt;/table&gt;
+]]></modeltable.template><nextday.shiptemplate Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="False"><![CDATA[Livraison express [TAG:SHIPPINGCOST]) ]]></nextday.shiptemplate><nosearchresult.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;p&gt;Aucun article trouv&#233;&lt;/p&gt;]]></nosearchresult.template><nowishlist.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;div style=&quot;padding-top:60px;text-align:center&quot;&gt;&lt;h3&gt;Votre liste de souhaits est vide&lt;/h3&gt;&lt;a href=&quot;/tabid/[Cart:TabID]/Default.aspx&quot; &gt;Continuer les achats&lt;/a&gt;&lt;/div&gt;]]></nowishlist.template><order.email.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="True"><![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:15px;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.cartheader{color:white;font-size:11px;font-weight:bold;background-color:#656565;}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot; colspan=&quot;3&quot;&gt;R&#233;capitulatif de Commande&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Num&#233;ro de Commande&lt;/td&gt;
+		&lt;td&gt;[Order:OrderNumber]&lt;/td&gt;
+		&lt;td align=&quot;center&quot; rowspan=&quot;4&quot;&gt;
+		&lt;h1&gt;COMMANDE&lt;/h1&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Date de Commande&lt;/td&gt;
+		&lt;td&gt;[Order:OrderDate]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Livraison&lt;/td&gt;
+		&lt;td&gt;[Order:ShippingMethod]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Suivi Livraison&lt;/td&gt;
+		&lt;td&gt;[Order:TrackingLink] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Adresse de Facturation&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Adresse de Livraison&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:AddressName]&lt;/td&gt;
+		&lt;td&gt;[SAddress:AddressName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:CompanyName]&lt;/td&gt;
+		&lt;td&gt;[SAddress:CompanyName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:City] [BAddress:PostalCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:City] [SAddress:PostalCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:RegionCode], [BAddress:Country]&lt;/td&gt;
+		&lt;td&gt;[SAddress:RegionCode], [SAddress:Country]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:Email]&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;left&quot;&gt;Articles&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;center&quot;&gt;Prix&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;center&quot;&gt;Quantit&#233;&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;right&quot;&gt;Total&lt;/td&gt;
+	&lt;/tr&gt;
+	[Order:DetailRows]
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Code Remise&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Discount]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Livraison&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:ShippingCost]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;TVA&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:AppliedTax]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;&lt;strong&gt;[Order:Total]&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Instructions suppl&#233;mentaires&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:NoteMsg]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;/div&gt;]]></order.email.template><order.text.template Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="True"><![CDATA[&lt;style type=&quot;text/css&quot;&gt;
+.cartheader{color:#FFF;font-size:11px;font-weight:bold;background-color:#53555E;}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot; colspan=&quot;3&quot;&gt;R&#233;capitulatif de Commande&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Num&#233;ro de Commande&lt;/td&gt;
+		&lt;td&gt;[Order:OrderNumber]&lt;/td&gt;
+		&lt;td align=&quot;center&quot; rowspan=&quot;4&quot;&gt;
+		&lt;h1&gt;COMMANDE&lt;/h1&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Date de Commande&lt;/td&gt;
+		&lt;td&gt;[Order:OrderDate]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Livraison&lt;/td&gt;
+		&lt;td&gt;[Order:ShippingMethod]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Suivi de Livraison&lt;/td&gt;
+		&lt;td&gt;[Order:TrackingLink] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Adresse de Facturation&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Adresse de Livraison&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:AddressName] &lt;/td&gt;
+		&lt;td&gt;[SAddress:AddressName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:CompanyName]&lt;/td&gt;
+		&lt;td&gt;[SAddress:CompanyName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:City] [BAddress:PostalCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:City] [SAddress:PostalCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:RegionCode], [BAddress:Country]&lt;/td&gt;
+		&lt;td&gt;[SAddress:RegionCode], [SAddress:Country]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:Email]&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;left&quot;&gt;Articles&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;center&quot;&gt;Prix&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;center&quot;&gt;Quantit&#233;&lt;/td&gt;
+		&lt;td class=&quot;cartheader&quot; align=&quot;right&quot;&gt;Total&lt;/td&gt;
+	&lt;/tr&gt;
+	[Order:DetailRows]
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;R&#233;f&#233;rence Remise&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Discount]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Livraison&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:ShippingCost]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;TVA&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:AppliedTax]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;&lt;strong&gt;[Order:Total]&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;cartheader&quot;&gt;Instructions suppl&#233;mentaires&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:NoteMsg]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+]]></order.text.template><orderprint.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="True"><![CDATA[&lt;p&gt;[[Template:merchantname.template]&lt;/p&gt;
+&lt;p&gt;[[Template:merchantaddress.template]&lt;/p&gt;
+&lt;p&gt;[[Template:merchantbank.template]&lt;/p&gt;
+&lt;p&gt;[Template:order.text.template]&lt;/p&gt;]]></orderprint.text><ordershipped.email Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Nous vous remercions pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Votre commande a &#233;t&#233; exp&#233;di&#233;e&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></ordershipped.email><ordershipped.emailsubject Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Commande exp&#233;di&#233;e - [Order:OrderNumber]]]></ordershipped.emailsubject><ordervalidated.email Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Nous vous remercions pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Votre commande a &#233;t&#233; valid&#233;e.&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></ordervalidated.email><ordervalidated.emailsubject Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Commande valid&#233;e - [Order:OrderNumber]]]></ordervalidated.emailsubject><orderview.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="True"><![CDATA[[Template:order.text.template]]]></orderview.text><paymentFAIL.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;p&gt;Le paiement n'a pas pu &#234;tre valid&#233;. Cette commande a &#233;t&#233; annul&#233;e.&lt;/p&gt;]]></paymentFAIL.text><paymentinprocess.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;p&gt;Paiement en cours de validation.&lt;/p&gt;]]></paymentinprocess.text><paymentOK.email Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Nous vous remercions pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Votre r&#232;glement a &#233;t&#233; valid&#233;.&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></paymentOK.email><paymentOK.emailsubject Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Paiement confirm&#233; - [Order:OrderNumber]]]></paymentOK.emailsubject><paymentOK.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;h3&gt;Nous vous remercions pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+&lt;p&gt;[Template:order.text.template]&lt;/p&gt;]]></paymentOK.text><paymentSECURITY.text Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;p&gt;Faille de s&#233;curit&#233;.&lt;/p&gt;&lt;p&gt;Merci de contacter l'administrateur du site.&lt;/p&gt;]]></paymentSECURITY.text><paymentunverified.email Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Nous vous remercions pour votre commande &#224; [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Le paiement n'a pas pu &#234;tre v&#233;rifi&#233;.&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]></paymentunverified.email><paymentunverified.emailsubject Lang="fr-FR" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Paiement non-v&#233;rifi&#233; - [Order:OrderNumber]]]></paymentunverified.emailsubject><productdetail.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;div class=&quot;Detail&quot;&gt;
+	
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;soldoutimage.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:SOLDOUTIMG] 
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;hasImages&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;div class=&quot;ImagePanel&quot;&gt;
+		[TAG:IMAGELIGHTBOX]
+		&lt;div class=&quot;GalleryWrapper&quot;&gt;
+			[TAG:GALLERY2][TAG:GALLERY3][TAG:GALLERY4][TAG:GALLERY5][TAG:GALLERY6][TAG:GALLERY7]&lt;/div&gt;
+	&lt;/div&gt;
+	[TAG:END]
+	
+ &lt;div class=&quot;PurchasingPanel&quot;&gt;
+		
+		&lt;div class=&quot;Name Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;&lt;h1&gt;[TAG:MANUFACTURER] [TAG:PRODUCTNAME] [TAG:EDITLINK]&lt;/h1&gt;&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;Price Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Hide&quot; /&gt;]
+		Prix [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:FROMPRICECURRENCY]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div&gt;Normalement &lt;span class=&quot;OldPrice&quot;&gt;[TAG:FROMPRICECURRENCY]&lt;/span&gt;&lt;/div&gt;
+		&lt;div class=&quot;SalePrice&quot;&gt;Sold&#233; [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:PRICESALECURRENCY]&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;div&gt;Au d&#233;tail [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:FROMPRICECURRENCY]&lt;/div&gt;
+	&lt;div&gt;En gros [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:PRICEDEALERCURRENCY]&lt;/div&gt;
+	[TAG:END]
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Summary&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;Summary Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:SUMMARY]&lt;/div&gt;
+		&lt;/div&gt;	
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;OutOfStock Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;Cet article connait un &#233;puisement de stock&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;showstock.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;InStock Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Stock&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:QTYREMAINING]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;ProductRef&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;Reference Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;R&#233;f.&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:PRODUCTREF]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+		
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;Options Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;[TAG:OPTIONNAME1]&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTION1:&lt;prop CssClass=&quot;NormalTextBox&quot; Width=&quot;140&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;Options Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;[TAG:OPTIONNAME2]&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTION2:&lt;prop CssClass=&quot;NormalTextBox&quot; Width=&quot;140&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;Models Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Mod&#232;les&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:MODELSRADIO:&lt;prop CssClass=&quot;Model&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]	
+		&lt;div class=&quot;Quantity Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Quantit&#233;&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:QTY:&lt;prop CssClass=&quot;QuantityField NormalTextBox&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;	
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]	
+		&lt;div class=&quot;DisableCart Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			La vente est actuellement suspendue.
+			&lt;style type=&quot;text/css&quot;&gt;.DisableCartFlag{display:none !important}&lt;/style&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+		
+	[TAG:END]
+
+		&lt;div class=&quot;AddToBasket Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+			[TAG:ADDTOBASKET:&lt;prop CssClass=&quot;BuyButton Button&quot; /&gt;]
+			[TAG:END]
+			[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+			&lt;style type=&quot;text/css&quot;&gt;.WishListFlag{display:inline !important}&lt;/style&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Hide&quot; /&gt;][TAG:ADDTOWISHLIST:&lt;prop CssClass=&quot;AddWishList Button&quot; text=&quot;Add to Wishlist&quot; /&gt;][TAG:END]
+			[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;][TAG:REMOVEFROMWISHLIST:&lt;prop CssClass=&quot;RemoveWishList Button&quot; text=&quot;Remove Wishlist&quot; /&gt;][TAG:END]
+			[TAG:END]
+			&lt;/div&gt;
+		&lt;/div&gt;
+	
+	[TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Registered User&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;DownloadInformation Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			&lt;strong&gt;Important! &lt;/strong&gt;Cet article est vendu en tant que fichier &#224; t&#233;l&#233;charger. Une fois votre paiement effectu&#233;, vous devez revenir sur cette page pour t&#233;l&#233;charger votre achat.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+	
+ &lt;/div&gt;
+	
+ &lt;div class=&quot;InformationPanel&quot;&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;tabbedcontent.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+ &lt;div id=&quot;tabs&quot;&gt;
+   &lt;ul&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Description&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-1&quot;&gt;Description&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	
+   [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-2&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Registered User&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-2&quot;&gt;T&#233;l&#233;chargements&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelstable.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-3&quot;&gt;D&#233;tails Mod&#232;les&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-4&quot;&gt;Produits li&#233;s&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+   &lt;/ul&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;tabbedcontent.flag&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;div&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Description&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-1&quot;&gt;
+   &lt;div class=&quot;Description&quot;&gt;
+   &lt;h3&gt;[TAG:MANUFACTURER] [TAG:PRODUCTNAME]&lt;/h3&gt;
+   [TAG:DESCRIPTION]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+
+   [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-2&quot;&gt;
+   &lt;div class=&quot;Documents&quot;&gt;
+	&lt;h3&gt;Documentation Produit&lt;/h3&gt;
+		&lt;div class=&quot;Document&quot;&gt;[TAG:DOC1:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK1:&lt;prop CssClass=&quot;DocumentName&quot; /&gt;]&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC1]&lt;/div&gt;&lt;/div&gt;
+		&lt;div class=&quot;Document&quot;&gt;[TAG:DOC2:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK2:&lt;prop CssClass=&quot;DocumentName&quot; /&gt;]&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC2]&lt;/div&gt;&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Registered User&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-2&quot;&gt;
+   &lt;div class=&quot;Documents&quot;&gt;
+	&lt;h3&gt;T&#233;l&#233;chargez vos fichiers ici apr&#232;s paiement&lt;/h3&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED1:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK1:&lt;prop CssClass=&quot;DownloadName&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED2:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK2:&lt;prop CssClass=&quot;DownloadName&quot; /&gt;]&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+   
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelstable.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+   &lt;div id=&quot;tabs-3&quot;&gt;
+   &lt;div class=&quot;Models&quot;&gt;
+	&lt;h3&gt;Cet article est disponible dans les mod&#232;les suivants&lt;/h3&gt;
+	[TAG:MODELSTABLE]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+   &lt;div id=&quot;tabs-4&quot;&gt;
+   &lt;div class=&quot;RelatedProducts&quot;&gt;
+	&lt;h3&gt;Compl&#233;tez votre achat avec ces articles connexes&lt;/h3&gt;
+   [TAGXML:relatedproducts.xsl]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+
+ &lt;/div&gt;
+	
+	&lt;div class=&quot;WayOut&quot;&gt;
+		&lt;a class=&quot;ViewPrevious Button&quot; href=&quot;javascript:history.back()&quot;&gt;Voir pr&#233;c&#233;dent&lt;/a&gt;
+		&lt;a class=&quot;ViewStorefront Button&quot; href=&quot;/tabid/[TAG:SETTING:cart.tab]/Default.aspx&quot;&gt;Voir accueil boutique&lt;/a&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[TAG:SETTING:wishlist.tab]/wishlist/Default.aspx&quot;&gt;Voir liste de souhaits&lt;/a&gt;
+		[TAG:END]
+	&lt;/div&gt;
+	
+	&lt;div class=&quot;Sharing&quot;&gt;
+	&lt;!-- These offer only minimal print and email functionality - Remove if not suitable --&gt;
+	&lt;a style=&quot;text-decoration:none;margin-right:12px&quot; title=&quot;Print this page&quot; href=&quot;#&quot; onclick=&quot;window.print();return false;&quot;&gt;
+		&lt;img style=&quot;vertical-align:-3px&quot; src=&quot;/DesktopModules/NB_Store/img/printer.png&quot; border=&quot;0&quot; /&gt;&amp;nbsp;Imprimer&lt;/a&gt;
+	&lt;a style=&quot;text-decoration:none&quot; title=&quot;Email this page&quot; href='mailto:?subject=Product page referral - [TAG:PRODUCTNAME]&amp;body=You have been referred to the &quot;[TAG:PRODUCTNAME]&quot; product page at [TAG:WEBSITEURL]: [TAG:LINKSIMPLE]'&gt;
+		&lt;img style=&quot;vertical-align:-3px&quot; src=&quot;/DesktopModules/NB_Store/img/email.png&quot; border=&quot;0&quot; /&gt;&amp;nbsp;E-mail&lt;/a&gt;
+	&lt;!-- Place social networking links in this section --&gt;
+	&lt;/div&gt;
+	
+ &lt;/div&gt;
+
+&lt;/div&gt;]]></productdetail.template><productlimit.text Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;strong&gt;Le nombre d'articles autoris&#233;s est atteint.&lt;/strong&gt;&lt;br/&gt;
+Pour ajouter un nouvel article, vous devez d'abord en supprimer un ou contacter le support pour obtenir de l'aide.]]></productlimit.text><productlist.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;div class=&quot;ListItem&quot;&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]&lt;style type=&quot;text/css&quot;&gt;.WishListFlag{display:inline !important}&lt;/style&gt;
+	&lt;div class=&quot;WishListButtons&quot; valign=&quot;top&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Hide&quot; /&gt;][TAG:ADDTOWISHLIST:&lt;prop text=&quot;+&quot; Cssclass=&quot;Add&quot; ToolTip=&quot;Ajouter cet article &#224; ma liste de souhaits&quot; /&gt;][TAG:END][TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;][TAG:REMOVEFROMWISHLIST:&lt;prop text=&quot;-&quot; Cssclass=&quot;Remove&quot; ToolTip=&quot;Supprimer cet article de ma liste de souhaits&quot; /&gt;][TAG:END]
+		&lt;/div&gt;
+	[TAG:END]
+&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; height=&quot;100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;center&quot; class=&quot;ImageWrapper&quot; valign=&quot;middle&quot;&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;soldoutimage.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:SOLDOUTIMG] 
+	[TAG:END]
+		&lt;a href=&quot;[TAG:LINK]&quot; title=&quot;[TAG:SUMMARY]&quot;&gt;[TAG:IMAGE]&lt;/a&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td style=&quot;padding:3px&quot; align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+		&lt;div class=&quot;Name&quot;&gt;
+	[TAG:PRODUCTNAME]&lt;/div&gt;
+		&lt;div class=&quot;Price&quot;&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Hide&quot; /&gt;]
+			[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;RetailPrice&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:FROMPRICECURRENCY]&lt;/div&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;OldPrice&quot;&gt;[TAG:FROMPRICECURRENCY]&lt;/div&gt;
+		&lt;div class=&quot;SalePrice&quot;&gt;On Sale [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:PRICESALECURRENCY]&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;RetailPrice&quot;&gt;Au d&#233;tail [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:FROMPRICECURRENCY]&lt;/div&gt;
+		&lt;div class=&quot;DealerPrice&quot;&gt;En gros [TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]A partir de [TAG:END][TAG:PRICEDEALERCURRENCY]&lt;/div&gt;
+	[TAG:END][TAG:EDITLINK]
+		&lt;/div&gt;
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]></productlist.template><relatedproducts.xsl Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;  xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; exclude-result-prefixes=&quot;msxsl&quot;&gt;
+    &lt;xsl:output method=&quot;html&quot; indent=&quot;yes&quot;/&gt;
+&lt;xsl:template match=&quot;/root&quot;&gt;
+
+&lt;div class=&quot;RelatedWrapper&quot;&gt;
+&lt;xsl:for-each select=&quot;related/item&quot;&gt;
+	&lt;div class=&quot;RelatedOuter&quot;&gt;
+		&lt;div class=&quot;RelatedInner&quot;&gt;
+			&lt;a&gt;
+  &lt;xsl:attribute name=&quot;href&quot;&gt;&lt;xsl:value-of select=&quot;./link&quot; disable-output-escaping=&quot;yes&quot; /&gt;&lt;/xsl:attribute&gt;  
+	  		&lt;img&gt;
+				&lt;xsl:attribute name=&quot;alt&quot;&gt;				
+				&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/ProductName&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+				&lt;xsl:attribute name=&quot;title&quot;&gt;				
+				&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/Summary&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+				&lt;xsl:attribute name=&quot;src&quot;&gt;				
+				&lt;xsl:value-of select=&quot;/root/ModulePath&quot; /&gt;makethumbnail.ashx?Image=&lt;xsl:value-of select=&quot;./P/I/NB_Store_ProductImageInfo/ImageID&quot; /&gt;&amp;amp;w=120&amp;amp;tabid=&lt;xsl:value-of select=&quot;/root/TabID&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+			&lt;/img&gt;&lt;/a&gt;
+			&lt;div class=&quot;Name&quot;&gt;
+&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/ProductName&quot; /&gt;&lt;/div&gt;
+			&lt;div class=&quot;Price&quot;&gt;
+&lt;xsl:value-of select=&quot;./frompricecurrency&quot; /&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/xsl:for-each&gt;
+&lt;/div&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+]]></relatedproducts.xsl><soldoutimg.template Lang="fr-FR" CtrlType="" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[&lt;img alt=&quot;Produit en &#233;puisement de stock&quot; class=&quot;SoldOutOverlay&quot; src=&quot;/Desktopmodules/nb_store/img/SoldOutRed.png&quot; border=&quot;0&quot; /&gt;]]></soldoutimg.template><specialshipping.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="False"><![CDATA[&lt;p&gt;
+Cette commande n&#233;cessite une livraison sp&#233;cifique.&lt;br /&gt;
+Veuillez prendre contact avec nous &#224; l'adresse courriel ci-dessous : 
+&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;[TAG:STOREEMAIL]&lt;/strong&gt; &lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;Merci.&lt;/p&gt;]]></specialshipping.text><standard.shiptemplate Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="False"><![CDATA[Livraison standard [TAG:SHIPPINGCOST] ]]></standard.shiptemplate><ups.tracktemplate Lang="fr-FR" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[&lt;a href=&quot;http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&amp;tracknums_displayed=1&amp;TypeOfInquiryNumber=T&amp;loc=en_US&amp;InquiryNumber1=[TAG:TRACKINGCODE]&amp;track.x=0&amp;track.y=0&quot; target=&quot;_blank&quot; &gt;Code de suivi&lt;/a&gt;]]></ups.tracktemplate><zeroprice.text Lang="fr-FR" CtrlType="" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[Prix &#224; communiquer]]></zeroprice.text></settingstext></storecontent></content>

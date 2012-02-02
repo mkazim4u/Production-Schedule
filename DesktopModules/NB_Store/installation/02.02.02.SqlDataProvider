@@ -1,0 +1,172 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/************************************************************/
+/*****    TABLE Start                                   *****/
+/************************************************************/
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ClearDownStore]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ClearDownStore]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.02.02
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ClearDownStore]
+@PortalID int
+AS
+begin
+
+-- clear carts
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_Cart
+where PortalID = @PortalID
+
+-- clear orders
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_Orders
+where PortalID = @PortalID
+
+-- clear orders
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_Address
+where PortalID = @PortalID
+
+-- clear Product Images
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_ProductImage 
+where ProductID in (select productID from {databaseOwner}{objectQualifier}NB_Store_Products
+where PortalID = @PortalID)
+
+-- clear Product Doc
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_ProductDoc
+where ProductID in (select productID from {databaseOwner}{objectQualifier}NB_Store_Products
+where PortalID = @PortalID)
+
+-- clear Products
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_Products
+where PortalID = @PortalID
+
+-- clear Categories
+delete 
+from {databaseOwner}{objectQualifier}NB_Store_Categories
+where PortalID = @PortalID
+
+-- clear product Shipping
+delete
+from {databaseOwner}{objectQualifier}NB_Store_ShippingRates
+where ShipType = 'PRD'
+and PortalID = @PortalID
+
+-- clear product Tax
+delete
+from {databaseOwner}{objectQualifier}NB_Store_TaxRates
+where TaxType = 'PRD'
+and PortalID = @PortalID
+
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.02.02
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]
+@ProductID int,
+@ModelRef nvarchar(20),
+@Lang nchar(5)
+AS
+begin
+	select top 1 
+		M.ModelID,
+		M.ProductID,
+		M.ListOrder,
+		M.UnitCost,
+		M.Barcode,
+		M.ModelRef,
+		M.Deleted,
+		ML.Lang,
+		ML.ModelName,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		PL.ProductName,
+		P.PortalID,
+		isnull(SR.ProductWeight,0) as Weight,
+		isnull(SR.ProductHeight,0) as Height,
+		isnull(SR.ProductLength,0) as Length,
+		isnull(SR.ProductWidth,0) as Width,
+		M.QtyStockSet,
+		M.DealerCost,
+		M.DealerOnly,
+		M.PurchaseCost,
+		ML.[XMLData],
+		ML.Extra,
+		M.Allow
+	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M
+	inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = M.ProductID
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SR.ObjectID = M.ModelID and ShipType='PRD' and SR.[Disable]=0	
+	where M.ModelRef = @ModelRef
+	and (M.ProductID = @ProductID or @ProductID = -1)
+ end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+
+/************************************************************/
+ 

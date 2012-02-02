@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content type="NBStoreBackOffice" version="02.01.00">
+<storecontent>
+<status>
+<ID10 Lang="XX" ListOrder="1"><![CDATA[Incomplete]]></ID10>
+<ID20 Lang="XX" ListOrder="2"><![CDATA[Waiting for Bank]]></ID20>
+<ID30 Lang="XX" ListOrder="3"><![CDATA[Cancelled]]></ID30>
+<ID40 Lang="XX" ListOrder="4"><![CDATA[Payment OK]]></ID40>
+<ID45 Lang="XX" ListOrder="5"><![CDATA[Payment not verified]]></ID45>
+<ID50 Lang="XX" ListOrder="6"><![CDATA[Shipped]]></ID50>
+<ID60 Lang="XX" ListOrder="7"><![CDATA[Waiting]]></ID60>
+<ID70 Lang="XX" ListOrder="8"><![CDATA[Closed]]></ID70>
+<ID75 Lang="XX" ListOrder="9"><![CDATA[Archived]]></ID75>
+<ID80 Lang="XX" ListOrder="10"><![CDATA[Waiting for Cheque]]></ID80>
+<ID90 Lang="XX" ListOrder="11"><![CDATA[Waiting for Payment]]></ID90>
+<ID100 Lang="XX" ListOrder="12"><![CDATA[Waiting for Stock]]></ID100>
+<ID10 Lang="fr-FR" ListOrder="1"><![CDATA[Crée]]></ID10>
+<ID20 Lang="fr-FR" ListOrder="2"><![CDATA[En attente de la banque]]></ID20>
+<ID30 Lang="fr-FR" ListOrder="3"><![CDATA[Annulée]]></ID30>
+<ID40 Lang="fr-FR" ListOrder="4"><![CDATA[Paiement OK]]></ID40>
+<ID45 Lang="fr-FR" ListOrder="5"><![CDATA[Paiement non vérifié]]></ID45>
+<ID50 Lang="fr-FR" ListOrder="6"><![CDATA[Envoyée]]></ID50>
+<ID60 Lang="fr-FR" ListOrder="7"><![CDATA[En attente]]></ID60>
+<ID70 Lang="fr-FR" ListOrder="8"><![CDATA[Terminée]]></ID70>
+<ID75 Lang="fr-FR" ListOrder="9"><![CDATA[Archivé]]></ID75>
+<ID80 Lang="fr-FR" ListOrder="10"><![CDATA[En attente du chèque]]></ID80>
+<ID90 Lang="fr-FR" ListOrder="11"><![CDATA[En attente de paiement]]></ID90>
+<ID100 Lang="fr-FR" ListOrder="12"><![CDATA[En attente de stock]]></ID100>
+<ID10 Lang="nl-NL" ListOrder="1"><![CDATA[Incompleet]]></ID10>
+<ID20 Lang="nl-NL" ListOrder="2"><![CDATA[Wachten op bank]]></ID20>
+<ID30 Lang="nl-NL" ListOrder="3"><![CDATA[Geannuleerd]]></ID30>
+<ID40 Lang="nl-NL" ListOrder="4"><![CDATA[Betaling voldaan]]></ID40>
+<ID45 Lang="nl-NL" ListOrder="5"><![CDATA[Betaling niet gecontroleerd]]></ID45>
+<ID50 Lang="nl-NL" ListOrder="6"><![CDATA[Verzonden]]></ID50>
+<ID60 Lang="nl-NL" ListOrder="7"><![CDATA[Wachten]]></ID60>
+<ID70 Lang="nl-NL" ListOrder="8"><![CDATA[Gesloten]]></ID70>
+<ID75 Lang="nl-NL" ListOrder="9"><![CDATA[Archief]]></ID75>
+<ID80 Lang="nl-NL" ListOrder="10"><![CDATA[Wachten op Cheque]]></ID80>
+<ID90 Lang="nl-NL" ListOrder="11"><![CDATA[Wacht op betaling]]></ID90>
+<ID100 Lang="nl-NL" ListOrder="12"><![CDATA[Wacht op voorraad]]></ID100>
+<ID10 Lang="de-CH" ListOrder="1"><![CDATA[Nicht komplett]]></ID10>
+<ID20 Lang="de-CH" ListOrder="2"><![CDATA[Warten auf Bank]]></ID20>
+<ID30 Lang="de-CH" ListOrder="3"><![CDATA[Abgesagt]]></ID30>
+<ID40 Lang="de-CH" ListOrder="4"><![CDATA[Zahlung erhalten]]></ID40>
+<ID45 Lang="de-CH" ListOrder="5"><![CDATA[Zahlung nicht kontrolliert]]></ID45>
+<ID50 Lang="de-CH" ListOrder="6"><![CDATA[Versandt]]></ID50>
+<ID60 Lang="de-CH" ListOrder="7"><![CDATA[Warten]]></ID60>
+<ID70 Lang="de-CH" ListOrder="8"><![CDATA[Abgeschlossen]]></ID70>
+<ID75 Lang="de-CH" ListOrder="9"><![CDATA[Archiviert]]></ID75>
+<ID80 Lang="de-CH" ListOrder="10"><![CDATA[Warten auf check]]></ID80>
+<ID90 Lang="de-CH" ListOrder="11"><![CDATA[Warten auf Zahlung]]></ID90>
+<ID100 Lang="de-CH" ListOrder="12"><![CDATA[Warten auf Waren]]></ID100>
+<ID10 Lang="de-DE" ListOrder="1"><![CDATA[Inkomplett]]></ID10>
+<ID20 Lang="de-DE" ListOrder="2"><![CDATA[Warten auf Bank]]></ID20>
+<ID30 Lang="de-DE" ListOrder="3"><![CDATA[Abgesagt]]></ID30>
+<ID40 Lang="de-DE" ListOrder="4"><![CDATA[Zahlung erhalten]]></ID40>
+<ID45 Lang="de-DE" ListOrder="5"><![CDATA[Zahlung nicht kontrolliert]]></ID45>
+<ID50 Lang="de-DE" ListOrder="6"><![CDATA[Versandt]]></ID50>
+<ID60 Lang="de-DE" ListOrder="7"><![CDATA[Warten]]></ID60>
+<ID70 Lang="de-DE" ListOrder="8"><![CDATA[Abgeschlossen]]></ID70>
+<ID75 Lang="de-DE" ListOrder="9"><![CDATA[Archiviert]]></ID75>
+<ID80 Lang="de-DE" ListOrder="10"><![CDATA[Warten auf check]]></ID80>
+<ID90 Lang="de-DE" ListOrder="11"><![CDATA[Warten auf Zahlung]]></ID90>
+<ID100 Lang="de-DE" ListOrder="12"><![CDATA[Warten auf Waren]]></ID100>
+<ID10 Lang="nl-BE" ListOrder="1"><![CDATA[Incompleet]]></ID10>
+<ID20 Lang="nl-BE" ListOrder="2"><![CDATA[Wachten op bank]]></ID20>
+<ID30 Lang="nl-BE" ListOrder="3"><![CDATA[Geannuleerd]]></ID30>
+<ID40 Lang="nl-BE" ListOrder="4"><![CDATA[Betaling voldaan]]></ID40>
+<ID45 Lang="nl-BE" ListOrder="5"><![CDATA[Betaling niet gecontroleerd]]></ID45>
+<ID50 Lang="nl-BE" ListOrder="6"><![CDATA[Verzonden]]></ID50>
+<ID60 Lang="nl-BE" ListOrder="7"><![CDATA[Wachten]]></ID60>
+<ID70 Lang="nl-BE" ListOrder="8"><![CDATA[Gesloten]]></ID70>
+<ID75 Lang="nl-BE" ListOrder="9"><![CDATA[Archief]]></ID75>
+<ID80 Lang="nl-BE" ListOrder="10"><![CDATA[Wachten op Cheque]]></ID80>
+<ID90 Lang="nl-BE" ListOrder="11"><![CDATA[Wacht op betaling]]></ID90>
+<ID100 Lang="nl-BE" ListOrder="12"><![CDATA[Wacht op voorraad]]></ID100>
+</status>
+</storecontent>
+</content>
+
+
+

@@ -1,0 +1,167 @@
+﻿/* Back Office - These styles are subject to change */
+html, body, #Form{height:100%;padding:0;margin:0;}
+.pagemaster{width:100%;height:100%;background:#323331 url("logo.png") no-repeat top center;}
+.langpane{padding-bottom:3px;}
+.menupane{padding:12px 0 0 36px;}
+.darkskin .contentpane{background:white url("bgtop.gif") repeat-x;}
+.editskin .contentpane{background:white}
+.editskin{padding-top: 12px;}
+.copypane{padding:5px 0 20px 36px;}
+.head_title{display:none;}
+.Normal, .NormalDisabled{font-family:Segoe UI, Arial, Sans-Serif;color:#666666;font-size:13px;}
+table{font-family:Segoe UI, Arial, Sans-Serif;color:#666666;font-size:13px;text-align:left;}
+a:link, a:visited, a:active{text-decoration:none;color:#666666;}
+a:hover{text-decoration:none;color:#eb7d04;}
+ul li{list-style-type:none;}
+.copyright{color:#cbcbcb;font-family:Segoe UI, Arial, Sans-Serif;font-size:10px;}
+.copyright a:link, .copyright a:visited, .copyright a:active{color:#cbcbcb;}
+.copyright a:hover{color:white;}
+label,.Head,.SubHead,.SubSubHead{font-family:Arial !important;color:#666666 !important;font-style:normal !important;font-weight:normal !important}
+.Help{background-color:#f2f2f2;}
+.CommandButton{font-family:Arial;font-size:12px;font-weight:normal;color:#5d5d5d;}
+A.CommandButton:link, A.CommandButton:visited, A.CommandButton:active{text-decoration:none;color:#5d5d5d;}
+A.CommandButton:hover{text-decoration:underline;color:#791112;}
+.baseline{border:none;color:#c5c7c8;font-family:Segoe UI, Arial, Sans-Serif;font-size:14px;font-weight:bold;}
+.devbynevoweb{display:block;width:141px;height:53px;background:url("devbynevoweb.png") no-repeat 0 -53px;}
+a.devbynevoweb:hover{background:url("devbynevoweb.png") no-repeat;}
+a.langfont:link, a.langfont:visited, a.langfont:active{color:#cbcbcb;font-family:Segoe UI, Arial, Sans-Serif;font-size:10px;text-decoration:none;}
+a.langfont:hover{color:white;text-decoration:none;}
+/* NB Bright */
+.NBright_ui-tabs-ul{background:url("menubg.gif") repeat-x;padding-left:10px;}
+.NBright_ui-tabs{height:50px;font-size:12px;font-family:Arial, Verdana, Helvetica, sans-serif;font-weight:bold;border-collapse:collapse;}
+.NBright_ui-tabs td{background:url("menusep.gif") no-repeat top right;height:50px;padding:0;}
+.NBright_ui-tabs td a:link, .NBright_ui-tabs td a:visited, .NBright_ui-tabs td a:active{text-decoration:none;color:white;padding:0 10px;margin-right:2px;}
+.NBright_ui-tabs td a:hover{text-decoration:none;color:orange;}
+td.NBright_ui-tabs-selected{background:url("menubgsel.gif") repeat-x;height:50px;}
+td.NBright_ui-tabs-selected a:link, td.NBright_ui-tabs-selected a:visited, td.NBright_ui-tabs-selected a:active, td.NBright_ui-tabs-selected a:hover{text-decoration:none;color:white;}
+.NBright_ui-subtabs{font-size:12px;font-family:Arial, Verdana, Helvetica, sans-serif;font-weight:bold;border-collapse:collapse;margin:10px 0 0 10px;}
+.NBright_ui-subtabs td{padding:0;}
+.NBright_ui-subtabs td a:link, .NBright_ui-subtabs td a:visited, .NBright_ui-subtabs td a:active{text-decoration:none;color:white;padding-left:10px;}
+.NBright_ui-subtabs td a:hover{text-decoration:none;color:orange;}
+.NBright_tabs{background-color:#f5f5f5;border:1px solid #dedede;font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;font-size:12px;line-height:130%;text-decoration:none;font-weight:bold;padding:5px 10px 6px 10px; /* Links */margin:10px;}
+.NBright_tabs a:link, .NBright_tabs a:visited, .NBright_tabs a:active{color:#565656;text-decoration:none;padding:0 10px;border-right:1px solid #a2a2a2;}
+.NBright_tabs a:hover{color:black;text-decoration:none;}
+.NBright_MenuDiv{padding-bottom:10px;padding-top:10px;background-color:#323331;}
+.NBright_BackOfficeContent{}
+.NBright_ContentDiv{border-collapse:collapse;width:100%;}
+.NBright_ContentDiv td{padding:10px 10px 20px 10px;}
+.NBright_ContentDiv table td{padding:2px;}
+.NBright_MenuTitleDiv{padding:0 0 2px 10px;font-size:24px;font-family:Segoe UI, Arial, Sans-Serif;text-align:right;font-weight:bold;color:#5b5c5a;}
+.NBright_emailheader{color:black;font-family:Arial, Helvetica;font-size:22px;font-weight:bold;color:#C1CDC1;}
+.NBright_cartheader{color:black;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:#C1CDC1;}
+.NBright_HeaderStyle{color:white;font-size:13px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:#bac815;}
+.NBright_FooterStyle{color:black;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:white;}
+.NBright_EditItemStyle{color:black;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:normal;background-color:#E2DED6;}
+.NBright_SelectedItemStyle{color:#333333;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:#E2DED6;}
+.NBright_PagerStyle{color:black;font-size:14px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:white;text-align:center;}
+.NBright_AlternatingItemStyle{color:#777777;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:#f3f6f8;}
+.NBright_ItemStyle{color:#777777;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;background-color:white;}
+.NBright_Updated{color:Green;font-size:14px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_UpdatedDiv{text-align:left;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_ActionDiv{text-align:left;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_EditDiv{text-align:left;background-color:white;padding:5px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;}
+.NBright_SelectDiv{text-align:left;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_ButtonDiv{padding-bottom:10px;padding-top:10px;text-align:left;}
+.NBright_ButtonDiv a{background-color:#f5f5f5;border:1px solid #dedede;border-top:1px solid #eee;border-left:1px solid #eee;font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;font-size:12px;line-height:130%;text-decoration:none;font-weight:bold;color:#565656;cursor:pointer;padding:5px 10px 6px 30px; /* Links */}
+.NBright_AddButton{background:url("../../img/add.png") no-repeat 10px 50%;}
+a.NBright_AddButton:link{color:#336699;}
+a.NBright_AddButton:hover{background-color:#dff4ff;border:1px solid #c2e1ef;color:#336699;text-decoration:none;}
+a.NBright_AddButton:active{background-color:#6299c5;border:1px solid #6299c5;color:#fff;}
+.NBright_PrintButton{background:url("../../img/print.png") no-repeat 10px 50%;}
+a.NBright_PrintButton:link{color:#336699;}
+a.NBright_PrintButton:hover{background-color:#dff4ff;border:1px solid #c2e1ef;color:#336699;text-decoration:none;}
+a.NBright_PrintButton:active{background-color:#6299c5;border:1px solid #6299c5;color:#fff;}
+.NBright_SaveButton{background:url("../../img/accept2.png") no-repeat 10px 50%;}
+a.NBright_SaveButton:link{color:#529214;}
+a.NBright_SaveButton:hover{background-color:#E6EFC2;border:1px solid #C6D880;color:#529214;text-decoration:none;}
+a.NBright_SaveButton:active{background-color:#529214;border:1px solid #529214;color:#fff;}
+.NBright_AcceptButton{background:url("../../img/accept2.png") no-repeat 10px 50%;}
+a.NBright_AcceptButton:link{color:#529214;}
+a.NBright_AcceptButton:hover{background-color:#E6EFC2;border:1px solid #C6D880;color:#529214;text-decoration:none;}
+a.NBright_AcceptButton:active{background-color:#529214;border:1px solid #529214;color:#fff;}
+.NBright_ReturnButton{background:url("../../img/return.png") no-repeat 10px 50%;}
+a.NBright_ReturnButton:link{color:#529214;}
+a.NBright_ReturnButton:hover{background-color:#E6EFC2;border:1px solid #C6D880;color:#529214;text-decoration:none;}
+a.NBright_ReturnButton:active{background-color:#529214;border:1px solid #529214;color:#fff;}
+.NBright_CancelButton{background:url("../../img/cancel.png") no-repeat 10px 50%;}
+a.NBright_CancelButton:link{color:#d12f19;}
+a.NBright_CancelButton:hover{background-color:#fbe3e4;border:1px solid #fbc2c4;color:#d12f19;text-decoration:none;}
+a.NBright_CancelButton:active{background-color:#d12f19;border:1px solid #d12f19;color:#fff;}
+.NBright_DeleteButton{background:url("../../img/delete.png") no-repeat 10px 50%;}
+a.NBright_DeleteButton:link{color:#d12f19;}
+a.NBright_DeleteButton:hover{background-color:#fbe3e4;border:1px solid #fbc2c4;color:#d12f19;text-decoration:none;}
+a.NBright_DeleteButton:active{background-color:#d12f19;border:1px solid #d12f19;color:#fff;}
+.NBright_EnterButton{background:url("../../img/application_key.png") no-repeat 10px 50%;}
+a.NBright_EnterButton:link{color:#336699;}
+a.NBright_EnterButton:hover{background-color:#dff4ff;border:1px solid #c2e1ef;color:#336699;text-decoration:none;}
+a.NBright_EnterButton:active{background-color:#6299c5;border:1px solid #6299c5;color:#fff;}
+.NBright_PrintButton{background:url("../../img/printer.png") no-repeat 10px 50%;}
+a.NBright_PrintButton:link{color:#529214;}
+a.NBright_PrintButton:hover{background-color:#E6EFC2;border:1px solid #C6D880;color:#529214;text-decoration:none;}
+a.NBright_PrintButton:active{background-color:#529214;border:1px solid #529214;color:#fff;}
+a.NBright_CommandButton{background-color:#f5f5f5;border:1px solid #dedede;border-top:1px solid #eee;border-left:1px solid #eee;font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;font-size:12px;line-height:130%;text-decoration:none;font-weight:bold;color:#565656;cursor:pointer;padding:5px 10px 6px 10px; /* Links */}
+a.NBright_CommandButton:link{color:#336699;}
+a.NBright_CommandButton:hover{background-color:#dff4ff;border:1px solid #c2e1ef;color:#336699;text-decoration:none;}
+a.NBright_CommandButton:active{background-color:#6299c5;border:1px solid #6299c5;color:#fff;}
+.NBright_SectionButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;}
+.NBright_SectionButtonActive{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;font-weight:bold;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;}
+.NBright_ActionButton{background-color:#F5F5F5;text-align:left;padding:4px;border:#eee solid 1px;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;}
+a.NBright_ActionButton:link{color:#336699;}
+a.NBright_ActionButton:hover{background-color:#dff4ff;color:#336699;}
+.NBright_ClientButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;}
+.NBright_BackButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;text-decoration:underline;color:#576280;}
+.NBright_ClientButtonDiv{text-align:left;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_RecalcButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;font-size:11px;font-family:Segoe UI, Arial, Sans-Serif;}
+.NBright_RecalcButtonDiv{text-align:right;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_CartOptDiv{text-align:left;padding:10px;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;}
+.NBright_NormalTextBox{margin-right:8px;Width:144px;}
+.NBright_HeaderStyle th{color:white;font-size:12px;font-family:Segoe UI, Arial, Sans-Serif;font-weight:bold;text-align:left;}
+.NBright_BackOfficeHeading{font-size:12px;font-family:Arial, Verdana, Helvetica, sans-serif;font-weight:bold;text-align:left;}
+.NBright_CheckBoxListItem{background-color:#dff4ff;border:#c2e1ef solid 1px;color:#4c859c;font-family:Arial, sans-serif;font-size:11px;line-height:normal;text-decoration:none;padding:5px;height:24px;font-weight:normal;text-align:left;vertical-align:top;width:100%;}
+.NBright_SettingMenuListItem{background-color:#dff4ff;border:#c2e1ef solid 1px;color:#4c859c;font-family:Arial, sans-serif;font-size:11px;line-height:normal;text-decoration:none;padding:0px;height:20px;font-weight:normal;text-align:right;vertical-align:top;width:100%;}
+.NBright_ProductSelectItem{background-color:#dff4ff;border:#c2e1ef solid 1px;color:#4c859c;font-family:Arial, sans-serif;font-size:11px;line-height:normal;text-decoration:none;padding:0px;font-weight:normal;text-align:center;vertical-align:middle;width:220px;height:100px;}
+.NBright_ProductSelectAlt{background-color:#dff4ff;border:#c2e1ef solid 1px;color:#4c859c;font-family:Arial, sans-serif;font-size:11px;line-height:normal;text-decoration:none;padding:0px;font-weight:normal;text-align:center;vertical-align:middle;width:220px;height:100px;}
+.NBright_NameHeader{color:black;font-family:Arial, Helvetica;font-size:22px;font-weight:bold;color:#C1CDC1;}
+.NBright_AdminTree{font-size:12px;font-family:Arial, Verdana, Helvetica, sans-serif;font-weight:bold;vertical-align:top;text-align:left;}
+.NBright_AdminTreeEntry{font-size:8px;font-family:Arial, Verdana, Helvetica, sans-serif;vertical-align:bottom;text-align:left;}
+.NBright_AdminTreeSetting{font-size:12px;font-family:Arial, Verdana, Helvetica, sans-serif;text-align:left;}
+.NBright_TreeView{text-align:left;}
+.NBright_ButtonNormal{padding-bottom:1px;padding-top:1px;text-align:left;}
+.NBright_ButtonNormal a{background-color:#f5f5f5;border:1px solid #dedede;border-top:1px solid #eee;border-left:1px solid #eee;font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;font-size:12px;line-height:130%;text-decoration:none;font-weight:bold;color:#565656;cursor:pointer;padding:5px 5px 5px 5px; /* Links */}
+.BackOfficeHelp{background:#FFFFFF;border:none;color:#555555 !important;font:13px arial;}/* Disabled textbox color cannot be changed in IE */
+.filetree li{padding:3px 0 2px 16px;}
+.filetree span.folder, .filetree span.file{padding:1px 0 1px 16px;display:block;}
+.filetree span.folder{background:url(/DesktopModules/NB_Store/img/folder.gif) 0 0 no-repeat;}
+.filetree li.expandable span.folder{background:url(/DesktopModules/NB_Store/img/folder-closed.gif) 0 0 no-repeat;}
+.filetree span.file{background:url(/DesktopModules/NB_Store/img/file.gif) 0 0 no-repeat;}
+#AdminTreeMenu.treeview,#AdminTreeMenu.treeview ul,#AdminTreeMenu.treeview li{list-style:none;}
+#AdminTreeMenu.treeview,#AdminTreeMenu.treeview ul {padding:0;margin:0;}
+#AdminTreeMenu.treeview ul{margin-top:4px;}
+#AdminTreeMenu.treeview .hitarea{background:url(/DesktopModules/NB_Store/img/treeview-default.gif) -64px -25px no-repeat;height:16px;width:16px;margin-left:-16px;float:left;cursor:pointer;}
+* html .hitarea{display:inline;float:none;}/* fix for IE6 */
+#AdminTreeMenu.treeview li{margin:0;padding:3px 0pt 3px 16px;}
+#AdminTreeMenu.treeview a.selected{}
+#treecontrol{margin:1em 0;display:none;}
+#AdminTreeMenu.treeview .hover{cursor:pointer;text-decoration:none}
+#AdminTreeMenu.treeview li{background:url(/DesktopModules/NB_Store/img/treeview-default-line.gif) 0 0 no-repeat;}
+#AdminTreeMenu.treeview li.collapsable, #AdminTreeMenu.treeview li.expandable{background-position:0 -176px;}
+#AdminTreeMenu.treeview .expandable-hitarea{background-position:-80px -3px;}
+#AdminTreeMenu.treeview li.last{background-position:0 -1766px;}
+#AdminTreeMenu.treeview li.lastCollapsable, #AdminTreeMenu.treeview li.lastExpandable{background-image:url(/DesktopModules/NB_Store/img/treeview-default.gif);}
+#AdminTreeMenu.treeview li.lastCollapsable{background-position:0 -111px;}
+#AdminTreeMenu.treeview li.lastExpandable{background-position:-32px -67px;}
+#AdminTreeMenu.treeview div.lastCollapsable-hitarea, #AdminTreeMenu.treeview div.lastExpandable-hitarea{background-position:0;}
+#AdminTreeMenu.treeview-red li{background-image:url(/DesktopModules/NB_Store/img/treeview-red-line.gif);}
+#AdminTreeMenu.treeview-red .hitarea, #AdminTreeMenu.treeview-red li.lastCollapsable, #AdminTreeMenu.treeview-red li.lastExpandable{background-image:url(/DesktopModules/NB_Store/img/treeview-red.gif);}
+#AdminTreeMenu.treeview-black li{background-image:url(/DesktopModules/NB_Store/img/treeview-black-line.gif);}
+#AdminTreeMenu.treeview-black .hitarea, #AdminTreeMenu.treeview-black li.lastCollapsable, #AdminTreeMenu.treeview-black li.lastExpandable{background-image:url(/DesktopModules/NB_Store/img/treeview-black.gif);}
+#AdminTreeMenu.treeview-gray li{background-image:url(/DesktopModules/NB_Store/img/treeview-gray-line.gif);}
+#AdminTreeMenu.treeview-gray .hitarea, #AdminTreeMenu.treeview-gray li.lastCollapsable, #AdminTreeMenu.treeview-gray li.lastExpandable{background-image:url(/DesktopModules/NB_Store/img/treeview-gray.gif);}
+#AdminTreeMenu.treeview-famfamfam li{background-image:url(/DesktopModules/NB_Store/img/treeview-famfamfam-line.gif);}
+#AdminTreeMenu.treeview-famfamfam .hitarea, #AdminTreeMenu.treeview-famfamfam li.lastCollapsable, #AdminTreeMenu.treeview-famfamfam li.lastExpandable{background-image:url(/DesktopModules/NB_Store/img/treeview-famfamfam.gif);}
+/* Tweaks */
+#AdminTreeMenu.treeview a{position:relative;top:-2px;left:2px}
+#AdminTreeMenu.treeview a:link,#AdminTreeMenu.treeview a:visited,a.NBright_AdminTreeSetting:link,a.NBright_AdminTreeSetting:visited{color:#666666}/* Menu Item */
+#AdminTreeMenu.treeview a:active,#AdminTreeMenu.treeview a:hover,a.NBright_AdminTreeSetting:active,a.NBright_AdminTreeSetting:hover{color:#EB7D04}/* Menu Hover */
+#AdminTreeMenu.treeview a.selected{color:#EB7D04;font-weight:bold}/* Menu Current */ 
+.OrderHeader{color:#EEE !important;font-size:11px !important;font-weight:bold !important;background-color:#656565;border:none !important}/* Resets headings in BO order manager */ 

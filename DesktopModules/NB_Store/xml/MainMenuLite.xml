@@ -1,0 +1,12 @@
+<root version="02.00.09">
+  <tabs>
+    <tab text="Dashboard" image="img/tabmenu/Dashboardtab.png"  ctl="AdminDashboard" param=""></tab>
+    <tab text="Products" image="img/tabmenu/ProductTab.png" ctl="AdminProductLite" param=""></tab>
+    <tab text="Orders" image="img/tabmenu/orderstab.png" ctl="AdminOrders" param=""></tab>
+    <tab text="Exit" image="img/tabmenu/exittab.png" ctl="EXIT" param=""></tab>
+  </tabs>
+  <css titlediv="nb_store_MenuTitleDiv" tabdiv="tabStrip" subtabdiv="tabStripSub"></css>
+  <skin path="~/DesktopModules/NB_Store/Skins/StoreAdmin/NB_StoreAdmin"></skin>
+  <resx name="MenuManager.ascx"></resx>
+  <enterbutton cssdiv="nb_store_ButtonDiv" css="nb_store_CommandButton"  resourcekey="cmdBackOffice" defaultctrl="AdminDashboard"></enterbutton>
+</root>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <gateways>  
+  <gateway ref="standard">
+    <name>Standard</name>
+    <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayCheque</assembly>
+    <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayCheque</class>
+  </gateway>
+    <gateway ref="storeprint">
+      <name>StorePrint</name>
+      <assembly>NEvoWeb.Modules.NB_Store_Print.ChequeProvider</assembly>
+      <class>NEvoWeb.Modules.NB_Store_Print.Gateway.ChequeProvider</class>
+    </gateway>
+  </gateways>
+</root>

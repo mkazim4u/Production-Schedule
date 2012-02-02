@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <gateways>  
+  <gateway ref="SIPS">
+    <name>SIPS</name>
+    <assembly>NEvoweb.DNN.Modules.NB_Store.GatewaySIPS</assembly>
+    <class>NEvoWeb.Modules.NB_Store.Gateway.GatewaySIPS</class>
+  </gateway>
+    <gateway ref="Paypal">
+      <name>Paypal</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayPayPal</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayPayPal</class>
+    </gateway>
+    <gateway ref="PxPay">
+      <name>PxPay</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayPxPay</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayPxPay</class>
+    </gateway>
+    <gateway ref="PayBox">
+      <name>PayBox</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayPayBox</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayPayBox</class>
+    </gateway>
+    <gateway ref="SPplus">
+      <name>SPplus</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewaySPplus</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewaySPplus</class>
+    </gateway>
+    <gateway ref="DIBS">
+      <name>DIBS</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayDIBS</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayDIBS</class>
+    </gateway>	
+    <gateway ref="QuickPay">
+      <name>QuickPay</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayQuickPay</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayQuickPay</class>
+    </gateway>
+
+	</gateways>
+</root>

@@ -1,0 +1,118 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [VATNumber] [nvarchar] (50)  NULL 
+GO
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [PromoCode] [nvarchar] (50)  NULL 
+GO
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [CountryCode] [nvarchar] (5)  NULL 
+GO
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [ShipType] [nvarchar] (5)  NULL 
+GO
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [BankTransID] [int] NULL 
+GO
+	ALTER TABLE {databaseOwner}[{objectQualifier}NB_Store_Cart]  ADD [BankHtmlRedirect] [nvarchar] (2000)  NULL 
+GO
+
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Cart_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Cart_Update]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Cart_Update
+(
+@CartID nvarchar(50),
+@PortalID int,
+@UserID int,
+@DateCreated datetime,
+@OrderID int,
+@VATNumber nvarchar(50),
+@PromoCode nvarchar(50),
+@CountryCode nvarchar(5),
+@ShipType nvarchar(5),
+@BankTransID int,
+@BankHtmlRedirect nvarchar(2000)
+
+)
+AS
+BEGIN
+
+	if not exists (select CartID from {databaseOwner}[{objectQualifier}NB_Store_Cart] where CartID = @CartID)
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Cart]
+		(
+		CartID,
+		PortalID,
+		UserID,
+		DateCreated,
+		OrderID,
+		VATNumber,
+		PromoCode,
+		CountryCode,
+		ShipType,
+		BankTransID,
+		BankHtmlRedirect
+
+		)
+		values
+		(
+		@CartID,
+		@PortalID,
+		@UserID,
+		@DateCreated,
+		@OrderID,
+		@VATNumber,
+		@PromoCode,
+		@CountryCode,
+		@ShipType,
+		@BankTransID,
+		@BankHtmlRedirect
+		)
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Cart]
+		set 
+		PortalID = @PortalID,
+		UserID = @UserID,
+		DateCreated = @DateCreated,
+		OrderID = @OrderID,
+		VATNumber = @VATNumber,
+		PromoCode = @PromoCode,
+		CountryCode = @CountryCode,
+		ShipType = @ShipType,
+		BankTransID = @BankTransID,
+		BankHtmlRedirect = @BankHtmlRedirect
+		where CartID = @CartID
+ 
+	end
+
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+

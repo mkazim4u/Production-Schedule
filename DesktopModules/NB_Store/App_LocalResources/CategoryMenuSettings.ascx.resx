@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plHideBreadCrumb.Text" xml:space="preserve">
+    <value>Hide BreadCrumb</value>
+  </data>
+  <data name="plHideBreadCrumb.Help" xml:space="preserve">
+    <value>Hides the category menu breadcrumb</value>
+  </data>
+  <data name="plSkipBlankCat.Text" xml:space="preserve">
+    <value>Skip Empty Categories</value>
+  </data>
+  <data name="plSkipBlankCat.Help" xml:space="preserve">
+    <value>If checked any categories which have no products will be skipped and their first child category will be displayed.</value>
+  </data>  
+  <data name="plColumns.Text" xml:space="preserve">
+    <value>Number of Columns</value>
+  </data>
+  <data name="plColumns.Help" xml:space="preserve">
+    <value>Number of columns to be used to display categories</value>
+  </data>
+  <data name="plBreadCrumbCSS.Text" xml:space="preserve">
+    <value>BreadCumb CSS</value>
+  </data>
+  <data name="plBreadCrumbCSS.Help" xml:space="preserve">
+    <value>CSS Class for the Breadcrumb links</value>
+  </data>
+  <data name="plCSS.Text" xml:space="preserve">
+    <value>Sub Category CSS</value>
+  </data>
+  <data name="plCSS.Help" xml:space="preserve">
+    <value>CSS Class for the sub category links</value>
+  </data>
+  <data name="plRootCSS.Text" xml:space="preserve">
+    <value>Root Menu CSS</value>
+  </data>
+  <data name="plRootCSS.Help" xml:space="preserve">
+    <value>CSS Class for the root menu category links</value>
+  </data>
+  <data name="plBreadCrumbSep.Text" xml:space="preserve">
+    <value>BreadCumb Html</value>
+  </data>
+  <data name="plBreadCrumbSep.Help" xml:space="preserve">
+    <value>Html for the Breadcrumb Separator</value>
+  </data>
+  <data name="plRootSep.Text" xml:space="preserve">
+    <value>Root Separator Html</value>
+  </data>
+  <data name="plRootSep.Help" xml:space="preserve">
+    <value>Html Template for the root menu category Separator</value>
+  </data>
+  <data name="plSep.Text" xml:space="preserve">
+    <value>Sub Category Separator Html</value>
+  </data>
+  <data name="plSep.Help" xml:space="preserve">
+    <value>Html Template for the sub category Separator</value>
+  </data>
+  <data name="plHideRootMenu.Text" xml:space="preserve">
+    <value>Hide Root Menu</value>
+  </data>
+  <data name="plHideRootMenu.Help" xml:space="preserve">
+    <value>Hides the root menu.</value>
+  </data>
+  <data name="plProductTabList.Text" xml:space="preserve">
+    <value>Product List Tab</value>
+  </data>
+  <data name="plProductTabList.Help" xml:space="preserve">
+    <value>Select the Tab where the category menu will re-direct.</value>
+  </data>
+  <data name="plViewProdHide.Text" xml:space="preserve">
+    <value>Hide on Product View</value>
+  </data>
+  <data name="plViewProdHide.Help" xml:space="preserve">
+    <value>Hide menu when viewing a product.</value>
+  </data>
+  <data name="cmdResetDefaults.Text" xml:space="preserve">
+    <value>Reset Defaults</value>
+  </data>
+  <data name="cmdResetDefaultsMsg.Text" xml:space="preserve">
+    <value>This will Reset the settings to the Store Defaults.  Are you sure?</value>
+  </data>
+  <data name="plHideSubMenu.Text" xml:space="preserve">
+    <value>Hide Sub Menu</value>
+  </data>
+  <data name="plHideSubMenu.Help" xml:space="preserve">
+    <value>Hides the sub category menu.</value>
+  </data>
+  <data name="plSectionSep.Text" xml:space="preserve">
+    <value>1st Section Separator Html</value>
+  </data>
+  <data name="plSectionSep.Help" xml:space="preserve">
+    <value>Html Template for the Section Separator, between root menu and breadcrumb.</value>
+  </data>
+  <data name="plSectionSep2.Text" xml:space="preserve">
+    <value>2nd Section Separator Html</value>
+  </data>
+  <data name="plSectionSep2.Help" xml:space="preserve">
+    <value>Html Template for the Section Separator, between breadcrumb and sub menu</value>
+  </data>
+  <data name="plSectionSep3.Text" xml:space="preserve">
+    <value>2nd Section Separator Html</value>
+  </data>
+  <data name="plSectionSep3.Help" xml:space="preserve">
+    <value>Html Template for the Section Separator, between sub menu and Tree Menu</value>
+  </data>
+
+  <data name="plRootSelectCSS.Text" xml:space="preserve">
+    <value>Selected Root CSS</value>
+  </data>
+  <data name="plRootSelectCSS.Help" xml:space="preserve">
+    <value>CSS Class for the selected root menu category links</value>
+  </data>
+  <data name="plSubSelectCSS.Text" xml:space="preserve">
+    <value>Selected Sub CSS</value>
+  </data>
+  <data name="plSubSelectCSS.Help" xml:space="preserve">
+    <value>CSS Class for the selected sub menu category links</value>
+  </data>
+  <data name="plTreeSelectCSS.Text" xml:space="preserve">
+    <value>Selected Tree CSS</value>
+  </data>
+  <data name="plTreeSelectCSS.Help" xml:space="preserve">
+    <value>CSS Class for the selected tree menu category links</value>
+  </data>
+
+  <data name="plRootLeftHtml.Text" xml:space="preserve">
+    <value>Root Left Html</value>
+  </data>
+  <data name="plRootLeftHtml.Help" xml:space="preserve">
+    <value>Html for the Left of the Root Category Link</value>
+  </data>
+  <data name="plSubLeftHtml.Text" xml:space="preserve">
+    <value>Sub Left Html</value>
+  </data>
+  <data name="plSubLeftHtml.Help" xml:space="preserve">
+    <value>Html for the Left of the Sub Category Link</value>
+  </data>
+  <data name="plTreeLeftHtml.Text" xml:space="preserve">
+    <value>Tree Left Html</value>
+  </data>
+  <data name="plTreeLeftHtml.Help" xml:space="preserve">
+    <value>Html for the Left of the Tree Category Link</value>
+  </data>
+  <data name="plAccordionLeftHtml.Text" xml:space="preserve">
+    <value>Accordion Left Html</value>
+  </data>
+  <data name="plAccordionLeftHtml.Help" xml:space="preserve">
+    <value>Html for the Left of the Accordion Category Link</value>
+  </data>
+
+
+  <data name="plRootRightHtml.Text" xml:space="preserve">
+    <value>Root Right Html</value>
+  </data>
+  <data name="plRootRightHtml.Help" xml:space="preserve">
+    <value>Html for the Right of the Root Category Link</value>
+  </data>
+  <data name="plSubRightHtml.Text" xml:space="preserve">
+    <value>Sub Right Html</value>
+  </data>
+  <data name="plSubRightHtml.Help" xml:space="preserve">
+    <value>Html for the Right of the Sub Category Link</value>
+  </data>
+  <data name="plTreeRightHtml.Text" xml:space="preserve">
+    <value>Tree Right Html</value>
+  </data>
+  <data name="plTreeRightHtml.Help" xml:space="preserve">
+    <value>Html for the Right of the Tree Category Link</value>
+  </data>
+  <data name="plAccordionRightHtml.Text" xml:space="preserve">
+    <value>Accordion Right Html</value>
+  </data>
+  <data name="plAccordionRightHtml.Help" xml:space="preserve">
+    <value>Html for the Right of the Accordion Category Link</value>
+  </data>
+
+  <data name="plRootHeadHtml.Text" xml:space="preserve">
+    <value>Root Title Html</value>
+  </data>
+  <data name="plRootHeadHtml.Help" xml:space="preserve">
+    <value>Html for the Title of the Root Category</value>
+  </data>
+  <data name="plSubHeadHtml.Text" xml:space="preserve">
+    <value>Sub Title Html</value>
+  </data>
+  <data name="plSubHeadHtml.Help" xml:space="preserve">
+    <value>Html for the Title of the Sub Category, use [TAG:PARENTNAME]</value>
+  </data>
+  <data name="plTreeHeadHtml.Text" xml:space="preserve">
+    <value>Tree Title Html</value>
+  </data>
+  <data name="plTreeHeadHtml.Help" xml:space="preserve">
+    <value>Html for the Title of the Tree Category</value>
+  </data>
+  <data name="plAccordionHeadHtml.Text" xml:space="preserve">
+    <value>Accordion Title Html</value>
+  </data>
+  <data name="plAccordionHeadHtml.Help" xml:space="preserve">
+    <value>Html for the Title of the Accordion Category</value>
+  </data>
+
+  <data name="plHideWhenRoot.Text" xml:space="preserve">
+    <value>Hide When Root</value>
+  </data>
+  <data name="plHideWhenRoot.Help" xml:space="preserve">
+    <value>If the menu to be displayed is the root menu then hide it.</value>
+  </data>
+  <data name="plHideBreadCrumbRoot.Text" xml:space="preserve">
+    <value>Hide Breadcrumb Root</value>
+  </data>
+  <data name="plHideBreadCrumbRoot.Help" xml:space="preserve">
+    <value>Hides the root link on the breadcrumb menu</value>
+  </data>
+  <data name="plSubNameTemplate.Text" xml:space="preserve">
+    <value>Sub Name Template</value>
+  </data>
+  <data name="plSubNameTemplate.Help" xml:space="preserve">
+    <value>HTML display template for sub menu category name, if left blank just category name will be used.  Use tokens [TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGE],[TAG:IMAGEURL],[TAG:IMAGEURLTHUMB].</value>
+  </data>
+  <data name="plRootNameTemplate.Text" xml:space="preserve">
+    <value>Root Name Template</value>
+  </data>
+  <data name="plRootNameTemplate.Help" xml:space="preserve">
+    <value>HTML display template for root menu category name, if left blank just category name will be used.  Use tokens [TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGE],[TAG:IMAGEURL],[TAG:IMAGEURLTHUMB].</value>
+  </data>
+  
+  <data name="plTreeNameTemplate.Text" xml:space="preserve">
+    <value>Tree Name Template</value>
+  </data>
+  <data name="plTreeNameTemplate.Help" xml:space="preserve">
+    <value>HTML display template for Tree menu category name, if left blank just category name will be used.  Use tokens [TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGE],[TAG:IMAGEURL],[TAG:IMAGEURLTHUMB].</value>
+  </data>
+  <data name="plTreeCSS.Text" xml:space="preserve">
+    <value>Tree Menu CSS</value>
+  </data>
+  <data name="plTreeCSS.Help" xml:space="preserve">
+    <value>CSS Class for the normal tree menu category links</value>
+  </data>
+  <data name="plShowTreeMenu.Text" xml:space="preserve">
+    <value>Shows Tree Menu</value>
+  </data>
+  <data name="plShowTreeMenu.Help" xml:space="preserve">
+    <value>Shows the tree menu.</value>
+  </data>
+  
+  <data name="plAccordionNameTemplate.Text" xml:space="preserve">
+    <value>Accordion Name Template</value>
+  </data>
+  <data name="plAccordionNameTemplate.Help" xml:space="preserve">
+    <value>HTML display template for Accordion menu category name, if left blank just category name will be used.  Use tokens [TAG:CATEGORYNAME],[TAG:PRODUCTCOUNT],[TAG:IMAGE],[TAG:IMAGEURL],[TAG:IMAGEURLTHUMB].</value>
+  </data>
+  <data name="plShowAccordionMenu.Text" xml:space="preserve">
+    <value>Shows Accordion Menu</value>
+  </data>
+  <data name="plShowAccordionMenu.Help" xml:space="preserve">
+    <value>Shows the Accordion menu.</value>
+  </data>
+  <data name="plDefaultCategory.Text" xml:space="preserve">
+    <value>Default Category</value>
+  </data>
+  <data name="plDefaultCategory.Help" xml:space="preserve">
+    <value>Default Category to be used when no category specified in URL</value>
+  </data>
+  <data name="plThumbnailSize.Text" xml:space="preserve">
+    <value>List Thumbnail Size</value>
+  </data>
+  <data name="plThumbnailSize.Help" xml:space="preserve">
+    <value>Size of Thumbnail to be displayed in List View</value>
+  </data>
+    <data name="plPatchWork.Text" xml:space="preserve">
+    <value>Patch Work Menu</value>
+  </data>
+    <data name="plPatchWork.Help" xml:space="preserve">
+    <value>Display the root menu as a patchwork of all categories which contain products.</value>
+  </data>
+  <data name="plStaticCategory.Text" xml:space="preserve">
+    <value>Static Category</value>
+  </data>
+  <data name="plStaticCategory.Help" xml:space="preserve">
+    <value>Category Menu will always display the default category, regardless of catid in url.</value>
+  </data>
+</root>

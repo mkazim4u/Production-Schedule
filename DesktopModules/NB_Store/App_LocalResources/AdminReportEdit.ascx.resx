@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="ControlTitle_edit.Text">
+		<value>Edit SQLReport</value>
+	</data>
+  <data name="cmdAddParam.Text">
+    <value>SQL Parameter(s)</value>
+  </data>
+  <data name="plReportName.Text">
+    <value>Report Name</value>
+  </data>
+  <data name="plReportName.Help">
+    <value>Name of SQL Report</value>
+  </data>
+  <data name="plReportTitle.Text">
+    <value>Email Report Message</value>
+  </data>
+  <data name="plReportTitle.Help">
+    <value>Message to appear on email.</value>
+  </data>
+  <data name="plSQLText.Text">
+    <value>SQL</value>
+  </data>
+  <data name="plSQLText.Help">
+    <value>SQL command text, this will be used to create a SPROC for running the report.</value>
+  </data>
+  <data name="plSchedulerFlag.Text">
+    <value>Schedule</value>
+  </data>
+  <data name="plSchedulerFlag.Help">
+    <value>If checked this report will run on the DNN Scheduler.  You must ensure the bussiness class for the SQL Report scheduler is activated on the DNN Scheduler.</value>
+  </data>
+  <data name="plSchStartHour.Text">
+    <value>Hour</value>
+  </data>
+  <data name="plSchStartHour.Help">
+    <value>The Hour of the day the schduled report will be run.</value>
+  </data>
+  <data name="plSchStartMins.Text">
+    <value>Mins</value>
+  </data>
+  <data name="plSchStartMins.Help">
+    <value>The minuites of the day the schduled report will be run.</value>
+  </data>
+  <data name="plSchReRunMins.Text">
+    <value>Re-Run Every</value>
+  </data>
+  <data name="plSchReRunMins.Help">
+    <value>The re-run period.</value>
+  </data>
+  <data name="plEmailResults.Text">
+    <value>Email Results</value>
+  </data>
+  <data name="plEmailResults.Help">
+    <value>Email the results of the report.</value>
+  </data>
+  <data name="plEmailFrom.Text">
+    <value>Email From</value>
+  </data>
+  <data name="plEmailFrom.Help">
+    <value>Email address that the report email will be sent from.</value>
+  </data>
+  <data name="plEmailTo.Text">
+    <value>Email To</value>
+  </data>
+  <data name="plEmailTo.Help">
+    <value>Email of who the report will be sent.</value>
+  </data>
+  <data name="plXMLinputfile.Text">
+    <value>XML Input</value>
+  </data>
+  <data name="plXMLinputfile.Help">
+    <value>Name and path of the XML Input file to be used with the XSL.  If left blank the SQL results will be assumed to run againt the XSL.</value>
+  </data>
+  <data name="plXSLfile.Text">
+    <value>XSL File</value>
+  </data>
+  <data name="plXSLfile.Help">
+    <value>XSL to run against the results or an input file.  The output will be the displayed report.  If left blank no XSL tranlation is done.</value>
+  </data>
+  <data name="plOutputFileName.Text">
+    <value>Output File</value>
+  </data>
+  <data name="plOutputFileName.Help">
+    <value>File name and path to export the report results.</value>
+  </data>
+  <data name="plAllowExport.Text">
+    <value>Allow Export</value>
+  </data>
+  <data name="plAllowExport.Help">
+    <value>Allow the report to be exported.  A save button will appear on the reports list.</value>
+  </data>
+  <data name="plAllowDisplay.Text">
+    <value>Allow Display</value>
+  </data>
+  <data name="plAllowDisplay.Help">
+    <value>Allow the report to be displayed on the website.  A display button will appear on the reports list.</value>
+  </data>
+  <data name="plDisplayInLine.Text">
+    <value>In-Line</value>
+  </data>
+  <data name="plDisplayInLine.Help">
+    <value>If checked the report will be displayed on the same webpage as the report list, otherwise a new popup window will be created.</value>
+  </data>
+ 
+  <data name="plReportRef.Text">
+    <value>Report Ref</value>
+  </data>
+  <data name="plReportRef.Help">
+    <value>Reference code for the report, this can be used to run the report from the querystring. (ReportRef="MYREPORTREF")</value>
+  </data>
+  <data name="plConnectionString.Text">
+    <value>Connection String</value>
+  </data>
+  <data name="plConnectionString.Help">
+    <value>Database connection string, this can be used to point at other databases.  If left blank the portal DNN Database is used.</value>
+  </data>
+  <data name="plShowSQL.Text">
+    <value>Show SQL</value>
+  </data>
+  <data name="plShowSQL.Help">
+    <value>Show SQL above the results table.</value>
+  </data>
+  <data name="lblAddXSL.Text">
+    <value>XSL files</value>
+  </data>
+  <data name="plSQLEmailIf.Text">
+    <value>Email Only if true</value>
+  </data>  
+  <data name="plSQLEmailIf.Help">
+    <value>SQL to test if a email should be sent, if the result of the SQL is true or the SQL is blank an email will be sent.  Otherwise no email will be sent.</value>
+  </data>  
+  <data name="lblFieldDelimeter.Text">
+    <value>Export FieldDelimeter</value>
+  </data>  
+  <data name="lblFieldQualifier.Text">
+    <value>Export FieldQualifer</value>
+  </data>  
+
+</root>

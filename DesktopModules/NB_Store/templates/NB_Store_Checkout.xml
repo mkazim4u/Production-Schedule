@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<content type="NB_Store_Checkout" version="02.02.00">
+	<modulecontent>
+		<settings>
+			<chkHideShip><![CDATA[True]]></chkHideShip>
+			<chkStockChq><![CDATA[False]]></chkStockChq>
+			<gatewayproviders><![CDATA[Paypal]]></gatewayproviders>
+			<chkNonUserOrder><![CDATA[True]]></chkNonUserOrder>
+			<chkSkipCart><![CDATA[False]]></chkSkipCart>
+			<rblGatewayDisplay><![CDATA[1]]></rblGatewayDisplay>
+			<chkSmoothLogin><![CDATA[False]]></chkSmoothLogin>
+			<chkHideExtraInfo><![CDATA[False]]></chkHideExtraInfo>
+			<chkHidePromo><![CDATA[False]]></chkHidePromo>
+			<ddlGateway><![CDATA[XX]]></ddlGateway>
+			<chkHideShipInCart><![CDATA[False]]></chkHideShipInCart>
+			<lstTabContShop><![CDATA[]]></lstTabContShop>
+			<chkHideCountry><![CDATA[False]]></chkHideCountry>
+			<encapsulatedproviders><![CDATA[standard]]></encapsulatedproviders>
+			<chkDisableLoginMsg><![CDATA[True]]></chkDisableLoginMsg>
+			<chkShowShipMethod><![CDATA[True]]></chkShowShipMethod>
+			<chkShowDiscountCol><![CDATA[True]]></chkShowDiscountCol>
+			<chkHideChq><![CDATA[False]]></chkHideChq>
+			<ddlSmoothLoginTab><![CDATA[]]></ddlSmoothLoginTab>
+			<chkMinimumValidate><![CDATA[False]]></chkMinimumValidate>
+			<chkShowStageHeader><![CDATA[True]]></chkShowStageHeader>
+			<lstTabs><![CDATA[]]></lstTabs>
+			<chkHideVAT><![CDATA[True]]></chkHideVAT>
+			<ddlChequeGateway><![CDATA[standard]]></ddlChequeGateway>
+		</settings>
+	</modulecontent>
+</content>

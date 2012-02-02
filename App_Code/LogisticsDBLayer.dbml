@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Logistics" Class="LogisticsDBLayerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=KAZIM;Initial Catalog=Logistics;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LogisticsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LogisticProduct" Member="LogisticProducts">
+    <Type Name="LogisticProduct">
+      <Column Name="LogisticProductKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCode" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductDepartmentId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ProductDescription" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="LanguageId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemsPerBox" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinimumStockLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ArchiveFlag" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SerialNumbersFlag" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DeletedFlag" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdatedByKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UnitValue" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="UnitWeightGrams" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductCategory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="SubCategory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StockOwnedByKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Misc1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Misc2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ReplenishmentDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UnitValueCurrency" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThumbNailImage" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="WebsiteAdRotatorFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OriginalImage" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PDFFileName" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="AdRotatorText" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ViewOnWebForm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RequiresAuthentication" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RotationProductKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubCategory2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductOwner1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductOwner2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="UnitValue2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Flag1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Flag2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InactivityAlertDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CalendarManaged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OnDemand" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OnDemandPriceList" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZeroStockNotification" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CustomLetter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="LogisticProduct_LogisticProductLocation" Member="LogisticProductLocations" ThisKey="LogisticProductKey" OtherKey="LogisticProductKey" Type="LogisticProductLocation" />
+      <Association Name="Customer_LogisticProduct" Member="Customer" ThisKey="CustomerKey" OtherKey="CustomerKey" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogisticProductLocation" Member="LogisticProductLocations">
+    <Type Name="LogisticProductLocation">
+      <Column Name="LogisticProductLocationKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LogisticProductKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WarehouseBayKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LogisticProductQuantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LogisticProductLocationNote" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DateStored" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="LogisticProduct_LogisticProductLocation" Member="LogisticProduct" ThisKey="LogisticProductKey" OtherKey="LogisticProductKey" Type="LogisticProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerKey" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupsKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerAccountCode" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerAccountTypeId" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerCategoryId" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerStatusId" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerSalesRepKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerAddr1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerAddr2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerAddr3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerAddr4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerTown" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCounty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerCountryKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeparateBillingAddressFlag" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="BillingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingAddr1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingAddr2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingAddr3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingAddr4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingTown" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingCounty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillingCountry" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BillingAttentionOf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TariffKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChargeForStorageFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="RateForWeeklyStorage" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DiscountOnItemsFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DiscountOnItemsThreshold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiscountOnItemsReduction" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DiscountOnValueFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DiscountOnValueThreshold" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DiscountOnValuePercentage" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="NoDaysCredit" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="BillingCurrencyKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCreditLimit" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentCarrierId" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EmailPODsFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PODsEmailAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FaxPODsFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PODsFaxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PostPODsToWebServerFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="EmailLogMovementFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="LogMovementEmailAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerCreatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerCreatedByKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstJobOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="LastJobOn" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DeletedFlag" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdatedByKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdatedOn" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultCommodity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultCurrencyKey" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NumberOfPlainPaperConNotes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExpiryDateReportInclusion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DefaultContact" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultTelephone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DefaultFax" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountHandlerKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExplicitProductPermissions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DefaultUnitOfWeightKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultServiceLevelKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmailPlainTextOnly" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsesCategories" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WarehouseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AccessPolicy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultInactivityAlertDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EORI" Type="System.String" DbType="VarChar(21)" CanBeNull="true" />
+      <Association Name="Customer_LogisticProduct" Member="LogisticProducts" ThisKey="CustomerKey" OtherKey="CustomerKey" Type="LogisticProduct" />
+    </Type>
+  </Table>
+</Database>

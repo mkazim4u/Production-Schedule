@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddContent.Action" xml:space="preserve">
+    <value>New Report</value>
+  </data>
+  <data name="ModuleHelp.Text" xml:space="preserve">
+    <value>NevoWeb SQL Report System.</value>
+  </data>
+  <data name="DefaultContent.Text" xml:space="preserve">
+    <value>NevoWeb SQL Report System.</value>
+  </data>
+  <data name="QueryError.Text" xml:space="preserve">
+    <value>Error in SQL Report.</value>
+  </data>
+  <data name="EmailMsg.Text" xml:space="preserve">
+    <value>This Report has been emailed to </value>
+  </data>
+  <data name="InvalidReportRef.Text" xml:space="preserve">
+    <value>Invalid Report Reference. Report Cannot be Executed.</value>
+  </data>
+  <data name="nooutput.Text" xml:space="preserve">
+    <value>No output has been produced for this report</value>
+  </data>
+  <data name="ControlTitle_edit.Text" xml:space="preserve">
+    <value>Edit SQLReport</value>
+  </data>
+  <data name="cmdAddParam.Text" xml:space="preserve">
+    <value>SQL Parameter(s)</value>
+  </data>
+  <data name="plReportName.Text" xml:space="preserve">
+    <value>Report Name</value>
+  </data>
+  <data name="plReportName.Help" xml:space="preserve">
+    <value>Name of SQL Report</value>
+  </data>
+  <data name="plReportTitle.Text" xml:space="preserve">
+    <value>Email Report Message</value>
+  </data>
+  <data name="plReportTitle.Help" xml:space="preserve">
+    <value>Message to appear on email.</value>
+  </data>
+  <data name="plSQLText.Text" xml:space="preserve">
+    <value>SQL</value>
+  </data>
+  <data name="plSQLText.Help" xml:space="preserve">
+    <value>SQL command text, this will be used to create a SPROC for running the report.</value>
+  </data>
+  <data name="plSchedulerFlag.Text" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="plSchedulerFlag.Help" xml:space="preserve">
+    <value>If checked this report will run on the DNN Scheduler.  You must ensure the bussiness class for the SQL Report scheduler is activated on the DNN Scheduler.</value>
+  </data>
+  <data name="plSchStartHour.Text" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="plSchStartHour.Help" xml:space="preserve">
+    <value>The Hour of the day the schduled report will be run.</value>
+  </data>
+  <data name="plSchStartMins.Text" xml:space="preserve">
+    <value>Mins</value>
+  </data>
+  <data name="plSchStartMins.Help" xml:space="preserve">
+    <value>The minuites of the day the schduled report will be run.</value>
+  </data>
+  <data name="plSchReRunMins.Text" xml:space="preserve">
+    <value>Re-Run Every</value>
+  </data>
+  <data name="plSchReRunMins.Help" xml:space="preserve">
+    <value>The re-run period.</value>
+  </data>
+  <data name="plEmailResults.Text" xml:space="preserve">
+    <value>Email Results</value>
+  </data>
+  <data name="plEmailResults.Help" xml:space="preserve">
+    <value>Email the results of the report.</value>
+  </data>
+  <data name="plEmailFrom.Text" xml:space="preserve">
+    <value>Email From</value>
+  </data>
+  <data name="plEmailFrom.Help" xml:space="preserve">
+    <value>Email address that the report email will be sent from.</value>
+  </data>
+  <data name="plEmailTo.Text" xml:space="preserve">
+    <value>Email To</value>
+  </data>
+  <data name="plEmailTo.Help" xml:space="preserve">
+    <value>Email of who the report will be sent.</value>
+  </data>
+  <data name="plXMLinputfile.Text" xml:space="preserve">
+    <value>XML Input</value>
+  </data>
+  <data name="plXMLinputfile.Help" xml:space="preserve">
+    <value>Name and path of the XML Input file to be used with the XSL.  If left blank the SQL results will be assumed to run againt the XSL.</value>
+  </data>
+  <data name="plXSLfile.Text" xml:space="preserve">
+    <value>XSL File</value>
+  </data>
+  <data name="plXSLfile.Help" xml:space="preserve">
+    <value>XSL to run against the results or an input file.  The output will be the displayed report.  If left blank no XSL tranlation is done.</value>
+  </data>
+  <data name="plOutputFileName.Text" xml:space="preserve">
+    <value>Output File</value>
+  </data>
+  <data name="plOutputFileName.Help" xml:space="preserve">
+    <value>File name and path to export the report results.</value>
+  </data>
+  <data name="plAllowExport.Text" xml:space="preserve">
+    <value>Allow Export</value>
+  </data>
+  <data name="plAllowExport.Help" xml:space="preserve">
+    <value>Allow the report to be exported.  A save button will appear on the reports list.</value>
+  </data>
+  <data name="plAllowDisplay.Text" xml:space="preserve">
+    <value>Allow Display</value>
+  </data>
+  <data name="plAllowDisplay.Help" xml:space="preserve">
+    <value>Allow the report to be displayed on the website.  A display button will appear on the reports list.</value>
+  </data>
+  <data name="plDisplayInLine.Text" xml:space="preserve">
+    <value>In-Line</value>
+  </data>
+  <data name="plDisplayInLine.Help" xml:space="preserve">
+    <value>If checked the report will be displayed on the same webpage as the report list, otherwise a new popup window will be created.</value>
+  </data>
+  <data name="plReportRef.Text" xml:space="preserve">
+    <value>Report Ref</value>
+  </data>
+  <data name="plReportRef.Help" xml:space="preserve">
+    <value>Reference code for the report, this can be used to run the report from the querystring. (ReportRef="MYREPORTREF")</value>
+  </data>
+  <data name="plConnectionString.Text" xml:space="preserve">
+    <value>Connection String</value>
+  </data>
+  <data name="plConnectionString.Help" xml:space="preserve">
+    <value>Database connection string, this can be used to point at other databases.  If left blank the portal DNN Database is used.</value>
+  </data>
+  <data name="plShowSQL.Text" xml:space="preserve">
+    <value>Show SQL</value>
+  </data>
+  <data name="plShowSQL.Help" xml:space="preserve">
+    <value>Show SQL above the results table.</value>
+  </data>
+  <data name="lblAddXSL.Text" xml:space="preserve">
+    <value>XSL files</value>
+  </data>
+  <data name="plSQLEmailIf.Text" xml:space="preserve">
+    <value>Email Only if true</value>
+  </data>
+  <data name="plSQLEmailIf.Help" xml:space="preserve">
+    <value>SQL to test if a email should be sent, if the result of the SQL is true or the SQL is blank an email will be sent.  Otherwise no email will be sent.</value>
+  </data>
+  <data name="lblFieldDelimeter.Text" xml:space="preserve">
+    <value>Export FieldDelimeter</value>
+  </data>
+  <data name="lblFieldQualifier.Text" xml:space="preserve">
+    <value>Export FieldQualifer</value>
+  </data>
+  <data name="cmdCopyReport.Text" xml:space="preserve">
+    <value>Copy Report?</value>
+  </data>
+  <data name="cmdEmailReport.Text" xml:space="preserve">
+    <value>Email Report?</value>
+  </data>
+  <data name="cmdRunReport.Text" xml:space="preserve">
+    <value>Run Report</value>
+  </data>  
+</root>

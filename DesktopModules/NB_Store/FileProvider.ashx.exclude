@@ -1,0 +1,5 @@
+﻿<%@ WebHandler Language="vb" Class="NBStoreFileHandler" %>
+Public Class NBStoreFileHandler
+    Inherits System.Web.DefaultHttpHandler '  NEvoWeb.Modules.NB_Store.FileProvider
+End Class
+

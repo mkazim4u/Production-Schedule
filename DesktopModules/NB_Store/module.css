@@ -1,0 +1,28 @@
+﻿/* NB Store - These styles are not permanent */
+.NBright_CartOptDiv,.NBright_ClientButtonDiv{text-align:left;font-weight:bold;line-height: 30px;}
+.NBright_ClientButton{background-color:white;text-align:left;padding:4px;margin:10px;border:#d0ccc9 solid 1px;}
+.NBright_RecalcButtonDiv{text-align:right;margin:10px;font-weight:bold;}
+.NBright_RecalcButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;}
+.NBright_NormalTextBox{margin-right:8px;Width:144px;}
+.NBright_ContentDiv{width:100%;}
+.NBright_HeaderStyle{color:white;font-weight:bold;background-color:#bac815;}
+.NBright_FooterStyle{color:black;font-weight:bold;background-color:white;}
+.NBright_EditItemStyle{color:black;font-weight:normal;background-color:#E2DED6;}
+.NBright_SelectedItemStyle{color:#333333;font-weight:bold;background-color:#E2DED6;}
+.NBright_PagerStyle{color:black;font-weight:bold;background-color:white;text-align:center;}
+.NBright_AlternatingItemStyle{color:#777777;font-weight:bold;background-color:#f3f6f8;}
+.NBright_ItemStyle{color:#777777;font-weight:bold;background-color:white;}
+.NBright_SelectDiv,.NBright_ActionDiv{text-align:left;padding:10px 0;font-weight:bold;}
+.NBright_ButtonDiv{padding-bottom:10px;padding-top:10px;text-align:left;}
+.NBright_ButtonDiv a,a.NBright_CommandButton{background-color:#f5f5f5;border:1px solid #dedede;border-top:1px solid #eee;border-left:1px solid #eee;text-decoration:none !important;font-weight:bold;color:#565656;cursor:pointer;padding:5px 10px 6px 30px; /* Links */}
+.NBright_ButtonDiv a:hover,a.NBright_CommandButton:hover{background-color:#FFF !important;text-decoration:none !important}
+a.NBright_CommandButton{padding:5px 10px 6px}
+a.NBright_EnterButton{color:#3E81B5 !important}
+a.NBright_EnterButton:hover{color:#5FA1D6 !important}
+.NBright_ButtonDiv a,a.NBright_CommandButton{background-color:#f5f5f5;}
+.NBright_SaveButton{background:url("/DesktopModules/NB_Store/img/accept2.png") no-repeat 10px 50%;}
+.NBright_ReturnButton{background:url("/DesktopModules/NB_Store/img/return.png") no-repeat 10px 50%;}
+.NBright_EnterButton{background:url("/DesktopModules/NB_Store/img/application_key.png") no-repeat 10px 50%;}
+.NBright_PrintButton{background:url("/DesktopModules/NB_Store/img/printer.png") no-repeat 10px 50%;}
+.NBright_ActionButton{background-color:white;text-align:left;padding:4px;border:#d0ccc9 solid 1px;}
+.SpecialInstructions{width:99%;height:100px}

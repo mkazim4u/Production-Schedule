@@ -1,0 +1,2389 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/************************************************************/
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Model]') and name='DealerOnly')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Model add DealerOnly bit null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Settings]') and name='GroupRef')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Settings add GroupRef nvarchar(50) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_Settings]') and name='CtrlType')
+	alter table {databaseOwner}{objectQualifier}NB_Store_Settings add CtrlType nvarchar(50) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SettingsText]') and name='GroupRef')
+	alter table {databaseOwner}{objectQualifier}NB_Store_SettingsText add GroupRef nvarchar(50) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_SettingsText]') and name='CtrlType')
+	alter table {databaseOwner}{objectQualifier}NB_Store_SettingsText add CtrlType nvarchar(50) null
+go
+
+if not exists (select * from dbo.syscolumns where id=object_id(N'{databaseOwner}[{objectQualifier}NB_Store_ProductLang]') and name='SEOName')
+	alter table {databaseOwner}{objectQualifier}NB_Store_ProductLang add SEOName nvarchar(150) null
+go
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NB_Store_ProductRelated]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+GO
+
+CREATE TABLE {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] (
+	[RelatedID] [int] IDENTITY (1, 1) NOT NULL ,
+	[PortalID] [int] NULL ,
+	[ProductID] [int] NULL ,
+	[RelatedProductID] [int] NULL ,
+	[DiscountAmt] [numeric](16, 2) NULL ,
+	[DiscountPercent] [numeric](16, 2) NULL ,
+	[ProductQty] [int] NULL ,
+	[MaxQty] [int] NULL ,
+	[RelatedType] [int] NULL ,
+	[Disabled] [bit] NULL ,
+	[NotAvailable] [bit] NULL ,
+	[BiDirectional] [bit] NULL ,
+	CONSTRAINT [PK_NB_Store_ProductRelated] PRIMARY KEY  CLUSTERED 
+	(
+		[RelatedID]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+GO
+
+ CREATE  INDEX [IX_NB_Store_ProductRelated] ON {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]([ProductID]) ON [PRIMARY]
+GO
+
+
+/************************************************************/
+/*****    SPROC Start                                   *****/
+/************************************************************/
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Get]
+GO
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Get]
+@ModelID int,
+@Lang nchar(5)
+AS
+begin
+	select 
+		M.ModelID,
+		M.ProductID,
+		M.ListOrder,
+		M.UnitCost,
+		M.Barcode,
+		M.ModelRef,
+		M.Deleted,
+		ML.Lang,
+		ML.ModelName,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		PL.ProductName,
+		P.PortalID,
+		isnull(SR.ProductWeight,0) as Weight,
+		isnull(SR.ProductHeight,0) as Height,
+		isnull(SR.ProductLength,0) as Length,
+		isnull(SR.ProductWidth,0) as Width,
+		M.QtyStockSet,
+		M.DealerCost,
+		M.DealerOnly,
+		M.PurchaseCost,
+		ML.[XMLData],
+		ML.Extra
+	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M
+	inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = M.ProductID
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SR.ObjectID = M.ModelID and ShipType='PRD' and SR.[Disable]=0	
+	where M.ModelID = @ModelID
+ end
+
+ 
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetByRef]
+@ProductID int,
+@ModelRef nvarchar(20),
+@Lang nchar(5)
+AS
+begin
+	select top 1 
+		M.ModelID,
+		M.ProductID,
+		M.ListOrder,
+		M.UnitCost,
+		M.Barcode,
+		M.ModelRef,
+		M.Deleted,
+		ML.Lang,
+		ML.ModelName,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		PL.ProductName,
+		P.PortalID,
+		isnull(SR.ProductWeight,0) as Weight,
+		isnull(SR.ProductHeight,0) as Height,
+		isnull(SR.ProductLength,0) as Length,
+		isnull(SR.ProductWidth,0) as Width,
+		M.QtyStockSet,
+		M.DealerCost,
+		M.DealerOnly,
+		M.PurchaseCost,
+		ML.[XMLData],
+		ML.Extra
+	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M
+	inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = M.ProductID
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SR.ObjectID = M.ModelID and ShipType='PRD' and SR.[Disable]=0	
+	where M.ModelRef = @ModelRef
+	and M.ProductID = @ProductID
+ end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetInStockList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetInStockList]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetInStockList]
+@ProductID int,
+@Lang nchar(5),
+@IsDealer as bit
+AS
+begin
+
+	select 
+		M.ModelID,
+		M.ProductID,
+		M.ListOrder,
+		M.UnitCost,
+		M.Barcode,
+		M.ModelRef,
+		M.Deleted,
+		ML.Lang,
+		ML.ModelName,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		PL.ProductName,
+		P.PortalID,
+		isnull(SR.ProductWeight,0) as Weight,
+		isnull(SR.ProductHeight,0) as Height,
+		isnull(SR.ProductLength,0) as Length,
+		isnull(SR.ProductWidth,0) as Width,
+		M.QtyStockSet,
+		M.DealerCost,
+		M.DealerOnly,
+		M.PurchaseCost,
+		ML.[XMLData],
+		ML.Extra
+	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M
+	inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = M.ProductID
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SR.ObjectID = M.ModelID and ShipType='PRD' and SR.[Disable]=0	
+	where M.ProductID = @ProductID	
+	and (QtyRemaining > 0 or QtyRemaining < 0)
+	and (@IsDealer = 1 or DealerOnly = 0)
+	order by M.ListOrder
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetList]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetList]
+@PortalID int,
+@ProductID int,
+@Lang nchar(5),
+@IsDealer as bit
+AS
+begin
+
+	select 
+		M.ModelID,
+		M.ProductID,
+		M.ListOrder,
+		M.UnitCost,
+		M.Barcode,
+		M.ModelRef,
+		M.Deleted,
+		ML.Lang,
+		ML.ModelName,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		PL.ProductName,
+		P.PortalID,
+		isnull(SR.ProductWeight,0) as Weight,
+		isnull(SR.ProductHeight,0) as Height,
+		isnull(SR.ProductLength,0) as Length,
+		isnull(SR.ProductWidth,0) as Width,
+		M.QtyStockSet,
+		M.DealerCost,
+		M.DealerOnly,
+		M.PurchaseCost,
+		ML.[XMLData],
+		ML.Extra
+	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M
+	inner join {databaseOwner}[{objectQualifier}NB_Store_Products] as P on P.ProductID = M.ProductID
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = @Lang
+	left outer join {databaseOwner}[{objectQualifier}NB_Store_ShippingRates] as SR on SR.ObjectID = M.ModelID and ShipType='PRD' and SR.[Disable]=0	
+	where M.ProductID = @ProductID	
+	and (P.PortalID = @PortalID or @PortalID = -1)
+	and (@IsDealer = 1 or DealerOnly = 0)
+	order by M.ListOrder
+ 
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockList]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockList]
+@PortalID int,
+@Filter nvarchar(50),
+@Lang nchar(5),
+@CategoryID int,
+@PageIndex int,
+@PageSize int,
+@IsDealer as bit
+AS
+begin
+
+	declare @SQL nvarchar(4000)
+
+set @SQL = ' SELECT '
+set @SQL = @SQL + ' top ' + convert(nvarchar(5),@PageSize)
+
+set @SQL = @SQL + ' row,ModelID,ProductID,TaxCategoryID,ListOrder,UnitCost,Barcode,ModelRef,Deleted,Lang,ModelName,QtyRemaining,QtyTrans,QtyTransDate,ProductName,PortalID,QtyStockSet,DealerCost,DealerOnly,PurchaseCost,Extra'
+set @SQL = @SQL + ' FROM ' 
+set @SQL = @SQL + ' (select '
+
+set @SQL = @SQL + ' ROW_NUMBER() OVER (order by PL.ProductName,M.ListOrder) AS row, '
+
+
+set @SQL = @SQL + ' 		M.ModelID,'
+set @SQL = @SQL + ' 		M.ProductID,'
+set @SQL = @SQL + ' 		P.TaxCategoryID,'
+set @SQL = @SQL + ' 		M.ListOrder,'
+set @SQL = @SQL + ' 		M.UnitCost,'
+set @SQL = @SQL + ' 		M.Barcode,'
+set @SQL = @SQL + ' 		M.ModelRef,'
+set @SQL = @SQL + ' 		M.Deleted,'
+set @SQL = @SQL + ' 		ML.Lang,'
+set @SQL = @SQL + ' 		ML.ModelName,'
+set @SQL = @SQL + ' 		QtyRemaining,'
+set @SQL = @SQL + ' 		QtyTrans,'
+set @SQL = @SQL + ' 		QtyTransDate,'
+set @SQL = @SQL + ' 		PL.ProductName,'
+set @SQL = @SQL + ' 		P.PortalID,'
+set @SQL = @SQL + ' 		M.QtyStockSet,'
+set @SQL = @SQL + ' 		M.DealerCost,'
+set @SQL = @SQL + ' 		M.DealerOnly,'
+set @SQL = @SQL + ' 		M.PurchaseCost,'
+set @SQL = @SQL + ' 		ML.Extra'
+set @SQL = @SQL + ' 	from {databaseOwner}[{objectQualifier}NB_Store_Model] as M'
+set @SQL = @SQL + ' 	left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = ''' + @Lang + ''''
+set @SQL = @SQL + ' 	inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductID = M.ProductID'
+set @SQL = @SQL + ' 	left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = ''' + @Lang + ''''
+
+if @CategoryID > -1
+begin
+	set @SQL = @SQL + ' 	left join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID'
+end
+
+-- START SELCECT SECTION -------------------------------------------------------------
+set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+set @SQL = @SQL + ' and isnull(M.Deleted,0) = 0'
+set @SQL = @SQL + ' and isnull(P.Archived,0) = 0'
+
+if @IsDealer = 0
+begin
+	set @SQL = @SQL + ' 	and DealerOnly = 0 '
+end
+
+if @CategoryID > -1
+begin
+	set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(6),@CategoryID)
+end
+
+if @Filter != ''
+begin
+	set @SQL = @SQL + ' and (ML.Modelname like ''%' + @Filter + '%'' or M.Modelref like ''%' + @Filter + '%'' or PL.ProductName like ''%' + @Filter + '%'' or M.Barcode like ''%' + @Filter + '%'') '
+end
+-- END SELCECT SECTION -------------------------------------------------------------
+
+
+set @SQL = @SQL + ') AS NB_Store_ModelsPage '
+
+if @PageSize > 0 
+begin
+	set @SQL = @SQL + ' WHERE Row between ((' + convert(nvarchar(5),(@PageIndex - 1)) + ' * ' + convert(nvarchar(5),@PageSize) + ') + 1) and ' + convert(nvarchar(5),(@PageIndex*@PageSize))
+end
+
+print @sql
+
+	exec sp_executesql @SQL
+
+end
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockListSize]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockListSize]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_GetStockListSize]
+@PortalID int,
+@Filter nvarchar(50),
+@Lang nchar(5),
+@CategoryID int,
+@IsDealer as bit
+
+AS
+begin
+
+	declare @SQL nvarchar(2000)
+
+set @SQL = 'select Count(M.ModelID) '
+set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Model] as M'
+set @SQL = @SQL + ' left outer join {databaseOwner}[{objectQualifier}NB_Store_ModelLang] as ML on ML.ModelID = M.ModelID and ML.Lang = ''' + @Lang + ''''
+set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_Products as P on P.ProductID = M.ProductID'
+set @SQL = @SQL + ' left outer join {databaseOwner}[{objectQualifier}NB_Store_ProductLang] as PL on PL.ProductID = M.ProductID and PL.Lang = ''' + @Lang + ''''
+
+if @CategoryID > -1
+begin
+	set @SQL = @SQL + ' 	left join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID'
+end
+
+-- START SELCECT SECTION -------------------------------------------------------------
+set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+set @SQL = @SQL + ' and isnull(M.Deleted,0) = 0'
+set @SQL = @SQL + ' and isnull(P.Archived,0) = 0'
+
+if @IsDealer = 0
+begin
+	set @SQL = @SQL + ' 	and DealerOnly = 0 '
+end
+
+if @CategoryID > -1
+begin
+	set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(6),@CategoryID)
+end
+
+if @Filter != ''
+begin
+	set @SQL = @SQL + ' and (ML.Modelname like ''%' + @Filter + '%'' or M.Modelref like ''%' + @Filter + '%'' or PL.ProductName like ''%' + @Filter + '%'' or M.Barcode like ''%' + @Filter + '%'') '
+end
+-- END SELCECT SECTION -------------------------------------------------------------
+
+exec sp_executesql @SQL
+
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Update]
+GO
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Model_Update]
+(
+@ModelID int,
+@ProductID int,
+@ListOrder int,
+@UnitCost money,
+@Barcode nvarchar(20),
+@ModelRef nvarchar(20),
+@Lang nchar(5),
+@ModelName nvarchar(50),
+@QtyRemaining int,
+@QtyTrans int,
+@QtyTransDate datetime,
+@Deleted bit,
+@QtyStockSet int,
+@DealerCost money,
+@PurchaseCost money,
+@XMLData xml,
+@Extra nvarchar(50),
+@DealerOnly bit
+)
+AS
+BEGIN
+
+	if not exists (select ModelID from {databaseOwner}[{objectQualifier}NB_Store_Model] where ModelID = @ModelID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Model]
+		(
+		ProductID,
+		ListOrder,
+		UnitCost,
+		Barcode,
+		ModelRef,
+		QtyRemaining,
+		QtyTrans,
+		QtyTransDate,
+		Deleted,
+		QtyStockSet,
+		DealerCost,
+		PurchaseCost,
+		DealerOnly
+		)
+		values
+		(
+		@ProductID,
+		@ListOrder,
+		@UnitCost,
+		@Barcode,
+		@ModelRef,
+		@QtyRemaining,
+		@QtyTrans,
+		@QtyTransDate,
+		@Deleted,
+		@QtyStockSet,
+		@DealerCost,
+		@PurchaseCost,
+		@DealerOnly	
+		)
+		
+		set @ModelID = @@Identity
+	
+		exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_ModelLang_Update @ModelID, @Lang, @ModelName, @XMLData, @Extra
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Model]
+		set 
+		ProductID = @ProductID,
+		ListOrder = @ListOrder,
+		UnitCost = @UnitCost,
+		Barcode = @Barcode,
+		ModelRef = @ModelRef,
+		QtyRemaining = @QtyRemaining,
+		QtyTrans = @QtyTrans,
+		QtyTransDate = @QtyTransDate,
+		Deleted = @Deleted,
+		QtyStockSet = @QtyStockSet,
+		DealerCost = @DealerCost,
+		PurchaseCost = @PurchaseCost,
+		DealerOnly = @DealerOnly
+		where ModelID = @ModelID
+
+		exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_ModelLang_Update @ModelID, @Lang, @ModelName, @XMLData, @Extra
+ 
+	end
+
+	select @ModelID
+
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]
+GO
+
+
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductLang_Update]
+(
+@ProductID int,
+@Lang char(5),
+@Summary nvarchar(1000),
+@Description ntext,
+@Manufacturer nvarchar(50),
+@ProductName nvarchar(50),
+@XMLdata xml,
+@SEOName nvarchar(150)
+)
+AS
+BEGIN
+
+	if not exists (select ProductID from {databaseOwner}[{objectQualifier}NB_Store_ProductLang] where ProductID = @ProductID and Lang = @Lang)
+	begin
+
+		insert into {databaseOwner}[{objectQualifier}NB_Store_ProductLang]
+		(
+		ProductID,
+		Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		ProductName,
+		[XMLdata],
+		SEOName
+		)
+		values
+		(
+		@ProductID,
+		@Lang,
+		@Summary,
+		@Description,
+		@Manufacturer,
+		@ProductName,
+		@XMLdata,
+		@SEOName
+		)
+
+	end
+	else
+	begin
+
+		Update {databaseOwner}[{objectQualifier}NB_Store_ProductLang]
+		set 
+		Summary = @Summary,
+		Description = @Description,
+		Manufacturer = @Manufacturer,
+		ProductName = @ProductName,
+		[XMLdata] = @XMLdata,
+		SEOName = @SEOName
+		where ProductID = @ProductID
+		and Lang = @Lang
+ 
+	end
+
+END
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Delete]
+GO
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Delete]
+@RelatedID int
+
+AS
+begin
+	
+	declare @RelatedProductID int
+	declare @ProductID int
+
+	select @ProductID=ProductID,@RelatedProductID=RelatedProductID from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	where RelatedID = @RelatedID
+
+	delete from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	where RelatedID = @RelatedID
+
+-- Remove the Other Direction
+
+	delete from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	where ProductID = @RelatedProductID
+	and RelatedProductID = 	@ProductID
+
+
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_DeleteByProduct]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_DeleteByProduct]
+GO
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_DeleteByProduct]
+@ProductID int
+AS
+begin
+	
+	delete from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	where ProductID = @ProductID
+	or RelatedProductID = 	@ProductID
+ 
+end
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Get]
+GO
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Get]
+@RelatedID int
+
+AS
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	where RelatedID = @RelatedID
+ 
+end
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]
+GO
+
+
+
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_GetList]
+@PortalID int,
+@ProductID int,
+@Lang char(5),
+@RelatedType int,
+@GetAll bit
+AS
+begin
+	select PR.*,
+	RP.ProductRef as RelatedProductRef,
+	RPL.ProductName as RelatedProductName
+    from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] as PR
+	inner join {databaseOwner}{objectQualifier}NB_Store_Products as RP on PR.RelatedProductID = RP.ProductID
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang AS RPL on RPL.ProductID = RP.ProductID and RPL.Lang = @Lang
+where PR.ProductID = @ProductID
+and (PR.Disabled = 0 or @GetAll = 1)
+and (PR.NotAvailable = 0 or @GetAll = 1)
+and (RelatedType = @RelatedType or @RelatedType = -1)
+
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_NotAvailable]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_NotAvailable]
+GO
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_NotAvailable]
+@ProductID int,
+@Flag bit
+AS
+begin
+	
+	update {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+	set NotAvailable = @Flag,
+	Disabled = @Flag
+	where ProductID = @ProductID
+	or RelatedProductID = 	@ProductID
+ 
+end
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Update]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE  PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_ProductRelated_Update]
+(
+@RelatedID int,
+@PortalID int,
+@ProductID int,
+@RelatedProductID int,
+@DiscountAmt numeric(16,2),
+@DiscountPercent numeric(16,2),
+@ProductQty int,
+@MaxQty int,
+@RelatedType int,
+@Disabled bit,
+@NotAvailable bit,
+@BiDirectional bit
+)
+AS
+BEGIN
+
+-- Check to see if the related product is not the same
+if @ProductID != @RelatedProductID
+begin
+
+	if not exists (select RelatedID from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] where RelatedID = @RelatedID)
+	begin
+
+	-- Check to see if the related product already exists, if it does don't create it again.
+	if not exists (select RelatedID from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+					where PortalID = @PortalID
+					and ProductID = @ProductID
+					and RelatedProductID = 	@RelatedProductID
+	)
+	begin
+
+
+		insert into {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+		(
+		PortalID,
+		ProductID,
+		RelatedProductID,
+		DiscountAmt,
+		DiscountPercent,
+		ProductQty,
+		MaxQty,
+		RelatedType,
+		Disabled,
+		NotAvailable,
+		BiDirectional
+		)
+		values
+		(
+		@PortalID,
+		@ProductID,
+		@RelatedProductID,
+		@DiscountAmt,
+		@DiscountPercent,
+		@ProductQty,
+		@MaxQty,
+		@RelatedType,
+		@Disabled,
+		@NotAvailable,
+		@BiDirectional
+
+		)
+
+		---------------------------------------------------------
+		-- First Insert so create Bi-Directional update 
+		---------------------------------------------------------
+
+		insert into {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+		(
+		PortalID,
+		ProductID,
+		RelatedProductID,
+		DiscountAmt,
+		DiscountPercent,
+		ProductQty,
+		MaxQty,
+		RelatedType,
+		Disabled,
+		NotAvailable,
+		BiDirectional
+		)
+		values
+		(
+		@PortalID,
+		@RelatedProductID,
+		@ProductID,
+		@DiscountAmt,
+		@DiscountPercent,
+		@ProductQty,
+		@MaxQty,
+		@RelatedType,
+		@Disabled,
+		@NotAvailable,
+		@BiDirectional
+		)
+
+	end
+	end
+	else
+	begin
+
+		Update {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+		set 
+		DiscountAmt = @DiscountAmt,
+		DiscountPercent = @DiscountPercent,
+		ProductQty = @ProductQty,
+		MaxQty = @MaxQty,
+		RelatedType = @RelatedType,
+		Disabled = @Disabled,
+		NotAvailable = @NotAvailable,
+		BiDirectional = @BiDirectional
+		where RelatedID = @RelatedID
+ 
+		---------------------------------------------------------
+		-- Do Bi-Directional update 
+		---------------------------------------------------------
+		if @BiDirectional = 1 
+		begin
+		-- Bi-Directional Relation, so update the other side
+
+			if exists (select RelatedID from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+			where PortalID = @PortalID
+			and ProductID = @RelatedProductID
+			and RelatedProductID = 	@ProductID)
+			begin
+				Update {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+				set 
+				DiscountAmt = @DiscountAmt,
+				DiscountPercent = @DiscountPercent,
+				ProductQty = @ProductQty,
+				MaxQty = @MaxQty,
+				RelatedType = @RelatedType,
+				--Disabled = @Disabled,  -- Don't disable other side, if this side is disabled
+				NotAvailable = @NotAvailable,
+				BiDirectional = @BiDirectional
+				where PortalID = @PortalID
+				and ProductID = @RelatedProductID
+				and RelatedProductID = 	@ProductID
+		 
+			end
+
+		end
+
+	---------------------------------------------------------
+		if @BiDirectional = 0
+		begin
+		-- Bi-Directional Relation Disable, so Disable the other side
+
+			if exists (select RelatedID from {databaseOwner}[{objectQualifier}NB_Store_ProductRelated] 
+			where PortalID = @PortalID
+			and ProductID = @RelatedProductID
+			and RelatedProductID = 	@ProductID)
+			begin
+				Update {databaseOwner}[{objectQualifier}NB_Store_ProductRelated]
+				set 
+				DiscountAmt = @DiscountAmt,
+				DiscountPercent = @DiscountPercent,
+				ProductQty = @ProductQty,
+				MaxQty = @MaxQty,
+				RelatedType = @RelatedType,
+				Disabled = 1,
+				NotAvailable = @NotAvailable,
+				BiDirectional = @BiDirectional
+					where PortalID = @PortalID
+					and ProductID = @RelatedProductID
+					and RelatedProductID = 	@ProductID		 
+			end
+		end
+end
+end
+END
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE    PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Get]
+@ProductID int,
+@Lang char(5)
+AS
+begin
+	select 
+		P.ProductID,
+		PortalID,
+		P.TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		ModifiedDate,
+		IsDeleted,
+		ProductRef,
+		PL.Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		{databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,
+		isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,
+	    isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,
+		(select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageID,
+		(select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageURL,
+		(select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID order by listorder) as ImageDesc,
+		PL.ProductName,
+		PL.[XMLData], PL.SEOName 
+	from {databaseOwner}[{objectQualifier}NB_Store_Products] as P
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = @Lang
+	where P.ProductID = @ProductID
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetByRef]
+@PortalID int,
+@ProductRef nvarchar(20),
+@Lang char(5)
+AS
+begin
+	select top 1 
+		P.ProductID,
+		PortalID,
+		P.TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		ModifiedDate,
+		IsDeleted,
+		ProductRef,
+		Lang,
+		Summary,
+		Description,
+		Manufacturer,
+		{databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,
+		isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,
+	    isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,
+		(select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID) as ImageID,
+		(select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID) as ImageURL,
+		(select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID) as ImageDesc,
+		PL.ProductName,
+		PL.[XMLData],PL.SEOName 
+	from {databaseOwner}[{objectQualifier}NB_Store_Products] as P
+	inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = @Lang
+	where P.ProductRef = @ProductRef
+	and P.PortalID = @PortalID
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetExportList]
+@PortalID int,
+@Lang nvarchar(5),
+@GetDeletedOnly bit
+AS
+begin
+
+	declare @SQL nvarchar(2000)
+
+	set @SQL = 'select' 
+	set @SQL = @SQL + ' P.ProductID,'
+	set @SQL = @SQL + ' PortalID,'
+	set @SQL = @SQL + ' P.TaxCategoryID,'
+	set @SQL = @SQL + ' Featured,'
+	set @SQL = @SQL + ' Archived,'
+	set @SQL = @SQL + ' CreatedByUser,'
+	set @SQL = @SQL + ' CreatedDate,'
+	set @SQL = @SQL + ' ModifiedDate,'
+	set @SQL = @SQL + ' IsDeleted,'
+	set @SQL = @SQL + ' ProductRef,'
+	set @SQL = @SQL + ' Lang,'
+	set @SQL = @SQL + ' Summary,'
+	set @SQL = @SQL + ' Description,'
+	set @SQL = @SQL + ' Manufacturer,'
+	set @SQL = @SQL + ' PL.ProductName,'		
+	set @SQL = @SQL + ' PL.[XMLData],SEOName '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+
+	if @GetDeletedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.IsDeleted = 1 '
+	end
+
+	set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef,PL.ProductName'
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]
+GO
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetList]
+@PortalID int,
+@CategoryID int,
+@Lang char(5),
+@Filter nvarchar(50),
+@GetArchived bit,
+@FeaturedOnly bit,
+@OrderBy nvarchar(50),
+@OrderDESC bit,
+@ReturnLimit nvarchar(5),
+@PageIndex int,
+@PageSize int,
+@SearchDescription bit,
+@IsDealer bit ,
+@CategoryList nvarchar(1000)
+AS
+begin
+
+	declare @SQL nvarchar(4000)
+
+set @SQL = ' SELECT '
+if @ReturnLimit > 0 
+begin
+	set @SQL = @SQL + ' top ' + @ReturnLimit
+end
+set @SQL = @SQL + ' row,ProductID,PortalID,TaxCategoryID,Featured,Archived,CreatedByUser,CreatedDate,IsDeleted,ProductRef,Lang,Summary,[Description],Manufacturer,FromPrice,QtyRemaining,ImageID,ImageURL,ImageDesc,ProductName,[XMLData],SEOName  '
+set @SQL = @SQL + ' FROM ' 
+set @SQL = @SQL + ' (select ROW_NUMBER() OVER ('
+
+	if @OrderBy='man'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.Manufacturer DESC,P.ProductRef DESC'
+		else
+			set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef'
+	end
+	if @OrderBy='ref'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by P.ProductRef DESC,PL.Manufacturer DESC'
+		else
+			set @SQL = @SQL + ' order by P.ProductRef,PL.Manufacturer'
+	end
+	if @OrderBy='name'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by PL.ProductName DESC,PL.Manufacturer DESC'
+		else
+			set @SQL = @SQL + ' order by PL.ProductName,PL.Manufacturer'
+	end
+	if @OrderBy='price'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) DESC,PL.Manufacturer DESC,P.ProductRef DESC'
+		else
+			set @SQL = @SQL + ' order by {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID),PL.Manufacturer,P.ProductRef'
+	end
+	if @OrderBy='cdate'
+	begin
+		if @OrderDESC=1
+			set @SQL = @SQL + ' order by P.CreatedDate DESC'
+		else
+			set @SQL = @SQL + ' order by P.CreatedDate'
+	end
+	if @OrderBy=''
+	begin
+		set @SQL = @SQL + ' order by PL.Manufacturer,P.ProductRef'
+	end
+	set @SQL = @SQL + ') AS row, '
+	set @SQL = @SQL + ' P.ProductID,'
+	set @SQL = @SQL + ' PortalID,'
+	set @SQL = @SQL + ' P.TaxCategoryID,'
+	set @SQL = @SQL + ' Featured,'
+	set @SQL = @SQL + ' Archived,'
+	set @SQL = @SQL + ' CreatedByUser,'
+	set @SQL = @SQL + ' CreatedDate,'
+	set @SQL = @SQL + ' ModifiedDate,'
+	set @SQL = @SQL + ' IsDeleted,'
+	set @SQL = @SQL + ' ProductRef,'
+	set @SQL = @SQL + ' Lang,'
+	set @SQL = @SQL + ' Summary,'
+	set @SQL = @SQL + ' Description,'
+	set @SQL = @SQL + ' Manufacturer,'
+	set @SQL = @SQL + ' {databaseOwner}{objectQualifier}NEvoWeb_NB_Store_FGetProductBasePrice(P.ProductID) as FromPrice,'
+	set @SQL = @SQL + ' isnull((select sum(QtyRemaining) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID and qtyremaining != 0),0) as QtyRemaining,'
+	set @SQL = @SQL + ' isnull((select sum(QtyStockSet) from {databaseOwner}{objectQualifier}NB_Store_Model where productid = P.ProductID),0) as QtyStockSet,'
+	set @SQL = @SQL + ' (select top 1 ImageID from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageID,'
+	set @SQL = @SQL + ' (select top 1 ImageURL from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I where productid = P.ProductID order by listorder) as ImageURL,'
+	set @SQL = @SQL + ' (select top 1 ImageDesc from {databaseOwner}{objectQualifier}NB_Store_ProductImage AS I inner join {databaseOwner}{objectQualifier}NB_Store_ProductImageLang as IL on IL.ImageID = I.ImageID and IL.Lang = PL.Lang where productid = P.ProductID order by listorder) as ImageDesc,'
+	set @SQL = @SQL + ' PL.ProductName,'
+	set @SQL = @SQL + ' PL.[XMLData], SEOName '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+
+	if (@CategoryID > 0 and @Filter = '')
+	begin
+		set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID '
+	end	
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+	if @IsDealer=0
+	begin
+		set @SQL = @SQL + ' and P.ProductID in (select M.ProductID from {databaseOwner}{objectQualifier}NB_Store_Model as M where M.ProductID = P.ProductID and DealerOnly = 0) '
+	end
+
+	if @FeaturedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.Featured = 1 '
+	end
+
+	if @GetArchived = 0
+	begin
+		set @SQL = @SQL + ' and not P.IsDeleted = 1 and  not P.Archived = 1'
+	end
+
+	if (@CategoryID >= 0 and @CategoryList = '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(5),@CategoryID)
+	end
+
+	if (@CategoryID >= 0 and @CategoryList != '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID in (' + convert(nvarchar(1000),@CategoryList) + ')'
+	end
+
+	if @Filter != ''
+	begin
+		set @SQL = @SQL + ' and (PL.ProductName like ''%' + @Filter + '%'' or P.ProductRef like ''%' + @Filter + '%'' or PL.Summary like ''%' + @Filter + '%'' or PL.Manufacturer like ''%' + @Filter + '%'' '
+
+		if @SearchDescription = 1
+		begin
+			set @SQL = @SQL + ' or PL.Description like ''%' + @Filter + '%'' '
+		end
+
+		set @SQL = @SQL + ')'
+	end
+
+set @SQL = @SQL + ') AS NB_Store_ProductsPage '
+
+if @PageSize > 0 
+begin
+	set @SQL = @SQL + ' WHERE Row between ((' + convert(nvarchar(5),(@PageIndex - 1)) + ' * ' + convert(nvarchar(5),@PageSize) + ') + 1) and ' + convert(nvarchar(5),(@PageIndex*@PageSize))
+end
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]
+GO
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+CREATE PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_GetListSize]
+@PortalID int,
+@CategoryID int,
+@Lang char(5),
+@Filter nvarchar(50),
+@GetArchived bit,
+@FeaturedOnly bit,
+@SearchDescription bit,
+@IsDealer bit,
+@CategoryList nvarchar(1000)
+AS
+begin
+
+	declare @SQL nvarchar(2000)
+
+set @SQL = 'select count(P.productid) '
+	set @SQL = @SQL + ' from {databaseOwner}[{objectQualifier}NB_Store_Products] as P'
+	set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductLang as PL on P.ProductID = PL.ProductID and PL.Lang = ''' + @Lang + ''''
+
+	if (@CategoryID > 0 and @Filter = '')
+	begin
+		set @SQL = @SQL + ' inner join {databaseOwner}{objectQualifier}NB_Store_ProductCategory as PC on PC.ProductID = P.ProductID '
+	end	
+	set @SQL = @SQL + ' where P.PortalID = ' + convert(nvarchar(5),@PortalID)
+
+	if @IsDealer=0
+	begin
+		set @SQL = @SQL + ' and P.ProductID in (select M.ProductID from {databaseOwner}{objectQualifier}NB_Store_Model as M where M.ProductID = P.ProductID and DealerOnly = 0) '
+	end
+
+	if @FeaturedOnly = 1
+	begin
+		set @SQL = @SQL + ' and P.Featured = 1 '
+	end
+
+	if @GetArchived = 0
+	begin
+		set @SQL = @SQL + ' and not P.IsDeleted = 1 and  not P.Archived = 1'
+	end
+
+	if (@CategoryID >= 0 and @CategoryList = '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID = ' + convert(nvarchar(5),@CategoryID)
+	end
+
+	if (@CategoryID >= 0 and @CategoryList != '' and @Filter = '')
+	begin
+		set @SQL = @SQL + ' and PC.CategoryID in (' + convert(nvarchar(1000),@CategoryList) + ')'
+	end
+
+
+	if @Filter != ''
+	begin
+		set @SQL = @SQL + ' and (PL.ProductName like ''%' + @Filter + '%'' or P.ProductRef like ''%' + @Filter + '%'' or PL.Summary like ''%' + @Filter + '%'' or PL.Manufacturer like ''%' + @Filter + '%'' '
+
+		if @SearchDescription = 1
+		begin
+			set @SQL = @SQL + ' or PL.Description like ''%' + @Filter + '%'' '
+		end
+
+		set @SQL = @SQL + ')'
+	end
+
+	exec sp_executesql @SQL
+ 
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]
+GO
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Products_Update]
+(
+@ProductID int,
+@PortalID int,
+@TaxCategoryID int,
+@Featured bit,
+@Archived bit,
+@CreatedByUser nvarchar(100),
+@CreatedDate datetime,
+@IsDeleted bit,
+@ProductRef nvarchar(20),
+@Lang char(5),
+@Summary nvarchar(1000),
+@Description ntext,
+@Manufacturer nvarchar(50),
+@ProductName nvarchar(50),
+@XMLdata xml,
+@SEOName nvarchar(150)
+)
+AS
+BEGIN
+
+	if not exists (select ProductID from {databaseOwner}[{objectQualifier}NB_Store_Products] where ProductID = @ProductID
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Products]
+		(
+		PortalID,
+		TaxCategoryID,
+		Featured,
+		Archived,
+		CreatedByUser,
+		CreatedDate,
+		IsDeleted,
+		ProductRef,
+		ModifiedDate
+		)
+		values
+		(
+		@PortalID,
+		@TaxCategoryID,
+		@Featured,
+		@Archived,
+		@CreatedByUser,
+		@CreatedDate,
+		@IsDeleted,
+		@ProductRef,
+		getdate()
+		)
+
+		set @ProductID = @@Identity
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Products]
+		set 
+		PortalID = @PortalID,
+		TaxCategoryID = @TaxCategoryID,
+		Featured = @Featured,
+		Archived = @Archived,
+		CreatedByUser = @CreatedByUser,
+		CreatedDate = @CreatedDate,
+		IsDeleted = @IsDeleted,
+		ProductRef = @ProductRef,
+		ModifiedDate = getdate()
+		where ProductID = @ProductID
+ 
+	end
+
+exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_ProductLang_Update @ProductID, @Lang, @Summary, @Description, @Manufacturer, @ProductName, @XMLdata, @SEOName
+
+exec {databaseOwner}{objectQualifier}NEvoweb_NB_Store_Products_Get @ProductID, @Lang
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Delete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Delete]
+GO
+
+
+
+
+
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Delete]
+@PortalID int,
+@SettingName nvarchar(50),
+@Lang nvarchar(5)
+AS
+begin
+	delete from {databaseOwner}[{objectQualifier}NB_Store_Settings] 
+where PortalID = @PortalID
+ and SettingName = @SettingName 
+ and (Lang = @Lang or @Lang = 'None')
+end
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_GetList]
+@PortalID int,
+@Lang nchar(5),
+@IsHost bit,
+@SettingName nvarchar(50)
+
+AS
+begin
+if @IsHost=1
+begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_Settings] 
+	where PortalID = @PortalID
+	 and (Lang = @Lang or Lang = 'None' or @Lang='')
+	and (SettingName = @SettingName or @SettingName='')
+	order by settingname
+end
+else
+begin
+		select * from {databaseOwner}[{objectQualifier}NB_Store_Settings] 
+	where PortalID = @PortalID
+	and HostOnly = 0 
+	 and (Lang = @Lang or Lang = 'None' or @Lang='')
+	and (SettingName = @SettingName or @SettingName='')
+	order by settingname
+end 
+end
+
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Update]
+GO
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_Settings_Update]
+(
+@PortalID int,
+@SettingName nvarchar(50),
+@Lang nchar(5),
+@SettingValue nvarchar(2000),
+@HostOnly bit,
+@GroupRef nvarchar(50),
+@CtrlType nvarchar(50)
+)
+AS
+BEGIN
+
+	if not exists (select PortalID,SettingName,Lang from {databaseOwner}[{objectQualifier}NB_Store_Settings] where PortalID = @PortalID
+ and SettingName = @SettingName
+ and Lang = @Lang
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Settings]
+		(
+		PortalID,
+		SettingName,
+		Lang,
+		SettingValue,
+		HostOnly,
+		GroupRef,
+		CtrlType
+		)
+		values
+		(
+		@PortalID,
+		@SettingName,
+		@Lang,
+		@SettingValue,
+		@HostOnly,
+		@GroupRef,
+		@CtrlType
+		)
+
+-- If not default record exists then create it
+	if not exists (select PortalID,SettingName,Lang from {databaseOwner}[{objectQualifier}NB_Store_Settings] where PortalID = @PortalID
+ and SettingName = @SettingName
+ and Lang = 'None'
+ )
+	begin
+
+		insert into {databaseOwner}[{objectQualifier}NB_Store_Settings]
+		(
+		PortalID,
+		SettingName,
+		Lang,
+		SettingValue,
+		HostOnly,
+		GroupRef,
+		CtrlType
+		)
+		values
+		(
+		@PortalID,
+		@SettingName,
+		'None',
+		@SettingValue,
+		@HostOnly,
+		@GroupRef,
+		@CtrlType
+		)
+end
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_Settings]
+		set 
+		SettingValue = @SettingValue,
+		HostOnly = @HostOnly,
+		GroupRef = @GroupRef,
+		CtrlType = @CtrlType
+		where PortalID = @PortalID
+		 and SettingName = @SettingName
+		 and Lang = @Lang 
+	end
+
+-- update groupref to all records
+		Update {databaseOwner}[{objectQualifier}NB_Store_Settings]
+		set GroupRef = @GroupRef,
+		CtrlType = @CtrlType
+		where PortalID = @PortalID
+		 and SettingName = @SettingName
+
+END
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_GetList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_GetList]
+GO
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+
+CREATE     PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_GetList]
+@PortalID int,
+@Lang nchar(5),
+@IsHost bit,
+@SettingName nvarchar(50)
+
+AS
+begin
+
+if @IsHost=1
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SettingsText] 
+where PortalID = @PortalID
+ and (Lang = @Lang or Lang = 'None' or @Lang= '')
+	and (SettingName = @SettingName or @SettingName='')
+order by settingname
+end
+else
+begin
+	select * from {databaseOwner}[{objectQualifier}NB_Store_SettingsText] 
+where PortalID = @PortalID
+	and HostOnly = 0 
+ and (Lang = @Lang or Lang = 'None' or @Lang= '')
+	and (SettingName = @SettingName or @SettingName='')
+order by settingname
+end 
+
+end
+
+
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_Update]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_Update]
+GO
+
+
+
+
+
+
+/*
+Author: DCL
+Last Modified for NB_Store version: 02.01.00
+*/
+
+CREATE   PROCEDURE {databaseOwner}[{objectQualifier}NEvoweb_NB_Store_SettingsText_Update]
+(
+@PortalID int,
+@SettingName nvarchar(50),
+@Lang nchar(5),
+@SettingText ntext,
+@HostOnly bit,
+@GroupRef nvarchar(50),
+@CtrlType nvarchar(50)
+
+)
+AS
+BEGIN
+
+	if not exists (select PortalID,SettingName,Lang from {databaseOwner}[{objectQualifier}NB_Store_SettingsText] where PortalID = @PortalID
+ and SettingName = @SettingName
+ and Lang = @Lang
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SettingsText]
+		(
+PortalID,
+SettingName,
+Lang,
+SettingText,
+		HostOnly,
+		GroupRef,
+		CtrlType
+
+		)
+		values
+		(
+@PortalID,
+@SettingName,
+@Lang,
+@SettingText,
+		@HostOnly,
+		@GroupRef,
+		@CtrlType
+
+		)
+
+-- If not default record exists then create it
+	if not exists (select PortalID,SettingName,Lang from {databaseOwner}[{objectQualifier}NB_Store_SettingsText] where PortalID = @PortalID
+ and SettingName = @SettingName
+ and Lang = 'None'
+ )
+	begin
+		insert into {databaseOwner}[{objectQualifier}NB_Store_SettingsText]
+		(
+PortalID,
+SettingName,
+Lang,
+SettingText,
+		HostOnly,
+		GroupRef,
+		CtrlType
+
+		)
+		values
+		(
+@PortalID,
+@SettingName,
+'None',
+@SettingText,
+		@HostOnly,
+		@GroupRef,
+		@CtrlType
+
+		)
+end
+
+	end
+	else
+	begin
+		Update {databaseOwner}[{objectQualifier}NB_Store_SettingsText]
+		set 
+		SettingText = @SettingText,
+		HostOnly = @HostOnly,
+		GroupRef = @GroupRef,
+		CtrlType = @CtrlType
+		where PortalID = @PortalID
+ and SettingName = @SettingName
+ and Lang = @Lang
+ 
+	end
+
+-- update groupref to all records
+		Update {databaseOwner}[{objectQualifier}NB_Store_SettingsText]
+		set GroupRef = @GroupRef,
+		CtrlType = @CtrlType
+		where PortalID = @PortalID
+		 and SettingName = @SettingName
+
+END
+
+
+
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+
+
+
+/************************************************************/
+/*****    Update data for upgrade                       *****/
+/************************************************************/
+
+update {databaseOwner}{objectQualifier}NB_Store_Model
+set DealerOnly = 'False'
+where DealerOnly is null
+
+/************************************************************/
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/catalogue/products','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'buybutton.text' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_SettingsText (PortalID,SettingName,Lang,SettingText,HostOnly,GroupRef,CtrlType)
+select PortalID,SettingName,Lang,SettingValue,HostOnly,'root/catalogue/products','' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'zeroprice.text' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'buybutton.text' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'zeroprice.text' 
+
+/************************************************************/
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'encapsulated.provider' 
+
+insert into {databaseOwner}{objectQualifier}NB_Store_Settings (PortalID,SettingName,Lang,SettingValue,HostOnly,GroupRef,CtrlType)
+select PortalID,'encapsulated.provider',Lang,SettingValue,HostOnly,'root/payment/gateways','TextBox' from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'cheque.provider' 
+
+delete from {databaseOwner}{objectQualifier}NB_Store_Settings
+where settingname = 'cheque.provider' 
+
+/************************************************************/
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='TextBox' where settingname = 'admincss.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'administrator.email'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='TextBox' where settingname = 'adminjs.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='TextBox' where settingname = 'adminproduct.pagesize'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='TextBox' where settingname = 'adminproduct.thumbsize'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='MultiLineTextBox' where settingname = 'adminsettings.groups'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='TextBox' where settingname = 'adminstartup.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='MultiLineTextBox' where settingname = 'admintemplates.groups'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='Boolean' where settingname = 'allowmultidiscount.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/categories', ctrltype='TextBox' where settingname = 'categorymenucss.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/categories', ctrltype='TextBox' where settingname = 'categorymenujs.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/categories', ctrltype='TextBox' where settingname = 'categorymenustartupjs.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'chqpayment.emailsubject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'cookiecart.expire'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/shipping', ctrltype='TextBox' where settingname = 'country.list'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='TextBox' where settingname = 'currency.culture'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/misc', ctrltype='Boolean' where settingname = 'debug.mode'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='TextBox' where settingname = 'encapsulated.provider'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='MultiLineTextBox' where settingname = 'encapsulatedproviders.xml'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='TextBox' where settingname = 'err404.url'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='TextBox' where settingname = 'exempttax.list'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/data', ctrltype='TextBox' where settingname = 'fielddelimeter.importmapping'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/data', ctrltype='TextBox' where settingname = 'fieldescapedqualifier.importmapping'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/data', ctrltype='TextBox' where settingname = 'fieldqualifier.importmapping'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/misc', ctrltype='Boolean' where settingname = 'filesystemtemplates.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='TextBox' where settingname = 'gateway.loadimage'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='TextBox' where settingname = 'gateway.provider'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='TextBox' where settingname = 'gatewayexpiremins'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='MultiLineTextBox' where settingname = 'gatewayproviders.xml'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/images', ctrltype='TextBox' where settingname = 'image.quality'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/images', ctrltype='TextBox' where settingname = 'image.resize'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/images', ctrltype='TextBox' where settingname = 'lightboxgallerytemplate.name'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/images', ctrltype='TextBox' where settingname = 'lightboxtemplate.name'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='Boolean' where settingname = 'lockstockoncart'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'manager.role'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'managerlite.role'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='TextBox' where settingname = 'merchant.culture'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'merchant.email'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='TextBox' where settingname = 'minimumcarttotal.limit'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/shipping', ctrltype='TextBox' where settingname = 'ordershipdate.days'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'ordershipped.emailsubject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'ordersreport.subject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/reports', ctrltype='TextBox' where settingname = 'ordersreport.xsl'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'ordervalidated.emailsubject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'paymentOK.emailsubject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'paymentunverified.emailsubject'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='MultiLineTextBox' where settingname = 'PayPal.gateway'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'product.limit'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='Boolean' where settingname = 'productlinksoncart.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='TextBox' where settingname = 'productlistcss.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='TextBox' where settingname = 'productlistjs.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='TextBox' where settingname = 'productliststartupjs.includes'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'productlite.limit'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/pricing', ctrltype='TextBox' where settingname = 'productqty.limit'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'promo.roles'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'purgecartmins'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/security', ctrltype='TextBox' where settingname = 'purgeordermins'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/gateways', ctrltype='MultiLineTextBox' where settingname = 'PxPay.gateway'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/data', ctrltype='TextBox' where settingname = 'rowdelimeter.importmapping'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/reports', ctrltype='TextBox' where settingname = 'salerates.lastday'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='Boolean' where settingname = 'searchdescription.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/misc', ctrltype='Boolean' where settingname = 'settings.overwrite'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/shipping', ctrltype='TextBox' where settingname = 'shipcountrycode.default'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/payment/shipping', ctrltype='TextBox' where settingname = 'shipfree.list'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/notifications', ctrltype='TextBox' where settingname = 'store.email'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/backoffice', ctrltype='Boolean' where settingname = 'textboxedit.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/catalogue/products', ctrltype='TextBox' where settingname = 'urlname.column'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/misc', ctrltype='Boolean' where settingname = 'usednnjquery.flag'
+update {databaseOwner}{objectQualifier}NB_Store_Settings set groupref = 'root/system/misc', ctrltype='TextBox' where settingname = 'version'
+
+
+/************************************************************/
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/backoffice', ctrltype='' where settingname = 'adminjqtabs.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/backoffice', ctrltype='' where settingname = 'adminproductalt.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/backoffice', ctrltype='' where settingname = 'adminproductitem.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'backoffice.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'buybutton.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/data', ctrltype='' where settingname = 'categoryCSV.ImportMapping'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'chqpayment.email'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/checkout', ctrltype='' where settingname = 'chqpayment.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'courierpost.tracktemplate'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'dashboard.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/checkout', ctrltype='' where settingname = 'emptycart.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/checkout', ctrltype='' where settingname = 'extradetail.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/gateways', ctrltype='' where settingname = 'gatewaymsg.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/backoffice', ctrltype='' where settingname = 'jqadmintreeview.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/backoffice', ctrltype='' where settingname = 'jqtabs.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/categories', ctrltype='' where settingname = 'jqtreeview.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/categories', ctrltype='' where settingname = 'jqueryaccordion.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'jquerylightbox.code'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'jquerylightbox.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'jquerylightboxgallery.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/security', ctrltype='' where settingname = 'logintext.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/cart', ctrltype='' where settingname = 'minicart.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/cart', ctrltype='' where settingname = 'minicartempty.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/checkout', ctrltype='' where settingname = 'minimumcarttotal.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'modeltable.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'modeltablerow.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'nextday.shiptemplate'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'noimage.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'noimagegallery.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'nosearchresult.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'nowishlist.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'order.email.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'order.text.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'orderprint.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'ordershipped.email'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'ordervalidated.email'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'orderview.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentFAIL.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentinprocess.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentOK.email'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentOK.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentSECURITY.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/notifications', ctrltype='' where settingname = 'paymentunverified.email'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/data', ctrltype='' where settingname = 'productCSV.ImportMapping'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productdetail.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productdetail2.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productlimit.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productlist.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productlist2.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'productxmldata.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/products', ctrltype='' where settingname = 'relatedproducts.xsl'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/system/data', ctrltype='' where settingname = 'replaceCSV.ImportMapping'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/catalogue/images', ctrltype='' where settingname = 'soldoutimg.template'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'specialshipping.text'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'standard.shiptemplate'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/shipping', ctrltype='' where settingname = 'ups.tracktemplate'
+update {databaseOwner}{objectQualifier}NB_Store_SettingsText set groupref = 'root/payment/pricing', ctrltype='' where settingname = 'zeroprice.text'
+
+/************************************************************/
+/* Delete settings that must be overwritten */
+
+Delete {databaseOwner}{objectQualifier}NB_Store_SettingsText where settingname = 'backoffice.text'
+Delete {databaseOwner}{objectQualifier}NB_Store_SettingsText where settingname = 'adminjqtabs.code'
+Delete {databaseOwner}{objectQualifier}NB_Store_SettingsText where settingname = 'adminproductalt.template'
+Delete {databaseOwner}{objectQualifier}NB_Store_SettingsText where settingname = 'adminproductitem.template'
+Delete {databaseOwner}{objectQualifier}NB_Store_SettingsText where settingname = 'jqadmintreeview.code'
+
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'admincss.includes'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'adminjs.includes'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'adminproduct.pagesize'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'adminproduct.thumbsize'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'adminsettings.groups'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'adminstartup.includes'
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'admintemplates.groups'
+
+Delete {databaseOwner}{objectQualifier}NB_Store_Settings  where settingname = 'usednnjquery.flag'
+
+/************************************************************/

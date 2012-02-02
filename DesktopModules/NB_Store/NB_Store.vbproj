@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{981AF709-BC75-4D90-84B0-34B66F5ED2A6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>NEvoweb.DNN.Modules.NB_Store</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>NEvoweb.DNN.Modules.NB_Store.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <WarningsAsErrors>41998,42004,42020,42021,42022,42024,42026,42029,42030,42031,42099,42104,42108,42109</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>NEvoweb.DNN.Modules.NB_Store.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <WarningsAsErrors>41998,42004,42020,42021,42022,42024,42026,42029,42030,42031,42099,42104,42108,42109</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetNuke, Version=5.2.3.74, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\DNN_Ref\DNN5\DotNetNuke.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DotNetNuke.WebUtility, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\DotNetNuke.WebUtility.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SharpZipLib, Version=0.81.0.1407, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Bin\SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="DotNetNuke" />
+    <Import Include="DotNetNuke.Common" />
+    <Import Include="DotNetNuke.Common.Utilities" />
+    <Import Include="DotNetNuke.Data" />
+    <Import Include="DotNetNuke.Entities" />
+    <Import Include="DotNetNuke.Entities.Tabs" />
+    <Import Include="DotNetNuke.Framework" />
+    <Import Include="DotNetNuke.Modules" />
+    <Import Include="DotNetNuke.Security" />
+    <Import Include="DotNetNuke.Services" />
+    <Import Include="DotNetNuke.Services.Exceptions" />
+    <Import Include="DotNetNuke.Services.Localization" />
+    <Import Include="DotNetNuke.UI" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.ascx.designer.vb">
+      <DependentUpon>Address.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Address.ascx.vb">
+      <DependentUpon>Address.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminBackup.ascx.designer.vb">
+      <DependentUpon>AdminBackup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminBackup.ascx.vb">
+      <DependentUpon>AdminBackup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCategories.ascx.designer.vb">
+      <DependentUpon>AdminCategories.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminClients.ascx.designer.vb">
+      <DependentUpon>AdminClients.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminClients.ascx.vb">
+      <DependentUpon>AdminClients.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductDetail.ascx.designer.vb">
+      <DependentUpon>AdminProductDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductDetail.ascx.vb">
+      <DependentUpon>AdminProductDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductDoc.ascx.designer.vb">
+      <DependentUpon>AdminProductDoc.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductDoc.ascx.vb">
+      <DependentUpon>AdminProductDoc.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductImage.ascx.designer.vb">
+      <DependentUpon>AdminProductImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductImage.ascx.vb">
+      <DependentUpon>AdminProductImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProductList.ascx.designer.vb">
+      <DependentUpon>AdminProductList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProductList.ascx.vb">
+      <DependentUpon>AdminProductList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminOrders.ascx.designer.vb">
+      <DependentUpon>AdminOrders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrders.ascx.vb">
+      <DependentUpon>AdminOrders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProduct.ascx.designer.vb">
+      <DependentUpon>AdminProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProduct.ascx.vb">
+      <DependentUpon>AdminProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPromo.ascx.designer.vb">
+      <DependentUpon>AdminPromo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPromo.ascx.vb">
+      <DependentUpon>AdminPromo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReport.ascx.designer.vb">
+      <DependentUpon>AdminReport.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReport.ascx.vb">
+      <DependentUpon>AdminReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReportEdit.ascx.designer.vb">
+      <DependentUpon>AdminReportEdit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportEdit.ascx.vb">
+      <DependentUpon>AdminReportEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReportList.ascx.designer.vb">
+      <DependentUpon>AdminReportList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportList.ascx.vb">
+      <DependentUpon>AdminReportList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReportPopup.ascx.designer.vb">
+      <DependentUpon>AdminReportPopup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReportPopup.ascx.vb">
+      <DependentUpon>AdminReportPopup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminShipMethod.ascx.designer.vb">
+      <DependentUpon>AdminShipMethod.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminShipMethod.ascx.vb">
+      <DependentUpon>AdminShipMethod.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminStock.ascx.designer.vb">
+      <DependentUpon>AdminStock.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminStock.ascx.vb">
+      <DependentUpon>AdminStock.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CartList.ascx.designer.vb">
+      <DependentUpon>CartList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CartList.ascx.vb">
+      <DependentUpon>CartList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryMenu.ascx.designer.vb">
+      <DependentUpon>CategoryMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryMenu.ascx.vb">
+      <DependentUpon>CategoryMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryMenuSettings.ascx.designer.vb">
+      <DependentUpon>CategoryMenuSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryMenuSettings.ascx.vb">
+      <DependentUpon>CategoryMenuSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut.ascx.designer.vb">
+      <DependentUpon>CheckOut.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut.ascx.vb">
+      <DependentUpon>CheckOut.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOutSettings.ascx.designer.vb">
+      <DependentUpon>CheckOutSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOutSettings.ascx.vb">
+      <DependentUpon>CheckOutSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clients.ascx.designer.vb">
+      <DependentUpon>Clients.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.ascx.vb">
+      <DependentUpon>Clients.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\BusinessLevel\CartController.vb" />
+    <Compile Include="Components\BusinessLevel\ClientController.vb" />
+    <Compile Include="Components\BusinessLevel\OrderController.vb" />
+    <Compile Include="Components\BusinessLevel\PromoController.vb" />
+    <Compile Include="Components\BusinessLevel\ShipController.vb" />
+    <Compile Include="Components\BusinessLevel\SQLReportController.vb" />
+    <Compile Include="Components\BusinessLevel\TaxController.vb" />
+    <Compile Include="Components\General\BaseAdminModule.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\BaseDisplayTemplate.vb" />
+    <Compile Include="Components\General\BaseModule.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\BaseModuleSettings.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\CategoryArrayList.vb" />
+    <Compile Include="Components\General\BaseAdminModal.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\BaseAdmin.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\FormTemplateBuilder.vb">
+    </Compile>
+    <Compile Include="Components\General\GatewayWrapper.vb" />
+    <Compile Include="Components\General\CountryLists.vb" />
+    <Compile Include="Components\General\ImportCSV.vb" />
+    <Compile Include="Components\General\CurrentCart.vb" />
+    <Compile Include="Components\General\Export.vb" />
+    <Compile Include="Components\General\BasePortController.vb" />
+    <Compile Include="Components\General\GenXMLTemplate.vb" />
+    <Compile Include="Components\General\Import.vb" />
+    <Compile Include="Components\General\LogText.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\General\ManagerMenuController.vb" />
+    <Compile Include="Components\General\PlugIn.vb" />
+    <Compile Include="Components\General\ProductListController.vb" />
+    <Compile Include="Components\General\ProductTemplate.vb" />
+    <Compile Include="AdminSettings.ascx.designer.vb">
+      <DependentUpon>AdminSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings.ascx.vb">
+      <DependentUpon>AdminSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\RelatedProducts.vb" />
+    <Compile Include="Components\General\RemotePost.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\General\RequestFormWrapper.vb" />
+    <Compile Include="Components\General\StoreScheduler.vb" />
+    <Compile Include="Components\General\ThumbFunctions.vb" />
+    <Compile Include="Components\General\TokenStoreReplace.vb" />
+    <Compile Include="Components\General\TokenTest.vb" />
+    <Compile Include="Components\General\Upgrade.vb" />
+    <Compile Include="Components\General\WishList.vb" />
+    <Compile Include="Components\General\GenXMLReplace.vb" />
+    <Compile Include="Components\Interfaces\ChequeInterface.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Interfaces\CalcCartInterface.vb" />
+    <Compile Include="Components\Interfaces\CalcShipInterface.vb" />
+    <Compile Include="Components\Interfaces\CalcTaxInterface.vb" />
+    <Compile Include="Components\Interfaces\CalcDiscountInterface.vb" />
+    <Compile Include="Components\Interfaces\CalcExtraInterface.vb" />
+    <Compile Include="Components\Interfaces\TokenExtraInterface.vb" />
+    <Compile Include="Components\Interfaces\TagExtraInterface.vb" />
+    <Compile Include="Components\Interfaces\OptionInterface.vb" />
+    <Compile Include="Components\Interfaces\EventInterface.vb" />
+    <Compile Include="Components\Interfaces\GatewayInterface.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Interfaces\InternalUpdateInterface.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="controls\AdminMenu.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHost.ascx.designer.vb">
+      <DependentUpon>AdminHost.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHost.ascx.vb">
+      <DependentUpon>AdminHost.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.ascx.designer.vb">
+      <DependentUpon>AdminDashboard.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.ascx.vb">
+      <DependentUpon>AdminDashboard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\AdminPagingControl.vb" />
+    <Compile Include="controls\CustomForm.ascx.designer.vb">
+      <DependentUpon>CustomForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\CustomForm.ascx.vb">
+      <DependentUpon>CustomForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\DateEditControl.vb" />
+    <Compile Include="controls\GenTextEditor.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\SelectLang.ascx.designer.vb">
+      <DependentUpon>SelectLang.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\SelectLang.ascx.vb">
+      <DependentUpon>SelectLang.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\ShowSelectLang.ascx.designer.vb">
+      <DependentUpon>ShowSelectLang.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\ShowSelectLang.ascx.vb">
+      <DependentUpon>ShowSelectLang.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileProvider.aspx.vb" />
+    <Compile Include="TextProvider.aspx.vb" />
+    <Compile Include="MiniCartSettings.ascx.designer.vb">
+      <DependentUpon>MiniCartSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MiniCartSettings.ascx.vb">
+      <DependentUpon>MiniCartSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductListOptions.ascx.designer.vb">
+      <DependentUpon>ProductListOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductListOptions.ascx.vb">
+      <DependentUpon>ProductListOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="PrintOrder.ascx.designer.vb">
+      <DependentUpon>PrintOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintOrder.ascx.vb">
+      <DependentUpon>PrintOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductList.ascx.designer.vb">
+      <DependentUpon>ProductList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.ascx.vb">
+      <DependentUpon>ProductList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\BusinessLevel\CategoryController.vb" />
+    <Compile Include="Components\General\FileObj.vb" />
+    <Compile Include="Components\General\ImgReSize.vb" />
+    <Compile Include="Components\BusinessLevel\ProductController.vb" />
+    <Compile Include="Components\BusinessLevel\SettingsController.vb" />
+    <Compile Include="Components\General\SharedFunctions.vb" />
+    <Compile Include="Components\DataLevel\DataProvider.vb" />
+    <Compile Include="Components\DataLevel\ClassesInfo.vb" />
+    <Compile Include="Components\DataLevel\SqlDataProvider.vb" />
+    <Compile Include="AdminCategories.ascx.vb">
+      <DependentUpon>AdminCategories.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MakeThumbnail.aspx.vb" />
+    <Compile Include="ProductListSettings.ascx.designer.vb">
+      <DependentUpon>ProductListSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductListSettings.ascx.vb">
+      <DependentUpon>ProductListSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductSearch.ascx.designer.vb">
+      <DependentUpon>ProductSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSearch.ascx.vb">
+      <DependentUpon>ProductSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductSearchSettings.ascx.designer.vb">
+      <DependentUpon>ProductSearchSettings.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSearchSettings.ascx.vb">
+      <DependentUpon>ProductSearchSettings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemotePost.ascx.designer.vb">
+      <DependentUpon>RemotePost.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RemotePost.ascx.vb">
+      <DependentUpon>RemotePost.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuManager.ascx.designer.vb">
+      <DependentUpon>MenuManager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuManager.ascx.vb">
+      <DependentUpon>MenuManager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShipRates.ascx.designer.vb">
+      <DependentUpon>ShipRates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ShipRates.ascx.vb">
+      <DependentUpon>ShipRates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaxRates.ascx.designer.vb">
+      <DependentUpon>TaxRates.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TaxRates.ascx.vb">
+      <DependentUpon>TaxRates.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiniCart.ascx.designer.vb">
+      <DependentUpon>MiniCart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MiniCart.ascx.vb">
+      <DependentUpon>MiniCart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="XMLProvider.aspx.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_LocalResources\AdminCategories.ascx.resx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_LocalResources\Settings.ascx.resx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_LocalResources\MenuManager.ascx.resx">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="FileProvider.ashx" />
+    <Content Include="TextProvider.ashx" />
+    <Content Include="XMLProvider.ashx" />
+    <Content Include="MakeThumbnail.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\Documentation.css" />
+    <Content Include="Documentation\Documentation.html" />
+    <Content Include="Documentation\logo.gif" />
+    <Content Include="AdminCategories.ascx" />
+    <Content Include="MenuManager.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminProduct.ascx" />
+    <Content Include="App_LocalResources\AdminTemplates.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AdminProduct.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProductList.ascx" />
+    <Content Include="ProductListSettings.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ProductListSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ProductList.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CartList.ascx" />
+    <Content Include="CheckOut.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Address.ascx" />
+    <Content Include="App_LocalResources\CheckOut.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="AdminSettings.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AdminSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CheckOutSettings.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\CheckOutSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="gatewayproviders.xml" />
+    <Content Include="ShipRates.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\ShipRates.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TaxRates.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminClients.ascx" />
+    <Content Include="App_LocalResources\TaxRates.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Clients.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminOrders.ascx" />
+    <Content Include="App_LocalResources\AdminClients.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminStock.ascx" />
+    <Content Include="App_LocalResources\AdminOrders.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="PrintOrder.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\AdminStock.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CategoryMenu.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\CategoryMenu.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CategoryMenuSettings.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminProductDetail.ascx" />
+    <Content Include="AdminProductImage.ascx" />
+    <Content Include="AdminProductList.ascx" />
+    <Content Include="App_LocalResources\CategoryMenuSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="chequeproviders.xml" />
+    <Content Include="MiniCart.ascx" />
+    <Content Include="RemotePost.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminBackup.ascx" />
+    <Content Include="AdminProductDoc.ascx" />
+    <Content Include="AdminPromo.ascx" />
+    <Content Include="AdminReport.ascx" />
+    <Content Include="AdminReportEdit.ascx" />
+    <Content Include="AdminReportList.ascx" />
+    <Content Include="AdminReportPopup.ascx" />
+    <Content Include="AdminShipMethod.ascx" />
+    <Content Include="App_LocalResources\AdminProductDetail.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminProductList.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminProductImage.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminProductLite.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminBackup.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="AdminHost.ascx" />
+    <Content Include="AdminDashboard.ascx" />
+    <Content Include="controls\CustomForm.ascx" />
+    <Content Include="controls\SelectLang.ascx" />
+    <Content Include="controls\ShowSelectLang.ascx" />
+    <Content Include="MiniCartSettings.ascx" />
+    <EmbeddedResource Include="noimage.png" />
+    <Content Include="ProductListOptions.ascx" />
+    <Content Include="Documentation\History.html" />
+    <Content Include="module.css" />
+    <Content Include="ProductSearch.ascx" />
+    <Content Include="ProductSearchSettings.ascx" />
+    <Content Include="App_LocalResources\ProductSearch.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ProductSearchSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminProductDoc.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminHost.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\MainMenu.xml" />
+    <Content Include="App_LocalResources\AdminShipMethod.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminPromo.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\ProductListOptions.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminReportList.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminReportEdit.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminReport.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\AdminReportPopup.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\NB_StoreGlobal.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\MiniCartSettings.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\MiniCart.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="Components\General\LogText.resx">
+      <DependentUpon>LogText.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetFileName)" "..\..\..\bin\$(TargetFileName)"
+copy "$(AssemblyName).pdb" "..\..\..\bin\$(AssemblyName).pdb"
+
+</PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3944</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

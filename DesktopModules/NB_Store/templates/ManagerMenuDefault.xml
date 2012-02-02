@@ -1,0 +1,2521 @@
+﻿<content type="NB_Store_BackOffice" version="02.03.01">
+<storecontent>
+<settings>
+<admincss.includes Lang="None" CtrlType="TextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[]]></admincss.includes>
+<administrator.email Lang="None" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="True"><![CDATA[support@mywebsite.com]]></administrator.email>
+<adminjs.includes Lang="None" CtrlType="TextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[jquery.cookie.js,jquery.treeview.min.js,jquery.nbstoreadmin.js]]></adminjs.includes>
+<adminproduct.pagesize Lang="None" CtrlType="TextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[32]]></adminproduct.pagesize>
+<adminproduct.thumbsize Lang="None" CtrlType="TextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[60]]></adminproduct.thumbsize>
+<adminsettings.groups Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[<root>
+  <notifications text="Notifications"/>
+  <payment text="Payment">
+   <pricing text="Pricing"/>
+   <shipping text="Shipping"/>
+   <gateways text="Gateways"/>
+  </payment>
+  <catalogue text="Catalogue">
+   <images text="Images"/>
+   <products text="Products"/>
+   <categories text="Categories"/>
+  </catalogue>
+  <security text="Security"/>
+  <system text="System">
+   <backoffice text="Back Office"/>
+   <data text="Data Management"/>
+   <reports text="Reports"/>
+   <misc text="Misc"/>
+   <tabs text="Tabs"/>
+  </system>
+</root>]]>
+</adminsettings.groups>
+<adminstartup.includes Lang="None" CtrlType="TextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[jqadmintreeview.code]]></adminstartup.includes>
+<admintemplates.groups Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[<root>
+  <notifications text="Notifications"/>
+  <payment text="Payment">
+   <pricing text="Pricing"/>
+   <cart text="Cart"/>
+   <checkout text="Checkout"/>
+   <shipping text="Shipping"/>
+   <gateways text="Gateways"/>
+ </payment>
+  <catalogue text="Catalogue">
+   <images text="Images"/>
+   <products text="Products"/>
+   <categories text="Categories"/>
+  </catalogue>
+  <security text="Security"/>
+  <system text="System">
+   <backoffice text="Back Office"/>
+   <data text="Data Management"/>
+   <reports text="Reports"/>
+   <misc text="Misc"/>
+  </system>
+</root>]]>
+</admintemplates.groups>
+<allowcartmodellimit.flag Lang="None" CtrlType="Boolean" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[]]></allowcartmodellimit.flag>
+<allowmultidiscount.flag Lang="None" CtrlType="Boolean" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[0]]></allowmultidiscount.flag>
+<allowzerodealerprice.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[1]]></allowzerodealerprice.flag>
+<categorymenucss.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/categories" HostOnly="True"><![CDATA[jquery.treeview.css,jquery.accordion.css]]></categorymenucss.includes>
+<categorymenujs.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/categories" HostOnly="True"><![CDATA[jquery.treeview.min.js,jquery.accordion.js,jquery.dimensions.js]]></categorymenujs.includes>
+<categorymenustartupjs.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/categories" HostOnly="True"><![CDATA[jqtreeview.code,jqueryaccordion.code]]></categorymenustartupjs.includes>
+<categorypurchase.list Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[]]></categorypurchase.list>
+<checkout.tab Lang="None" CtrlType="WebsiteTab" GroupRef="root/system/tabs" HostOnly="True"><![CDATA[]]></checkout.tab>
+<cookiecart.expire Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[]]></cookiecart.expire>
+<country.list Lang="None" CtrlType="TextBox" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[]]></country.list>
+<createsearchstats.flag Lang="None" CtrlType="Boolean" GroupRef="root/system/reports" HostOnly="True"><![CDATA[0]]></createsearchstats.flag>
+<currency.culture Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[en-US]]></currency.culture>
+<currencyconvertertab.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></currencyconvertertab.flag>
+<currencyisocode.convert Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="False"><![CDATA[EUR]]></currencyisocode.convert>
+<customer.role Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[Registered Users]]></customer.role>
+<datedisplay.format Lang="None" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="True"><![CDATA[]]></datedisplay.format>
+<dealer.role Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[Dealer]]></dealer.role>
+<debug.mode Lang="None" CtrlType="Boolean" GroupRef="root/system/misc" HostOnly="True"><![CDATA[0]]></debug.mode>
+<disablecart.flag Lang="None" CtrlType="Boolean" GroupRef="root/payment/pricing" HostOnly="False"><![CDATA[0]]></disablecart.flag>
+<disableprices.flag Lang="None" CtrlType="Boolean" GroupRef="root/payment/pricing" HostOnly="False"><![CDATA[0]]></disableprices.flag>
+<diskthumbnails.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[0]]></diskthumbnails.flag>
+<diskthumbnails.size Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[140,300,40,60]]></diskthumbnails.size>
+<downloadableproducts.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></downloadableproducts.flag>
+<encapsulated.image Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[]]></encapsulated.image>
+<encapsulated.provider Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[NEvoweb.DNN.Modules.NB_Store.GatewayCheque,NEvoWeb.Modules.NB_Store.Gateway.GatewayCheque]]></encapsulated.provider>
+<encapsulated.text Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[]]></encapsulated.text>
+<encapsulatedproviders.xml Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <gateways>  
+  <gateway ref="standard">
+    <name>Standard</name>
+    <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayCheque</assembly>
+    <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayCheque</class>
+  </gateway>
+  </gateways>
+</root>]]>
+</encapsulatedproviders.xml>
+<err404.url Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[]]></err404.url>
+<feeder.settings Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA[]]></feeder.settings>
+<fielddelimeter.importmapping Lang="None" CtrlType="TextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA[,]]></fielddelimeter.importmapping>
+<fieldescapedqualifier.importmapping Lang="None" CtrlType="TextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA[""]]></fieldescapedqualifier.importmapping>
+<fieldqualifier.importmapping Lang="None" CtrlType="TextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA["]]></fieldqualifier.importmapping>
+<filesystemtemplates.flag Lang="None" CtrlType="Boolean" GroupRef="root/system/misc" HostOnly="True"><![CDATA[0]]></filesystemtemplates.flag>
+<fileupload.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></fileupload.flag>
+<gateway.loadimage Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[/images/progressbar.gif]]></gateway.loadimage>
+<gateway.provider Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[NEvoweb.DNN.Modules.NB_Store.GatewayPayPal,NEvoWeb.Modules.NB_Store.Gateway.GatewayPayPal]]></gateway.provider>
+<gatewayexpiremins Lang="None" CtrlType="TextBox" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[]]></gatewayexpiremins>
+<gatewayproviders.xml Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/payment/gateways" HostOnly="True">
+<![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <gateways>  
+    <gateway ref="Paypal">
+      <name>Paypal</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayPayPal</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayPayPal</class>
+    </gateway>
+    <gateway ref="PxPay">
+      <name>PxPay</name>
+      <assembly>NEvoweb.DNN.Modules.NB_Store.GatewayPxPay</assembly>
+      <class>NEvoWeb.Modules.NB_Store.Gateway.GatewayPxPay</class>
+    </gateway>
+  </gateways>
+</root>]]>
+</gatewayproviders.xml>
+<image.quality Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[85]]></image.quality>
+<image.resize Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[640]]></image.resize>
+<jqtabs.code Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[<script language='javascript' type='text/javascript'>  jQuery(document).ready(function(){
+jQuery('#tabs').tabs({ cookie: { expires: 30 } });
+});
+</script>]]>
+</jqtabs.code>
+<lightboxgallerytemplate.name Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[jquerylightboxgallery.template]]></lightboxgallerytemplate.name>
+<lightboxtemplate.name Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[jquerylightbox.template]]></lightboxtemplate.name>
+<lockstockoncart Lang="None" CtrlType="Boolean" GroupRef="root/security" HostOnly="True"><![CDATA[0]]></lockstockoncart>
+<manager.role Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[Manager]]></manager.role>
+<editor.role Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[Sales]]></editor.role>
+<merchant.culture Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[en-US]]></merchant.culture>
+<merchant.email Lang="None" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="False"><![CDATA[sales@mywebsite.com]]></merchant.email>
+<messagefield.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></messagefield.flag>
+<minimumcarttotal.limit Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[]]></minimumcarttotal.limit>
+<modelselector.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></modelselector.flag>
+<modelstable.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[1]]></modelstable.flag>
+<orderedit.flag Lang="None" CtrlType="Boolean" GroupRef="root/security" HostOnly="True"><![CDATA[1]]></orderedit.flag>
+<ordereditclient.flag Lang="None" CtrlType="Boolean" GroupRef="root/security" HostOnly="True"><![CDATA[0]]></ordereditclient.flag>
+<orderedititems.flag Lang="None" CtrlType="Boolean" GroupRef="root/security" HostOnly="True"><![CDATA[1]]></orderedititems.flag>
+<ordereditprice.flag Lang="None" CtrlType="Boolean" GroupRef="root/security" HostOnly="True"><![CDATA[1]]></ordereditprice.flag>
+<ordershipdate.days Lang="None" CtrlType="TextBox" GroupRef="root/payment/shipping" HostOnly="False"><![CDATA[0]]></ordershipdate.days>
+<ordersreport.subject Lang="None" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="False"><![CDATA[Order Report]]></ordersreport.subject>
+<ordersreport.xsl Lang="None" CtrlType="TextBox" GroupRef="root/system/reports" HostOnly="True"><![CDATA[/Desktopmodules/NB_Store/ordersreport_en.xsl]]></ordersreport.xsl>
+<outofstockmodels.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[0]]></outofstockmodels.flag>
+<PayPal.gateway Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/payment/gateways" HostOnly="True">
+<![CDATA[<root>
+        <paymentURL>https://www.paypal.com/cgi-bin/webscr</paymentURL>
+        <verifyURL>https://www.paypal.com/cgi-bin/webscr</verifyURL>
+        <PayPalID>sales@mywebsite.com</PayPalID>
+        <CartName>mywebsite</CartName>
+        <ButtonImageURL>/DesktopModules/NB_Store/img/horizontal_solution_PPeCheck.gif</ButtonImageURL>
+        <Currency>USD</Currency>
+        <ReturnURL>http://www.mywebsite.com/tabid/(checkout-tabid-number)/stg/5/ordID/[ORDERID]/Default.aspx?PayPalExit=RETURN</ReturnURL>
+        <ReturnCancelURL>http://www.mywebsite.com/tabid/(checkout-tabid-number)/stg/5/ordID/[ORDERID]/Default.aspx?PayPalExit=CANCEL</ReturnCancelURL>
+        <ReturnNotifyURL>http://www.mywebsite.com/tabid/(checkout-tabid-number)/stg/4/Default.aspx</ReturnNotifyURL>
+        <MerchantLanguage>en</MerchantLanguage>
+        <paypalurl>
+          <cmd>_xclick</cmd>
+          <first_name>[BAddress:AddressName]</first_name>
+          <last_name>[BAddress:AddressName2]</last_name>
+          <address1>[BAddress:Address1]</address1>
+          <address2>[BAddress:Address2]</address2>
+          <city>[BAddress:City]</city>
+          <country>[BAddress:CountryCode]</country>
+          <zip>[BAddress:PostalCode]</zip>
+          <email>[Order:Email]</email>
+        </paypalurl>
+</root>]]>
+</PayPal.gateway>
+<product.limit Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[10000]]></product.limit>
+<productlinksoncart.flag Lang="None" CtrlType="Boolean" GroupRef="root/notifications" HostOnly="True"><![CDATA[0]]></productlinksoncart.flag>
+<productlistcss.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[jquery.lightbox-0.5.css,jquery-ui-1.8.11.nbstore.css]]></productlistcss.includes>
+<productlistjs.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[jquery.lightbox-0.5.min.js,jquery-ui-1.8.11.nbstore.min.js,jquery.cookie.js]]></productlistjs.includes>
+<productlistrows.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[0]]></productlistrows.flag>
+<productliststartupjs.includes Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[jquerylightbox.code,jqtabs.code]]></productliststartupjs.includes>
+<productlite.limit Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[30]]></productlite.limit>
+<productqty.limit Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[999]]></productqty.limit>
+<promo.roles Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[]]></promo.roles>
+<purgecartmins Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[10080]]></purgecartmins>
+<purgeordermins Lang="None" CtrlType="TextBox" GroupRef="root/security" HostOnly="True"><![CDATA[2880]]></purgeordermins>
+<PxPay.gateway Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/payment/gateways" HostOnly="True">
+<![CDATA[<root>
+        <paymentURL>https://sec.paymentexpress.com/pxpay/pxaccess.aspx</paymentURL>
+        <PaymentExpress.PxPay>https://sec.paymentexpress.com/pxpay/pxaccess.aspx</PaymentExpress.PxPay>
+        <PxPayUserId>(mywebsite-name)</PxPayUserId>
+        <PxPayKey>(my-pxpay-key)</PxPayKey>
+        <ButtonImageURL>/Desktopmodules/NB_Store_GatewayPxPay/pxpay.jpg</ButtonImageURL>
+        <ReturnURL>http://www.mywebsite.com/tabid/(checkout-tabid-number)/stg/5/PxPayExit/RETURN/Default.aspx</ReturnURL>
+        <ReturnCancelURL>http://www.mywebsite.com/tabid/(checkout-tabid-number)/stg/5/PxPayExit/CANCEL/Default.aspx</ReturnCancelURL>
+        <MerchantLanguage>en</MerchantLanguage>
+        <InputCurrency>NZD</InputCurrency>
+        <TxnType>Purchase</TxnType>
+        <MerchantReference>(mywebsite-Purchase)</MerchantReference>
+</root>]]>
+</PxPay.gateway>
+<rowdelimeter.importmapping Lang="None" CtrlType="TextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA[]]></rowdelimeter.importmapping>
+<salerates.lastday Lang="None" CtrlType="TextBox" GroupRef="root/system/reports" HostOnly="True"><![CDATA[18]]></salerates.lastday>
+<searchdescription.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[1]]></searchdescription.flag>
+<searchwordpurge.days Lang="None" CtrlType="Boolean" GroupRef="root/system/reports" HostOnly="True"><![CDATA[60]]></searchwordpurge.days>
+<shipcountrycode.default Lang="None" CtrlType="TextBox" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[]]></shipcountrycode.default>
+<shipfree.list Lang="None" CtrlType="TextBox" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[]]></shipfree.list>
+<showstock.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[1]]></showstock.flag>
+<soldoutimage.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[1]]></soldoutimage.flag>
+<specificationstab.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[0]]></specificationstab.flag>
+<stockpage.size Lang="None" CtrlType="TextBox" GroupRef="root/system/data" HostOnly="True"><![CDATA[25]]></stockpage.size>
+<store.email Lang="None" CtrlType="TextBox" GroupRef="root/notifications" HostOnly="False"><![CDATA[sales@mywebsite.com]]></store.email>
+<store.tab Lang="None" CtrlType="WebsiteTab" GroupRef="root/system/tabs" HostOnly="True"><![CDATA[]]></store.tab>
+<tabbedcontent.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[1]]></tabbedcontent.flag>
+<taxapplies.list Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[]]></taxapplies.list>
+<taxexempt.list Lang="None" CtrlType="TextBox" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[]]></taxexempt.list>
+<textboxedit.flag Lang="None" CtrlType="Boolean" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[1]]></textboxedit.flag>
+<urlname.column Lang="None" CtrlType="TextBox" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[SEOName]]></urlname.column>
+<usednnjquery.flag Lang="None" CtrlType="Boolean" GroupRef="root/system/misc" HostOnly="True"><![CDATA[0]]></usednnjquery.flag>
+<wishlist.flag Lang="None" CtrlType="Boolean" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[0]]></wishlist.flag>
+<wishlist.tab Lang="None" CtrlType="WebsiteTab" GroupRef="root/system/tabs" HostOnly="True"><![CDATA[]]></wishlist.tab>
+</settings>
+<settingstext>
+<adminproductalt.template Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True">
+<![CDATA[&lt;div class=&quot;NBright_ProductSelectAlt&quot;&gt;
+&lt;img src=&quot;[TAG:THUMBURL]&quot; style=&quot;padding: 5px;&quot;/&gt;&lt;br/&gt;
+[TAG:ADDRELATED:&lt;prop text=&quot;Select&quot; /&gt;]&lt;br/&gt;
+[TAG:PRODUCTNAME]&lt;/td&gt;
+&lt;/div&gt;]]>
+</adminproductalt.template>
+<adminproductitem.template Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True">
+<![CDATA[&lt;div class=&quot;NBright_ProductSelectItem&quot;&gt;
+&lt;img src=&quot;[TAG:THUMBURL]&quot; style=&quot;padding: 5px;&quot;/&gt;&lt;br/&gt;
+[TAG:ADDRELATED:&lt;prop text=&quot;Select&quot; /&gt;]&lt;br/&gt;
+[TAG:PRODUCTNAME]&lt;/td&gt;
+&lt;/div&gt;
+]]>
+</adminproductitem.template>
+<backoffice.text Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[]]></backoffice.text>
+<buybutton.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[Add to Basket]]></buybutton.text>
+<categoryCSV.ImportMapping Lang="None" CtrlType="" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;NB_Store_CategoriesInfo&gt;
+    &lt;CategoryID&gt;&lt;/CategoryID&gt;
+    &lt;PortalID&gt;&lt;/PortalID&gt;
+    &lt;Archived&gt;false&lt;/Archived&gt;
+    &lt;CreatedByUser&gt;-1&lt;/CreatedByUser&gt;
+    &lt;CreatedDate&gt;2009-09-10T17:03:51.47&lt;/CreatedDate&gt;
+    &lt;ParentCategoryID&gt;&lt;/ParentCategoryID&gt;
+    &lt;ListOrder&gt;1&lt;/ListOrder&gt;
+    &lt;Lang&gt;[LANG]&lt;/Lang&gt;
+    &lt;CategoryName&gt;[COL:7]&lt;/CategoryName&gt;
+    &lt;ParentName&gt;&lt;/ParentName&gt;
+    &lt;CategoryDesc&gt;&lt;/CategoryDesc&gt;
+    &lt;Message&gt;&lt;/Message&gt;
+    &lt;ProductCount&gt;0&lt;/ProductCount&gt;
+    &lt;ProductTemplate /&gt;
+    &lt;ListItemTemplate /&gt;
+    &lt;ListAltItemTemplate /&gt;
+&lt;/NB_Store_CategoriesInfo&gt;]]>
+</categoryCSV.ImportMapping>
+<checkoutaddress.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True">
+<![CDATA[&lt;table border=&quot;0&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; class=&quot;AddressCollector&quot;&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;First Name&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddressName&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;AddressName&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valAddressName&quot; ControlToValidate=&quot;txtAddressName&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Last Name&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddressName2&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;AddressName2&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valAddressName2&quot; ControlToValidate=&quot;txtAddressName2&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Company&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtCompanyName&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;CompanyName&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Unit&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddress1&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Address1&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Street&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtAddress2&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Address2&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valAddress2&quot; ControlToValidate=&quot;txtAddress2&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Town&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtCity&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;City&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valCity&quot; ControlToValidate=&quot;txtCity&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Region&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtRegion&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;RegionCode&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Post Code&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPostalCode&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;PostalCode&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;] *[&lt;tag id=&quot;valPostalCode&quot; ControlToValidate=&quot;txtPostalCode&quot; cssclass=&quot;NormalRed&quot; ctrltype=&quot;rfvalidator&quot; ErrorMessage=&quot;Required&quot; Text=&quot;&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Country&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;cboCountry&quot; cssclass=&quot;NormalTextBox Country&quot; databind=&quot;CountryCode&quot; type=&quot;dropdownlist&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Phone&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPhone1&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Phone1&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;Label&quot;&gt;Mobile&lt;/td&gt;
+		&lt;td class=&quot;Value&quot;&gt;[&lt;tag id=&quot;txtPhone2&quot; cssclass=&quot;NormalTextBox&quot; databind=&quot;Phone2&quot; maxlength=&quot;50&quot; type=&quot;textbox&quot; /&gt;]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]>
+</checkoutaddress.template>
+<chqpayment.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;ORDER&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;To pay by direct bank deposit, use these details:&lt;/p&gt;
+		[Template:merchantbank.template]&lt;br /&gt;
+		&lt;p&gt;To pay by cash or cheque, contact us here:&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		&lt;p&gt;We will deliver your order promptly upon receiving your payment.&lt;/p&gt;
+		&lt;p&gt;Thank you for your business!&lt;/p&gt;
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template]
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</chqpayment.email>
+<chqpayment.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Purchase Confirmation - [Order:OrderNumber]]]></chqpayment.emailsubject>
+<chqpayment.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;ORDER&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;p&gt;To pay by direct bank deposit, use these details:&lt;/p&gt;
+		[Template:merchantbank.template]&lt;br /&gt;
+		&lt;p&gt;To pay by cash or cheque, contact us here:&lt;/p&gt;
+		[Template:merchantaddress.template]&lt;br /&gt;
+		&lt;p&gt;These order details have been emailed to you at the address you provided 
+		during checkout. We will deliver your order promptly upon receiving your payment.&lt;/p&gt;
+		&lt;p&gt;Thank you for your business!&lt;/p&gt;
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.text.template]
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;]]>
+</chqpayment.text>
+<courierpost.tracktemplate Lang="None" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[&lt;a title=&quot;Click to trace this delivery&quot; href=&quot;http://(your-courier-company-tracking-page)/[TAG:TRACKINGCODE]&quot; target=&quot;_blank&quot; &gt;[TAG:TRACKINGCODE]&lt;/a&gt;]]></courierpost.tracktemplate>
+<dashboard.text Lang="None" CtrlType="" GroupRef="root/system/reports" HostOnly="True">
+<![CDATA[&lt;table width=&quot;100%&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;[Report:dash_getdate]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;[Report:dash_ordercount]&lt;/td&gt;
+      &lt;td&gt;[Report:dash_ordertotal]&lt;/td&gt;
+      &lt;td&gt;[Report:dash_productcount]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;NormalBold&quot; colspan=&quot;3&quot;&gt;Latest Orders 
+      &lt;br /&gt;[Report:dash_LatestOrders]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+]]>
+</dashboard.text>
+<detailheader.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[]]></detailheader.text>
+<detailrows.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;tr class=&quot;OrderDetailRow&quot;&gt;
+&lt;td&gt;&lt;a href=&quot;[Detail:ProductURL]&quot; target=&quot;_blank&quot;&gt;[Detail:ItemDesc]&lt;/a&gt;&amp;nbsp;[Detail:FileLink]&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;[Detail:UnitCost]&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;[Detail:Quantity]&lt;/td&gt;
+&lt;td  align=&quot;right&quot;&gt;[Detail:Total]&lt;/td&gt;
+&lt;/tr&gt;]]></detailrows.template>
+<disablecart.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[Purchasing is currently disabled.]]></disablecart.text>
+<editaddress.template Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True"><![CDATA[[Template:checkoutaddress.template]]]></editaddress.template>
+<emptycart.text Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;div style=&quot;padding:60px 0;text-align:center&quot;&gt;&lt;h3&gt;Your basket is empty&lt;/h3&gt;&lt;a href=&quot;/tabid/[Setting:store.tab]/Default.aspx&quot; &gt;Return to store&lt;/a&gt;&lt;/div&gt;]]></emptycart.text>
+<extradetail.text Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;p&gt;Special Instructions:&lt;/p&gt;]]></extradetail.text>
+<gateway.template Lang="None" CtrlType="" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[]]></gateway.template>
+<gatewaymsg.text Lang="None" CtrlType="" GroupRef="root/payment/gateways" HostOnly="False"><![CDATA[Pay by Credit Card]]></gatewaymsg.text>
+<gatewaysep.template Lang="None" CtrlType="" GroupRef="root/payment/gateways" HostOnly="True"><![CDATA[]]></gatewaysep.template>
+<goodrelations.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot; xmlns:gr=&quot;http://purl.org/goodrelations/v1#&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&gt;
+  &lt;div typeof=&quot;gr:Offering&quot; about=&quot;#offering&quot;&gt;
+    &lt;div rev=&quot;gr:offers&quot; resource=&quot;http://[TAG:WEBSITEURL]#company&quot;&gt;&lt;/div&gt;
+    &lt;div property=&quot;rdfs:label&quot; content=&quot;[TAG:PRODUCTNAME]&quot; &gt;&lt;/div&gt;
+    &lt;div property=&quot;rdfs:comment&quot; content=&quot;[TAG:SUMMARY]&quot; &gt;&lt;/div&gt;
+    &lt;div rel=&quot;foaf:depiction&quot; resource=&quot;[TAG:IMAGEURL]&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;gr:hasBusinessFunction&quot; resource=&quot;http://purl.org/goodrelations/v1#Sell&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;foaf:page&quot; resource=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]>
+</goodrelations.template>
+<goodrelations2.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot; xmlns:gr=&quot;http://purl.org/goodrelations/v1#&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;&gt;
+  &lt;div typeof=&quot;gr:Offering&quot; about=&quot;#offering&quot;&gt;
+    &lt;div rev=&quot;gr:offers&quot; resource=&quot;http://[TAG:WEBSITEURL]#company&quot;&gt;&lt;/div&gt;
+    &lt;div property=&quot;rdfs:label&quot; content=&quot;[TAG:PRODUCTNAME]&quot; xml:lang=&quot;nl&quot;&gt;&lt;/div&gt;
+    &lt;div property=&quot;rdfs:comment&quot; content=&quot;[TAG:SUMMARY]&quot; xml:lang=&quot;nl&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;foaf:depiction&quot; resource=&quot;[TAG:IMAGEURL]&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;gr:hasBusinessFunction&quot; resource=&quot;http://purl.org/goodrelations/v1#Sell&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;gr:hasPriceSpecification&quot;&gt;
+      &lt;div typeof=&quot;gr:UnitPriceSpecification&quot;&gt;
+        &lt;div property=&quot;gr:hasCurrency&quot; content=&quot;EUR&quot; datatype=&quot;xsd:string&quot;&gt;&lt;/div&gt;
+        &lt;div property=&quot;gr:hasCurrencyValue&quot; content=&quot;[TAG:FROMPRICE]&quot; datatype=&quot;xsd:float&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div rel=&quot;gr:acceptedPaymentMethods&quot; resource=&quot;http://purl.org/goodrelations/v1#PayPal&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;gr:acceptedPaymentMethods&quot; resource=&quot;http://purl.org/goodrelations/v1#ByBankTransferInAdvance&quot;&gt;&lt;/div&gt;
+    &lt;div rel=&quot;foaf:page&quot; resource=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]>
+</goodrelations2.template>
+<header.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[]]></header.text>
+<jqadmintreeview.code Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True">
+<![CDATA[&lt;script language='javascript' type='text/javascript'&gt; 
+jQuery(document).ready(function(){
+    jQuery('#AdminTreeMenu').treeview({animated:'fast', collapsed: true, persist: 'location'});
+}); 
+&lt;/script&gt;]]>
+</jqadmintreeview.code>
+<jqtabs.code Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/system/backoffice" HostOnly="True">
+<![CDATA[&lt;script language='javascript' type='text/javascript'&gt;   
+
+jQuery(document).ready(function(){
+    jQuery('#tabs').tabs({ cookie: { expires: 30 } });    
+});
+
+&lt;/script&gt;]]>
+</jqtabs.code>
+<jqtreeview.code Lang="None" CtrlType="" GroupRef="root/catalogue/categories" HostOnly="True">
+<![CDATA[&lt;script language='javascript' type='text/javascript'&gt; 
+jQuery(document).ready(function(){
+    jQuery('#NBStoreTreeMenu').treeview({animated:'fast', collapsed: true, persist: 'location'});
+}); 
+&lt;/script&gt;]]>
+</jqtreeview.code>
+<jqueryaccordion.code Lang="None" CtrlType="" GroupRef="root/catalogue/categories" HostOnly="True">
+<![CDATA[&lt;script language='javascript' type='text/javascript'&gt; 
+jQuery(document).ready(function(){
+    jQuery('#NBStoreAccordion').accordion({ active: false, header: '.nbstoremenuhead', autoheight: false, navigation: true, event: 'mouseover' }); 
+}); 
+&lt;/script&gt;
+
+]]>
+</jqueryaccordion.code>
+<jquerylightbox.code Lang="None" CtrlType="" GroupRef="root/catalogue/images" HostOnly="True">
+<![CDATA[jQuery(function() { 	jQuery('.jquerylightbox').lightBox(); }); ]]></jquerylightbox.code>
+<jquerylightbox.template Lang="None" CtrlType="" GroupRef="root/catalogue/images" HostOnly="True"><![CDATA[&lt;a title=&quot;[Product:ImageDesc]&quot; rel=&quot;GRP1&quot; class=&quot;jquerylightbox&quot; href=&quot;[Product:ImageURL]&quot;&gt;&lt;img class=&quot;Image&quot; alt=&quot;[Product:ImageDesc]&quot; src=&quot;[Product:ImageThumb]&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;]]></jquerylightbox.template>
+<jquerylightboxgallery.template Lang="None" CtrlType="" GroupRef="root/catalogue/images" HostOnly="True">
+<![CDATA[&lt;div class=&quot;GalleryOuter&quot;&gt;
+	&lt;div class=&quot;GalleryInner&quot;&gt;
+		&lt;a title=&quot;[Product:ImageDesc]&quot; rel=&quot;GRP1&quot; class=&quot;jquerylightbox&quot; href=&quot;[Product:ImageURL]&quot;&gt;
+		&lt;img class=&quot;Image&quot; alt=&quot;[Product:ImageDesc]&quot; src=&quot;[Product:ImageThumb]&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/div&gt;]]>
+</jquerylightboxgallery.template><listheader.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div class=&quot;ListHeader&quot;&gt;
+&lt;select class=&quot;NormalTextBox&quot; onchange=&quot;location = this.options[this.selectedIndex].value;&quot;&gt;
+&lt;option value=&quot;&quot;&gt;Sort Catalogue&lt;/option&gt;
+&lt;option value=&quot;?orderby=cdate&amp;amp;desc=0&quot;&gt;New Additions&lt;/option&gt;
+&lt;option value=&quot;?orderby=price&amp;amp;desc=0&quot;&gt;Price Low-High&lt;/option&gt;
+&lt;option value=&quot;?orderby=price&amp;amp;desc=1&quot;&gt;Price High-Low&lt;/option&gt;
+&lt;option value=&quot;?orderby=man&amp;amp;desc=0&quot;&gt;Manufacturer A-Z&lt;/option&gt;
+&lt;option value=&quot;?orderby=man&amp;amp;desc=1&quot;&gt;Manufacturer Z-A&lt;/option&gt;
+&lt;option value=&quot;?orderby=name&amp;amp;desc=0&quot;&gt;Title A-Z&lt;/option&gt;
+&lt;option value=&quot;?orderby=name&amp;amp;desc=1&quot;&gt;Title Z-A&lt;/option&gt;
+&lt;option value=&quot;?orderby=ref&amp;amp;desc=0&quot;&gt;Code Ascending&lt;/option&gt;
+&lt;option value=&quot;?orderby=ref&amp;amp;desc=1&quot;&gt;Code Descending&lt;/option&gt;
+&lt;/select&gt; 
+&lt;/div&gt;]]>
+</listheader.text>
+<logintext.text Lang="None" CtrlType="" GroupRef="root/security" HostOnly="True">
+<![CDATA[&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;table border=&quot;0&quot; width=&quot;100%&quot;&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot; width=&quot;50%&quot;&gt;
+      I have an account&lt;br&gt;&amp;nbsp;&lt;br/&gt;
+      &lt;a href=&quot;javascript:__doPostBack(&#39;dnn$dnnLOGIN$cmdLogin&#39;,&#39;&#39;)&quot;&gt;&lt;strong&gt;Sign in&lt;/strong&gt;&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td align=&quot;center&quot; width=&quot;50%&quot;&gt;
+      I do not have an account&lt;br&gt;&amp;nbsp;&lt;br/&gt;
+      &lt;a href=&quot;javascript:__doPostBack(&#39;dnn$dnnUSER$cmdRegister&#39;,&#39;&#39;)&quot;&gt;&lt;strong&gt;Create account&lt;/strong&gt;&lt;/a&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;]]>
+</logintext.text>
+<merchantaddress.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;table class=&quot;MerchantAddress&quot; cellpadding=&quot;3&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Company:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Address:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Phone:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Email:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]>
+</merchantaddress.template>
+<merchantbank.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;table class=&quot;MerchantBank&quot; cellpadding=&quot;3&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Bank:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Account Name:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Account Number:&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Insert as Reference:&lt;/td&gt;
+		&lt;td&gt;[Order:OrderID]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;]]>
+</merchantbank.template>
+<merchantlogo.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;img src=&quot;http://www.mydomain.com/Portals/XX/path-to-logo-graphic.jpg&quot; alt=&quot;Type your company name here&quot; border=&quot;0&quot; /&gt;]]></merchantlogo.template>
+<merchantname.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[Merchant/Company Name]]></merchantname.template>
+<minicart.template Lang="None" CtrlType="" GroupRef="root/payment/cart" HostOnly="True">
+<![CDATA[&lt;ul class=&quot;MiniCart&quot;&gt;
+	&lt;li class=&quot;Label DisableCartFlag&quot;&gt;&lt;span class=&quot;Value&quot;&gt;[Cart:Qty]&lt;/span&gt; Item/s&lt;/li&gt;
+	&lt;li class=&quot;Label DisableCartFlag DisablePricesFlag&quot;&gt;&lt;span class=&quot;Value&quot;&gt;[Cart:OrderTotal]&lt;/span&gt; Total&lt;/li&gt;
+	&lt;li class=&quot;WishListFlag&quot;&gt;&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[Setting:wishlist.tab]/wishlist/Default.aspx&quot;&gt;View Wishlist ([WishList:ItemCount])&lt;/a&gt;&lt;/li&gt;
+	&lt;li class=&quot;DisableCartFlag&quot;&gt;&lt;a class=&quot;Checkout Button&quot; href=&quot;/tabid/[Setting:checkout.tab]/Default.aspx&quot;&gt;Go to Checkout&lt;/a&gt;
+&lt;/ul&gt;]]>
+</minicart.template>
+<minicartempty.template Lang="None" CtrlType="" GroupRef="root/payment/cart" HostOnly="True">
+<![CDATA[&lt;ul class=&quot;MiniCart&quot;&gt;
+	&lt;li&gt;Basket is empty&lt;/li&gt;
+	&lt;li class=&quot;WishListFlag&quot;&gt;&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[Setting:wishlist.tab]/wishlist/Default.aspx&quot;&gt;View Wishlist ([WishList:ItemCount])&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;]]>
+</minicartempty.template>
+<minimumcarttotal.text Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True">
+<![CDATA[&lt;p&gt;Minimum total purchase value has not been reached. Please continue shopping.&lt;/p&gt;]]>
+</minimumcarttotal.text>
+<modelCSV.ImportMapping Lang="None" CtrlType="" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;NB_Store_ModelInfo&gt;
+    &lt;ModelID&gt;1&lt;/ModelID&gt;
+    &lt;ProductID&gt;1&lt;/ProductID&gt;
+    &lt;ListOrder&gt;1&lt;/ListOrder&gt;
+    &lt;UnitCost&gt;[COL:2]&lt;/UnitCost&gt;
+    &lt;Barcode /&gt;
+    &lt;ModelRef&gt;[COL:1]&lt;/ModelRef&gt;
+    &lt;Lang&gt;[LANG]&lt;/Lang&gt;
+    &lt;ModelName&gt;[COL:3]&lt;/ModelName&gt;
+    &lt;QtyRemaining&gt;-1&lt;/QtyRemaining&gt;
+    &lt;QtyTrans&gt;1&lt;/QtyTrans&gt;
+    &lt;QtyTransDate&gt;2009-06-14T16:16:38.767&lt;/QtyTransDate&gt;
+    &lt;ProductName&gt;[COL:4]&lt;/ProductName&gt;
+    &lt;PortalID&gt;0&lt;/PortalID&gt;
+    &lt;Weight&gt;[COL:5]&lt;/Weight&gt;
+    &lt;Height&gt;[COL:6]&lt;/Height&gt;
+    &lt;Length&gt;[COL:7]&lt;/Length&gt;
+    &lt;Width&gt;[COL:8]&lt;/Width&gt;
+    &lt;Deleted&gt;false&lt;/Deleted&gt;
+    &lt;QtyStockSet&gt;0&lt;/QtyStockSet&gt;
+    &lt;DealerCost&gt;[COL:9]&lt;/DealerCost&gt;
+    &lt;PurchaseCost&gt;[COL:10]&lt;/PurchaseCost&gt;
+    &lt;XMLData /&gt;
+    &lt;Extra /&gt;
+&lt;/NB_Store_ModelInfo&gt;
+]]>
+</modelCSV.ImportMapping>
+<modeltable.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;table class=&quot;ModelTable&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr class=&quot;ModelTableHead&quot;&gt;
+		&lt;td&gt;Model&lt;/td&gt;
+		&lt;td&gt;Code&lt;/td&gt;
+		&lt;td&gt;Retail&lt;/td&gt;
+		&lt;td&gt;Weight&lt;/td&gt;
+		&lt;td&gt;Information&lt;/td&gt;
+	&lt;/tr&gt;
+	[TAG:TABLEROWS]
+&lt;/tbody&gt;
+&lt;/table&gt;
+]]>
+</modeltable.template>
+<modeltablerow.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;tr&gt;
+&lt;td&gt;[Model:ModelName]&lt;/td&gt;
+&lt;td&gt;[Model:ModelRef]&lt;/td&gt;
+&lt;td&gt;[Model:UnitCost]&lt;/td&gt;
+&lt;td&gt;[Model:#Weight]&lt;/td&gt;
+&lt;td&gt;[Model:Extra]&lt;/td&gt;
+&lt;/tr&gt;
+]]>
+</modeltablerow.template>
+<nextday.shiptemplate Lang="None" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[Fast Delivery [TAG:SHIPPINGCOST]) ]]></nextday.shiptemplate>
+<nosearchresult.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;p&gt;No products found&lt;/p&gt;]]></nosearchresult.template>
+<nowishlist.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[&lt;div style=&quot;padding:60px 0;text-align:center&quot;&gt;&lt;h3&gt;You have nothing on your Wishlist&lt;/h3&gt;&lt;a href=&quot;/tabid/[Setting:store.tab]/Default.aspx&quot; &gt;Return to store&lt;/a&gt;&lt;/div&gt;]]></nowishlist.template>
+<order.email.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; colspan=&quot;2&quot;&gt;Order Details&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td style=&quot;width:50%&quot;&gt;Order Number:&amp;nbsp;[Order:OrderNumber]&lt;/td&gt;
+		&lt;td style=&quot;width:50%&quot;&gt;Shipping:&amp;nbsp;[Order:ShippingMethod]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Order Date:&amp;nbsp;[Order:OrderDate]&lt;/td&gt;
+		&lt;td&gt;Tracking:&amp;nbsp;[Order:TrackingLink]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; style=&quot;width:50%&quot;&gt;Billing Address&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; style=&quot;width:50%&quot;&gt;Delivery Address&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:AddressName] [BAddress:AddressName2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:AddressName] [SAddress:AddressName2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:CompanyName]&lt;/td&gt;
+		&lt;td&gt;[SAddress:CompanyName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:City] [BAddress:PostalCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:City] [SAddress:PostalCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:RegionCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:RegionCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Country]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Country]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:Email]&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;left&quot;&gt;Products*&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;center&quot;&gt;Price&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;center&quot;&gt;Quantity&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;right&quot;&gt;Total&lt;/td&gt;
+	&lt;/tr&gt;
+	[Order:DetailTemplateRows]
+	&lt;tr&gt;
+		&lt;td align=&quot;left&quot; colspan=&quot;2&quot; style=&quot;font-size:11px;font-style:italic&quot;&gt;* 
+		If applicable, product downloads will appear on their respective product 
+		pages upon receipt of payment.&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;Trade or Coupon Discount&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Discount]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Shipping&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:ShippingCost]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;&lt;strong&gt;[Order:Total]&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;left&quot; colspan=&quot;2&quot;&gt;Payment Method: [Order:PayType]&lt;/td&gt;
+		&lt;td align=&quot;right&quot; style=&quot;white-space:nowrap&quot;&gt;Tax Component&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Tax]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot;&gt;Special Instructions&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:NoteMsg]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;]]>
+</order.email.template>
+<order.text.template Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;style type=&quot;text/css&quot;&gt;
+#Table1{width:100%}/* Fix for Core container width restriction */ 
+&lt;/style&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; colspan=&quot;2&quot;&gt;Order Details&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td style=&quot;width:50%&quot;&gt;Order Number:&amp;nbsp;[Order:OrderNumber]&lt;/td&gt;
+		&lt;td style=&quot;width:50%&quot;&gt;Shipping:&amp;nbsp;[Order:ShippingMethod]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Order Date:&amp;nbsp;[Order:OrderDate]&lt;/td&gt;
+		&lt;td&gt;Tracking:&amp;nbsp;[Order:TrackingLink]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; style=&quot;width:50%&quot;&gt;Billing Address&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; style=&quot;width:50%&quot;&gt;Delivery Address&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:AddressName] [BAddress:AddressName2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:AddressName] [SAddress:AddressName2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:CompanyName]&lt;/td&gt;
+		&lt;td&gt;[SAddress:CompanyName]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Address2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Address2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:City] [BAddress:PostalCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:City] [SAddress:PostalCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:RegionCode]&lt;/td&gt;
+		&lt;td&gt;[SAddress:RegionCode]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Country]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Country]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone1]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone1]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[BAddress:Phone2]&lt;/td&gt;
+		&lt;td&gt;[SAddress:Phone2]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:Email]&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;left&quot;&gt;Products*&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;center&quot;&gt;Price&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;center&quot;&gt;Quantity&lt;/td&gt;
+		&lt;td class=&quot;OrderHeader&quot; align=&quot;right&quot;&gt;Total&lt;/td&gt;
+	&lt;/tr&gt;
+	[Order:DetailTemplateRows]
+	&lt;tr&gt;
+		&lt;td align=&quot;left&quot; colspan=&quot;2&quot; style=&quot;font-size:11px;font-style:italic&quot;&gt;* 
+		If applicable, product downloads will appear on their respective product 
+		pages upon receipt of payment.&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;Trade or Coupon Discount&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Discount]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Shipping&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:ShippingCost]&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;right&quot; colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;&lt;strong&gt;[Order:Total]&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td align=&quot;left&quot; colspan=&quot;2&quot;&gt;Payment Method: [Order:PayType]&lt;/td&gt;
+		&lt;td align=&quot;right&quot; style=&quot;white-space:nowrap&quot;&gt;Tax Component&lt;/td&gt;
+		&lt;td align=&quot;right&quot;&gt;[Order:Tax]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;
+&lt;table cellpadding=&quot;4&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderHeader&quot;&gt;Special Instructions&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;[Order:NoteMsg]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br /&gt;]]>
+</order.text.template>
+<orderamended.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;PAYMENT REQUEST&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Amended order from [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Please click &lt;a href=&quot;[Order:AmendedLink]&quot;&gt;here&lt;/a&gt; to process the adjusted payment.&lt;/p&gt;
+		&lt;p&gt;Thank you&lt;/p&gt;
+		[Template:merchantaddress.template]
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</orderamended.email>
+<orderamended.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Payment Request - [Order:OrderNumber]]]></orderamended.emailsubject>
+<orderprint.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:18px;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;&lt;table align=&quot;right&quot;&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderLabel&quot;&gt;ORDER&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;[Template:merchantname.template]&lt;/p&gt;
+&lt;p&gt;[Template:merchantaddress.template]&lt;/p&gt;
+&lt;p&gt;[Template:merchantbank.template]&lt;/p&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+&lt;p&gt;[Template:order.text.template]&lt;/p&gt;
+&lt;/div&gt;]]>
+</orderprint.text>
+<orderreceipt.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;RECEIPT&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Receipt for your order from [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Thank you&lt;/p&gt;
+		[Template:merchantaddress.template]
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</orderreceipt.email>
+<orderreceipt.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Order Receipt - [Order:OrderNumber]]]></orderreceipt.emailsubject>
+<ordershipped.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;ORDER SHIPPED&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Your order has now been shipped.&lt;/p&gt;
+		[Template:merchantaddress.template]
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</ordershipped.email>
+<ordershipped.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Order Shipped - [Order:OrderNumber]]]></ordershipped.emailsubject>
+<ordervalidated.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;ORDER CONFIRMED&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Your order has been confirmed.&lt;/p&gt;
+		[Template:merchantaddress.template]
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</ordervalidated.email>
+<ordervalidated.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Order Confirmed - [Order:OrderNumber]]]></ordervalidated.emailsubject>
+<orderview.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True"><![CDATA[[Template:order.text.template]]]></orderview.text>
+<outofstockmodelmsg.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[ (Sold Out)]]></outofstockmodelmsg.text>
+<pageheader.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;style type=&quot;text/css&quot;&gt;
+[Template:stylesheet.css]
+&lt;/style&gt;]]>
+</pageheader.template>
+<stylesheet.css Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[/* Product List in Grid Layout  */
+.ListItem{width:180px;height:210px}
+.ListItem .ImageWrapper{text-align:center;padding-top:6px}
+.ListItem .InfoPanel{padding:0 5px;text-align:center;vertical-align:middle}
+.ListItem .Name{font-weight:bold;font-size:11px}
+.ListItem .PurchasingPanel{text-align:center;vertical-align:middle}
+.ListItem .Price{font-size:13px}
+.ListItem .DetailsButton{}
+.ListItem .RetailPrice{}
+.ListItem .OldPrice{text-decoration:line-through}
+.ListItem .SalePrice{font-weight:bold;color:#C40000;display:block}
+.ListItem .DealerPrice{display:block}
+.ListItem .EmailForPrice{font-size:12px}
+
+/* Product List in Rows layout */
+.ListItem.Rows{width:100%;height:160px}
+.ListItem.Rows .ImageWrapper{width:160px;text-align:center;padding-top:0}
+.ListItem.Rows .InfoPanel{height:116px;text-align:left;vertical-align:top}
+.ListItem.Rows .Name{font-weight:bold;font-size:13px;margin:12px 7px 3px 7px}
+.ListItem.Rows .Summary{max-height:84px;overflow:auto;margin:0 7px 3px 7px}
+.ListItem.Rows .PurchasingPanel{text-align:right;vertical-align:bottom}
+.ListItem.Rows .Price{font-size:14px;float:right;margin-right:12px;margin-bottom:12px;line-height:22px}
+.ListItem.Rows input.QuantityField {float:right;margin-right:12px;text-align:center;width:20px !important}
+.ListItem.Rows .DetailsButton{float:right;width:39px}
+.ListItem.Rows .BuyButton{float:right;width:39px}
+.ListItem.Rows .RetailPrice{float:right}
+.ListItem.Rows .OldPrice{float:right}
+.ListItem.Rows .SalePrice{margin-right:12px;display:inline}
+.ListItem.Rows .DealerPrice{float:right;margin-right:12px}
+.ListItem.Rows .EmailForPrice{font-size:14px;line-height:22px;margin-right:12px;margin-bottom:12px;float:right}
+
+/* Featured Items Product List - To enable this, apply the productlistfeatured.template to a secondary product list */
+.FeaturedProduct{width:180px;height:210px}
+.FeaturedProduct .ImageWrapper{text-align:center;padding-top:6px}
+.FeaturedProduct .InfoPanel{padding:0 5px;text-align:center;vertical-align:middle}
+.FeaturedProduct .Name{font-weight:bold;font-size:11px}
+.FeaturedProduct .PurchasingPanel{text-align:center;vertical-align:middle}
+.FeaturedProduct .Price{font-size:13px}
+.FeaturedProduct .DetailsButton{}
+.FeaturedProduct .RetailPrice{}
+.FeaturedProduct .OldPrice{text-decoration:line-through}
+.FeaturedProduct .SalePrice{font-weight:bold;color:#C40000;display:block}
+.FeaturedProduct .DealerPrice{display:block}
+.FeaturedProduct .EmailForPrice{font-size:12px}
+
+/* Common Product List styles */
+.ListItem{background:#FFF;border:1px solid #DDD}.ListItem:hover{border:1px solid #BBB}/* Creates the border around each list item - The CSS3 shadow effect is created further down */
+.ListCell, .AltListCell{padding:12px;/* border-top:1px solid #ddd */}/* Uncomment to add a line separator between list rows */
+.ListItem .SoldOutOverlay{left:-1px;top:-1px;position:absolute;z-index:1}
+.ListHeader{text-align:right;padding-bottom:12px;margin:0 20px}
+.ListItem{display:inline-block;position:relative}
+.ListItem .ImageWrapper a:focus{position:relative;outline:none}
+.ListItem .Price .OldPrice{text-decoration:line-through}
+.ListItem .Price .SalePrice{font-weight:bold;color:#C40000}
+.ListItem .DealerPrice{color:#4F93C4}
+.ListItem .EmailForPrice a{}
+.ListItem .EmailForPrice a:hover{}
+.ListItem .WishListLabel{font-family:Arial;line-height:13px;font-size:10px;float:right;margin-right:6px}
+.ListItem .WishListButtons{position:absolute;right:0;margin:3px;z-index:1;line-height:100%}
+.ListItem a.Add,.ListItem a.Remove{display:block;height:13px;float:right;line-height:12px;text-align:center;width:13px;font-size:12px;font-family:verdana;font-weight:bold;text-decoration:none}
+
+/* List Wishlist label and buttons */
+.ListItem .WishListLabel{color:#999}
+.ListItem a.Add{background:#B4CDDE;color:#FFF}
+.ListItem a.Add:hover{background:#54A8E3;color:#FFF}
+.ListItem a.Remove{background:#E7B6B6;color:#FFF}
+.ListItem a.Remove:hover{background:#C40000;color:#FFF}
+
+/* Clean up core paging table */
+.PagingTable{background-color:transparent;border:none;width:auto;margin:0 auto;height:auto}
+.PagingTable td{width:auto !important;padding:0 12px;font-size:inherit !important}
+.PagingTable a.CommandButton:link{text-decoration:none;font-size:inherit}
+.PagingTable a.CommandButton:hover{}
+.PagingTable .NormalDisabled{color:inherit;font-size:inherit}
+
+/* Product Details View */
+.Detail{width:100%;position:relative}
+
+/* Details Images Section */
+.Detail .SoldOutOverlay{left:0;top:0;position:absolute;z-index:1}
+.Detail .ImagePanel{float:left;text-align:center;overflow:hidden;margin-right:18px}/* Float to right or none for alternate layout */
+.Detail .Image{border:0}
+.Detail .GalleryWrapper{margin-bottom:12px;overflow:hidden}
+.Detail .GalleryOuter{float:left;margin:10px 10px 10px 0}
+.Detail .GalleryInner{background:#FFF;border:1px solid #DDD;width:50px;height:50px;text-align:center;display:table-cell;vertical-align:middle}
+.Detail .GalleryInner:hover{border:1px solid #FFB200}
+.Detail .GalleryInner a:focus{outline:none}
+.Detail .SoldOutOverlay{left:0;position:absolute}
+
+/* Details Purchasing Section */
+.Detail .PurchasingPanel{overflow:hidden}
+.Detail .PurchasingPanel .Row{padding:3px 0;overflow:hidden}
+.Detail .PurchasingPanel .Label{width:78px;float:left;line-height:16px;font-size:11px;font-weight:bold;white-space:nowrap}
+.Detail .PurchasingPanel .Value{line-height:16px}
+.Detail .Name h1{line-height:24px}
+.Detail .Price{font-size:15px;font-weight:bold;line-height:150%;margin-bottom:6px}
+.Detail .Price .OldPrice{font-weight:normal;text-decoration:line-through}
+.Detail .Price .SalePrice{color:#C40000;display:block}
+.Detail .DealerPrice{color:#4F93C4;display:block}
+.Detail .EmailForPrice{margin-bottom:6px}
+.Detail .EmailForPrice a{font-weight:bold}
+.Detail .EmailForPrice a:hover{}
+.Detail .Summary .Value{padding-bottom:12px}
+.Detail .OutOfStock .Value{color:#F00;font-weight:bold}
+.Detail .Reference{}
+.Detail .Options{}
+.Detail .Options .NormalTextBox{width:158px}
+.Detail .Options .MessageField{width:152px;height:50px}
+.Detail .Option{}
+.Detail .Models .Label{vertical-align:top;line-height:22px}
+.Detail .Models .Value{}
+.Detail .Models .NormalTextBox{width:158px}
+.Detail .Model{}
+.Detail .Model span[disabled=&quot;disabled&quot;] label{text-decoration:line-through}/* Sold out models */
+.Detail .FileUpload{}
+.Detail .FileUpload .NormalTextBox{}
+.Detail .Quantity .Label{line-height:22px}
+.Detail input.QuantityField{text-align:center;float:left;margin-top:2px;width:25px !important}
+.Detail .DisableCart .Value{color:#C40000;font-style:italic}
+.Detail .ValidationSummary ul li{margin-left:-36px;list-style-type:none}
+.Detail .DownloadInformation .Value{font-size:11px}
+
+/* Details Tabbed Section */
+.Detail .InformationPanel{margin:12px 0;clear:both}
+.Detail .ui-tabs .ui-tabs-panel{height:270px;overflow:auto}/* Sets fixed height for all tabs and scrolls content if necessary */
+.Detail .WayOut{margin-top:24px;margin-bottom:24px;text-align:center;clear:both}/* Footer links */
+.Detail .Sharing{margin-bottom:24px;text-align:center;clear:both}/* Social links */
+.Detail .Sharing .PrintButton{}
+.Detail .Sharing .EmailButton{}
+
+/* Details Description tab */
+.Detail .Description{margin-bottom:24px}
+
+/* Details Specifications tab */
+.Detail .Specifications{margin-bottom:24px}
+
+/* Details Document and Downloads tab */
+.Detail .Documents{margin-bottom:24px}
+.Detail .Document{margin-bottom:18px}
+.Detail .DocumentIcon{margin-right:8px;vertical-align:-3px}
+.Detail .DocumentLink{}
+.Detail .DocumentDescription{margin-bottom:8px}
+.Detail .Downloads{margin-bottom:24px}
+.Detail .Download{margin-bottom:8px}
+.Detail .DownloadIcon{margin-right:8px;vertical-align:-3px}
+.Detail .DownloadLink{display:inline-block;margin-bottom:12px}
+
+/* Details Models tab */
+.Detail .ModelTable{border-collapse:collapse;margin-bottom:24px;width:100%}
+.Detail .ModelTable td{border:1px solid #EBEBEB;padding:3px}
+.Detail .ModelTableHead{background:#EBEBEB}
+.Detail .ModelTableHead td{color:#6D808B;font-size:11px;font-weight:bold}
+
+/* Details Related Products tab */
+.Detail .RelatedProducts{}
+.Detail .RelatedWrapper{margin-bottom:24px;overflow:hidden}
+.Detail .RelatedOuter{margin:0 12px 12px 0;float:left}
+.Detail .RelatedInner{border:1px solid #DDD;width:130px;height:180px;padding:6px;text-align:center;display:table-cell;vertical-align:middle}
+.Detail .RelatedInner:hover{border:1px solid #BBB}
+.Detail .RelatedInner a:focus{outline:none}
+.Detail .RelatedInner img{border:none}
+.Detail .RelatedWrapper .Name{font-size:11px;font-weight:bold}
+.Detail .RelatedWrapper .Price{font-size:11px}
+
+/* Details Currency tab */
+.Detail .Currency td{vertical-align:top}
+.Detail .CurrencyConverter{padding-bottom:24px}
+
+/* Buttons */
+a.Button,a.Button:link,a.NBright_RecalcButton,a.NBright_ClientButton{color:#FFF !important;font-size:10px;font-weight:bold;text-decoration:none !important;padding:0;margin-right:12px;margin-bottom:12px;display:inline-block;text-align:center;border:none}
+
+/* Button width and height */
+a.Button,a.NBright_RecalcButton,a.NBright_ClientButton{line-height:22px;width:110px}
+.WayOut a.Button{width:80px}
+
+/* Button background colours */
+a.Button{background:#809CB0 url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.Button:hover,a.NBright_ClientButton:hover{background:#71A5CB url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.BuyButton,a.Checkout,a.NBright_ClientButton{background:#FF9000 url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.BuyButton:hover,a.Checkout:hover,a.NBright_ClientButton:hover{background:#FFB200 url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.RemoveWishList,a.NBright_RecalcButton,a.CancelOrderButton{background:#9F0000 url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.RemoveWishList:hover,a.NBright_RecalcButton:hover,a.CancelOrderButton:hover{background:#C40000 url('/DesktopModules/NB_Store/img/GlossyButtons.png') repeat-x}
+a.AddWishList{}
+a.ViewWishList{}
+a.ViewPrevious{}
+a.ViewStorefront{}
+a.Checkout{}
+a.CancelOrderButton{margin-left:12px}
+
+/* Mini Cart */
+.MiniCartWrapper{border:4px double #DDDDDD;padding:12px 12px 0;background:#FFF;overflow:hidden}
+.MiniCart{padding-left:0;margin:0}
+.MiniCart li{list-style-type:none;margin-bottom:12px}
+.WishListFlag{display:none}
+.MiniCart .Label{color:#999;font:normal 10px verdana;white-space:nowrap}
+.MiniCart .Value{color:#86A1B7;font:bold 17px verdana;vertical-align:-5px}
+
+/* Mini Cart with Full Cart mode enabled */
+.MiniCartWrapper .NBright_cartheader{border-bottom:4px double #DDDDDD;font-weight:bold;background:transparent}
+.NBright_CartItem td,.NBright_AltCartItem td{border-bottom:1px #ccc dotted}
+
+/* Checkout */
+.NBright_cartheader{border-bottom:4px double #95A9B7;font-weight:bold;background:transparent}
+.AddressCollector{}
+.AddressCollector .Label{white-space:nowrap;font-weight:normal;width:110px}
+.AddressCollector .Value{}
+.AddressCollector .NormalTextBox{width:200px}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+.OrderDetailRow td{border-bottom:1px #ccc dotted}
+.Checkout fieldset{margin:12px 4px}
+.Checkout fieldset img{display:none}
+.Checkout fieldset legend{font-size:11px;font-weight:bold}
+.GateWays{margin:12px}
+.CardGatewayButton,.ManualGatewayButton{border:1px dashed transparent}
+.CardGatewayButton:hover,.ManualGatewayButton:hover{border:1px dashed #D7D7D7}
+.NBright_OrderTotalLabel,.NBright_OrderTotalValue{font-weight:bold}
+.NBright_OrderTotalValue{border-top:1px solid #ABBECC}
+.SpecialInstructions{width:99%;height:100px}
+
+/* CSS3 rounded corner and shadow effects - Works with browsers higher than IE8 and is not W3C CSS2.1 compliant - Comment this out to disable all CSS3 effects */
+.ListItem,.MiniCartWrapper{-moz-box-shadow:1px 2px 6px #B8B8B8;-webkit-box-shadow:1px 2px 6px #B8B8B8;box-shadow:1px 2px 6px #B8B8B8;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.ListItem a.Add,.ListItem a.Remove{font-weight:bold;-moz-border-radius:7px;-webkit-border-radius:7px;border-radius:7px}
+.Detail .GalleryInner{-moz-box-shadow:1px 2px 6px #B8B8B8;-webkit-box-shadow:1px 2px 6px #B8B8B8;box-shadow:1px 2px 6px #B8B8B8}
+a.Button,a.NBright_RecalcButton,a.NBright_ClientButton{-moz-box-shadow:1px 2px 6px #B8B8B8;-webkit-box-shadow:1px 2px 6px #B8B8B8;box-shadow:1px 2px 6px #B8B8B8;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}
+
+/* Buttons - Additional styles for IE6 compatibility */
+a.Button:hover,a.NBright_ClientButton:hover{color:#FFF;font-size:10px;font-weight:bold;text-decoration:none}
+a.Button,a.NBright_RecalcButton,a.NBright_ClientButton,a.Button:hover,a.NBright_RecalcButton:hover,a.NBright_ClientButton:hover{_background-image:none}/* Not W3C compliant */
+
+/* Category Menu */
+.CategoryMenuWrapper{padding:12px}
+
+/* jQuery Treeview Menu colours */
+.treeview,.treeview a:link,.treeview a:visited{}/* Menu Item */
+.treeview a:active,.treeview a:hover{}/* Menu Hover */
+.treeview a.selected{}/* Menu Current */
+
+/* Misc Tweaks */
+#NBStoreTreeMenu{margin-top:6px}/* jQuery Treeview Menu layout */
+a.treeview,.treeview a{text-decoration:none}/* Remove underscore in Treeview Menu */
+.treeview .NormalBold{font-weight:bold}/* Fix for Treeview Menu in DNN Enthropy skin */
+span[id*=&quot;ProductList_lblMsg&quot;]{display:none}/* Hide legacy Out of Stock message */
+.NBright_ClientButtonDivRight{text-align:right}/* Move checkout stage buttons to right */
+a.NBright_RecalcButton{margin-right:0}/* Align recalcuate button to right */
+#jquery-overlay{background-color:#000 !important;opacity:0.7 !important}/* Change default lightbox color */
+span[id*=&quot;CheckOut_plEmail_lblLabel&quot;]{margin-right:80px}input[id*=&quot;CheckOut_txtEmail&quot;]{width:200px !important}/* Make Email label and field above AddressCollector match this theme */
+.NBright_CartList input[type=text]{text-align:center}/* Align checkout quantity field contents to center */
+.ProductList,.Detail{border-collapse:separate !important}/* Allows CSS3 box-shadow to work for IE9 in ProductList */]]>
+</stylesheet.css>
+<paymentFAIL.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div style=&quot;padding:60px 0;text-align:center&quot;&gt;&lt;h3&gt;The payment failed or it was cancelled&lt;/h3&gt;
+&lt;p&gt;Contact your bank if your card is expired or faulty.&lt;/p&gt;
+&lt;p&gt;Otherwise please try again or contact us for assistance.&lt;/p&gt;
+&lt;a href=&quot;/tabid/[Setting:store.tab]/Default.aspx&quot; &gt;Return to store&lt;/a&gt;
+&lt;/div&gt;]]>
+</paymentFAIL.text>
+<paymentinprocess.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[&lt;p&gt;Payment is processing - Please wait.&lt;/p&gt;]]></paymentinprocess.text>
+<paymentOK.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tbody&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;table align=&quot;right&quot;&gt;
+			&lt;tr&gt;
+				&lt;td class=&quot;OrderLabel&quot;&gt;ORDER&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+		&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+		&lt;p&gt;Your payment has been processed.&lt;/p&gt;
+		[Template:merchantaddress.template]
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template] &lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</paymentOK.email>
+<paymentOK.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Payment Confirmed - [Order:OrderNumber]]]></paymentOK.emailsubject>
+<paymentOK.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;h3&gt;Thank you for your order at [Template:merchantname.template]&lt;/h3&gt;
+&lt;p&gt;These order details have been emailed to you at the address you provided during 
+checkout. We will process and deliver your order promptly.&lt;/p&gt;
+&lt;p&gt;Thank you for your business!&lt;/p&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+&lt;p&gt;[Template:order.text.template]&lt;/p&gt;]]>
+</paymentOK.text>
+<paymentSECURITY.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;p&gt;We are sorry - A problem has occurred.&lt;/p&gt;
+&lt;p&gt;Please contact the website administrator.&lt;/p&gt;]]>
+</paymentSECURITY.text>
+<paymentunverified.email Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False">
+<![CDATA[&lt;div&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+a, a:link, a:visited{color:#3A45A1;text-decoration:none}
+a:active, a:hover{color:#6D94B9}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;
+&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:700px&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+		&lt;p&gt;[Template:merchantlogo.template]&lt;/p&gt;
+		&lt;h3&gt;Payment for [Template:merchantname.template] not verified!&lt;/h3&gt;
+		&lt;p&gt;The payment for this order was accepted, but then not confirmed by the 
+		payment processor. It is advised that you sign into the payment processor 
+		account and manually confirm that the payment has in fact been received 
+		before you ship the order.&lt;/p&gt;
+		&lt;p&gt;&amp;#160;&lt;/p&gt;
+		[Template:order.email.template]&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</paymentunverified.email>
+<paymentunverified.emailsubject Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="False"><![CDATA[[Template:merchantname.template] Payment not verified, please confirm! - [Order:OrderNumber]]]></paymentunverified.emailsubject>
+<productCSV.ImportMapping Lang="None" CtrlType="" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;P&gt;
+    &lt;NB_Store_ProductsInfo&gt;
+        &lt;ProductID&gt;&lt;/ProductID&gt;
+        &lt;PortalID&gt;[PORTALID]&lt;/PortalID&gt;
+        &lt;TaxCategoryID&gt;-1&lt;/TaxCategoryID&gt;
+        &lt;Featured&gt;false&lt;/Featured&gt;
+        &lt;Archived&gt;[COL:4]&lt;/Archived&gt;
+        &lt;CreatedByUser&gt;1&lt;/CreatedByUser&gt;
+        &lt;CreatedDate&gt;2009-08-02T07:01:05.907&lt;/CreatedDate&gt;
+        &lt;IsDeleted&gt;false&lt;/IsDeleted&gt;
+        &lt;ProductRef&gt;[COL:2]&lt;/ProductRef&gt;
+        &lt;Lang&gt;[LANG]&lt;/Lang&gt;
+        &lt;Summary&gt;[COL:5]&lt;/Summary&gt;
+        &lt;Description&gt;[COL:6]&lt;/Description&gt;
+        &lt;Manufacturer&gt;[COL:23]&lt;/Manufacturer&gt;
+        &lt;ProductName&gt;[COL:3]&lt;/ProductName&gt;
+        &lt;XMLData /&gt;
+        &lt;ModifiedDate&gt;0001-01-01T00:00:00&lt;/ModifiedDate&gt;
+    &lt;/NB_Store_ProductsInfo&gt;
+    &lt;M&gt;
+        &lt;NB_Store_ModelInfo&gt;
+            &lt;ModelID&gt;1&lt;/ModelID&gt;
+            &lt;ProductID&gt;1&lt;/ProductID&gt;
+            &lt;ListOrder&gt;1&lt;/ListOrder&gt;
+            &lt;UnitCost&gt;[COL:8]&lt;/UnitCost&gt;
+            &lt;Barcode /&gt;
+            &lt;ModelRef&gt;[COL:2]&lt;/ModelRef&gt;
+            &lt;Lang&gt;[LANG]&lt;/Lang&gt;
+            &lt;ModelName&gt;[COL:3]&lt;/ModelName&gt;
+            &lt;QtyRemaining&gt;-1&lt;/QtyRemaining&gt;
+            &lt;QtyTrans&gt;1&lt;/QtyTrans&gt;
+            &lt;QtyTransDate&gt;2009-06-14T16:16:38.767&lt;/QtyTransDate&gt;
+            &lt;ProductName&gt;[COL:3]&lt;/ProductName&gt;
+            &lt;PortalID&gt;0&lt;/PortalID&gt;
+            &lt;Weight&gt;[COL:19]&lt;/Weight&gt;
+            &lt;Height&gt;[COL:18]&lt;/Height&gt;
+            &lt;Length&gt;[COL:16]&lt;/Length&gt;
+            &lt;Width&gt;[COL:17]&lt;/Width&gt;
+            &lt;Deleted&gt;false&lt;/Deleted&gt;
+            &lt;QtyStockSet&gt;0&lt;/QtyStockSet&gt;
+            &lt;DealerCost&gt;[COL:7]&lt;/DealerCost&gt;
+            &lt;PurchaseCost&gt;[COL:7]&lt;/PurchaseCost&gt;
+            &lt;XMLData /&gt;
+            &lt;Extra /&gt;
+        &lt;/NB_Store_ModelInfo&gt;
+    &lt;/M&gt;
+    &lt;I&gt;
+        &lt;NB_Store_ProductImageInfo&gt;
+            &lt;ImageID&gt;1&lt;/ImageID&gt;
+            &lt;ProductID&gt;1&lt;/ProductID&gt;
+            &lt;ImagePath&gt;C:\[COL:21]&lt;/ImagePath&gt;
+            &lt;ListOrder&gt;1&lt;/ListOrder&gt;
+            &lt;Hidden&gt;false&lt;/Hidden&gt;
+            &lt;Lang&gt;[LANG]&lt;/Lang&gt;
+            &lt;ImageDesc /&gt;
+            &lt;ImageURL&gt;/Portals/0/[COL:21]&lt;/ImageURL&gt;
+        &lt;/NB_Store_ProductImageInfo&gt;
+    &lt;/I&gt;
+    &lt;D&gt;&lt;/D&gt;
+    &lt;C&gt;
+        &lt;NB_Store_ProductCategoryInfo&gt;
+            &lt;ProductID&gt;1&lt;/ProductID&gt;
+            &lt;CategoryID&gt;1&lt;/CategoryID&gt;
+        &lt;/NB_Store_ProductCategoryInfo&gt;
+    &lt;/C&gt;
+    &lt;options&gt;&lt;/options&gt;
+&lt;/P&gt;
+]]>
+</productCSV.ImportMapping>
+<productdetail.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div class=&quot;Detail&quot;&gt;
+	
+&lt;!-- Begin Images Panel --&gt;
+&lt;!-- Begin Soldout Image Overlay --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;soldoutimage.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;img alt=&quot;Product is Sold Out&quot; class=&quot;SoldOutOverlay&quot; src=&quot;/Desktopmodules/nb_store/img/SoldOutTab2-en.png&quot; style=&quot;width:129px;height:57px&quot; border=&quot;0&quot; /&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Soldout Image Overlay --&gt;
+	
+&lt;!-- Begin Image Gallery --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasImages&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;div class=&quot;ImagePanel&quot;&gt;
+		[TAG:IMAGELIGHTBOX]
+		&lt;div class=&quot;GalleryWrapper&quot;&gt;
+			[TAG:GALLERY2][TAG:GALLERY3][TAG:GALLERY4][TAG:GALLERY5][TAG:GALLERY6][TAG:GALLERY7]&lt;/div&gt;
+	&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Image Gallery --&gt;
+&lt;!-- End Images Panel --&gt;
+	
+&lt;!-- Begin Purchasing Panel --&gt;
+ &lt;div class=&quot;PurchasingPanel&quot;&gt;
+		
+&lt;!-- Begin Manufacturer and Name --&gt;
+		&lt;div class=&quot;Name Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;&lt;h1&gt;[TAG:MANUFACTURER] [TAG:PRODUCTNAME] [TAG:EDITLINK]&lt;/h1&gt;&lt;/div&gt;
+		&lt;/div&gt;
+&lt;!-- End Manufacturer and Name --&gt;
+
+&lt;!-- Begin Pricing for Retail, Sale and Dealer --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If prices are disabled then hide all prices --&gt;
+
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide all prices --&gt;
+	&lt;div class=&quot;Price&quot;&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- Retail Pricing --&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Hide&quot; /&gt;]
+	&lt;span class=&quot;RetailPrice&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Sale Pricing --&gt;
+		&lt;span class=&quot;OldPrice&quot;&gt;[TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;SalePrice&quot;&gt;On Sale [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICESALECURRENCY]&lt;/span&gt;
+	[TAG:END]
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Dealer Pricing --&gt;
+		&lt;span class=&quot;RetailPrice&quot;&gt;Retail [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;DealerPrice&quot;&gt;Dealer [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICEDEALERCURRENCY]&lt;/span&gt;
+	[TAG:END]
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- If price is zero then display contact message --&gt;
+	&lt;div class=&quot;EmailForPrice&quot;&gt;
+	&lt;a href=&quot;mailto:[TAG:SETTING:merchant.email]?subject=Price request - [TAG:PRODUCTNAME]&amp;amp;body=Please inform me of the price of the [TAG:PRODUCTNAME] at [TAG:WEBSITEURL] on this page: [TAG:LINKSIMPLE]&quot;&gt;Email for price&lt;/a&gt;
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:END]
+&lt;!-- End Pricing for Retail, Sale and Dealer --&gt;
+
+&lt;!-- Begin Hide MiniCart totals when prices disabled --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;style type=&quot;text/css&quot;&gt;.DisablePricesFlag{display:none !important}&lt;/style&gt;
+	[TAG:END]
+&lt;!-- End Hide MiniCart totals when prices disabled --&gt;
+
+&lt;!-- Begin Summary --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Summary&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;Summary Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:SUMMARY]&lt;/div&gt;
+		&lt;/div&gt;	
+	[TAG:END]
+&lt;!-- End Summary --&gt;
+
+&lt;!-- Begin Stock --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;showstock.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Is stock display enabled --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;stock&quot; TestName=&quot;StockON&quot; TestValue=&quot;True&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Is stock level zero or higher --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Is stock level zero --&gt;
+		&lt;div class=&quot;OutOfStock Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;This product is out of stock&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- Is stock level higher than zero --&gt;
+		&lt;div class=&quot;InStock Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Stock&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:QTYREMAINING]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Stock --&gt;
+
+&lt;!-- Begin Reference Code --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;ProductRef&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;div class=&quot;Reference Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Code&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:PRODUCTREF]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Reference Code --&gt;
+	
+&lt;!-- Begin Hide purchasing when stock level is zero --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	
+&lt;!-- Begin Options Dropdowns --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;Options Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;[TAG:OPTIONNAME1]&lt;/div&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;messagefield.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTION1:&lt;prop CssClass=&quot;Option NormalTextBox&quot; /&gt;]&lt;/div&gt;
+	[TAG:END]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;messagefield.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Optional message field --&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTIONTEXT1:&lt;prop CssClass=&quot;MessageField NormalTextBox&quot; type=&quot;TextBox&quot; TextMode=&quot;MultiLine&quot; Columns=&quot;16&quot; Rows=&quot;3&quot; /&gt;]&lt;/div&gt;
+	[TAG:END]
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; TestValue=&quot;2&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;Options Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;[TAG:OPTIONNAME2]&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTION2:&lt;prop CssClass=&quot;Option NormalTextBox&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:TEST:&lt;prop TestType=&quot;hasOptions&quot; TestValue=&quot;3&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;Options Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;[TAG:OPTIONNAME3]&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:OPTION3:&lt;prop CssClass=&quot;Option NormalTextBox&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Options Dropdowns --&gt;
+
+&lt;!-- Begin Model Selector --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+	
+&lt;!-- Models Radio Button Selector --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelselector.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]	
+		&lt;div class=&quot;Models Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Models&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:MODELSRADIO:&lt;prop CssClass=&quot;Model&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+
+&lt;!-- Models Dropdown Selector --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelselector.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]	
+		&lt;div class=&quot;Models Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Models&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:MODELS:&lt;prop CssClass=&quot;Model NormalTextBox&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:END]
+&lt;!-- End Model Selector --&gt;
+
+&lt;!-- Begin File Upload --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;fileupload.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide --&gt;
+		&lt;div class=&quot;FileUpload Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Upload&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:UPLOAD:&lt;prop CssClass=&quot;NormalTextBox&quot; /&gt;]
+			[TAG:OPTIONVALREGX:&lt;prop ErrorMessage=&quot;File must be a pdf,doc or txt.&quot; Text=&quot;*&quot; ControlToValidate=&quot;fuupload&quot; ValidationExpression=&quot;^.+\.(doc|txt|pdf|Doc|Txt|Pdf|DOC|TXT|PDF)$&quot; /&gt;]
+		&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End File Upload --&gt;
+
+&lt;!-- Begin Quantity Field --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]	
+			[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide --&gt;
+		&lt;div class=&quot;Quantity Row&quot;&gt;
+			&lt;div class=&quot;Label&quot;&gt;Quantity&lt;/div&gt;
+			&lt;div class=&quot;Value&quot;&gt;[TAG:QTY:&lt;prop CssClass=&quot;QuantityField NormalTextBox&quot; /&gt;]&lt;/div&gt;
+		&lt;/div&gt;	
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Quantity Field --&gt;
+
+	[TAG:END]
+&lt;!-- End Hide remaining panel when stock level is zero --&gt;
+	
+&lt;!-- Begin Store Disabled Message --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]	
+		&lt;div class=&quot;DisableCart Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			[Template:disablecart.text]
+			&lt;style type=&quot;text/css&quot;&gt;.DisableCartFlag{display:none !important}&lt;/style&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Store Disabled Message --&gt;
+
+&lt;!-- Begin Buy and Wishlist Buttons --&gt;
+		&lt;div class=&quot;AddToBasket Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+			[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide --&gt;
+			[TAG:ADDTOBASKET:&lt;prop CssClass=&quot;BuyButton Button&quot; /&gt;]
+			[TAG:END]
+			[TAG:END]
+			[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+			&lt;style type=&quot;text/css&quot;&gt;.WishListFlag{display:inline !important}&lt;/style&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Hide&quot; /&gt;][TAG:ADDTOWISHLIST:&lt;prop CssClass=&quot;AddWishList Button&quot; text=&quot;Add to Wishlist&quot; /&gt;][TAG:END]
+			[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;][TAG:REMOVEFROMWISHLIST:&lt;prop CssClass=&quot;RemoveWishList Button&quot; text=&quot;Remove Wishlist&quot; /&gt;][TAG:END]
+			[TAG:END]
+			&lt;/div&gt;
+		&lt;/div&gt;
+&lt;!-- End Buy and Wishlist Buttons --&gt;
+
+&lt;!-- Begin Validation Summary Message --&gt;
+		&lt;div class=&quot;ValidationSummary Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			[TAG:OPTIONVALSUMMARY:&lt;prop CssClass=&quot;NormalRed&quot; /&gt;]
+			&lt;/div&gt;
+		&lt;/div&gt;
+&lt;!-- End Validation Summary Message --&gt;
+
+&lt;!-- Begin Downloadable Products Message --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+		&lt;div class=&quot;DownloadInformation Row&quot;&gt;
+			&lt;div class=&quot;Value&quot;&gt;
+			&lt;strong&gt;Please note: &lt;/strong&gt;This product is sold as a downloadable file. Upon receipt of your payment, you can sign in and download it here.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Downloadable Products Message --&gt;
+	
+ &lt;/div&gt;
+&lt;!-- End Purchasing Panel --&gt;
+	
+&lt;!-- Begin jQuery Tabbed Content - Each Tab has tab code plus matching content panel code further down --&gt;
+ &lt;div class=&quot;InformationPanel&quot;&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;tabbedcontent.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	
+&lt;!-- Begin Tabs --&gt;
+ &lt;div id=&quot;tabs&quot;&gt;
+   &lt;ul&gt;
+&lt;!-- Begin Description Tab --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Description&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-1&quot;&gt;Description&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+&lt;!-- End Description Tab --&gt;
+
+&lt;!-- Specifications Tab - Disabled by default
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;specificationstab.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST: &lt;prop TestType=&quot;valueof&quot; FieldXPath=&quot;genxml/edt/txtedit&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Description&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-2&quot;&gt;Specifications&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+ --&gt;
+
+&lt;!-- Begin Documents and Document Downloads Tab --&gt;
+   [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-3&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Registered Users&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-3&quot;&gt;Downloads&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Documents and Document Downloads Tab --&gt;
+
+&lt;!-- Begin Models Tab --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelstable.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-4&quot;&gt;Model Details&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Models Tab --&gt;
+
+&lt;!-- Begin Related Items Tab --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-5&quot;&gt;Related Products&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+&lt;!-- End Related Items Tab --&gt;
+
+&lt;!-- Begin Currency Converter Tab --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If prices are disabled then hide --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;currencyconvertertab.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+      &lt;li&gt;&lt;a href=&quot;#tabs-6&quot;&gt;Currency&lt;/a&gt;&lt;/li&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Currency Converter Tab --&gt;
+
+   &lt;/ul&gt;
+	[TAG:END]
+
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;tabbedcontent.flag&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;div&gt;
+	[TAG:END]
+&lt;!-- End Tabs --&gt;
+
+&lt;!-- Begin Tab Content Panels --&gt;
+
+&lt;!-- Begin Description Content Panel --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;Description&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-1&quot;&gt;
+   &lt;div class=&quot;Description&quot;&gt;
+   &lt;h3&gt;[TAG:MANUFACTURER] [TAG:PRODUCTNAME]&lt;/h3&gt;
+   [TAG:DESCRIPTION]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Description Content Panel --&gt;
+	
+&lt;!-- Specifications Content Panel - Disabled by default
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;specificationstab.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST: &lt;prop TestType=&quot;valueof&quot; FieldXPath=&quot;genxml/edt/txtedit&quot; TestValue=&quot;&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-2&quot;&gt;
+   &lt;div class=&quot;Specifications&quot;&gt;
+   &lt;h3&gt;Detailed product specifications&lt;/h3&gt;
+   [TAG:XMLDATA:genxml/edt/txtedit]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+ --&gt;
+ 
+&lt;!-- Begin Documents Content Panel --&gt;
+   [TAG:TEST:&lt;prop TestType=&quot;hasDocuments&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-3&quot;&gt;
+   &lt;div class=&quot;Documents&quot;&gt;
+	&lt;h3&gt;Product Documentation&lt;/h3&gt;
+		&lt;div class=&quot;Document&quot;&gt;&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC1]&lt;/div&gt;[TAG:DOC1:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK1:&lt;prop CssClass=&quot;DocumentLink&quot; text=&quot;Download&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Document&quot;&gt;&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC2]&lt;/div&gt;[TAG:DOC2:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK2:&lt;prop CssClass=&quot;DocumentLink&quot; text=&quot;Download&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Document&quot;&gt;&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC3]&lt;/div&gt;[TAG:DOC3:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK3:&lt;prop CssClass=&quot;DocumentLink&quot; text=&quot;Download&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Document&quot;&gt;&lt;div class=&quot;DocumentDescription&quot;&gt;[TAG:DOCDESC4]&lt;/div&gt;[TAG:DOC4:&lt;prop CssClass=&quot;DocumentIcon&quot; /&gt;][TAG:DOCLINK4:&lt;prop CssClass=&quot;DocumentLink&quot; text=&quot;Download&quot; /&gt;]&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Documents Content Panel --&gt;
+	
+&lt;!-- Begin Document Downloads Content Panel --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Registered Users&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;downloadableproducts.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-3&quot;&gt;
+   &lt;div class=&quot;Documents&quot;&gt;
+	&lt;h3&gt;Download your purchased files here after payment&lt;/h3&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED1:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK1:&lt;prop CssClass=&quot;DownloadLink&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED2:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK2:&lt;prop CssClass=&quot;DownloadLink&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED3:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK3:&lt;prop CssClass=&quot;DownloadLink&quot; /&gt;]&lt;/div&gt;
+		&lt;div class=&quot;Download&quot;&gt;[TAG:DOCPURCHASED4:&lt;prop CssClass=&quot;DownloadIcon&quot; /&gt;][TAG:DOCPURCHASEDLINK4:&lt;prop CssClass=&quot;DownloadLink&quot; /&gt;]&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Document Downloads Content Panel --&gt;
+   
+&lt;!-- Begin Models Table Content Panel --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;modelstable.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels&quot; Action=&quot;Show&quot; /&gt;]
+   &lt;div id=&quot;tabs-4&quot;&gt;
+   &lt;div class=&quot;Models&quot;&gt;
+	&lt;h3&gt;This item is available in the following models&lt;/h3&gt;
+	[TAG:MODELSTABLE]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Models Table Content Panel --&gt;
+
+&lt;!-- Begin Related Items Content Panel --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasrelateditems&quot; Action=&quot;Show&quot; /&gt;]
+   &lt;div id=&quot;tabs-5&quot;&gt;
+   &lt;div class=&quot;RelatedProducts&quot;&gt;
+	&lt;h3&gt;Accessorize your purchase with these related items&lt;/h3&gt;
+   [TAGXML:relatedproducts.xsl]
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Related Items Content Panel --&gt;
+
+&lt;!-- Begin Currency Converter Content Panel - Note: This feature will be removed if the service provider withdraws the service or alters it in an unsuitable manner --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If prices are disabled then hide --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;currencyconvertertab.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+   &lt;div id=&quot;tabs-6&quot;&gt;
+   &lt;div class=&quot;Currency&quot;&gt;
+	&lt;h3&gt;Estimate this product price in your currency&lt;/h3&gt;
+	&lt;table class=&quot;CurrencyConverter&quot;&gt;
+	&lt;tr&gt;
+	&lt;td class=&quot;Normal&quot; style=&quot;padding-right:12px&quot;&gt;
+	&lt;p&gt;If it is not already displayed, select your target currency and click the 
+	button to convert. The result is calculated based on current market exchange rates. &lt;/p&gt;
+	&lt;p&gt;Banks and other institutions charge you fees for conversion and handling 
+	of foreign currencies and so the final price on your credit card bill will likely be a few percent higher than the result displayed here. 
+	Use this just as a guide. &lt;/p&gt;
+	&lt;p style=&quot;font-size:11px;font-style:italic&quot;&gt;This service is provided by foreignexchangeresource.com&lt;/p&gt;
+	&lt;/td&gt;
+	&lt;td style=&quot;width:260px;border: 1px dashed #8997A9;&quot;&gt;
+	&lt;iframe src=&quot;http://www.foreignexchangeresource.com/currency-converter.php?curr1=[TAG:CURRENCYISOCODE]&amp;amp;amt=[TAG:BESTPRICE]&amp;amp;expressedas=[TAG:SETTING:currencyisocode.convert]&amp;amp;size=250&quot; width=&quot;100%&quot; height=&quot;150&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;	&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;/table&gt;
+   &lt;/div&gt;
+   &lt;/div&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Currency Converter Content Panel --&gt;
+
+&lt;!-- End Tab Content Panels --&gt;
+ &lt;/div&gt;
+&lt;!-- End jQuery Tabbed Content --&gt;
+	
+&lt;!-- Begin Footer Buttons --&gt;
+	&lt;div class=&quot;WayOut&quot;&gt;
+		&lt;a class=&quot;ViewPrevious Button&quot; href=&quot;javascript:history.back()&quot;&gt;Previous&lt;/a&gt;
+		&lt;a class=&quot;ViewStorefront Button&quot; href=&quot;/tabid/[TAG:SETTING:store.tab]/Default.aspx&quot;&gt;Storefront&lt;/a&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]
+		&lt;a class=&quot;ViewWishList Button&quot; href=&quot;/tabid/[TAG:SETTING:wishlist.tab]/wishlist/Default.aspx&quot;&gt;Wishlist&lt;/a&gt;
+		[TAG:END]
+	&lt;/div&gt;
+&lt;!-- End Footer Buttons --&gt;
+	
+&lt;!-- Begin Footer Links --&gt;
+	&lt;div class=&quot;Sharing&quot;&gt;
+	&lt;!-- These offer only minimal print and email functionality - Remove if not suitable --&gt;
+	&lt;a class=&quot;PrintButton&quot; style=&quot;text-decoration:none;margin-right:12px&quot; title=&quot;Print this page&quot; href=&quot;#&quot; onclick=&quot;window.print();return false;&quot;&gt;
+		&lt;img style=&quot;vertical-align:-3px&quot; src=&quot;/DesktopModules/NB_Store/img/printer.png&quot; border=&quot;0&quot; alt=&quot;Print this page&quot; /&gt;&amp;nbsp;Print&lt;/a&gt;
+	&lt;a class=&quot;EmailButton&quot; style=&quot;text-decoration:none&quot; title=&quot;Email this page&quot; href=&quot;mailto:?subject=Product page referral - [TAG:PRODUCTNAME]&amp;amp;body=You have been referred to the [TAG:PRODUCTNAME] product page at [TAG:WEBSITEURL]: [TAG:LINKSIMPLE]&quot;&gt;
+		&lt;img style=&quot;vertical-align:-3px&quot; src=&quot;/DesktopModules/NB_Store/img/email.png&quot; border=&quot;0&quot; alt=&quot;Email this page&quot; /&gt;&amp;nbsp;Email&lt;/a&gt;
+	&lt;!-- Place social networking links such as AddThis in this section --&gt;
+	&lt;/div&gt;
+&lt;!-- End Footer Links --&gt;
+	
+ &lt;/div&gt;
+
+&lt;/div&gt;]]>
+</productdetail.template>
+<productlimit.text Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;strong&gt;Product Limit has been Reached.&lt;/strong&gt;&lt;br/&gt;
+To add a new product you must first remove an existing one or contact support for assistance.]]>
+</productlimit.text>
+<productlist.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div class=&quot;ListItem [TAG:TEST:&lt;prop TestType='setting' TestName='productlistrows.flag' TestValue='1' Action='Show' /&gt;]Rows[TAG:END]&quot;&gt;&lt;!-- Change to Rows layout - Step 1 - Add 'Rows' class --&gt;
+
+&lt;!-- Begin Soldout Image Overlay --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;soldoutimage.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;img alt=&quot;Product is Sold Out&quot; class=&quot;SoldOutOverlay&quot; src=&quot;/Desktopmodules/nb_store/img/SoldOutTab-en.png&quot; style=&quot;width:110px;height:48px&quot; border=&quot;0&quot; /&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Soldout Image Overlay --&gt;
+
+&lt;!-- Begin Wishlist Buttons --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]&lt;style type=&quot;text/css&quot;&gt;.WishListFlag{display:inline !important}&lt;/style&gt;
+		&lt;div class=&quot;WishListButtons&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Hide&quot; /&gt;][TAG:ADDTOWISHLIST:&lt;prop text=&quot;+&quot; Cssclass=&quot;Add&quot; ToolTip=&quot;Add this item to your wishlist&quot; /&gt;][TAG:END][TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;][TAG:REMOVEFROMWISHLIST:&lt;prop text=&quot;-&quot; Cssclass=&quot;Remove&quot; ToolTip=&quot;Remove this item from your wishlist&quot; /&gt;][TAG:END]&lt;span class=&quot;WishListLabel&quot;&gt;Wishlist&lt;/span&gt;&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Wishlist Buttons --&gt;
+	
+&lt;!-- Begin Hide Checkout Button when store disabled --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;style type=&quot;text/css&quot;&gt;.DisableCartFlag{display:none !important}&lt;/style&gt;
+	[TAG:END]
+&lt;!-- End Hide Checkout Button --&gt;
+	
+&lt;!-- Begin Hide MiniCart totals when prices disabled --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;style type=&quot;text/css&quot;&gt;.DisablePricesFlag{display:none !important}&lt;/style&gt;
+	[TAG:END]
+&lt;!-- End Hide MiniCart totals --&gt;
+	
+&lt;!-- Begin Product Table --&gt;
+&lt;table style=&quot;width:100%;height:100%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+
+&lt;!-- Begin Product Thumbnail Cell --&gt;
+		&lt;td class=&quot;ImageWrapper&quot; valign=&quot;middle&quot; [TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;productlistrows.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]rowspan=&quot;2&quot;[TAG:END]&gt;&lt;!-- Change to Rows layout - Step 2 - Add 'rowspan' value --&gt;
+			&lt;a href=&quot;[TAG:LINK]&quot; title=&quot;[TAG:SUMMARY]&quot;&gt;&lt;img alt=&quot;[TAG:MANUFACTURER] [TAG:PRODUCTNAME]&quot; src=&quot;[TAG:THUMBURL]&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
+		&lt;/td&gt;
+&lt;!-- End Product Thumbnail Cell --&gt;
+
+&lt;!-- Begin Change to Rows layout - Step 3 - Split this table cell --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;productlistrows.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	[TAG:END]
+&lt;!-- End Change to Rows layout --&gt;
+
+&lt;!-- Begin Name and Summary cell in Rows layout --&gt;
+		&lt;td class=&quot;InfoPanel&quot;&gt;
+			&lt;div class=&quot;Name&quot;&gt;[TAG:PRODUCTNAME] [TAG:EDITLINK]&lt;/div&gt;
+			[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;productlistrows.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+				&lt;div class=&quot;Summary&quot;&gt;[TAG:SUMMARYHTML]&lt;/div&gt;
+			[TAG:END]
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	&lt;td class=&quot;PurchasingPanel&quot; valign=&quot;middle&quot; height=&quot;0&quot;&gt;
+&lt;!-- End Name and Summary cell in Rows layout --&gt;
+
+&lt;!-- Begin Purchasing Options in Rows layout --&gt;	
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;productlistrows.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	
+&lt;!-- Begin View Details Button --&gt;
+		&lt;a class=&quot;DetailsButton Button&quot; href=&quot;[TAG:LINK]&quot;&gt;View&lt;/a&gt;
+&lt;!-- End View Details Button --&gt;
+
+&lt;!-- Begin Buy Button and Quantity Field --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disablecart.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If cart is disabled then hide --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If stock level zero then hide --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If product has models or options then hide --&gt;
+		[TAG:ADDTOBASKET:&lt;prop CssClass=&quot;BuyButton Button&quot; Text=&quot;Buy&quot; /&gt;]
+		[TAG:QTY:&lt;prop CssClass=&quot;QuantityField NormalTextBox&quot; /&gt;]
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Buy Button and Quantity Field --&gt;
+
+	[TAG:END]
+&lt;!-- End Purchasing Options in Rows layout --&gt;	
+
+&lt;!-- Begin Pricing for Retail, Sale and Dealer --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If prices are disabled then hide all prices --&gt;
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide all prices --&gt;
+	&lt;div class=&quot;Price&quot;&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- Retail Pricing --&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Hide&quot; /&gt;]
+	&lt;span class=&quot;RetailPrice&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Sale Pricing --&gt;
+		&lt;span class=&quot;OldPrice&quot;&gt;[TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;SalePrice&quot;&gt;On Sale [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICESALECURRENCY]&lt;/span&gt;
+	[TAG:END]
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Dealer Pricing --&gt;
+		&lt;span class=&quot;RetailPrice&quot;&gt;Retail [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;DealerPrice&quot;&gt;Dealer [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICEDEALERCURRENCY]&lt;/span&gt;
+	[TAG:END]
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- If price is zero then display contact message --&gt;
+	&lt;div class=&quot;EmailForPrice&quot;&gt;
+	&lt;a href=&quot;mailto:[TAG:SETTING:merchant.email]?subject=Price request - [TAG:PRODUCTNAME]&amp;amp;body=Please inform me of the price of the [TAG:PRODUCTNAME] at [TAG:WEBSITEURL] on this page: [TAG:LINKSIMPLE]&quot;&gt;Email for price&lt;/a&gt;
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:END]
+&lt;!-- End Pricing for Retail, Sale and Dealer --&gt;
+
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- End Product Table --&gt;
+&lt;/div&gt;]]>
+</productlist.template>
+<productlistfeatured.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;div class=&quot;FeaturedProduct ListItem&quot;&gt;
+
+&lt;!-- Begin Soldout Image Overlay --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;soldoutimage.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;QtyRemaining&quot; TestValue=&quot;0&quot; Action=&quot;Show&quot; /&gt;]
+	&lt;img alt=&quot;Product is Sold Out&quot; class=&quot;SoldOutOverlay&quot; src=&quot;/Desktopmodules/nb_store/img/SoldOutTab-en.png&quot; style=&quot;width:110px;height:48px&quot; border=&quot;0&quot; /&gt;
+	[TAG:END]
+	[TAG:END]
+&lt;!-- End Soldout Image Overlay --&gt;
+
+&lt;!-- Begin Wishlist Buttons --&gt;
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;wishlist.flag&quot; TestValue=&quot;1&quot; Action=&quot;Show&quot; /&gt;]&lt;style type=&quot;text/css&quot;&gt;.WishListFlag{display:inline !important}&lt;/style&gt;
+		&lt;div class=&quot;WishListButtons&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Hide&quot; /&gt;][TAG:ADDTOWISHLIST:&lt;prop text=&quot;+&quot; Cssclass=&quot;Add&quot; ToolTip=&quot;Add this item to your wishlist&quot; /&gt;][TAG:END][TAG:TEST:&lt;prop TestType=&quot;isinwishlist&quot; Action=&quot;Show&quot; /&gt;][TAG:REMOVEFROMWISHLIST:&lt;prop text=&quot;-&quot; Cssclass=&quot;Remove&quot; ToolTip=&quot;Remove this item from your wishlist&quot; /&gt;][TAG:END]&lt;span class=&quot;WishListLabel&quot;&gt;Wishlist&lt;/span&gt;&lt;/div&gt;
+	[TAG:END]
+&lt;!-- End Wishlist Buttons --&gt;
+	
+&lt;!-- Begin Product Table --&gt;
+&lt;table style=&quot;width:100%;height:100%&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+	&lt;tr&gt;
+	
+&lt;!-- Begin Product Thumbnail Cell --&gt;
+		&lt;td class=&quot;ImageWrapper&quot; valign=&quot;middle&quot;&gt;
+			&lt;a href=&quot;[TAG:LINK]&quot; title=&quot;[TAG:SUMMARY]&quot;&gt;&lt;img alt=&quot;[TAG:MANUFACTURER] [TAG:PRODUCTNAME]&quot; src=&quot;[TAG:THUMBURL]&quot; border=&quot;0&quot; /&gt;&lt;/a&gt;
+		&lt;/td&gt;
+&lt;!-- End Product Thumbnail Cell --&gt;
+
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	
+&lt;!-- Begin Product Name Cell --&gt;
+		&lt;td class=&quot;InfoPanel&quot;&gt;
+			&lt;div class=&quot;Name&quot;&gt;[TAG:PRODUCTNAME] [TAG:EDITLINK]&lt;/div&gt;
+		&lt;/td&gt;
+&lt;!-- End Product Name Cell --&gt;
+
+	&lt;/tr&gt;
+	&lt;tr&gt;
+	
+&lt;!-- Begin Pricing for Retail, Sale and Dealer --&gt;
+	&lt;td class=&quot;PurchasingPanel&quot; valign=&quot;middle&quot; height=&quot;0&quot;&gt;
+
+	[TAG:TEST:&lt;prop TestType=&quot;setting&quot; TestName=&quot;disableprices.flag&quot; TestValue=&quot;1&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If prices are disabled then hide all prices --&gt;
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- If price is zero then hide all prices --&gt;
+	&lt;div class=&quot;Price&quot;&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Hide&quot; /&gt;]&lt;!-- Retail Pricing --&gt;
+		[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Hide&quot; /&gt;]
+	&lt;span class=&quot;RetailPrice&quot;&gt;[TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isOnSale&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Sale Pricing --&gt;
+		&lt;span class=&quot;OldPrice&quot;&gt;[TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;SalePrice&quot;&gt;On Sale [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICESALECURRENCY]&lt;/span&gt;
+	[TAG:END]
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;isinrole&quot; TestValue=&quot;Dealer&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- Dealer Pricing --&gt;
+		&lt;span class=&quot;RetailPrice&quot;&gt;Retail [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:FROMPRICECURRENCY]&lt;/span&gt;
+		&lt;span class=&quot;DealerPrice&quot;&gt;Dealer [TAG:TEST:&lt;prop TestType=&quot;hasModels|hasOptions&quot; Action=&quot;Show&quot; /&gt;]From [TAG:END][TAG:PRICEDEALERCURRENCY]&lt;/span&gt;
+	[TAG:END]
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:TEST:&lt;prop TestType=&quot;valueof&quot; TestName=&quot;FromPrice&quot; TestValue=&quot;0.00&quot; Action=&quot;Show&quot; /&gt;]&lt;!-- If price is zero then display contact message --&gt;
+	&lt;div class=&quot;EmailForPrice&quot;&gt;
+	&lt;a href=&quot;mailto:[TAG:SETTING:merchant.email]?subject=Price request - [TAG:PRODUCTNAME]&amp;amp;body=Please inform me of the price of the [TAG:PRODUCTNAME] at [TAG:WEBSITEURL] on this page: [TAG:LINKSIMPLE]&quot;&gt;Email for price&lt;/a&gt;
+	&lt;/div&gt;
+	[TAG:END]
+	
+	[TAG:END]
+&lt;!-- End Pricing for Retail, Sale and Dealer --&gt;
+
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;]]>
+</productlistfeatured.template>
+<ProductPageName.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="False"><![CDATA[[TAG:MANUFACTURER] [TAG:PRODUCTNAME] - [TAG:CATEGORYNAME] [TAG:PRODUCTREF] : [TAG:PORTALNAME]]]></ProductPageName.template>
+<productxmldata.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True"><![CDATA[]]></productxmldata.template>
+<receiptprint.text Lang="None" CtrlType="" GroupRef="root/notifications" HostOnly="True">
+<![CDATA[&lt;div style=&quot;padding:24px&quot;&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+body,.Normal,td{font:normal 13px Tahoma,Arial,Helvetica;color:#555555}
+h1{font-weight:normal;font-size:22px;margin:0 0 12px 0;color:inherit}
+h2{font-weight:normal;font-size:18px;margin:0 0 12px 0;color:inherit}
+h3{font-size:16px;font-weight:normal;margin:0 0 9px 0;color:inherit}
+table{color:inherit;font:inherit;font-family:inherit;font-weight:inherit;font-size:100%;}
+.OrderHeader{border-bottom:1px solid #AAAAAA;border-top:1px solid #AAAAAA;font-size:16px;font-weight:normal}
+.OrderLabel{color:#EEE;font-size:20px;padding:10px 20px;float:right;background-color:#53555E}
+.OrderDetailRow{border-bottom:1px #EEE dotted}
+.MerchantBank,.MerchantAddress{margin-left:24px}
+&lt;/style&gt;&lt;table align=&quot;right&quot;&gt;
+	&lt;tr&gt;
+		&lt;td class=&quot;OrderLabel&quot;&gt;Receipt - Paid&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3&gt;[Template:merchantname.template] Receipt&lt;/h3&gt;
+&lt;p&gt;[Template:merchantaddress.template]&lt;/p&gt;
+&lt;p&gt;[Template:merchantbank.template]&lt;/p&gt;
+&lt;p&gt;&amp;#160;&lt;/p&gt;
+&lt;p&gt;[Template:order.text.template]&lt;/p&gt;
+&lt;/div&gt;]]>
+</receiptprint.text>
+<relatedproducts.xsl Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;  xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; exclude-result-prefixes=&quot;msxsl&quot;&gt;
+    &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot; omit-xml-declaration=&quot;yes&quot; /&gt;
+&lt;xsl:template match=&quot;/root&quot;&gt;
+
+&lt;div class=&quot;RelatedWrapper&quot;&gt;
+&lt;xsl:for-each select=&quot;related/item&quot;&gt;
+	&lt;div class=&quot;RelatedOuter&quot;&gt;
+		&lt;div class=&quot;RelatedInner&quot;&gt;
+			&lt;a&gt;
+  &lt;xsl:attribute name=&quot;href&quot;&gt;&lt;xsl:value-of select=&quot;./link&quot; disable-output-escaping=&quot;yes&quot; /&gt;&lt;/xsl:attribute&gt;  
+	  		&lt;img&gt;
+				&lt;xsl:attribute name=&quot;alt&quot;&gt;				
+				&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/ProductName&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+				&lt;xsl:attribute name=&quot;title&quot;&gt;				
+				&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/Summary&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+				&lt;xsl:attribute name=&quot;src&quot;&gt;				
+				&lt;xsl:value-of select=&quot;/root/ModulePath&quot; /&gt;makethumbnail.ashx?Image=&lt;xsl:value-of select=&quot;./P/I/NB_Store_ProductImageInfo/ImageID&quot; /&gt;&amp;amp;w=120&amp;amp;tabid=&lt;xsl:value-of select=&quot;/root/TabID&quot; /&gt;				
+				&lt;/xsl:attribute&gt;
+			&lt;/img&gt;&lt;/a&gt;
+			&lt;div class=&quot;Name&quot;&gt;
+&lt;xsl:value-of select=&quot;./P/NB_Store_ProductsInfo/ProductName&quot; /&gt;&lt;/div&gt;
+			&lt;div class=&quot;Price&quot;&gt;
+&lt;xsl:value-of select=&quot;./frompricecurrency&quot; /&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/xsl:for-each&gt;
+&lt;/div&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+]]>
+</relatedproducts.xsl>
+<replaceCSV.ImportMapping Lang="None" CtrlType="MultiLineTextBox" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;root&gt;
+    &lt;item col=&quot;8&quot; str=&quot;,&quot; rpl=&quot;.&quot; substr=&quot;true&quot;/&gt;
+    &lt;item col=&quot;9&quot; str=&quot;,&quot; rpl=&quot;.&quot; substr=&quot;true&quot;/&gt;
+    &lt;item col=&quot;8&quot; str=&quot; &quot; rpl=&quot;&quot; substr=&quot;true&quot;/&gt;
+    &lt;item col=&quot;9&quot; str=&quot; &quot; rpl=&quot;&quot; substr=&quot;true&quot;/&gt;
+    &lt;item col=&quot;*&quot; str=&quot;&amp;amp;&quot; rpl=&quot;et&quot; substr=&quot;true&quot;/&gt;
+&lt;/root&gt;]]>
+</replaceCSV.ImportMapping>
+<rss.template Lang="None" CtrlType="" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;rss version=&quot;2.0&quot;&gt;
+&lt;channel&gt;
+&lt;title&gt;NB_Store Channel&lt;/title&gt;
+&lt;link&gt;http://www.mywebsite.com&lt;/link&gt;
+&lt;description&gt;NB_Store Product RSS channel&lt;/description&gt;
+[Product:rssitem]
+&lt;/channel&gt;
+&lt;/rss&gt;]]>
+</rss.template>
+<rssitem.template Lang="None" CtrlType="" GroupRef="root/system/data" HostOnly="True">
+<![CDATA[&lt;item&gt;
+&lt;title&gt;&lt;![CDATA[[Product:ProductName]]]&gt;&lt;/title&gt;
+&lt;link&gt;&lt;![CDATA[[Product:Link]]]&gt;&lt;/link&gt;
+&lt;description&gt;&lt;![CDATA[[Product:Summary]]]&gt;&lt;/description&gt;
+&lt;/item&gt;]]>
+</rssitem.template>
+<soldoutimg.template Lang="None" CtrlType="" GroupRef="root/catalogue/images" HostOnly="True">
+<![CDATA[&lt;img alt=&quot;Product is Sold Out&quot; class=&quot;SoldOutOverlay&quot; src=&quot;/Desktopmodules/nb_store/img/SoldOutTab-en.png&quot; border=&quot;0&quot; /&gt;
+&lt;!-- This template is not used in the default 2.2 product display templates --&gt;]]>
+</soldoutimg.template>
+<specialshipping.text Lang="None" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True">
+<![CDATA[&lt;p&gt;
+This order requires special delivery.&lt;br /&gt;
+Please contact us at the email address below: 
+&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;[TAG:STOREEMAIL]&lt;/strong&gt; &lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;Thank you.&lt;/p&gt;]]>
+</specialshipping.text>
+<specificationstabxml.template Lang="None" CtrlType="" GroupRef="root/catalogue/products" HostOnly="True">
+<![CDATA[&lt;span class=&quot;NormalBold&quot;&gt;Specifications Tab&lt;/span&gt;
+[&lt;tag id=&quot;txtEdit&quot; type=&quot;dnntexteditor&quot; height=&quot;300&quot; width=&quot;700&quot; /&gt;]]]>
+</specificationstabxml.template>
+<standard.shiptemplate Lang="None" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[Standard Delivery [TAG:SHIPPINGCOST] ]]></standard.shiptemplate>
+<stg2form.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[]]></stg2form.template>
+<stg3form.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[]]></stg3form.template>
+<stg2formxml.xsl Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[]]></stg2formxml.xsl>
+<stg3formxml.xsl Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[]]></stg3formxml.xsl>
+<stgheader1.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;img src=&quot;/DesktopModules/NB_Store/img/CheckoutStepLight-1.png&quot; class=&quot;CheckoutSteps&quot; alt=&quot;View shopping cart&quot; border=&quot;0&quot; /&gt;]]></stgheader1.template>
+<stgheader2.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;img src=&quot;/DesktopModules/NB_Store/img/CheckoutStepLight-2.png&quot; class=&quot;CheckoutSteps&quot; alt=&quot;Provide address details&quot; border=&quot;0&quot; /&gt;]]></stgheader2.template>
+<stgheader3.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;img src=&quot;/DesktopModules/NB_Store/img/CheckoutStepLight-3.png&quot; class=&quot;CheckoutSteps&quot; alt=&quot;Select payment method&quot; border=&quot;0&quot; /&gt;]]></stgheader3.template>
+<stgheader5.template Lang="None" CtrlType="" GroupRef="root/payment/checkout" HostOnly="True"><![CDATA[&lt;img src=&quot;/DesktopModules/NB_Store/img/CheckoutStepLight-5.png&quot; class=&quot;CheckoutSteps&quot; alt=&quot;Purchase complete - Thank you&quot; border=&quot;0&quot; /&gt;]]></stgheader5.template>
+<ups.tracktemplate Lang="None" CtrlType="" GroupRef="root/payment/shipping" HostOnly="True"><![CDATA[&lt;a href=&quot;http://wwwapps.ups.com/WebTracking/processInputRequest?sort_by=status&amp;tracknums_displayed=1&amp;TypeOfInquiryNumber=T&amp;loc=en_US&amp;InquiryNumber1=[TAG:TRACKINGCODE]&amp;track.x=0&amp;track.y=0&quot; target=&quot;_blank&quot; &gt;Tracking Code&lt;/a&gt;]]></ups.tracktemplate>
+<zeroprice.text Lang="None" CtrlType="" GroupRef="root/payment/pricing" HostOnly="True"><![CDATA[Call for Price]]></zeroprice.text>
+<menu.xml Lang="None" CtrlType="" GroupRef="root/system/backoffice" HostOnly="True">
+<![CDATA[&lt;root version=&quot;02.02.01&quot;&gt;
+  &lt;tabs&gt;
+    &lt;tab id=&quot;Dashboard&quot; text=&quot;Dashboard&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/Dashboardtab.png&quot;  ctl=&quot;AdminDashboard&quot; param=&quot;&quot; roles=&quot;Manager,Sales,Finance&quot;&gt;
+      &lt;subtab text=&quot;Dashboard&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/Dashboardtab.png&quot;  ctl=&quot;AdminDashboard&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;Reports&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/Report.png&quot;  ctl=&quot;AdminReport&quot; param=&quot;&quot; /&gt;     
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Catalog&quot; text=&quot;Catalog&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/catalogtab.png&quot;  ctl=&quot;AdminProduct&quot; param=&quot;&quot; roles=&quot;Manager,Sales&quot;&gt;
+      &lt;subtab text=&quot;Products&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/ProductTab.png&quot;  ctl=&quot;AdminProduct&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;Categories&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/CategoriesTab.png&quot;  ctl=&quot;AdminCategories&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;Stock&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/StockTab.png&quot;  ctl=&quot;AdminStock&quot; param=&quot;&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Orders&quot; text=&quot;Orders&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/orderstab.png&quot; ctl=&quot;AdminOrders&quot; param=&quot;&quot; roles=&quot;Manager,Sales,Finance&quot;&gt;
+      &lt;subtab text=&quot;Orders&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/orderstab.png&quot; ctl=&quot;AdminOrders&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;Clients&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/clienttab.png&quot; ctl=&quot;AdminClients&quot; param=&quot;&quot; roles=&quot;Manager&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Shipping&quot; text=&quot;Shipping&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/shippingtab.png&quot; ctl=&quot;AdminShipMethod&quot; param=&quot;&quot; roles=&quot;Manager&quot;&gt;
+      &lt;subtab text=&quot;Method&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/shippingtab.png&quot; ctl=&quot;AdminShipMethod&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;By Weight&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/byweighttab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=wei&quot; /&gt;
+      &lt;subtab text=&quot;By Price&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/bypricetab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=prc&quot; /&gt;
+      &lt;subtab text=&quot;By Quantity&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/byquantitytab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=qty&quot; /&gt;
+      &lt;subtab text=&quot;By Country&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/bycountrytab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=cou&quot; /&gt;
+      &lt;subtab text=&quot;By Product&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/byproducttab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=prd&quot; /&gt;
+      &lt;subtab text=&quot;Free Limit&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/freelimittab.png&quot; ctl=&quot;ShipRates&quot; param=&quot;spg=fre&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Taxes&quot; text=&quot;Taxes&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/taxtab.png&quot; ctl=&quot;TaxRates&quot; param=&quot;spg=set&quot; roles=&quot;Manager&quot;&gt;
+      &lt;subtab text=&quot;Defaults&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/taxdefaulttab.png&quot; ctl=&quot;TaxRates&quot; param=&quot;spg=set&quot; /&gt;
+      &lt;subtab text=&quot;Category Level&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/taxCategorytab.png&quot; ctl=&quot;TaxRates&quot; param=&quot;spg=cat&quot; /&gt;
+      &lt;subtab text=&quot;Product Level&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/taxproducttab.png&quot; ctl=&quot;TaxRates&quot; param=&quot;spg=prd&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Promotions&quot; text=&quot;Promotions&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/discountstab.png&quot; ctl=&quot;AdminPromo&quot; param=&quot;spg=cou&quot; roles=&quot;Manager,Sales&quot;&gt;
+      &lt;subtab text=&quot;Coupons&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/vouchertab.png&quot; ctl=&quot;AdminPromo&quot; param=&quot;spg=cou&quot; /&gt;
+      &lt;subtab text=&quot;Category Discounts&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/disccategorytab.png&quot; ctl=&quot;AdminPromo&quot; param=&quot;spg=sto&quot; /&gt;
+      &lt;subtab text=&quot;Cart Discounts&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/disccategorytab.png&quot; ctl=&quot;AdminPromo&quot; param=&quot;spg=car&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Utilities&quot; text=&quot;Utilities&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/utilitiestab.png&quot; ctl=&quot;AdminSetting&quot; param=&quot;etmode=0&quot; roles=&quot;Manager&quot;&gt;
+      &lt;subtab text=&quot;Settings&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/settingstab.png&quot; ctl=&quot;AdminSetting&quot; param=&quot;etmode=0&quot; /&gt;
+      &lt;subtab text=&quot;Templates&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/templatestab.png&quot; ctl=&quot;AdminSetting&quot; param=&quot;etmode=1&quot; /&gt;
+      &lt;subtab text=&quot;Export&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/exporttab.png&quot; ctl=&quot;AdminBackup&quot; param=&quot;spg=bck&quot; /&gt;
+      &lt;subtab text=&quot;Import&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/importtab.png&quot; ctl=&quot;AdminBackup&quot; param=&quot;spg=res&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Admin&quot; text=&quot;Admin&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/hosttab.png&quot; ctl=&quot;AdminHost&quot; param=&quot;&quot; roles=&quot;Administrators&quot;&gt;
+	  &lt;subtab text=&quot;Admin&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/hosttab.png&quot; ctl=&quot;AdminHost&quot; param=&quot;&quot; /&gt;
+      &lt;subtab text=&quot;Help&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/helptab.png&quot; ctl=&quot;HELP&quot; param=&quot;&quot; /&gt;
+    &lt;/tab&gt;
+    &lt;tab id=&quot;Exit&quot; text=&quot;Exit&quot; image=&quot;~/DesktopModules/NB_Store/img/tabmenu/exittab.png&quot; ctl=&quot;EXIT&quot; param=&quot;&quot;&gt;&lt;/tab&gt;
+  &lt;/tabs&gt;
+    &lt;css menudiv=&quot;NBright_MenuDiv&quot; titlediv=&quot;NBright_MenuTitleDiv&quot; tabdiv=&quot;NBright_ui-tabs&quot; subtabdiv=&quot;NBright_ui-subtabs&quot; tabul=&quot;NBright_ui-tabs-ul&quot; tabli=&quot;&quot; tabliactive=&quot;NBright_ui-tabs-selected&quot; subtabul=&quot;&quot; sublitabli=&quot;&quot; sublitabliactive=&quot;&quot;&gt;&lt;/css&gt;
+    &lt;skin path=&quot;~/DesktopModules/NB_Store/Skins/Dark/Dark&quot;&gt;&lt;/skin&gt;
+  &lt;resx name=&quot;MenuManager.ascx&quot;&gt;&lt;/resx&gt;
+  &lt;enterbutton cssdiv=&quot;NBright_ButtonDiv&quot; css=&quot;NBright_EnterButton&quot;  resourcekey=&quot;cmdBackOffice&quot; defaultctrl=&quot;AdminDashboard&quot;&gt;&lt;/enterbutton&gt;
+&lt;/root&gt;]]>
+</menu.xml>
+</settingstext>
+<SQLReports>
+  <SQLReport>
+    <NB_Store_SQLReportInfo>
+      <ReportID>1</ReportID>
+      <PortalID>0</PortalID>
+      <ReportName>Dashboard_GetDate</ReportName>
+      <ReportTitle />
+      <SQL>Select Getdate() as [Date]</SQL>
+      <SchedulerFlag>false</SchedulerFlag>
+      <SchStartHour>0</SchStartHour>
+      <SchStartMins>00</SchStartMins>
+      <SchReRunMins>15</SchReRunMins>
+      <LastRunTime>2010-03-03T00:00:00</LastRunTime>
+      <AllowExport>false</AllowExport>
+      <AllowDisplay>true</AllowDisplay>
+      <DisplayInLine>false</DisplayInLine>
+      <EmailResults>false</EmailResults>
+      <EmailFrom />
+      <EmailTo />
+      <ShowSQL>false</ShowSQL>
+      <ConnectionString />
+      <ReportRef>Dash_getdate</ReportRef>
+      <AllowPaging>false</AllowPaging>
+      <FieldDelimeter>,</FieldDelimeter>
+      <FieldQualifier></FieldQualifier>
+    </NB_Store_SQLReportInfo>
+    <SQLReportParams></SQLReportParams>
+    <SQLReportXSL></SQLReportXSL>
+  </SQLReport>
+  <SQLReport>
+    <NB_Store_SQLReportInfo>
+      <ReportID>2</ReportID>
+      <PortalID>0</PortalID>
+      <ReportName>Dashboard_LatestOrders</ReportName>
+      <ReportTitle />
+      <SQL>select top 10 OrderDate,OrderNumber,AddressName as [Name],convert(decimal(16,2),Total) As Total, OrderStatusText as Status  from {databaseOwner}{objectQualifier}NB_Store_Orders as O inner join {databaseOwner}{objectQualifier}NB_Store_OrderStatus as OS on OS.OrderStatusID = O.OrderStatusID and Lang= 'XX' inner join {databaseOwner}{objectQualifier}NB_Store_Address as AD on AD.AddressID = O.BillingAddressID where OrderNumber != '' and O.PortalID = @PortalID order by OrderDate Desc</SQL>
+      <SchedulerFlag>false</SchedulerFlag>
+      <SchStartHour>0</SchStartHour>
+      <SchStartMins>00</SchStartMins>
+      <SchReRunMins>15</SchReRunMins>
+      <LastRunTime>2010-03-03T00:00:00</LastRunTime>
+      <AllowExport>false</AllowExport>
+      <AllowDisplay>true</AllowDisplay>
+      <DisplayInLine>false</DisplayInLine>
+      <EmailResults>false</EmailResults>
+      <EmailFrom />
+      <EmailTo />
+      <ShowSQL>false</ShowSQL>
+      <ConnectionString />
+      <ReportRef>Dash_LatestOrders</ReportRef>
+      <AllowPaging>false</AllowPaging>
+      <FieldDelimeter>,</FieldDelimeter>
+      <FieldQualifier></FieldQualifier>
+    </NB_Store_SQLReportInfo>
+    <SQLReportParams>
+      <NB_Store_SQLReportParamInfo>
+        <ReportParamID>1</ReportParamID>
+        <ReportID>2</ReportID>
+        <ParamName>@PortalID</ParamName>
+        <ParamType>int</ParamType>
+        <ParamValue />
+        <ParamSource>5</ParamSource>
+      </NB_Store_SQLReportParamInfo>
+    </SQLReportParams>
+    <SQLReportXSL></SQLReportXSL>
+  </SQLReport>
+  <SQLReport>
+    <NB_Store_SQLReportInfo>
+      <ReportID>3</ReportID>
+      <PortalID>0</PortalID>
+      <ReportName>Dashboard_OrderCount</ReportName>
+      <ReportTitle />
+      <SQL>select count(OrderID) as [Order Count]  from {databaseOwner}{objectQualifier}NB_Store_Orders where PortalID = @PortalID and OrderNumber != ''</SQL>
+      <SchedulerFlag>false</SchedulerFlag>
+      <SchStartHour>0</SchStartHour>
+      <SchStartMins>00</SchStartMins>
+      <SchReRunMins>15</SchReRunMins>
+      <LastRunTime>2010-03-03T00:00:00</LastRunTime>
+      <AllowExport>false</AllowExport>
+      <AllowDisplay>true</AllowDisplay>
+      <DisplayInLine>false</DisplayInLine>
+      <EmailResults>false</EmailResults>
+      <EmailFrom />
+      <EmailTo />
+      <ShowSQL>false</ShowSQL>
+      <ConnectionString />
+      <ReportRef>Dash_OrderCount</ReportRef>
+      <AllowPaging>false</AllowPaging>
+      <FieldDelimeter>,</FieldDelimeter>
+      <FieldQualifier></FieldQualifier>
+    </NB_Store_SQLReportInfo>
+    <SQLReportParams>
+      <NB_Store_SQLReportParamInfo>
+        <ReportParamID>2</ReportParamID>
+        <ReportID>3</ReportID>
+        <ParamName>@PortalID</ParamName>
+        <ParamType>int</ParamType>
+        <ParamValue />
+        <ParamSource>5</ParamSource>
+      </NB_Store_SQLReportParamInfo>
+    </SQLReportParams>
+    <SQLReportXSL></SQLReportXSL>
+  </SQLReport>
+  <SQLReport>
+    <NB_Store_SQLReportInfo>
+      <ReportID>4</ReportID>
+      <PortalID>0</PortalID>
+      <ReportName>Dashboard_OrderTotal</ReportName>
+      <ReportTitle />
+      <SQL>select convert(decimal(16,2),sum(Total)) as [Order Total]  from {databaseOwner}{objectQualifier}NB_Store_Orders where Portalid = @PortalID and OrderNumber != ''</SQL>
+      <SchedulerFlag>false</SchedulerFlag>
+      <SchStartHour>0</SchStartHour>
+      <SchStartMins>00</SchStartMins>
+      <SchReRunMins>15</SchReRunMins>
+      <LastRunTime>2010-03-03T00:00:00</LastRunTime>
+      <AllowExport>false</AllowExport>
+      <AllowDisplay>true</AllowDisplay>
+      <DisplayInLine>false</DisplayInLine>
+      <EmailResults>false</EmailResults>
+      <EmailFrom />
+      <EmailTo />
+      <ShowSQL>false</ShowSQL>
+      <ConnectionString />
+      <ReportRef>Dash_OrderTotal</ReportRef>
+      <AllowPaging>false</AllowPaging>
+      <FieldDelimeter>,</FieldDelimeter>
+      <FieldQualifier></FieldQualifier>
+    </NB_Store_SQLReportInfo>
+    <SQLReportParams>
+      <NB_Store_SQLReportParamInfo>
+        <ReportParamID>3</ReportParamID>
+        <ReportID>4</ReportID>
+        <ParamName>@PortalID</ParamName>
+        <ParamType>int</ParamType>
+        <ParamValue />
+        <ParamSource>5</ParamSource>
+      </NB_Store_SQLReportParamInfo>
+    </SQLReportParams>
+    <SQLReportXSL></SQLReportXSL>
+  </SQLReport>
+  <SQLReport>
+    <NB_Store_SQLReportInfo>
+      <ReportID>5</ReportID>
+      <PortalID>0</PortalID>
+      <ReportName>Dashboard_ProductCount</ReportName>
+      <ReportTitle />
+      <SQL>select count(ProductID) as [Product Count] from {databaseOwner}{objectQualifier}NB_Store_Products where Archived = 0 and IsDeleted = 0 and PortalID = @PortalID</SQL>
+      <SchedulerFlag>false</SchedulerFlag>
+      <SchStartHour>0</SchStartHour>
+      <SchStartMins>00</SchStartMins>
+      <SchReRunMins>15</SchReRunMins>
+      <LastRunTime>2010-05-20T00:00:00</LastRunTime>
+      <AllowExport>false</AllowExport>
+      <AllowDisplay>true</AllowDisplay>
+      <DisplayInLine>false</DisplayInLine>
+      <EmailResults>false</EmailResults>
+      <EmailFrom />
+      <EmailTo />
+      <ShowSQL>false</ShowSQL>
+      <ConnectionString />
+      <ReportRef>Dash_productcount</ReportRef>
+      <AllowPaging>false</AllowPaging>
+      <FieldDelimeter>,</FieldDelimeter>
+      <FieldQualifier></FieldQualifier>
+    </NB_Store_SQLReportInfo>
+    <SQLReportParams>
+      <NB_Store_SQLReportParamInfo>
+        <ReportParamID>8</ReportParamID>
+        <ReportID>5</ReportID>
+        <ParamName>@PortalID</ParamName>
+        <ParamType>int</ParamType>
+        <ParamValue />
+        <ParamSource>5</ParamSource>
+      </NB_Store_SQLReportParamInfo>
+    </SQLReportParams>
+    <SQLReportXSL></SQLReportXSL>
+  </SQLReport>
+<SQLReport>
+	<NB_Store_SQLReportInfo>
+		<ReportID>6</ReportID>
+		<PortalID>0</PortalID>
+		<ReportName>Search Word Report</ReportName>
+		<ReportTitle />
+		<SQL>select 
+SearchWord,
+ExistsOnProduct,
+ExistsCount,
+LastHitDate,
+sum(HitCount) as HitCount,
+min(WordRank) as BestRank
+
+from {databaseOwner}{objectQualifier}NB_Store_SearchWords AS SW
+inner join {databaseOwner}{objectQualifier}NB_Store_SearchWordHits as SWH on SWH.SearchWordID = SW.SearchWordID
+
+where Hitdate between @Start_Date and @End_Date
+and PortalID = @PortalID
+
+group by SearchWord,
+ExistsOnProduct,
+ExistsCount,
+LastHitDate
+
+order by sum(HitCount) desc
+</SQL>
+		<SchedulerFlag>false</SchedulerFlag>
+		<SchStartHour>0</SchStartHour>
+		<SchStartMins>00</SchStartMins>
+		<SchReRunMins>15</SchReRunMins>
+		<LastRunTime>2010-10-22T00:00:00</LastRunTime>
+		<AllowExport>true</AllowExport>
+		<AllowDisplay>true</AllowDisplay>
+		<DisplayInLine>false</DisplayInLine>
+		<EmailResults>false</EmailResults>
+		<EmailFrom />
+		<EmailTo />
+		<ShowSQL>false</ShowSQL>
+		<ConnectionString />
+		<ReportRef>SWREP1</ReportRef>
+		<AllowPaging>false</AllowPaging>
+		<FieldDelimeter>,</FieldDelimeter>
+		<FieldQualifier>
+		</FieldQualifier>
+	</NB_Store_SQLReportInfo>
+	<SQLReportParams>
+		<NB_Store_SQLReportParamInfo>
+			<ReportParamID>6</ReportParamID>
+			<ReportID>6</ReportID>
+			<ParamName>@PortalID</ParamName>
+			<ParamType>int</ParamType>
+			<ParamValue />
+			<ParamSource>5</ParamSource>
+		</NB_Store_SQLReportParamInfo>
+		<NB_Store_SQLReportParamInfo>
+			<ReportParamID>7</ReportParamID>
+			<ReportID>6</ReportID>
+			<ParamName>@Start_Date</ParamName>
+			<ParamType>datetime</ParamType>
+			<ParamValue />
+			<ParamSource>9</ParamSource>
+		</NB_Store_SQLReportParamInfo>
+		<NB_Store_SQLReportParamInfo>
+			<ReportParamID>8</ReportParamID>
+			<ReportID>6</ReportID>
+			<ParamName>@End_Date</ParamName>
+			<ParamType>datetime</ParamType>
+			<ParamValue />
+			<ParamSource>9</ParamSource>
+		</NB_Store_SQLReportParamInfo>
+	</SQLReportParams>
+	<SQLReportXSL>
+	</SQLReportXSL>
+</SQLReport>
+</SQLReports>
+<status>
+<ID10 Lang="XX" ListOrder="1"><![CDATA[Incomplete]]></ID10>
+<ID20 Lang="XX" ListOrder="2"><![CDATA[Waiting for Bank]]></ID20>
+<ID30 Lang="XX" ListOrder="3"><![CDATA[Cancelled]]></ID30>
+<ID40 Lang="XX" ListOrder="4"><![CDATA[Payment OK]]></ID40>
+<ID45 Lang="XX" ListOrder="5"><![CDATA[Payment not verified]]></ID45>
+<ID50 Lang="XX" ListOrder="6"><![CDATA[Shipped]]></ID50>
+<ID60 Lang="XX" ListOrder="7"><![CDATA[Waiting]]></ID60>
+<ID70 Lang="XX" ListOrder="8"><![CDATA[Closed]]></ID70>
+<ID75 Lang="XX" ListOrder="9"><![CDATA[Archived]]></ID75>
+<ID80 Lang="XX" ListOrder="10"><![CDATA[Waiting for Cheque]]></ID80>
+<ID90 Lang="XX" ListOrder="11"><![CDATA[Waiting for Payment]]></ID90>
+<ID100 Lang="XX" ListOrder="12"><![CDATA[Waiting for Stock]]></ID100>
+</status>
+</storecontent>
+</content>

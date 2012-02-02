@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="plAllProducts.Text" xml:space="preserve">
+    <value>Export All Products</value>
+  </data>
+  <data name="plAllProducts.Help" xml:space="preserve">
+    <value>All products in the store will be archived to an export file</value>
+  </data>
+  <data name="plProductImages.Text" xml:space="preserve">
+    <value>Export Product Images</value>
+  </data>
+  <data name="plProductImages.Help" xml:space="preserve">
+    <value>Product Images used in the store will be exported to a zip file.</value>
+  </data>
+  <data name="plAllOrders.Text" xml:space="preserve">
+    <value>Export All Orders</value>
+  </data>
+  <data name="plAllOrders.Help" xml:space="preserve">
+    <value>All orders in the store will be archived to an export file</value>
+  </data>
+  <data name="plPurgeStore.Text" xml:space="preserve">
+    <value>Purge Store</value>
+  </data>
+  <data name="plPurgeStore.Help" xml:space="preserve">
+    <value>All Archived Orders will be archived to an export file and Purged from the store. Any Deleted Products not linked to orders will be removed from the store. Any unused images will be removed.</value>
+  </data>
+  <data name="cmdBackup.Text" xml:space="preserve">
+    <value>Export Options</value>
+  </data>
+  <data name="cmdRestore.Text" xml:space="preserve">
+    <value>Import Options</value>
+  </data>
+  <data name="cmdDoBackup.Text" xml:space="preserve">
+    <value>Do Export</value>
+  </data>
+  <data name="cmdDoRestore.Text" xml:space="preserve">
+    <value>Do Import</value>
+  </data>
+  <data name="DownLastFile.Text" xml:space="preserve">
+    <value>Download Last Export File</value>
+  </data>
+  <data name="ExportError.Text" xml:space="preserve">
+    <value>Error Exporting Data!!</value>
+  </data>
+  <data name="plImportUpdate.Text" xml:space="preserve">
+    <value>Update Existing Products</value>
+  </data>
+  <data name="plImportUpdate.Help" xml:space="preserve">
+    <value>Products will be search for by Product Ref, if the product exists in the database it will be updated, otherwise a new product will be created</value>
+  </data>
+  <data name="plImportNew.Text" xml:space="preserve">
+    <value>Import as New Products</value>
+  </data>
+  <data name="plImportNew.Help" xml:space="preserve">
+    <value>All Products that are imported will be dealt with as new products.</value>
+  </data>
+  <data name="plCreateCat.Text" xml:space="preserve">
+    <value>Create Categories</value>
+  </data>
+  <data name="plCreateCat.Help" xml:space="preserve">
+    <value>If the category for a imported product doesn't exists it will be created.  Otherwise products will be imported into a default "Imported" category.</value>
+  </data>
+  <data name="plXMLFile.Text" xml:space="preserve">
+    <value>Product XML or CSV Import file</value>
+  </data>
+  <data name="plXMLFile.Help" xml:space="preserve">
+    <value>The product xml or csv file for importing.</value>
+  </data>
+  <data name="plZipFile.Text" xml:space="preserve">
+    <value>Product Image Zip file</value>
+  </data>
+  <data name="plZipFile.Help" xml:space="preserve">
+    <value>The Product image zip file to be imported, leave blank if no images need uploading.</value>
+  </data>
+  <data name="plProductDocs.Text" xml:space="preserve">
+    <value>Export Product Documents</value>
+  </data>
+  <data name="plProductDocs.Help" xml:space="preserve">
+    <value>Product Documents used in the store will be exported to a zip file.</value>
+  </data>
+  <data name="plShipping.Text" xml:space="preserve">
+    <value>Export Shipping Data</value>
+  </data>
+  <data name="plShipping.Help" xml:space="preserve">
+    <value>Shipping data used in the store will be exported to an xml file. (Product level shipping will be excluded, this is handled by product export)</value>
+  </data>
+  <data name="plZipDocs.Text" xml:space="preserve">
+    <value>Product Documents Zip file</value>
+  </data>
+  <data name="plZipDocs.Help" xml:space="preserve">
+    <value>The Product documents zip file to be imported, leave blank if no documents need uploading.</value>
+  </data>
+  <data name="plArchiveProd.Text" xml:space="preserve">
+    <value>Archive Products</value>
+  </data>
+  <data name="plArchiveProd.Help" xml:space="preserve">
+    <value>Products that don't exist in the import file will be archived.</value>
+  </data>
+  <data name="plImportShipping.Text" xml:space="preserve">
+    <value>Import Shipping File</value>
+  </data>
+  <data name="plImportShipping.Help" xml:space="preserve">
+    <value>The shipping details import file, current shipping will be removed, leave blank if no shipping needs uploading.</value>
+  </data>
+  <data name="InvalidImportFile.Text" xml:space="preserve">
+    <value>Invalid Import File, must be CSV or XML.</value>
+  </data>
+  <data name="chkExpOrders.Text" xml:space="preserve">
+    <value>Include All Orders in product export file</value>
+  </data>
+  <data name="plImportModel.Text" xml:space="preserve">
+    <value>Import Model/Price CSV File</value>
+  </data>
+  <data name="plImportModel.Help" xml:space="preserve">
+    <value>The model import allows you to update model information (such as price), for products that already exist in the store. Leave blank if not required.  Use the "modelCSV.ImportMapping" template to map the CSV columns to the model xml structure.</value>
+  </data>
+
+</root>
