@@ -30,6 +30,7 @@ Public Class Db
     '	classes for manipulating a database.
 
     '    Friend Class Db
+    ' Change for git
 
 #Region "Declarations"
 
